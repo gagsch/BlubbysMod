@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blubbysmodofdoom:blocks/void_log_side"
+    "all": "blubbysmodofdoom:block/void_log_side"
   }
 }

@@ -23,11 +23,11 @@ public class ModBlocks {
             = DeferredRegister.create(ForgeRegistries.BLOCKS, Blubby_sModOfDoom.MOD_ID);
 
     public static final RegistryObject<Block> VOID_LOG = registerBlock("void_log",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)), CreativeModeTab.TAB_MISC);
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)), CreativeModeTab.TAB_MISC, VOID_LOG);
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab)
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, Variable variable)
     {
-        RegistryObject<T> toReturn = BLOCKS.register(name,block);
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, block, tab);
 
         return toReturn;
@@ -35,7 +35,8 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block, CreativeModeTab tab)
     {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        return ModItems.ITEMS.register("void_log",
+                () -> new BlockItem(ModBlocks.VOID_LOG.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     }
 
     public static void register(IEventBus eventBus){

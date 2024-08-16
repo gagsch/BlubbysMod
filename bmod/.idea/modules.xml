@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bmod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bmod.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bmod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/bmod.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/me.blubby.bmod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/me.blubby.bmod.test.iml" />
     </modules>
   </component>
 </project>
