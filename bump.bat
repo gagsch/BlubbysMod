@@ -1,0 +1,1 @@
+python -c "import runpy;import sys;x='%1';sys.argv.append('%1') if x != '' else None;runpy.run_module('scripts.bump', run_name='__main__');"

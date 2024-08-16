@@ -17,7 +17,12 @@ class Config:
     """
     Handles command input i.e. major, minor, patch
     """
-    _in = sys.argv[1].lower()
+    try:
+      _in = sys.argv[1].lower()
+    except IndexError:
+      cls._job = "inference"
+      cls._type = "patch"
+      return
 
     if _in not in ["major", "minor", "patch"]:
       try:
@@ -66,9 +71,12 @@ class Config:
 
   @classmethod
   def update_version(cls):
-    _in = sys.argv[1]
-
     props: Properties = cls.get()
+
+    if len(sys.argv) < 2:
+      _in = props.properties["mod_version"]
+    else:
+      _in = sys.argv[1]    
 
     if cls._job == "exact":
       props.properties["mod_version"] = _in.strip("v")
