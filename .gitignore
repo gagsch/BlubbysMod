@@ -1,2 +1,4 @@
+
+# Remove Genereted Build Directoy and Gradle dir.
 build/
-.gradle/
+.gradle/ 
