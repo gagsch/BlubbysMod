@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "blubbysmodofdoom:blessed_soul_alloy"
-  },
-  "result": "blubbysmodofdoom:blessed_ingot",
-  "experience": 2,
-  "cookingtime": 200
-}

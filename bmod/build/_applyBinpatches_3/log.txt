@@ -1,8 +1,0 @@
-Java Launcher: C:\Users\gages\.jdks\jbr-17.0.11\bin\java.exe
-Arguments: '--clean, C:\Users\gages\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.19.2-20220805.130853\joined-1.19.2-20220805.130853-srg.jar, --output, C:\Users\gages\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.2-43.4.0\forge-1.19.2-43.4.0-binpatched.jar, --apply, C:\Users\gages\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.2-43.4.0\forge-1.19.2-43.4.0-binpatches.lzma'
-Classpath:
- - C:\Users\gages\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\binarypatcher\1.1.1\binarypatcher-1.1.1-fatjar.jar
-Working directory: C:\Users\gages\IdeaProjects\bmod\build\_applyBinpatches_3
-Main class: net.minecraftforge.binarypatcher.ConsoleTool
-====================================
-Could not delete output file: C:\Users\gages\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.2-43.4.0\forge-1.19.2-43.4.0-binpatched.jar
