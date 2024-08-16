@@ -5,6 +5,7 @@ import me.blubby.bmod.content.armor.BlubbyArmorItem;
 import me.blubby.bmod.content.armor.ModArmorMaterial;
 import me.blubby.bmod.content.item.ModItems;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -23,7 +24,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS
             = DeferredRegister.create(ForgeRegistries.BLOCKS, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<Block> VOID_LOG = registerBlock("void_log", pom(Material.STONE).strength(6f), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> VOID_LOG = registerBlock("void_log", pom(Material.WOOD).requiresCorrectToolForDrops(), CreativeModeTab.TAB_MISC);
 
     private static RegistryObject<Block> registerBlock(String name, Properties material, CreativeModeTab tab)
     {
