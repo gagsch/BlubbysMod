@@ -4,7 +4,6 @@ import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.content.armor.BlubbyArmorItem;
 import me.blubby.bmod.content.armor.ModArmorMaterial;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;

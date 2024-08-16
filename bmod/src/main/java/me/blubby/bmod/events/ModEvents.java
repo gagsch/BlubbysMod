@@ -37,6 +37,7 @@ public class ModEvents {
         modEventBus.addListener(ModEvents::onClientSetup);
     }
 
+    @SuppressWarnings("unused")
     private static<T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String name, MenuType.MenuSupplier<T> menu) {
         return MENU_TYPES.register(name, () -> new MenuType<>(menu));
     }
