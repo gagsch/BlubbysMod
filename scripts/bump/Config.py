@@ -2,7 +2,7 @@ import pathlib
 from pyucc import console, colors, symbols
 from typing import Union, Literal
 import sys
-from jproperties import Properties
+from scripts.jproperties import Properties
 
 class Config:
   _type: Literal["major", "minor", "patch"] = "patch"
@@ -59,7 +59,7 @@ class Config:
   @classmethod
   def get(cls):
     p = Properties()
-    p.load(open(cls._path.absolute(), "r+b"), "utf-8")
+    p.load(open(cls._path.absolute(), "rb"), "utf-8", metadoc=True)
     return p
     
     
@@ -91,20 +91,8 @@ class Config:
     with open(cls._path.absolute(), "r+b") as f:
       f.seek(0)
       f.truncate(0)
-      props.store(f, encoding="utf-8")
+      props.store(f, encoding="utf-8", strip_meta=False)
     
     console.done(f"Changed Version: {colors.vibrant_blue}{_in} {symbols.reset}=> {colors.vibrant_green}v{props.properties['mod_version']}")
-
-
-
-
-
-
-
-  @classmethod
-  def read(cls):
-    cfgs = Properties()
-    cfgs.load(open())
-
 
 
