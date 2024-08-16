@@ -1,0 +1,3 @@
+jproperties==2.1.2
+pyucc==1.7
+six==1.16.0
