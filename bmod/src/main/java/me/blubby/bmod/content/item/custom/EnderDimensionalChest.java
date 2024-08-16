@@ -1,4 +1,4 @@
-package me.blubby.bmod.content.item;
+package me.blubby.bmod.content.item.custom;
 
 import me.blubby.bmod.content.container.EnderChestUpgradeContainer;
 import me.blubby.bmod.content.container.SecondEnderChestContainer;

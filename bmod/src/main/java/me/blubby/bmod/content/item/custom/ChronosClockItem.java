@@ -1,4 +1,4 @@
-package me.blubby.bmod.content.item;
+package me.blubby.bmod.content.item.custom;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;

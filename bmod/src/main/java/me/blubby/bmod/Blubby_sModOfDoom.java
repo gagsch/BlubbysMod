@@ -1,5 +1,6 @@
 package me.blubby.bmod;
 
+import me.blubby.bmod.content.blocks.ModBlocks;
 import me.blubby.bmod.content.item.ModItems;
 import me.blubby.bmod.events.BlubbySoundEvent;
 import me.blubby.bmod.events.MobKillEvent;
@@ -20,6 +21,7 @@ public class Blubby_sModOfDoom {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
     ModItems.ITEMS.register(modEventBus);
+    ModBlocks.BLOCKS.register(modEventBus);
 
     BlubbySoundEvent.SOUNDS.register(modEventBus);
 
