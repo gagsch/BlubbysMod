@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "BBB",
+    "#B#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "blubbysmodofdoom:soul_powder"
+    }
+  },
+  "result": {
+    "item": "blubbysmodofdoom:blessed_soul_alloy",
+    "count": 1
+  }
+}

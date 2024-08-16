@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " e ",
+    "tst",
+    " e "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:oak_sapling"
+    },
+    "e": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "t": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "blubbysmodofdoom:essence_life"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraft:clock"
+    },
+    "addition": {
+        "item": "blubbysmodofdoom:soul_time"
+    },
+    "result": {
+        "item": "blubbysmodofdoom:chronosclock"
+    }
+}

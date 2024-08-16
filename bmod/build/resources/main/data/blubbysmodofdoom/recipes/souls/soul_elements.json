@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "BDM",
+        " K "
+    ],
+    "key": {
+        "#": {
+            "item": "blubbysmodofdoom:essence_sea"
+        },
+        "B": {
+            "item": "blubbysmodofdoom:essence_flames"
+        },
+        "D": {
+            "item": "minecraft:dragon_breath"
+        },
+        "M": {
+            "item": "blubbysmodofdoom:essence_tundra"
+        },
+        "K": {
+            "item": "blubbysmodofdoom:essence_stone"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:soul_elements",
+        "count": 1
+    }
+}

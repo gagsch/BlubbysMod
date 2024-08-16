@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#T#",
+        "WEW",
+        "#T#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:blaze_powder"
+        },
+        "T": {
+            "item": "minecraft:tnt"
+        },
+        "W": {
+            "item": "minecraft:wither_skeleton_skull"
+        },
+        "E": {
+            "item": "minecraft:end_crystal"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:essence_doom"
+    }
+}

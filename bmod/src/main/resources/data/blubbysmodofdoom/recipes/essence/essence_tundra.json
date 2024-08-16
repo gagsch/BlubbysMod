@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "PbP",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blue_ice"
+    },
+    "P": {
+      "item": "minecraft:powder_snow_bucket"
+    },
+    "b": {
+      "item": "blubbysmodofdoom:blessed_ingot"
+    }
+  },
+  "result": {
+    "item": "blubbysmodofdoom:essence_tundra"
+  }
+}

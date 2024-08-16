@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " / ",
+        "BSB",
+        " / "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:blaze_rod"
+        },
+        "B": {
+            "item": "minecraft:blaze_powder"
+        },
+        "S": {
+            "item": "minecraft:sea_lantern"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:essence_light",
+        "count": 1
+    }
+}

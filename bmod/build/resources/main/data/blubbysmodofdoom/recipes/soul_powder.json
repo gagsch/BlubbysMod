@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:soul_sand"
+  },
+  "result": "blubbysmodofdoom:soul_powder",
+  "count": 4
+}

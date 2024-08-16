@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#n#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "blubbysmodofdoom:echoing_soul_dust"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "blubbysmodofdoom:nightmare_ingot"
+  }
+}
