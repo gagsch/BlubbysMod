@@ -28,15 +28,14 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab)
     {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, block, tab);
+        registerBlockItem(name, toReturn, tab);
 
         return toReturn;
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block, CreativeModeTab tab)
     {
-        return ModItems.ITEMS.register("void_log",
-                () -> new BlockItem(ModBlocks.VOID_LOG.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
     public static void register(IEventBus eventBus){
