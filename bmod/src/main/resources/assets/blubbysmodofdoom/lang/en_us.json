@@ -40,5 +40,7 @@
   "item.blubbysmodofdoom.soul_elements": "Soul of the Elements",
   "item.blubbysmodofdoom.soul_space": "Soul of the Cosmos",
   "item.blubbysmodofdoom.soul_time": "Soul of Time",
-  "item.blubbysmodofdoom.soul_infinity": "Soul of Infinity"
+  "item.blubbysmodofdoom.soul_infinity": "Soul of Infinity",
+
+  "block.blubbysmodofdoom.void_log": "Void Log"
 }
