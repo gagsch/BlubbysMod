@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "blubbysmodofdoom:block/void_log_side"
+    "end": "blubbysmodofdoom:block/void_log_end",
+    "side": "blubbysmodofdoom:block/void_log_side"
   }
 }

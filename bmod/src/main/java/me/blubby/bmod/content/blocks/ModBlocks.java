@@ -3,6 +3,7 @@ package me.blubby.bmod.content.blocks;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.content.armor.BlubbyArmorItem;
 import me.blubby.bmod.content.armor.ModArmorMaterial;
+import me.blubby.bmod.content.blocks.custom.BurnablePillarBlock;
 import me.blubby.bmod.content.item.ModItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.level.block.Blocks;
@@ -24,11 +25,10 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS
             = DeferredRegister.create(ForgeRegistries.BLOCKS, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<Block> VOID_LOG = registerBlock("void_log", pom(Material.WOOD).requiresCorrectToolForDrops(), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> VOID_LOG = registerBlock("void_log", () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CreativeModeTab.TAB_MISC);
 
-    private static RegistryObject<Block> registerBlock(String name, Properties material, CreativeModeTab tab)
-    {
-        RegistryObject<Block> toReturn = BLOCKS.register(name, () -> new Block(material));
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab);
         return toReturn;
     }
@@ -38,9 +38,9 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
-    private static Properties pom(Material material) {
-        return BlockBehaviour.Properties.of(material);
-    }
+    //private static Properties pom(Material material) {
+    //    return () -> BlockBehaviour.Properties.of(material);
+    //}
 
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);
