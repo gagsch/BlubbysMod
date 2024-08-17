@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blubbysmodofdoom:block/yggdrasil_log_side",
+    "side": "blubbysmodofdoom:block/yggdrasil_log_side"
+  }
+}

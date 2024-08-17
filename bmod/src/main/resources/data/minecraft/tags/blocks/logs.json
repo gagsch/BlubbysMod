@@ -1,6 +1,9 @@
 {
     "replace": false,
     "values": [
-      "blubbysmodofdoom:void_log"
+      "blubbysmodofdoom:stripped_yggdrasil_log",
+      "blubbysmodofdoom:stripped_yggdrasil_wood",
+      "blubbysmodofdoom:yggdrasil_log",
+      "blubbysmodofdoom:yggdrasil_wood"
     ]
   }

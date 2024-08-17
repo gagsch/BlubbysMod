@@ -16,7 +16,6 @@
   "item.blubbysmodofdoom.warden_core": "Warden Core",
   "item.blubbysmodofdoom.guardian_core": "Guardian Core",
 
-
   "item.blubbysmodofdoom.essence_blessed": "Essence of Blessed",
   "item.blubbysmodofdoom.essence_darkness": "Essence of Darkness",
   "item.blubbysmodofdoom.essence_day": "Essence of Day",
@@ -35,12 +34,21 @@
   "item.blubbysmodofdoom.essence_tundra": "Essence of Tundra",
   "item.blubbysmodofdoom.essence_void": "Essence of the Void",
 
-
   "item.blubbysmodofdoom.soul_balance": "Soul of Balance",
   "item.blubbysmodofdoom.soul_elements": "Soul of the Elements",
   "item.blubbysmodofdoom.soul_space": "Soul of the Cosmos",
   "item.blubbysmodofdoom.soul_time": "Soul of Time",
   "item.blubbysmodofdoom.soul_infinity": "Soul of Infinity",
 
-  "block.blubbysmodofdoom.void_log": "Void Log"
+
+
+
+
+  "block.blubbysmodofdoom.yggdrasil_planks": "Yggdrasil Planks",
+  "block.blubbysmodofdoom.yggdrasil_log": "Yggdrasil Log",
+  "block.blubbysmodofdoom.yggdrasil_wood": "Yggdrasil Wood",
+  "block.blubbysmodofdoom.stripped_yggdrasil_log": "Stripped Yggdrasil Log",
+  "block.blubbysmodofdoom.stripped_yggdrasil_wood": "Stripped Yggdrasil Wood",
+  "block.blubbysmodofdoom.yggdrasil_leaves": "Yggdrasil Leaves",
+  "block.blubbysmodofdoom.mini_yggdrasil_sapling": "Mini Yggdrasil Sapling"
 }

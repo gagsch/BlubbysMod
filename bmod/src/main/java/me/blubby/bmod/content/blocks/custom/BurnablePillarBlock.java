@@ -43,9 +43,13 @@ public class BurnablePillarBlock extends RotatedPillarBlock {
     {
         if(context.getItemInHand().getItem() instanceof AxeItem)
         {
-            if(state.is(ModBlocks.VOID_LOG.get()))
+            if(state.is(ModBlocks.YGGDRASIL_LOG.get()))
             {
-               return ModBlocks.VOID_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+               return ModBlocks.STRIPPED_YGGDRASIL_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+            }
+            if(state.is(ModBlocks.YGGDRASIL_WOOD.get()))
+            {
+                return ModBlocks.STRIPPED_YGGDRASIL_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
         }
 

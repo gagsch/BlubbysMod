@@ -2,6 +2,8 @@ package me.blubby.bmod;
 
 import me.blubby.bmod.content.blocks.ModBlocks;
 import me.blubby.bmod.content.item.ModItems;
+import me.blubby.bmod.content.world.feature.ModConfiguredFeatures;
+import me.blubby.bmod.content.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.events.BlubbySoundEvent;
 import me.blubby.bmod.events.MobKillEvent;
 import me.blubby.bmod.events.ModEvents;
@@ -27,6 +29,9 @@ public class Blubby_sModOfDoom {
 
     modEventBus.addListener(ModEvents::onClientSetup);
     ModEvents.MENU_TYPES.register(modEventBus);
+
+    ModConfiguredFeatures.register(modEventBus);
+    ModPlacedFeatures.register(modEventBus);
 
     MinecraftForge.EVENT_BUS.register(MobKillEvent.class);
     MinecraftForge.EVENT_BUS.register(this);
