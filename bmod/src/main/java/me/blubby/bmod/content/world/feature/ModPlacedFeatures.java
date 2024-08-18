@@ -22,7 +22,7 @@ public class ModPlacedFeatures {
                     List.of(PlacementUtils.isEmpty())));
 
     public static final RegistryObject<PlacedFeature> COSMIC_OAK_PLACED = PLACED_FEATURES.register("cosmic_oak_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK.getHolder().get(), VegetationPlacements.treePlacement(
+            () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
                     PlacementUtils.countExtra(3, 0.1f, 2))));
 
     /*

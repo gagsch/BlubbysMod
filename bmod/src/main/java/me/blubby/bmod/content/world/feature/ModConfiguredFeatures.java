@@ -30,7 +30,7 @@ public class ModConfiguredFeatures {
                             new StraightTrunkPlacer(5, 6, 3),
                             BlockStateProvider.simple(ModBlocks.COSMIC_OAK_LEAVES.get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
-                            new TwoLayersFeatureSize(1, 0, 2)).build()));
+                            new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> COSMIC_OAK_SPAWN =
             CONFIGURED_FEATURES.register("cosmic_oak_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,

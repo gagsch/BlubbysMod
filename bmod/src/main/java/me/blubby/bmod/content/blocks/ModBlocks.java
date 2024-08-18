@@ -77,7 +77,7 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> COSMIC_OAK_SAPLING = registerBlock("cosmic_oak_sapling",
-            () -> new CustomSapling(new CosmicOakTreeGrower(), BlockBehaviour.Properties.of(Material.AIR)), CreativeModeTab.TAB_MISC);
+            () -> new CustomSapling(new CosmicOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
