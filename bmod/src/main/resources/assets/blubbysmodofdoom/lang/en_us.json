@@ -44,11 +44,14 @@
 
 
 
-  "block.blubbysmodofdoom.yggdrasil_planks": "Yggdrasil Planks",
-  "block.blubbysmodofdoom.yggdrasil_log": "Yggdrasil Log",
-  "block.blubbysmodofdoom.yggdrasil_wood": "Yggdrasil Wood",
-  "block.blubbysmodofdoom.stripped_yggdrasil_log": "Stripped Yggdrasil Log",
-  "block.blubbysmodofdoom.stripped_yggdrasil_wood": "Stripped Yggdrasil Wood",
-  "block.blubbysmodofdoom.yggdrasil_leaves": "Yggdrasil Leaves",
-  "block.blubbysmodofdoom.mini_yggdrasil_sapling": "Mini Yggdrasil Sapling"
+  "block.blubbysmodofdoom.cosmic_oak_planks": "Cosmic Oak Planks",
+  "block.blubbysmodofdoom.cosmic_oak_log": "Cosmic Oak Log",
+  "block.blubbysmodofdoom.cosmic_oak_wood": "Cosmic Oak Wood",
+  "block.blubbysmodofdoom.stripped_cosmic_oak_log": "Stripped Cosmic Oak Log",
+  "block.blubbysmodofdoom.stripped_cosmic_oak_wood": "Stripped Cosmic Oak Wood",
+  "block.blubbysmodofdoom.cosmic_oak_leaves": "Cosmic Oak Leaves",
+  "block.blubbysmodofdoom.cosmic_oak_sapling": "Cosmic Oak Sapling",
+
+  "block.blubbysmodofdoom.tektite": "Tektite",
+  "block.blubbysmodofdoom.tektite_grass": "Tektite Grass"
 }

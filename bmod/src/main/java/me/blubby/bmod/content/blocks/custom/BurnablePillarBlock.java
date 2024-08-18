@@ -4,8 +4,6 @@ import me.blubby.bmod.content.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -43,13 +41,13 @@ public class BurnablePillarBlock extends RotatedPillarBlock {
     {
         if(context.getItemInHand().getItem() instanceof AxeItem)
         {
-            if(state.is(ModBlocks.YGGDRASIL_LOG.get()))
+            if(state.is(ModBlocks.COSMIC_OAK_LOG.get()))
             {
-               return ModBlocks.STRIPPED_YGGDRASIL_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+               return ModBlocks.STRIPPED_COSMIC_OAK_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
-            if(state.is(ModBlocks.YGGDRASIL_WOOD.get()))
+            if(state.is(ModBlocks.COSMIC_OAK_WOOD.get()))
             {
-                return ModBlocks.STRIPPED_YGGDRASIL_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+                return ModBlocks.STRIPPED_COSMIC_OAK_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
         }
 

@@ -2,6 +2,7 @@ package me.blubby.bmod;
 
 import me.blubby.bmod.content.blocks.ModBlocks;
 import me.blubby.bmod.content.item.ModItems;
+import me.blubby.bmod.content.world.dimension.ModDimensions;
 import me.blubby.bmod.content.world.feature.ModConfiguredFeatures;
 import me.blubby.bmod.content.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.events.BlubbySoundEvent;
@@ -33,12 +34,15 @@ public class Blubby_sModOfDoom {
     ModConfiguredFeatures.register(modEventBus);
     ModPlacedFeatures.register(modEventBus);
 
+    ModDimensions.register();
+
     MinecraftForge.EVENT_BUS.register(MobKillEvent.class);
     MinecraftForge.EVENT_BUS.register(this);
   }
 
-  @SuppressWarnings("unused")
   private void commonSetup(final FMLCommonSetupEvent event) {
 
   }
+
+
 }

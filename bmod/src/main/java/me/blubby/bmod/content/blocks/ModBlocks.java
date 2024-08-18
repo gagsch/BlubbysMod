@@ -2,20 +2,19 @@ package me.blubby.bmod.content.blocks;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.content.blocks.custom.BurnablePillarBlock;
+import me.blubby.bmod.content.blocks.custom.CustomSapling;
 import me.blubby.bmod.content.item.ModItems;
-import me.blubby.bmod.content.world.feature.tree.MiniYggdrasilTreeGrower;
+import me.blubby.bmod.content.world.feature.tree.CosmicOakTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,16 +26,21 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS
             = DeferredRegister.create(ForgeRegistries.BLOCKS, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<Block> YGGDRASIL_LOG = registerBlock("yggdrasil_log",
+    public static final RegistryObject<Block> TEKTITE = registerBlock("tektite",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> TEKTITE_GRASS = registerBlock("tektite_grass",
+            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+
+    public static final RegistryObject<Block> COSMIC_OAK_LOG = registerBlock("cosmic_oak_log",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> YGGDRASIL_WOOD = registerBlock("yggdrasil_wood",
+    public static final RegistryObject<Block> COSMIC_OAK_WOOD = registerBlock("cosmic_oak_wood",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_YGGDRASIL_LOG = registerBlock("stripped_yggdrasil_log",
+    public static final RegistryObject<Block> STRIPPED_COSMIC_OAK_LOG = registerBlock("stripped_cosmic_oak_log",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_YGGDRASIL_WOOD = registerBlock("stripped_yggdrasil_wood",
+    public static final RegistryObject<Block> STRIPPED_COSMIC_OAK_WOOD = registerBlock("stripped_cosmic_oak_wood",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CreativeModeTab.TAB_MISC);
 
-    public static final RegistryObject<Block> YGGDRASIL_PLANKS = registerBlock("yggdrasil_planks",
+    public static final RegistryObject<Block> COSMIC_OAK_PLANKS = registerBlock("cosmic_oak_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -53,7 +57,7 @@ public class ModBlocks {
                     return 20;
                 }
             }, CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> YGGDRASIL_LEAVES = registerBlock("yggdrasil_leaves",
+    public static final RegistryObject<Block> COSMIC_OAK_LEAVES = registerBlock("cosmic_oak_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)
                     .requiresCorrectToolForDrops()) {
                 @Override
@@ -72,8 +76,8 @@ public class ModBlocks {
                 }
             }, CreativeModeTab.TAB_MISC);
 
-    public static final RegistryObject<Block> MINI_YGGDRASIL_SAPLING = registerBlock("mini_yggdrasil_sapling",
-            () -> new SaplingBlock(new MiniYggdrasilTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> COSMIC_OAK_SAPLING = registerBlock("cosmic_oak_sapling",
+            () -> new CustomSapling(new CosmicOakTreeGrower(), BlockBehaviour.Properties.of(Material.AIR)), CreativeModeTab.TAB_MISC);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {

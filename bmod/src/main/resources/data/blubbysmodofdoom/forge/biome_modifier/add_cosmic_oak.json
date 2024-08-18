@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "blubbysmodofdoom:tektite_cluster",
+  "features": "blubbysmodofdoom:cosmic_oak_placed",
+  "step": "vegetal_decoration"
+}

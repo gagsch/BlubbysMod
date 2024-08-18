@@ -23,20 +23,20 @@ public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES
             = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> YGGDRASIL =
-            CONFIGURED_FEATURES.register("yggdrasil", () ->
+    public static final RegistryObject<ConfiguredFeature<?, ?>> COSMIC_OAK =
+            CONFIGURED_FEATURES.register("cosmic_oak", () ->
                     new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(ModBlocks.YGGDRASIL_LOG.get()),
+                            BlockStateProvider.simple(ModBlocks.COSMIC_OAK_LOG.get()),
                             new StraightTrunkPlacer(5, 6, 3),
-                            BlockStateProvider.simple(ModBlocks.YGGDRASIL_LEAVES.get()),
+                            BlockStateProvider.simple(ModBlocks.COSMIC_OAK_LEAVES.get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
                             new TwoLayersFeatureSize(1, 0, 2)).build()));
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> YGGDRASIL_SPAWN =
-            CONFIGURED_FEATURES.register("yggdrasil_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
+    public static final RegistryObject<ConfiguredFeature<?, ?>> COSMIC_OAK_SPAWN =
+            CONFIGURED_FEATURES.register("cosmic_oak_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                            ModPlacedFeatures.YGGDRASIL_CHECKED.getHolder().get(),
-                            0.5F)), ModPlacedFeatures.YGGDRASIL_CHECKED.getHolder().get())));
+                            ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get(),
+                            0.5F)), ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get())));
 
     public static void register(IEventBus eventBus)
     {

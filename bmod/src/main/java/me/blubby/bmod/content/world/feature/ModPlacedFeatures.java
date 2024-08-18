@@ -17,12 +17,12 @@ public class ModPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<PlacedFeature> YGGDRASIL_CHECKED = PLACED_FEATURES.register("yggdrasil_checked",
-            () -> new PlacedFeature(ModConfiguredFeatures.YGGDRASIL.getHolder().get(),
-                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.MINI_YGGDRASIL_SAPLING.get()))));
+    public static final RegistryObject<PlacedFeature> COSMIC_OAK_CHECKED = PLACED_FEATURES.register("cosmic_oak_checked",
+            () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK.getHolder().get(),
+                    List.of(PlacementUtils.isEmpty())));
 
-    public static final RegistryObject<PlacedFeature> YGGDRASIL_PLACED = PLACED_FEATURES.register("yggdrasil_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.YGGDRASIL.getHolder().get(), VegetationPlacements.treePlacement(
+    public static final RegistryObject<PlacedFeature> COSMIC_OAK_PLACED = PLACED_FEATURES.register("cosmic_oak_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK.getHolder().get(), VegetationPlacements.treePlacement(
                     PlacementUtils.countExtra(3, 0.1f, 2))));
 
     /*

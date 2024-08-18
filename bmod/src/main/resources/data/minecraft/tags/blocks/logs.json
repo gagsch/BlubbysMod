@@ -1,9 +1,10 @@
 {
     "replace": false,
     "values": [
-      "blubbysmodofdoom:stripped_yggdrasil_log",
-      "blubbysmodofdoom:stripped_yggdrasil_wood",
-      "blubbysmodofdoom:yggdrasil_log",
-      "blubbysmodofdoom:yggdrasil_wood"
+      "blubbysmodofdoom:stripped_cosmic_oak_log",
+      "blubbysmodofdoom:stripped_cosmic_oak_wood",
+      "blubbysmodofdoom:cosmic_oak_log",
+      "blubbysmodofdoom:cosmic_oak_wood",
+      "blubbysmodofdoom:cosmic_oak_planks"
     ]
   }
