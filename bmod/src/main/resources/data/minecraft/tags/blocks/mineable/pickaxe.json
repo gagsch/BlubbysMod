@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-
+    "blubbysmodofdoom:tektite",
+    "blubbysmodofdoom:compressed_tektite",
+    "blubbysmodofdoom:overgrown_tektite",
+    "blubbysmodofdoom:cosmilite_ore",
+    "blubbysmodofdoom:dry_ice"
   ]
 }

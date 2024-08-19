@@ -53,5 +53,10 @@
   "block.blubbysmodofdoom.cosmic_oak_sapling": "Cosmic Oak Sapling",
 
   "block.blubbysmodofdoom.tektite": "Tektite",
-  "block.blubbysmodofdoom.tektite_grass": "Tektite Grass"
+  "block.blubbysmodofdoom.snow_tektite": "Snow Tektite",
+  "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
+  "block.blubbysmodofdoom.overgrown_tektite": "Overgrown Tektite",
+
+  "block.blubbysmodofdoom.dry_ice": "Dry Ice",
+  "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore"
 }

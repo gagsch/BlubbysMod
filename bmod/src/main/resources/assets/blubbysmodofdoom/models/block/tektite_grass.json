@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "blubbysmodofdoom:block/tektite_grass_top",
-    "side": "blubbysmodofdoom:block/tektite_grass"
-  }
-}

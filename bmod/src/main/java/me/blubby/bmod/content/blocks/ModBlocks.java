@@ -27,9 +27,15 @@ public class ModBlocks {
             = DeferredRegister.create(ForgeRegistries.BLOCKS, Blubby_sModOfDoom.MOD_ID);
 
     public static final RegistryObject<Block> TEKTITE = registerBlock("tektite",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> COMPRESSED_TEKTITE = registerBlock("compressed_tektite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> TEKTITE_GRASS = registerBlock("tektite_grass",
-            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> COSMILITE_ORE = registerBlock("cosmilite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> TEKTITE_GRASS = registerBlock("overgrown_tektite",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_NYLIUM)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> TEKTITE_SNOW = registerBlock("snow_tektite",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_NYLIUM)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> COSMIC_OAK_LOG = registerBlock("cosmic_oak_log",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CreativeModeTab.TAB_MISC);
