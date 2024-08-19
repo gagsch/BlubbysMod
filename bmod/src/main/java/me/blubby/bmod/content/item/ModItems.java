@@ -3,16 +3,11 @@ package me.blubby.bmod.content.item;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.content.armor.BlubbyArmorItem;
 import me.blubby.bmod.content.armor.ModArmorMaterial;
-import me.blubby.bmod.content.blocks.ModBlocks;
 import me.blubby.bmod.content.item.custom.ChronosClockItem;
 import me.blubby.bmod.content.item.custom.EnderDimensionalChest;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -119,6 +114,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     public static final RegistryObject<Item> NIGHTMARE_INGOT = ITEMS.register("nightmare_ingot",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
+    public static final RegistryObject<Item> COSMILITE_CHUNK = ITEMS.register("cosmilite_chunk",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
+    public static final RegistryObject<Item> COSMILITE_INGOT = ITEMS.register("cosmilite_ingot",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     public static final RegistryObject<Item> NIGHTMARE_HELMET = ITEMS.register("nightmare_helmet",

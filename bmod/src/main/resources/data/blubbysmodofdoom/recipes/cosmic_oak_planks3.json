@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "blubbysmodofdoom:stripped_cosmic_oak_log"
+    }
+  },
+  "result": {
+    "item": "blubbysmodofdoom:cosmic_oak_planks",
+    "count": 4
+  }
+}
