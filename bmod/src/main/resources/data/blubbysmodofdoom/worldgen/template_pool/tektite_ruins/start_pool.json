@@ -1,0 +1,21 @@
+{
+  "name": "blubbysmodofdoom:tektite_ruins/start_pool",
+
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "blubbysmodofdoom:tektite_ruins_1",
+
+        "processors": "minecraft:empty",
+
+        "projection": "terrain_matching",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

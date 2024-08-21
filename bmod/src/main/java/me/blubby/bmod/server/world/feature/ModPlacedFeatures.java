@@ -1,6 +1,7 @@
 package me.blubby.bmod.server.world.feature;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
+import me.blubby.bmod.common.blocks.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -18,7 +19,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> COSMIC_OAK_CHECKED = PLACED_FEATURES.register("cosmic_oak_checked",
             () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK.getHolder().get(),
-                    List.of(PlacementUtils.isEmpty())));
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.COSMIC_OAK_SAPLING.get()))));
 
     public static final RegistryObject<PlacedFeature> COSMIC_OAK_PLACED = PLACED_FEATURES.register("cosmic_oak_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(

@@ -80,7 +80,7 @@ public class CustomSapling extends SaplingBlock implements BonemealableBlock
 
         if (this == ModBlocks.COSMIC_OAK_SAPLING.get())
         {
-            return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_GRASS.get() || super.canSurvive(state, worldIn, pos);
+            return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_GRASS.get() || ground == ModBlocks.TEKTITE_SNOW.get() || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

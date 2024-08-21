@@ -1,13 +1,17 @@
 package me.blubby.bmod.server.world.feature;
 
 import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -15,6 +19,11 @@ import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSi
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +31,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 import java.util.function.Supplier;
+
+import static me.blubby.bmod.server.world.feature.ModPlacedFeatures.PLACED_FEATURES;
 
 public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES
@@ -34,14 +45,14 @@ public class ModConfiguredFeatures {
                             new StraightTrunkPlacer(5, 6, 3),
                             BlockStateProvider.simple(ModBlocks.COSMIC_OAK_LEAVES.get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
-                            new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));
+                            new TwoLayersFeatureSize(1, 0, 2))
+                            .dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> COSMIC_OAK_SPAWN =
             CONFIGURED_FEATURES.register("cosmic_oak_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                             ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get(),
                             0.5F)), ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get())));
-
 
     public static final Supplier<List<OreConfiguration.TargetBlockState>> COSMILITE_ORES = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(new BlockMatchTest(ModBlocks.COMPRESSED_TEKTITE.get()), ModBlocks.COSMILITE_ORE.get().defaultBlockState())));
