@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "blubbysmodofdoom:soul_space"
+  },
+  "addition": {
+    "item": "blubbysmodofdoom:essence_infinity"
+  },
+  "result":
+  {
+    "item": "blubbysmodofdoom:black_hole"
+  }
+}

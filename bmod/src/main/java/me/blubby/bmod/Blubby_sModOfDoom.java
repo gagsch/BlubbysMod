@@ -1,13 +1,13 @@
 package me.blubby.bmod;
 
-import me.blubby.bmod.content.blocks.ModBlocks;
-import me.blubby.bmod.content.item.ModItems;
-import me.blubby.bmod.content.world.dimension.ModDimensions;
-import me.blubby.bmod.content.world.feature.ModConfiguredFeatures;
-import me.blubby.bmod.content.world.feature.ModPlacedFeatures;
-import me.blubby.bmod.events.BlubbySoundEvent;
-import me.blubby.bmod.events.MobKillEvent;
-import me.blubby.bmod.events.ModEvents;
+import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.item.ModItems;
+import me.blubby.bmod.server.world.dimension.ModDimensions;
+import me.blubby.bmod.server.world.feature.ModConfiguredFeatures;
+import me.blubby.bmod.server.world.feature.ModPlacedFeatures;
+import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.common.events.MobKillEvent;
+import me.blubby.bmod.common.events.ModEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -41,7 +41,6 @@ public class Blubby_sModOfDoom {
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
-
   }
 
 

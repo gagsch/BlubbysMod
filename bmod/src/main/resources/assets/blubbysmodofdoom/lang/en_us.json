@@ -5,6 +5,7 @@
   "item.blubbysmodofdoom.soul_powder": "Soul Dust",
   "item.blubbysmodofdoom.echoing_soul_dust": "Echoing Soul Dust",
 
+  "item.blubbysmodofdoom.black_hole": "Black Hole",
   "item.blubbysmodofdoom.ender_bundle": "Void Bundle",
   "item.blubbysmodofdoom.chronos_clock": "Chronos' Clock",
 
@@ -49,8 +50,6 @@
 
 
 
-
-
   "block.blubbysmodofdoom.cosmic_oak_planks": "Cosmic Oak Planks",
   "block.blubbysmodofdoom.cosmic_oak_log": "Cosmic Oak Log",
   "block.blubbysmodofdoom.cosmic_oak_wood": "Cosmic Oak Wood",
@@ -63,7 +62,5 @@
   "block.blubbysmodofdoom.snow_tektite": "Snow Tektite",
   "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
   "block.blubbysmodofdoom.overgrown_tektite": "Overgrown Tektite",
-
-  "block.blubbysmodofdoom.dry_ice": "Dry Ice",
   "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore"
 }
