@@ -8,6 +8,8 @@ import me.blubby.bmod.server.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
 import me.blubby.bmod.common.events.MobKillEvent;
 import me.blubby.bmod.common.events.ModEvents;
+import me.blubby.bmod.server.world.structure_types.FloatingLandStructure;
+import me.blubby.bmod.server.world.structure_types.StructureTypes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +37,8 @@ public class Blubby_sModOfDoom {
     ModPlacedFeatures.register(modEventBus);
 
     ModDimensions.register();
+
+    StructureTypes.register(modEventBus);
 
     MinecraftForge.EVENT_BUS.register(MobKillEvent.class);
     MinecraftForge.EVENT_BUS.register(this);
