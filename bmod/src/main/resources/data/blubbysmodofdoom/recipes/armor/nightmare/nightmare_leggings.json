@@ -1,7 +1,7 @@
 {
     "type": "minecraft:smithing",
     "base": {
-        "item": "minecraft:netherite_leggings"
+        "item": "blubbysmodofdoom:blessed_leggings"
     },
     "addition": {
         "item": "blubbysmodofdoom:nightmare_ingot"

@@ -8,7 +8,6 @@ import me.blubby.bmod.server.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
 import me.blubby.bmod.common.events.MobKillEvent;
 import me.blubby.bmod.common.events.ModEvents;
-import me.blubby.bmod.server.world.structure_types.FloatingLandStructure;
 import me.blubby.bmod.server.world.structure_types.StructureTypes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,7 +18,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(Blubby_sModOfDoom.MOD_ID)
 public class Blubby_sModOfDoom {
 
-  // Define mod id in a common place for everything to reference
   public static final String MOD_ID = "blubbysmodofdoom";
 
   public Blubby_sModOfDoom() {
@@ -44,8 +42,5 @@ public class Blubby_sModOfDoom {
     MinecraftForge.EVENT_BUS.register(this);
   }
 
-  private void commonSetup(final FMLCommonSetupEvent event) {
-  }
-
-
+  private void commonSetup(final FMLCommonSetupEvent event) { }
 }

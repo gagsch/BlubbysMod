@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "blubbysmodofdoom:leather_scrap"
+        },
+        {
+            "item": "blubbysmodofdoom:leather_scrap"
+        },
+        {
+            "item": "blubbysmodofdoom:leather_scrap"
+        },
+        {
+            "item": "blubbysmodofdoom:leather_scrap"
+        }
+    ],
+    "result": {
+        "item": "minecraft:leather",
+        "count": 1
+    }
+}

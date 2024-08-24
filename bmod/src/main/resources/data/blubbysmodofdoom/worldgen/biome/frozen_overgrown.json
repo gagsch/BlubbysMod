@@ -1,7 +1,7 @@
 {
-  "temperature": 0.8,
-  "downfall": 0.4,
-  "precipitation": "snow",
+  "temperature": 0.3,
+  "downfall": 0,
+  "precipitation": "none",
   "temperature_modifier": "frozen",
   "effects": {
     "sky_color": 0,

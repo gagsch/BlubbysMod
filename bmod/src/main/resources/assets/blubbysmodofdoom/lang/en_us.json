@@ -4,6 +4,8 @@
   "item.blubbysmodofdoom.heart_of_the_abyss": "Heart of the Abyss",
   "item.blubbysmodofdoom.soul_powder": "Soul Dust",
   "item.blubbysmodofdoom.echoing_soul_dust": "Echoing Soul Dust",
+  "item.blubbysmodofdoom.leather_scrap": "Leather Scrap",
+  "item.blubbysmodofdoom.concentrated_dark_matter": "Concentrated Dark Matter",
 
   "item.blubbysmodofdoom.black_hole": "Black Hole",
   "item.blubbysmodofdoom.ender_bundle": "Void Bundle",
@@ -14,15 +16,23 @@
 
   "item.blubbysmodofdoom.blessed_soul_alloy": "Divine Alloy",
   "item.blubbysmodofdoom.blessed_ingot": "Divine Ingot",
-
-  "item.blubbysmodofdoom.cosmilite_chunk": "Cosmilite Chunk",
-  "item.blubbysmodofdoom.cosmilite_ingot": "Cosmilite Ingot",
+  "item.blubbysmodofdoom.blessed_helmet": "Divine Helmet",
+  "item.blubbysmodofdoom.blessed_chestplate": "Divine Chestplate",
+  "item.blubbysmodofdoom.blessed_leggings": "Divine Leggings",
+  "item.blubbysmodofdoom.blessed_boots": "Divine Boots",
 
   "item.blubbysmodofdoom.nightmare_ingot": "Nightmare Ingot",
   "item.blubbysmodofdoom.nightmare_helmet": "Nightmare Helmet",
   "item.blubbysmodofdoom.nightmare_chestplate": "Nightmare Chestplate",
   "item.blubbysmodofdoom.nightmare_leggings": "Nightmare Leggings",
   "item.blubbysmodofdoom.nightmare_boots": "Nightmare Boots",
+
+  "item.blubbysmodofdoom.cosmilite_chunk": "Cosmilite Chunk",
+  "item.blubbysmodofdoom.cosmilite_ingot": "Cosmilite Ingot",
+  "item.blubbysmodofdoom.cosmilite_helmet": "Cosmilite Helmet",
+  "item.blubbysmodofdoom.cosmilite_chestplate": "Cosmilite Chestplate",
+  "item.blubbysmodofdoom.cosmilite_leggings": "Cosmilite Leggings",
+  "item.blubbysmodofdoom.cosmilite_boots": "Cosmilite Boots",
 
   "item.blubbysmodofdoom.essence_blessed": "Essence of Blessed",
   "item.blubbysmodofdoom.essence_darkness": "Essence of Darkness",

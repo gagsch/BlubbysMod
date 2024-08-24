@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "blubbysmodofdoom:blessed_helmet"
+  },
+  "addition": {
+    "item": "blubbysmodofdoom:cosmilite_ingot"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:cosmilite_helmet"
+  }
+}

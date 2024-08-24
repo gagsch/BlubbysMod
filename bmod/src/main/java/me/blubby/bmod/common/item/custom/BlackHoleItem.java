@@ -5,8 +5,6 @@ import me.blubby.bmod.server.world.portal.ModTeleporter;
 import me.blubby.bmod.utils.PositionUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

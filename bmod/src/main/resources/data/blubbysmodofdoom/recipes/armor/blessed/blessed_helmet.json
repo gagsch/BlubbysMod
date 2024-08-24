@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#g#",
+        "bDb"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:feather"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "b": {
+            "item": "blubbysmodofdoom:blessed_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond_helmet"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:blessed_helmet"
+    }
+}

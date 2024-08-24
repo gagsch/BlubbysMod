@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "bDb",
+        "g g",
+        "b b"
+    ],
+    "key": {
+        "b": {
+            "item": "blubbysmodofdoom:blessed_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond_leggings"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:blessed_leggings"
+    }
+}

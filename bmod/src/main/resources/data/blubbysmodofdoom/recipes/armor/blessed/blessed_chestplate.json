@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "b b",
+        "bDb",
+        "gbg"
+    ],
+    "key": {
+        "b": {
+            "item": "blubbysmodofdoom:blessed_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond_chestplate"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "blubbysmodofdoom:blessed_chestplate"
+    }
+}

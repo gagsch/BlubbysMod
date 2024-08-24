@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "#B#",
-    "BBB",
+    "BnB",
     "#B#"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "B": {
       "item": "blubbysmodofdoom:soul_powder"
+    },
+    "n": {
+      "item": "minecraft:netherite_scrap"
     }
   },
   "result": {

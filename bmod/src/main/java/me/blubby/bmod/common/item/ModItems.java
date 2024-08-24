@@ -38,6 +38,8 @@ public class ModItems {
     public static final RegistryObject<Item> HEART_OF_THE_ABYSS = ITEMS.register("heart_of_the_abyss", () -> new Item(_misc));
     public static final RegistryObject<Item> SOUL_DUST = ITEMS.register("soul_powder", () -> new Item(_misc));
     public static final RegistryObject<Item> ECHOING_SOUL_DUST = ITEMS.register("echoing_soul_dust", () -> new Item(_misc));
+    public static final RegistryObject<Item> CONCENTRATED_DARK_MATTER = ITEMS.register("concentrated_dark_matter", () -> new Item(_misc));
+    public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap", () -> new Item(_misc));
 
 
     // Ingots and Uncooked Ingots
@@ -58,6 +60,24 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.LEGS, _misc));
     public static final RegistryObject<Item> NIGHTMARE_BOOTS = ITEMS.register("nightmare_boots",
             () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.FEET, _misc));
+    // Cosmilite Armor
+    public static final RegistryObject<Item> COSMILITE_HELMET = ITEMS.register("cosmilite_helmet",
+            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.HEAD, _misc));
+    public static final RegistryObject<Item> COSMILITE_CHESTPLATE = ITEMS.register("cosmilite_chestplate",
+            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.CHEST, _misc));
+    public static final RegistryObject<Item> COSMILITE_LEGGINGS = ITEMS.register("cosmilite_leggings",
+            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.LEGS, _misc));
+    public static final RegistryObject<Item> COSMILITE_BOOTS = ITEMS.register("cosmilite_boots",
+            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.FEET, _misc));
+    // Divine Armor
+    public static final RegistryObject<Item> BLESSED_HELMET = ITEMS.register("blessed_helmet",
+            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.HEAD, _misc));
+    public static final RegistryObject<Item> BLESSED_CHESTPLATE = ITEMS.register("blessed_chestplate",
+            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.CHEST, _misc));
+    public static final RegistryObject<Item> BLESSED_LEGGINGS = ITEMS.register("blessed_leggings",
+            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.LEGS, _misc));
+    public static final RegistryObject<Item> BLESSED_BOOTS = ITEMS.register("blessed_boots",
+            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.FEET, _misc));
 
 
     // Essence

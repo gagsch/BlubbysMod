@@ -1,11 +1,11 @@
 package me.blubby.bmod.common.tier;
 
 import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -14,9 +14,10 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModArmorMaterial implements ArmorMaterial {
-    NIGHTMARE("nightmare", 47 , new int[]{5, 8, 9, 5}, 25, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 4F, () -> Ingredient.of(Items.ECHO_SHARD));
+    NIGHTMARE("nightmare", 47 , new int[]{6, 8, 9, 6}, 30, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 4F, () -> Ingredient.of(ModItems.NIGHTMARE_INGOT.get())),
+    BLESSED("blessed", 25 , new int[]{7, 7, 7, 7}, 25, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 3F, () -> Ingredient.of(ModItems.BLESSED_INGOT.get())),
+    COSMILITE("cosmilites", 80 , new int[]{8, 16, 18, 8}, 40, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 8F, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get()));
 
-    private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
     private final int maxDamageFactor;
     private final int[] slotProtections;
@@ -37,7 +38,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getDurabilityForSlot(EquipmentSlot slot) {
-        return HEALTH_PER_SLOT[slot.getIndex()] * this.maxDamageFactor;
+        return slotProtections[slot.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
