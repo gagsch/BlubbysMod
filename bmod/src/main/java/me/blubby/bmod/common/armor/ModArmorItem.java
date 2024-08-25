@@ -8,8 +8,8 @@ import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nullable;
 
-public class ArmorItem extends net.minecraft.world.item.ArmorItem {
-    public ArmorItem(ArmorMaterial material, EquipmentSlot type, Properties properties) {
+public class ModArmorItem extends net.minecraft.world.item.ArmorItem {
+    public ModArmorItem(ArmorMaterial material, EquipmentSlot type, Properties properties) {
         super(material, type, properties);
     }
 

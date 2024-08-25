@@ -35,6 +35,7 @@ public class ModEvents {
         MENU_TYPES.register(modEventBus);
         modEventBus.addListener(ModEvents::onCommonSetup);
         modEventBus.addListener(ModEvents::onClientSetup);
+        modEventBus.addListener(ClientSetup::onAddLayers);
     }
 
 

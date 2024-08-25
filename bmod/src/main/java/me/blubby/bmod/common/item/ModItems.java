@@ -1,8 +1,10 @@
 package me.blubby.bmod.common.item;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.armor.ArmorItem;
+import me.blubby.bmod.common.armor.ModArmorItem;
 import me.blubby.bmod.common.item.custom.BlackHoleItem;
+import me.blubby.bmod.common.item.custom.InventoryItem;
+import me.blubby.bmod.common.item.custom.InventoryItem.inventoryItems;
 import me.blubby.bmod.common.tier.ModArmorMaterial;
 import me.blubby.bmod.common.item.custom.ChronosClockItem;
 import me.blubby.bmod.common.item.custom.EnderBundleItem;
@@ -18,7 +20,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS
             = DeferredRegister.create(ForgeRegistries.ITEMS, Blubby_sModOfDoom.MOD_ID);
 
-    static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC);
+    static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1);
+    static Item.Properties _combat = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
 
     public static final RegistryObject<Item> BLUBBY_COIN = ITEMS.register("blubby_coin", () -> new Item(_misc));
 
@@ -30,6 +33,9 @@ public class ModItems {
             () -> new EnderBundleItem(_misc));
     public static final RegistryObject<Item> BLACK_HOLE = ITEMS.register("black_hole",
             () -> new BlackHoleItem(_misc));
+
+    public static final RegistryObject<Item> LUCKY_ROCK = ITEMS.register("lucky_rock",
+            () -> new InventoryItem(_misc, inventoryItems.LuckyRock));
 
 
     // Materials
@@ -53,31 +59,31 @@ public class ModItems {
     // Armor
     // Nightmare Armor
     public static final RegistryObject<Item> NIGHTMARE_HELMET = ITEMS.register("nightmare_helmet",
-            () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.HEAD, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.HEAD, _combat.durability(66 * 6)));
     public static final RegistryObject<Item> NIGHTMARE_CHESTPLATE = ITEMS.register("nightmare_chestplate",
-            () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.CHEST, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.CHEST, _combat.durability(66 * 13)));
     public static final RegistryObject<Item> NIGHTMARE_LEGGINGS = ITEMS.register("nightmare_leggings",
-            () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.LEGS, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.LEGS, _combat.durability(66 * 13)));
     public static final RegistryObject<Item> NIGHTMARE_BOOTS = ITEMS.register("nightmare_boots",
-            () -> new ArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.FEET, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.FEET, _combat.durability(66 * 6)));
     // Cosmilite Armor
     public static final RegistryObject<Item> COSMILITE_HELMET = ITEMS.register("cosmilite_helmet",
-            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.HEAD, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.HEAD, _combat.durability(80 * 8)));
     public static final RegistryObject<Item> COSMILITE_CHESTPLATE = ITEMS.register("cosmilite_chestplate",
-            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.CHEST, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.CHEST, _combat.durability(80 * 18)));
     public static final RegistryObject<Item> COSMILITE_LEGGINGS = ITEMS.register("cosmilite_leggings",
-            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.LEGS, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.LEGS, _combat.durability(80 * 16)));
     public static final RegistryObject<Item> COSMILITE_BOOTS = ITEMS.register("cosmilite_boots",
-            () -> new ArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.FEET, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.FEET, _combat.durability(80 * 8)));
     // Divine Armor
     public static final RegistryObject<Item> BLESSED_HELMET = ITEMS.register("blessed_helmet",
-            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.HEAD, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.HEAD, _combat.durability(77 * 7)));
     public static final RegistryObject<Item> BLESSED_CHESTPLATE = ITEMS.register("blessed_chestplate",
-            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.CHEST, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.CHEST, _combat.durability(77 * 7)));
     public static final RegistryObject<Item> BLESSED_LEGGINGS = ITEMS.register("blessed_leggings",
-            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.LEGS, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.LEGS, _combat.durability(77 * 7)));
     public static final RegistryObject<Item> BLESSED_BOOTS = ITEMS.register("blessed_boots",
-            () -> new ArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.FEET, _misc));
+            () -> new ModArmorItem(ModArmorMaterial.BLESSED, EquipmentSlot.FEET, _combat.durability(77 * 7)));
 
 
     // Essence
