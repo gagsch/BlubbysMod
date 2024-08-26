@@ -6,9 +6,7 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class MobKillEvent {
-
-    @SuppressWarnings("resource")
+public class EntityDeathEvent {
     @SubscribeEvent
     public static void onEntityDeath(LivingDeathEvent event) {
         if (event.getEntity().getLevel().isClientSide){

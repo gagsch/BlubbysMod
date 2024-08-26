@@ -38,7 +38,7 @@
   "item.blubbysmodofdoom.essence_darkness": "Essence of Darkness",
   "item.blubbysmodofdoom.essence_day": "Essence of Day",
   "item.blubbysmodofdoom.essence_death": "Essence of Death",
-  "item.blubbysmodofdoom.essence_doom": "Essence of Demons",
+  "item.blubbysmodofdoom.essence_doom": "Essence of Havoc",
   "item.blubbysmodofdoom.essence_earth": "Essence of Earth",
   "item.blubbysmodofdoom.essence_energy": "Essence of Energy",
   "item.blubbysmodofdoom.essence_flames": "Essence of Flames",
@@ -67,10 +67,21 @@
   "block.blubbysmodofdoom.stripped_cosmic_oak_wood": "Stripped Cosmic Oak Wood",
   "block.blubbysmodofdoom.cosmic_oak_leaves": "Cosmic Oak Leaves",
   "block.blubbysmodofdoom.cosmic_oak_sapling": "Cosmic Oak Sapling",
+  "block.blubbysmodofdoom.cosmic_grass": "Overgrown Grass",
+
+  "block.blubbysmodofdoom.ebon_planks": "Ebon Planks",
+  "block.blubbysmodofdoom.ebon_log": "Ebon Log",
+  "block.blubbysmodofdoom.ebon_wood": "Ebon Wood",
+  "block.blubbysmodofdoom.stripped_ebon_log": "Stripped Ebon Log",
+  "block.blubbysmodofdoom.stripped_ebon_wood": "Stripped Ebon Wood",
+  "block.blubbysmodofdoom.ebon_leaves": "Ebon Leaves",
+  "block.blubbysmodofdoom.ebon_sapling": "Ebon Sapling",
+  "block.blubbysmodofdoom.corrupt_grass": "Corrupted Grass",
 
   "block.blubbysmodofdoom.tektite": "Tektite",
+  "block.blubbysmodofdoom.overgrown_tektite": "Cosmic Tektite",
+  "block.blubbysmodofdoom.corrupted_tektite": "Corrupted Tektite",
   "block.blubbysmodofdoom.snow_tektite": "Snow Tektite",
   "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
-  "block.blubbysmodofdoom.overgrown_tektite": "Overgrown Tektite",
   "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore"
 }

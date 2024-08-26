@@ -9,10 +9,10 @@
             "ore_veins_enabled": false,
             "legacy_random_source": true,
             "default_block": {
-                "Name": "blubbysmodofdoom:tektite"
+                "Name": "blubbysmodofdoom:compressed_tektite"
             },
             "default_fluid": {
-                "Name": "minecraft:water",
+                "Name": "minecraft:air",
                 "Properties": {
                     "level": "0"
                 }
@@ -109,6 +109,31 @@
             "surface_rule": {
                 "type": "minecraft:sequence",
                 "sequence": [
+                    {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                                "blubbysmodofdoom:corruption"
+                            ]
+                        },
+                        "then_run": {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                                "type": "minecraft:stone_depth",
+                                "offset": 0,
+                                "surface_type": "floor",
+                                "add_surface_depth": false,
+                                "secondary_depth_range": 0
+                            },
+                            "then_run": {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                    "Name": "blubbysmodofdoom:corrupted_tektite"
+                                }
+                            }
+                        }
+                    },
                     {
                         "type": "minecraft:condition",
                         "if_true": {
@@ -244,6 +269,22 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 0,
+                            "surface_type": "floor",
+                            "add_surface_depth": true,
+                            "secondary_depth_range": 0
+                        },
+                        "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                                "Name": "blubbysmodofdoom:tektite"
+                            }
+                        }
                     }
                 ]
             }
@@ -251,6 +292,18 @@
         "biome_source": {
             "type": "minecraft:multi_noise",
             "biomes": [
+                {
+                    "biome": "blubbysmodofdoom:corruption",
+                    "parameters": {
+                        "temperature": 1.2,
+                        "humidity": 0.3,
+                        "continentalness": 0,
+                        "erosion": 0,
+                        "weirdness": 0,
+                        "depth": 0,
+                        "offset": 0
+                    }
+                },
                 {
                     "biome": "blubbysmodofdoom:overgrown_tektite",
                     "parameters": {
@@ -261,6 +314,18 @@
                         "weirdness": 0,
                         "depth": 0,
                         "offset": 0.5
+                    }
+                },
+                {
+                    "biome": "blubbysmodofdoom:tektite_cluster",
+                    "parameters": {
+                        "temperature": 1,
+                        "humidity": 0.8,
+                        "continentalness": 0,
+                        "erosion": 0,
+                        "weirdness": 0,
+                        "depth": 0,
+                        "offset": 0.4
                     }
                 },
                 {
@@ -297,18 +362,6 @@
                         "weirdness": 0,
                         "depth": 0,
                         "offset": 0
-                    }
-                },
-                {
-                    "biome": "blubbysmodofdoom:tektite_cluster",
-                    "parameters": {
-                        "temperature": 1,
-                        "humidity": 0.8,
-                        "continentalness": 0,
-                        "erosion": 0,
-                        "weirdness": 0,
-                        "depth": 0,
-                        "offset": 0.4
                     }
                 }
             ]

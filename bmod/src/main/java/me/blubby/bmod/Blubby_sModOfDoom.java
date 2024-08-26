@@ -1,12 +1,13 @@
 package me.blubby.bmod;
 
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.events.BlockBreakEvent;
 import me.blubby.bmod.common.item.ModItems;
 import me.blubby.bmod.server.world.dimension.ModDimensions;
 import me.blubby.bmod.server.world.feature.ModConfiguredFeatures;
 import me.blubby.bmod.server.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
-import me.blubby.bmod.common.events.MobKillEvent;
+import me.blubby.bmod.common.events.EntityDeathEvent;
 import me.blubby.bmod.common.events.ModEvents;
 import me.blubby.bmod.server.world.structure_types.StructureTypes;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,7 +39,8 @@ public class Blubby_sModOfDoom {
 
     StructureTypes.register(modEventBus);
 
-    MinecraftForge.EVENT_BUS.register(MobKillEvent.class);
+    MinecraftForge.EVENT_BUS.register(EntityDeathEvent.class);
+    MinecraftForge.EVENT_BUS.register(BlockBreakEvent.class);
     MinecraftForge.EVENT_BUS.register(this);
   }
 

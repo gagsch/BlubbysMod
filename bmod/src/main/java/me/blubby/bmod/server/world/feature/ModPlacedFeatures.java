@@ -25,6 +25,14 @@ public class ModPlacedFeatures {
             () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
                     PlacementUtils.countExtra(3, 0.1f, 2))));
 
+    public static final RegistryObject<PlacedFeature> EBON_CHECKED = PLACED_FEATURES.register("ebon_checked",
+            () -> new PlacedFeature(ModConfiguredFeatures.EBON.getHolder().get(),
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.EBON_SAPLING.get()))));
+
+    public static final RegistryObject<PlacedFeature> EBON_PLACED = PLACED_FEATURES.register("ebon_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.EBON_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
+                    PlacementUtils.countExtra(3, 0.1f, 2))));
+
     public static final RegistryObject<PlacedFeature> COSMILITE_ORE_PLACED = PLACED_FEATURES.register("cosmilite_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.COSMILITE_ORE.getHolder().get(), commonOrePlacement(4,
                     HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(100)))));

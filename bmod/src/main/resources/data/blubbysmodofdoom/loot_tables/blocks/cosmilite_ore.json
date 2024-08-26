@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "blubbysmodofdoom:cosmilite_ore",
+              "name": "blubbysmodofdoom:cosmilite_chunk",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

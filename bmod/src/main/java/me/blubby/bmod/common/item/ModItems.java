@@ -20,7 +20,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS
             = DeferredRegister.create(ForgeRegistries.ITEMS, Blubby_sModOfDoom.MOD_ID);
 
-    static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1);
+    static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1).stacksTo(64);
     static Item.Properties _combat = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
 
     public static final RegistryObject<Item> BLUBBY_COIN = ITEMS.register("blubby_coin", () -> new Item(_misc));

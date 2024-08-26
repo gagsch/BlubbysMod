@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blubbysmodofdoom:block/cosmic_grass"
+  },
+  "render_type": "cutout"
+}

@@ -43,6 +43,22 @@ public class ModConfiguredFeatures {
                             ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get(),
                             0.5F)), ModPlacedFeatures.COSMIC_OAK_CHECKED.getHolder().get())));
 
+    public static final RegistryObject<ConfiguredFeature<?, ?>> EBON =
+            CONFIGURED_FEATURES.register("ebon", () ->
+                    new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                            BlockStateProvider.simple(ModBlocks.EBON_LOG.get()),
+                            new StraightTrunkPlacer(5, 6, 3),
+                            BlockStateProvider.simple(ModBlocks.EBON_LEAVES.get()),
+                            new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
+                            new TwoLayersFeatureSize(1, 0, 2))
+                            .dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> EBON_SPAWN =
+            CONFIGURED_FEATURES.register("ebon_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
+                    new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                            ModPlacedFeatures.EBON_CHECKED.getHolder().get(),
+                            0.5F)), ModPlacedFeatures.EBON_CHECKED.getHolder().get())));
+
     public static final Supplier<List<OreConfiguration.TargetBlockState>> COSMILITE_ORES = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(new BlockMatchTest(ModBlocks.COMPRESSED_TEKTITE.get()), ModBlocks.COSMILITE_ORE.get().defaultBlockState())));
 

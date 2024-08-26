@@ -1,7 +1,6 @@
 package me.blubby.bmod.common.item.custom;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stat;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -29,7 +28,7 @@ public class InventoryItem extends Item {
             switch (inventoryItem)
             {
                 case LuckyRock:
-                    serverPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK, 40, 4));
+                    serverPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK, 40, 4, false, false));
 
                 case Flames:
                     serverPlayer.clearFire();

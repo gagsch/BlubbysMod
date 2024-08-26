@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blubbysmodofdoom:block/ebon_sapling"
+  },
+  "render_type": "cutout"
+}
