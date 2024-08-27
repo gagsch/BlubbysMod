@@ -84,7 +84,7 @@ public class CustomSapling extends SaplingBlock implements BonemealableBlock
         }
         if (this == ModBlocks.EBON_SAPLING.get())
         {
-            return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_CORRUPT.get() || super.canSurvive(state, worldIn, pos);
+            return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_NECRO.get() || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

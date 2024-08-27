@@ -32,7 +32,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_NYLIUM)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> TEKTITE_SNOW = registerBlock("snow_tektite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> TEKTITE_CORRUPT = registerBlock("corrupted_tektite",
+    public static final RegistryObject<Block> TEKTITE_NECRO = registerBlock("necrotic_tektite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_NYLIUM)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> COMPRESSED_TEKTITE = registerBlock("compressed_tektite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
@@ -138,10 +138,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> COSMIC_GRASS = registerBlock("cosmic_grass",
             () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), CreativeModeTab.TAB_MISC);
-
-    public static final RegistryObject<Block> CORRUPTED_GRASS = registerBlock("corrupt_grass",
-            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), CreativeModeTab.TAB_MISC);
-
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

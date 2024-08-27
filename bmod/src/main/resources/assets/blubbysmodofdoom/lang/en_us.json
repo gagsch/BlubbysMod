@@ -76,11 +76,10 @@
   "block.blubbysmodofdoom.stripped_ebon_wood": "Stripped Ebon Wood",
   "block.blubbysmodofdoom.ebon_leaves": "Ebon Leaves",
   "block.blubbysmodofdoom.ebon_sapling": "Ebon Sapling",
-  "block.blubbysmodofdoom.corrupt_grass": "Corrupted Grass",
 
   "block.blubbysmodofdoom.tektite": "Tektite",
-  "block.blubbysmodofdoom.overgrown_tektite": "Cosmic Tektite",
-  "block.blubbysmodofdoom.corrupted_tektite": "Corrupted Tektite",
+  "block.blubbysmodofdoom.overgrown_tektite": "Overgrown Tektite",
+  "block.blubbysmodofdoom.necrotic_tektite": "Necrotic Overgrown Tektite",
   "block.blubbysmodofdoom.snow_tektite": "Snow Tektite",
   "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
   "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore"

@@ -33,7 +33,6 @@ public class ModItems {
             () -> new EnderBundleItem(_misc));
     public static final RegistryObject<Item> BLACK_HOLE = ITEMS.register("black_hole",
             () -> new BlackHoleItem(_misc));
-
     public static final RegistryObject<Item> LUCKY_ROCK = ITEMS.register("lucky_rock",
             () -> new InventoryItem(_misc, inventoryItems.LuckyRock));
 

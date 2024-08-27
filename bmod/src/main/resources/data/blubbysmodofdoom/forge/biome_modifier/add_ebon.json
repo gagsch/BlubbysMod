@@ -2,7 +2,7 @@
   "type": "forge:add_features",
   "biomes":
   [
-    "blubbysmodofdoom:corruption"
+    "blubbysmodofdoom:necrosis"
   ],
   "features": "blubbysmodofdoom:ebon_placed",
   "step": "vegetal_decoration"

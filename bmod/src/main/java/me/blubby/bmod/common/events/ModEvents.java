@@ -1,6 +1,7 @@
 package me.blubby.bmod.common.events;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
+import me.blubby.bmod.datagen.DataGenerators;
 import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
 import me.blubby.bmod.client.gui.EnderChestUpgradeScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -36,6 +37,7 @@ public class ModEvents {
         modEventBus.addListener(ModEvents::onCommonSetup);
         modEventBus.addListener(ModEvents::onClientSetup);
         modEventBus.addListener(ClientSetup::onAddLayers);
+        modEventBus.addListener(DataGenerators::gatherData);
     }
 
 

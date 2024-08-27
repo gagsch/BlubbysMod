@@ -49,6 +49,15 @@ public class BurnablePillarBlock extends RotatedPillarBlock {
             {
                 return ModBlocks.STRIPPED_COSMIC_OAK_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
+
+            if(state.is(ModBlocks.EBON_LOG.get()))
+            {
+                return ModBlocks.STRIPPED_EBON_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+            }
+            if(state.is(ModBlocks.EBON_WOOD.get()))
+            {
+                return ModBlocks.STRIPPED_EBON_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+            }
         }
 
         return super.getToolModifiedState(state, context, action, simulate);

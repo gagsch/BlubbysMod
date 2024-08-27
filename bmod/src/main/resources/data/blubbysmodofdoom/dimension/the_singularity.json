@@ -114,7 +114,7 @@
                         "if_true": {
                             "type": "minecraft:biome",
                             "biome_is": [
-                                "blubbysmodofdoom:corruption"
+                                "blubbysmodofdoom:necrosis"
                             ]
                         },
                         "then_run": {
@@ -129,7 +129,7 @@
                             "then_run": {
                                 "type": "minecraft:block",
                                 "result_state": {
-                                    "Name": "blubbysmodofdoom:corrupted_tektite"
+                                    "Name": "blubbysmodofdoom:necrotic_tektite"
                                 }
                             }
                         }
@@ -293,7 +293,7 @@
             "type": "minecraft:multi_noise",
             "biomes": [
                 {
-                    "biome": "blubbysmodofdoom:corruption",
+                    "biome": "blubbysmodofdoom:necrosis",
                     "parameters": {
                         "temperature": 1.2,
                         "humidity": 0.3,
@@ -317,7 +317,7 @@
                     }
                 },
                 {
-                    "biome": "blubbysmodofdoom:tektite_cluster",
+                    "biome": "blubbysmodofdoom:tektite_wasteland",
                     "parameters": {
                         "temperature": 1,
                         "humidity": 0.8,
