@@ -34,6 +34,8 @@
   "item.blubbysmodofdoom.cosmilite_leggings": "Cosmilite Leggings",
   "item.blubbysmodofdoom.cosmilite_boots": "Cosmilite Boots",
 
+  "item.blubbysmodofdoom.necrium_chunk": "Necrium Chunk",
+
   "item.blubbysmodofdoom.essence_blessed": "Essence of the Holy",
   "item.blubbysmodofdoom.essence_darkness": "Essence of Darkness",
   "item.blubbysmodofdoom.essence_day": "Essence of Day",
@@ -82,5 +84,8 @@
   "block.blubbysmodofdoom.necrotic_tektite": "Necrotic Overgrown Tektite",
   "block.blubbysmodofdoom.snow_tektite": "Snow Tektite",
   "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
-  "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore"
+  "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore",
+  "block.blubbysmodofdoom.necrium_ore": "Necrium Ore",
+
+  "block.blubbysmodofdoom.fossilized_bone_block": "Ancient Fossil Block"
 }

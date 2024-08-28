@@ -34,7 +34,15 @@ public class ModPlacedFeatures {
                     PlacementUtils.countExtra(3, 0.1f, 2))));
 
     public static final RegistryObject<PlacedFeature> COSMILITE_ORE_PLACED = PLACED_FEATURES.register("cosmilite_ore_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.COSMILITE_ORE.getHolder().get(), commonOrePlacement(4,
+            () -> new PlacedFeature(ModConfiguredFeatures.COSMILITE_ORE.getHolder().get(), commonOrePlacement(10,
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(100)))));
+
+    public static final RegistryObject<PlacedFeature> COSMILITE_ORE_PLACED_RARE = PLACED_FEATURES.register("cosmilite_ore_placed_rare",
+            () -> new PlacedFeature(ModConfiguredFeatures.COSMILITE_ORE.getHolder().get(), rareOrePlacement(1,
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(100)))));
+
+    public static final RegistryObject<PlacedFeature> NECRIUM_ORE_PLACED = PLACED_FEATURES.register("necrium_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.NECRIUM_ORE.getHolder().get(), commonOrePlacement(6,
                     HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(100)))));
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {

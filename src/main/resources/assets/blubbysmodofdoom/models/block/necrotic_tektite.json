@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "blubbysmodofdoom:block/tektite",
-    "top": "blubbysmodofdoom:block/necrotic_tektite_top",
-    "side": "blubbysmodofdoom:block/necrotic_tektite"
-  }
-}

@@ -1,10 +1,12 @@
 package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
+import me.blubby.bmod.common.blocks.ModBlocks;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -18,6 +20,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        saplingItem(ModBlocks.COSMIC_OAK_SAPLING);
+        saplingItem(ModBlocks.EBON_SAPLING);
+
         simpleItem(ModItems.BLUBBY_COIN);
 
         simpleItem(ModItems.CHRONOS_CLOCK);
@@ -45,6 +50,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.NIGHTMARE_CHESTPLATE);
         simpleItem(ModItems.NIGHTMARE_LEGGINGS);
         simpleItem(ModItems.NIGHTMARE_BOOTS);
+
+        simpleItem(ModItems.NECRIUM_CHUNK);
 
         simpleItem(ModItems.COSMILITE_CHUNK);
         simpleItem(ModItems.COSMILITE_INGOT);
@@ -83,6 +90,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "items/" + item.getId().getPath()));
+    }
+
+    public ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(Blubby_sModOfDoom.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleHandheldItem(RegistryObject<Item> item)

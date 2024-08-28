@@ -1,0 +1,15 @@
+{
+  "name": "blubbysmodofdoom:tektite_ruins/tower_ruins",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "blubbysmodofdoom:tektite_tower_ruins",
+        "processors": "blubbysmodofdoom:keep_70"
+      }
+    }
+  ]
+}

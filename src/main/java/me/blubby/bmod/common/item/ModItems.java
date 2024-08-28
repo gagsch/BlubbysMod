@@ -51,6 +51,7 @@ public class ModItems {
     public static final RegistryObject<Item> BLESSED_SOUL_ALLOY = ITEMS.register("blessed_soul_alloy", () -> new Item(_misc));
     public static final RegistryObject<Item> BLESSED_INGOT = ITEMS.register("blessed_ingot", () -> new Item(_misc));
     public static final RegistryObject<Item> NIGHTMARE_INGOT = ITEMS.register("nightmare_ingot", () -> new Item(_misc));
+    public static final RegistryObject<Item> NECRIUM_CHUNK = ITEMS.register("necrium_chunk", () -> new Item(_misc));
     public static final RegistryObject<Item> COSMILITE_CHUNK = ITEMS.register("cosmilite_chunk", () -> new Item(_misc));
     public static final RegistryObject<Item> COSMILITE_INGOT = ITEMS.register("cosmilite_ingot", () -> new Item(_misc));
 

@@ -36,7 +36,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_NYLIUM)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> COMPRESSED_TEKTITE = registerBlock("compressed_tektite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+
     public static final RegistryObject<Block> COSMILITE_ORE = registerBlock("cosmilite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> NECRIUM_ORE = registerBlock("necrium_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> COSMIC_OAK_LOG = registerBlock("cosmic_oak_log",
@@ -136,8 +139,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> EBON_SAPLING = registerBlock("ebon_sapling",
             () -> new CustomSapling(new EbonTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
 
-    public static final RegistryObject<Block> COSMIC_GRASS = registerBlock("cosmic_grass",
-            () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

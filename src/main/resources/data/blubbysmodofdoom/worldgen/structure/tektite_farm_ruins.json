@@ -2,7 +2,7 @@
   "type": "blubbysmodofdoom:floating_land",
 
   "biomes": "#blubbysmodofdoom:has_structure/tektite_ruins",
-  "start_pool": "blubbysmodofdoom:tektite_ruins/start_pool",
+  "start_pool": "blubbysmodofdoom:tektite_ruins/farm_ruins",
 
   "size": 6,
   "max_distance_from_center": 20,

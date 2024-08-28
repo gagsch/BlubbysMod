@@ -65,6 +65,12 @@ public class ModConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> COSMILITE_ORE = CONFIGURED_FEATURES.register("cosmilite_ore_placed",
             () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(COSMILITE_ORES.get(), 9)));
 
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> NECRIUM_ORES = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(new BlockMatchTest(ModBlocks.COMPRESSED_TEKTITE.get()), ModBlocks.NECRIUM_ORE.get().defaultBlockState())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> NECRIUM_ORE = CONFIGURED_FEATURES.register("necrium_ore_placed",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(NECRIUM_ORES.get(), 9)));
+
     public static void register(IEventBus eventBus)
     {
         CONFIGURED_FEATURES.register(eventBus);
