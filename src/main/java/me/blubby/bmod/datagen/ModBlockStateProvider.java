@@ -38,6 +38,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.NECRIUM_ORE);
 
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK, blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
+        blockWithItem(ModBlocks.DEAD_TISSUE_BLOCK);
 
         axisBlockWithItem(ModBlocks.COSMIC_OAK_LOG, blockLoc(ModBlocks.COSMIC_OAK_LOG), blockLoc(ModBlocks.COSMIC_OAK_LOG, "top"));
         axisBlockWithItem(ModBlocks.COSMIC_OAK_WOOD, blockLoc(ModBlocks.COSMIC_OAK_LOG), blockLoc(ModBlocks.COSMIC_OAK_LOG));

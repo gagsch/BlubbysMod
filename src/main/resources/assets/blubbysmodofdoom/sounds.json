@@ -1,0 +1,21 @@
+{
+  "equip_nightmare": {
+    "sounds": [
+      "item/armor/equip_netherite1",
+      "item/armor/equip_netherite2",
+      "item/armor/equip_netherite3",
+      "item/armor/equip_netherite4"
+    ]
+  },
+  "rot_fly_buzz": {
+    "sounds": [
+      "blubbysmodofdoom:rot_fly_buzz_1",
+      "blubbysmodofdoom:rot_fly_buzz_2"
+    ]
+  },
+  "rot_fly_hurt": {
+    "sounds": [
+      "blubbysmodofdoom:rot_fly_hurt"
+    ]
+  }
+}

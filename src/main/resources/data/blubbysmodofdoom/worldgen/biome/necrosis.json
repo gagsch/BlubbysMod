@@ -4,14 +4,29 @@
   "precipitation": "none",
   "temperature_modifier": "none",
   "effects": {
-    "sky_color": 3146499,
-    "fog_color": 984325,
-    "water_color": 8725283,
-    "water_fog_color": 3343621,
-    "foliage_color": 15009286
+    "sky_color": 4272203,
+    "fog_color": 918799,
+    "water_color": 3878237,
+    "water_fog_color": 2629437,
+    "foliage_color": 4534642,
+    "grass_color_modifier": "swamp"
   },
-  "spawners": {},
-  "spawn_costs": {},
+  "spawners": {
+    "creature": [
+      {
+        "type": "blubbysmodofdoom:rot_fly",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 10
+      }
+    ]
+  },
+  "spawn_costs": {
+    "blubbysmodofdoom:rot_fly": {
+      "energy_budget": 0.12,
+      "charge": 1
+    }
+  },
   "carvers": {},
   "features": []
 }

@@ -47,7 +47,7 @@ class Config:
     _root = pathlib.Path(".").resolve()
     cls._path = None
     for _ in range(parent_limit):
-      cls._path = [x for x in _root.glob("./*") if (x.is_dir() and x.name == "bmod")]
+      cls._path = [x for x in _root.glob("./*")]
       if not cls._path or len(cls._path) > 1:
         _root = _root.parent
         cls._path = None

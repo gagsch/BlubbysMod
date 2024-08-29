@@ -87,5 +87,10 @@
   "block.blubbysmodofdoom.cosmilite_ore": "Cosmilite Ore",
   "block.blubbysmodofdoom.necrium_ore": "Necrium Ore",
 
-  "block.blubbysmodofdoom.fossilized_bone_block": "Ancient Fossil Block"
+  "block.blubbysmodofdoom.fossilized_bone_block": "Ancient Fossil Block",
+  "block.blubbysmodofdoom.dead_tissue_block": "Dead Tissue Block",
+
+
+  "entity.blubbysmodofdoom.rot_fly": "Rot Fly",
+  "item.blubbysmodofdoom.rot_fly_spawn_egg": "Rot Fly Spawn Egg"
 }

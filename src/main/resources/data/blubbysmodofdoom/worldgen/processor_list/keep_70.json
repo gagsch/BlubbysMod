@@ -91,7 +91,7 @@
             "probability": 0.3
           },
           "output_state": {
-            "Name": "minecraft:air"
+            "Name": "blubbysmodofdoom:dead_tissue_block"
           }
         }
       ]

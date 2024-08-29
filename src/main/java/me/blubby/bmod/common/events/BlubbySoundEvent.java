@@ -10,7 +10,9 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlubbySoundEvent {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_NIGHTMARE = register("item.armor.equip_nightmare");
+    public static final RegistryObject<SoundEvent> EQUIP_NIGHTMARE = register("equip_nightmare");
+    public static final RegistryObject<SoundEvent> ROT_FLY_BUZZ = register("rot_fly_buzz");
+    public static final RegistryObject<SoundEvent> ROT_FLY_HURT = register("rot_fly_hurt");
 
     private static RegistryObject<SoundEvent> register(String location) {
         return SOUNDS.register(location, () -> new SoundEvent(new ResourceLocation(Blubby_sModOfDoom.MOD_ID, location)));

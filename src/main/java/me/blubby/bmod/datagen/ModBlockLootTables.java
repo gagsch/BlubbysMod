@@ -5,8 +5,10 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableConditio
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.stream.Collectors;
@@ -29,12 +32,13 @@ public class ModBlockLootTables extends BlockLoot {
         dropOther(ModBlocks.TEKTITE_NECRO.get(), ModBlocks.TEKTITE.get());
         dropOther(ModBlocks.TEKTITE_SNOW.get(), ModBlocks.TEKTITE.get());
 
-        dropSelf(ModBlocks.FOSSILIZED_BONE_BLOCK.get());
-
         add(ModBlocks.COSMILITE_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.COSMILITE_ORE.get(), ModItems.COSMILITE_CHUNK.get()));
         add(ModBlocks.NECRIUM_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
+
+        add(ModBlocks.DEAD_TISSUE_BLOCK.get(), createSingleItemTable(Items.ROTTEN_FLESH, UniformGenerator.between(1, 4)));
+        dropSelf(ModBlocks.FOSSILIZED_BONE_BLOCK.get());
 
         dropSelf(ModBlocks.COSMIC_OAK_LOG.get());
         dropSelf(ModBlocks.COSMIC_OAK_WOOD.get());

@@ -14,9 +14,9 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModArmorMaterial implements ArmorMaterial {
-    NIGHTMARE("nightmare", 66 , new int[]{6, 13, 13, 6}, 30, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 4F, () -> Ingredient.of(ModItems.NIGHTMARE_INGOT.get())),
-    BLESSED("blessed", 70 , new int[]{7, 7, 7, 7}, 25, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 3F, () -> Ingredient.of(ModItems.BLESSED_INGOT.get())),
-    COSMILITE("cosmilite", 80 , new int[]{8, 16, 18, 8}, 40, BlubbySoundEvent.ITEM_ARMOR_EQUIP_NIGHTMARE, 8F, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get()));
+    NIGHTMARE("nightmare", 66 , new int[]{6, 13, 13, 6}, 30, BlubbySoundEvent.EQUIP_NIGHTMARE, 4F, () -> Ingredient.of(ModItems.NIGHTMARE_INGOT.get())),
+    BLESSED("blessed", 70 , new int[]{7, 7, 7, 7}, 25, BlubbySoundEvent.EQUIP_NIGHTMARE, 3F, () -> Ingredient.of(ModItems.BLESSED_INGOT.get())),
+    COSMILITE("cosmilite", 80 , new int[]{8, 16, 18, 8}, 40, BlubbySoundEvent.EQUIP_NIGHTMARE, 8F, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get()));
 
     private final String name;
     private final int maxDamageFactor;

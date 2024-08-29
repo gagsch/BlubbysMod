@@ -1,6 +1,7 @@
 package me.blubby.bmod;
 
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.events.BlockBreakEvent;
 import me.blubby.bmod.common.item.ModItems;
 import me.blubby.bmod.server.world.dimension.ModDimensions;
@@ -26,6 +27,7 @@ public class Blubby_sModOfDoom {
 
     ModItems.ITEMS.register(modEventBus);
     ModBlocks.BLOCKS.register(modEventBus);
+    ModEntities.register(modEventBus);
 
     BlubbySoundEvent.SOUNDS.register(modEventBus);
 

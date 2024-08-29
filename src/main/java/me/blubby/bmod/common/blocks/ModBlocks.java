@@ -50,7 +50,6 @@ public class ModBlocks {
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> STRIPPED_COSMIC_OAK_WOOD = registerBlock("stripped_cosmic_oak_wood",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CreativeModeTab.TAB_MISC);
-
     public static final RegistryObject<Block> COSMIC_OAK_PLANKS = registerBlock("cosmic_oak_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
                 @Override
@@ -86,7 +85,6 @@ public class ModBlocks {
                     return 60;
                 }
             }, CreativeModeTab.TAB_MISC);
-
     public static final RegistryObject<Block> COSMIC_OAK_SAPLING = registerBlock("cosmic_oak_sapling",
             () -> new CustomSapling(new CosmicOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
 
@@ -99,7 +97,6 @@ public class ModBlocks {
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> STRIPPED_EBON_WOOD = registerBlock("stripped_ebon_wood",
             () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CreativeModeTab.TAB_MISC);
-
     public static final RegistryObject<Block> EBON_PLANKS = registerBlock("ebon_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
                 @Override
@@ -135,12 +132,28 @@ public class ModBlocks {
                     return 60;
                 }
             }, CreativeModeTab.TAB_MISC);
-
     public static final RegistryObject<Block> EBON_SAPLING = registerBlock("ebon_sapling",
             () -> new CustomSapling(new EbonTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> DEAD_TISSUE_BLOCK = registerBlock("dead_tissue_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+            }, CreativeModeTab.TAB_MISC);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
