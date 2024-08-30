@@ -48,10 +48,6 @@ public class ModItems {
     public static final RegistryObject<Item> CONCENTRATED_DARK_MATTER = ITEMS.register("concentrated_dark_matter", () -> new Item(_misc));
     public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap", () -> new Item(_misc));
 
-    // <isc
-    public static final RegistryObject<Item> ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.ROT_FLY, 0x382946, 0xa41717, _misc));
-
     // Nightmare Stuff
     public static final RegistryObject<Item> NIGHTMARE_INGOT = ITEMS.register("nightmare_ingot", () -> new Item(_misc));
     public static final RegistryObject<Item> NIGHTMARE_HELMET = ITEMS.register("nightmare_helmet",
@@ -114,6 +110,12 @@ public class ModItems {
     public static final RegistryObject<Item> SOUL_SPACE = ITEMS.register("soul_space", () -> new Item(_misc));
     public static final RegistryObject<Item> SOUL_TIME = ITEMS.register("soul_time", () -> new Item(_misc));
     public static final RegistryObject<Item> SOUL_INFINITY = ITEMS.register("soul_infinity", () -> new Item(_misc));
+
+    // Spawn Eggs
+    public static final RegistryObject<Item> ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ROT_FLY, 0x382946, 0xa41717, _misc));
+    public static final RegistryObject<Item> BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BEHEMOTH, 0x442266, 0x111133, _misc));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

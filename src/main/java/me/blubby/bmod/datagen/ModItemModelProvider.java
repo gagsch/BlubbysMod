@@ -85,6 +85,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SOUL_TIME);
 
         withExistingParent(ModItems.ROT_FLY_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.BEHEMOTH_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item)

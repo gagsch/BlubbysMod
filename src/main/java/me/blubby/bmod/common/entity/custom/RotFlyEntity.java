@@ -1,9 +1,9 @@
 package me.blubby.bmod.common.entity.custom;
 
 import me.blubby.bmod.common.events.BlubbySoundEvent;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -15,11 +15,12 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 import javax.annotation.Nullable;
@@ -42,7 +43,6 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         this.setPathfindingMalus(BlockPathTypes.FENCE, -1.0F);
     }
 
-    // Register the attributes for the custom entity
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8D)
@@ -56,8 +56,8 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new WaterAvoidingRandomFlyingGoal(this, 1D));
-        this.goalSelector.addGoal(1, new FloatGoal(this));
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(Items.ROTTEN_FLESH), false));
         this.targetSelector.addGoal(0, (new HurtByTargetGoal(this)).setAlertOthers(new Class[0]));
@@ -93,12 +93,18 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (source == DamageSource.FALL) {
-            // Prevent fall damage
-            return false;
-        }
-        return super.hurt(source, amount);
+    public boolean causeFallDamage(float p_148750_, float p_148751_, DamageSource p_148752_) {
+        return false;
+    }
+    @Override
+    protected void checkFallDamage(double p_27754_, boolean p_27755_, BlockState p_27756_, BlockPos p_27757_) {
+    }
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
+    }
+    @Override
+    protected void playStepSound(BlockPos p_27820_, BlockState p_27821_) {
     }
 
     @Nullable

@@ -92,5 +92,7 @@
 
 
   "entity.blubbysmodofdoom.rot_fly": "Rot Fly",
-  "item.blubbysmodofdoom.rot_fly_spawn_egg": "Rot Fly Spawn Egg"
+  "item.blubbysmodofdoom.rot_fly_spawn_egg": "Rot Fly Spawn Egg",
+  "entity.blubbysmodofdoom.behemoth": "Necrotic Behemoth",
+  "item.blubbysmodofdoom.behemoth_spawn_egg": "Behemoth Spawn Egg"
 }

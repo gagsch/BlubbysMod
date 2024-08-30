@@ -1,6 +1,7 @@
 package me.blubby.bmod.common.entity;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
+import me.blubby.bmod.common.entity.custom.BehemothEntity;
 import me.blubby.bmod.common.entity.custom.RotFlyEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -16,6 +17,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<RotFlyEntity>> ROT_FLY =
             ENTITY_TYPES.register("rot_fly", () -> EntityType.Builder.of(RotFlyEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.8f).build("rot_fly"));
+    public static final RegistryObject<EntityType<BehemothEntity>> BEHEMOTH =
+            ENTITY_TYPES.register("behemoth", () -> EntityType.Builder.of(BehemothEntity::new, MobCategory.MONSTER)
+                    .sized(1f * 2, 1.8f * 2).build("behemoth"));
 
 
     public static void register(IEventBus eventBus) {

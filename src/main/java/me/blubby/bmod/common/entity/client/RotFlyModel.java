@@ -1,6 +1,5 @@
 package me.blubby.bmod.common.entity.client;
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import me.blubby.bmod.Blubby_sModOfDoom;
@@ -15,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
 public class RotFlyModel<T extends Entity> extends HierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "rot_fly"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "rot_fly"), "main");
 	private final ModelPart rot_fly;
 	private final ModelPart body;
 	private final ModelPart mouth;

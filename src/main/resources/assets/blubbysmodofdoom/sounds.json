@@ -7,6 +7,8 @@
       "item/armor/equip_netherite4"
     ]
   },
+
+
   "rot_fly_buzz": {
     "sounds": [
       "blubbysmodofdoom:rot_fly_buzz_1",
@@ -16,6 +18,23 @@
   "rot_fly_hurt": {
     "sounds": [
       "blubbysmodofdoom:rot_fly_hurt"
+    ]
+  },
+
+
+  "behemoth_growl": {
+    "sounds": [
+      "blubbysmodofdoom:behemoth_growl"
+    ]
+  },
+  "behemoth_hurt": {
+    "sounds": [
+      "blubbysmodofdoom:behemoth_hurt"
+    ]
+  },
+  "behemoth_death": {
+    "sounds": [
+      "blubbysmodofdoom:behemoth_death"
     ]
   }
 }

@@ -12,17 +12,17 @@
     "grass_color_modifier": "swamp"
   },
   "spawners": {
-    "creature": [
+    "monster": [
       {
-        "type": "blubbysmodofdoom:rot_fly",
-        "weight": 1,
+        "type": "blubbysmodofdoom:behemoth",
+        "weight": 100,
         "minCount": 1,
-        "maxCount": 10
+        "maxCount": 2
       }
     ]
   },
   "spawn_costs": {
-    "blubbysmodofdoom:rot_fly": {
+    "blubbysmodofdoom:behemoth": {
       "energy_budget": 0.12,
       "charge": 1
     }
