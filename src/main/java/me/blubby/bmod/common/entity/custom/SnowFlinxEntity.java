@@ -1,7 +1,6 @@
 package me.blubby.bmod.common.entity.custom;
 
 import me.blubby.bmod.common.entity.ModEntities;
-import me.blubby.bmod.common.entity.ai.BehemothGroundHitGoal;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -9,8 +8,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -18,19 +15,15 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
@@ -107,7 +100,7 @@ public class SnowFlinxEntity extends Animal {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() { return BlubbySoundEvent.SNOW_FLINX_SNIFF.get(); }
+    protected SoundEvent getAmbientSound() { return BlubbySoundEvent.SNOW_FLINX_AMBIENCE.get(); }
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) { return BlubbySoundEvent.SNOW_FLINX_HURT.get(); }
     @Override

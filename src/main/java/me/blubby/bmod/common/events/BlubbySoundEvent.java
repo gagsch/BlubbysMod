@@ -18,7 +18,7 @@ public class BlubbySoundEvent {
     public static final RegistryObject<SoundEvent> BEHEMOTH_HURT = register("behemoth_hurt");
     public static final RegistryObject<SoundEvent> BEHEMOTH_DEATH = register("behemoth_death");
 
-    public static final RegistryObject<SoundEvent> SNOW_FLINX_SNIFF = register("snow_flinx_sniff");
+    public static final RegistryObject<SoundEvent> SNOW_FLINX_AMBIENCE = register("snow_flinx_ambience");
     public static final RegistryObject<SoundEvent> SNOW_FLINX_HURT = register("snow_flinx_hurt");
     public static final RegistryObject<SoundEvent> SNOW_FLINX_DEATH = register("snow_flinx_death");
 

@@ -38,10 +38,11 @@
     ]
   },
 
-  "snow_flinx_sniff": {
+  "snow_flinx_ambience": {
     "sounds": [
       "blubbysmodofdoom:snow_flinx_sniff_1",
-      "blubbysmodofdoom:snow_flinx_sniff_2"
+      "blubbysmodofdoom:snow_flinx_sniff_2",
+      "blubbysmodofdoom:snow_flinx_speak"
     ]
   },
   "snow_flinx_hurt": {
