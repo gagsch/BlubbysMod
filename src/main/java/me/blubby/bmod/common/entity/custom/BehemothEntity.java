@@ -30,7 +30,6 @@ public class BehemothEntity extends Monster {
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(BehemothEntity.class, EntityDataSerializers.BOOLEAN);
 
-    public final AnimationState walkingAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
     public final AnimationState groundHitAnimationState = new AnimationState();
     public int groundHitAnimationTimeout = 0;

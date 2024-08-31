@@ -8,9 +8,9 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class BehemothRenderer extends MobRenderer<BehemothEntity, Behemoth<BehemothEntity>> {
+public class BehemothRenderer extends MobRenderer<BehemothEntity, BehemothModel<BehemothEntity>> {
     public BehemothRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new Behemoth<>(pContext.bakeLayer(ModModelLayers.BEHEMOTH_LAYER)), 1f);
+        super(pContext, new BehemothModel<>(pContext.bakeLayer(ModModelLayers.BEHEMOTH_LAYER)), 1f);
     }
 
     @Override

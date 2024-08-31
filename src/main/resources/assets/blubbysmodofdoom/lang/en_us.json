@@ -7,7 +7,7 @@
   "item.blubbysmodofdoom.leather_scrap": "Leather Scrap",
   "item.blubbysmodofdoom.concentrated_dark_matter": "Concentrated Dark Matter",
 
-  "item.blubbysmodofdoom.black_hole": "Black Hole",
+  "item.blubbysmodofdoom.rift_key": "Cosmic Rift Key",
   "item.blubbysmodofdoom.ender_bundle": "Void Bundle",
   "item.blubbysmodofdoom.chronos_clock": "Chronos' Clock",
 
@@ -92,7 +92,10 @@
 
 
   "entity.blubbysmodofdoom.rot_fly": "Rot Fly",
-  "item.blubbysmodofdoom.rot_fly_spawn_egg": "Rot Fly Spawn Egg",
   "entity.blubbysmodofdoom.behemoth": "Necrotic Behemoth",
-  "item.blubbysmodofdoom.behemoth_spawn_egg": "Behemoth Spawn Egg"
+  "entity.blubbysmodofdoom.snow_flinx": "Snow Flinx",
+
+  "item.blubbysmodofdoom.rot_fly_spawn_egg": "Rot Fly Spawn Egg",
+  "item.blubbysmodofdoom.behemoth_spawn_egg": "Behemoth Spawn Egg",
+  "item.blubbysmodofdoom.snow_flinx_spawn_egg": "Snow Flinx Spawn Egg"
 }

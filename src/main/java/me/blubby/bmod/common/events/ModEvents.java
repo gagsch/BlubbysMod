@@ -4,8 +4,10 @@ import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.entity.client.BehemothRenderer;
 import me.blubby.bmod.common.entity.client.RotFlyRenderer;
+import me.blubby.bmod.common.entity.client.SnowFlinxRenderer;
 import me.blubby.bmod.common.entity.custom.BehemothEntity;
 import me.blubby.bmod.common.entity.custom.RotFlyEntity;
+import me.blubby.bmod.common.entity.custom.SnowFlinxEntity;
 import me.blubby.bmod.datagen.DataGenerators;
 import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
 import me.blubby.bmod.client.gui.EnderChestUpgradeScreen;
@@ -44,6 +46,7 @@ public class ModEvents {
         MenuScreens.register(ENDER_CHEST_UPGRADE_MENU.get(), EnderChestUpgradeScreen::new);
         EntityRenderers.register(ModEntities.ROT_FLY.get(), RotFlyRenderer::new);
         EntityRenderers.register(ModEntities.BEHEMOTH.get(), BehemothRenderer::new);
+        EntityRenderers.register(ModEntities.SNOW_FLINX.get(), SnowFlinxRenderer::new);
     }
 
     public static void registerEventHandlers(IEventBus modEventBus) {
@@ -59,6 +62,7 @@ public class ModEvents {
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.ROT_FLY.get(), RotFlyEntity.createAttributes().build());
         event.put(ModEntities.BEHEMOTH.get(), BehemothEntity.createAttributes().build());
+        event.put(ModEntities.SNOW_FLINX.get(), SnowFlinxEntity.createAttributes().build());
     }
 
     private static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {

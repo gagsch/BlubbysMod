@@ -58,13 +58,9 @@ public class RotFlyModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
 
-		if (entity instanceof RotFlyEntity)
-		{
-			this.root().getAllParts().forEach(ModelPart::resetPose);
-
-			this.animate(((RotFlyEntity) entity).flyingAnimationState, ModAnimationDefinitions.ROT_FLY_FLYING, ageInTicks, 1f);
-		}
+		this.animate(((RotFlyEntity) entity).flyingAnimationState, ModAnimationDefinitions.ROT_FLY_FLYING, ageInTicks, 1f);
 	}
 
 	@Override

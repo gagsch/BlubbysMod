@@ -36,5 +36,22 @@
     "sounds": [
       "blubbysmodofdoom:behemoth_death"
     ]
+  },
+
+  "snow_flinx_sniff": {
+    "sounds": [
+      "blubbysmodofdoom:snow_flinx_sniff_1",
+      "blubbysmodofdoom:snow_flinx_sniff_2"
+    ]
+  },
+  "snow_flinx_hurt": {
+    "sounds": [
+      "blubbysmodofdoom:snow_flinx_hurt"
+    ]
+  },
+  "snow_flinx_death": {
+    "sounds": [
+      "blubbysmodofdoom:snow_flinx_death"
+    ]
   }
 }

@@ -3,6 +3,7 @@ package me.blubby.bmod.common.entity;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.entity.custom.BehemothEntity;
 import me.blubby.bmod.common.entity.custom.RotFlyEntity;
+import me.blubby.bmod.common.entity.custom.SnowFlinxEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<BehemothEntity>> BEHEMOTH =
             ENTITY_TYPES.register("behemoth", () -> EntityType.Builder.of(BehemothEntity::new, MobCategory.MONSTER)
                     .sized(1f * 2, 1.8f * 2).build("behemoth"));
+    public static final RegistryObject<EntityType<SnowFlinxEntity>> SNOW_FLINX =
+            ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
+                    .sized(0.6f, 0.7f).build("snow_flinx"));
 
 
     public static void register(IEventBus eventBus) {

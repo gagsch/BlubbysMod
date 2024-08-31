@@ -9,4 +9,6 @@ public class ModModelLayers {
             new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "rot_fly_layer"), "main");
     public static final ModelLayerLocation BEHEMOTH_LAYER = new ModelLayerLocation(
             new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "behemoth_layer"), "main");
+    public static final ModelLayerLocation SNOW_FLINX_LAYER = new ModelLayerLocation(
+            new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "snow_flinx_layer"), "main");
 }

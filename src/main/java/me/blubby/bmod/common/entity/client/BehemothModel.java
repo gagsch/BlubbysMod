@@ -17,7 +17,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 
-public class Behemoth<T extends Entity> extends HierarchicalModel<T> {
+public class BehemothModel<T extends Entity> extends HierarchicalModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "behemoth"), "main");
 	private final ModelPart behemoth;
 	private final ModelPart body;
@@ -33,7 +33,7 @@ public class Behemoth<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart head;
 	private final ModelPart jaw;
 
-	public Behemoth(ModelPart root) {
+	public BehemothModel(ModelPart root) {
 		this.behemoth = root.getChild("behemoth");
 		this.body = behemoth.getChild("body");
 

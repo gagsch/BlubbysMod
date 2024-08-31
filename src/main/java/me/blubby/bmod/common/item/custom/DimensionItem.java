@@ -13,8 +13,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class BlackHoleItem extends Item {
-    public BlackHoleItem(Item.Properties properties) {
+public class DimensionItem extends Item {
+    public DimensionItem(Item.Properties properties) {
         super(properties);
     }
 
@@ -40,6 +40,11 @@ public class BlackHoleItem extends Item {
             serverPlayer.changeDimension(level.getServer().getLevel(targetDimension), new ModTeleporter(targetPosition));
         }
         return super.use(level, player, hand);
+    }
+
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return true;
     }
 
     @Override

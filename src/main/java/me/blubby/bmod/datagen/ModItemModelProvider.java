@@ -27,7 +27,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.CHRONOS_CLOCK);
         simpleItem(ModItems.ENDER_BUNDLE);
-        simpleItem(ModItems.BLACK_HOLE);
+        simpleItem(ModItems.RIFT_KEY);
         simpleItem(ModItems.LUCKY_ROCK);
 
         simpleItem(ModItems.WARDEN_CORE);
@@ -86,6 +86,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModItems.ROT_FLY_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.BEHEMOTH_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.SNOW_FLINX_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item)

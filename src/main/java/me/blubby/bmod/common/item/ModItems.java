@@ -3,7 +3,7 @@ package me.blubby.bmod.common.item;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.armor.ModArmorItem;
 import me.blubby.bmod.common.entity.ModEntities;
-import me.blubby.bmod.common.item.custom.BlackHoleItem;
+import me.blubby.bmod.common.item.custom.DimensionItem;
 import me.blubby.bmod.common.item.custom.InventoryItem;
 import me.blubby.bmod.common.item.custom.InventoryItem.inventoryItems;
 import me.blubby.bmod.common.tier.ModArmorMaterial;
@@ -33,8 +33,8 @@ public class ModItems {
             () -> new ChronosClockItem(_misc));
     public static final RegistryObject<Item> ENDER_BUNDLE = ITEMS.register("ender_bundle",
             () -> new EnderBundleItem(_misc));
-    public static final RegistryObject<Item> BLACK_HOLE = ITEMS.register("black_hole",
-            () -> new BlackHoleItem(_misc));
+    public static final RegistryObject<Item> RIFT_KEY = ITEMS.register("rift_key",
+            () -> new DimensionItem(_misc));
     public static final RegistryObject<Item> LUCKY_ROCK = ITEMS.register("lucky_rock",
             () -> new InventoryItem(_misc, inventoryItems.LuckyRock));
 
@@ -116,6 +116,8 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.ROT_FLY, 0x382946, 0xa41717, _misc));
     public static final RegistryObject<Item> BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BEHEMOTH, 0x442266, 0x111133, _misc));
+    public static final RegistryObject<Item> SNOW_FLINX_SPAWN_EGG = ITEMS.register("snow_flinx_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SNOW_FLINX, 0xddeeee, 0xfad2ac, _misc));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

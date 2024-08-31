@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class PositionUtils {
 
-    public static void savePositionToPlayer(BlockPos pos, Player player, boolean isSingularity) {
+    public static void savePositionToPlayer(BlockPos pos, Player player, boolean isConvergence) {
         CompoundTag playerData = player.getPersistentData();
 
         CompoundTag posTag = new CompoundTag();
@@ -15,16 +15,16 @@ public class PositionUtils {
         posTag.putInt("Y", pos.getY());
         posTag.putInt("Z", pos.getZ());
 
-        if (isSingularity) {
-            playerData.put("Singularity", posTag);
+        if (isConvergence) {
+            playerData.put("Convergence", posTag);
         } else {
             playerData.put("Overworld", posTag);
         }
     }
 
-    public static BlockPos loadPositionFromPlayer(Player player, boolean isSingularity) {
+    public static BlockPos loadPositionFromPlayer(Player player, boolean isConvergence) {
         CompoundTag playerData = player.getPersistentData();
-        String key = isSingularity ? "Singularity" : "Overworld";
+        String key = isConvergence ? "Convergence" : "Overworld";
 
         if (playerData.contains(key, Tag.TAG_COMPOUND)) {
             CompoundTag posTag = playerData.getCompound(key);
