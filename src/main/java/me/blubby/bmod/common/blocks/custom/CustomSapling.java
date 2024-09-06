@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+
 public class CustomSapling extends SaplingBlock implements BonemealableBlock
 {
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
@@ -78,11 +80,11 @@ public class CustomSapling extends SaplingBlock implements BonemealableBlock
     {
         Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-        if (this == ModBlocks.COSMIC_OAK_SAPLING.get())
+        if (this == sapling(COSMIC_OAK).get())
         {
             return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_GRASS.get() || ground == ModBlocks.TEKTITE_SNOW.get() || super.canSurvive(state, worldIn, pos);
         }
-        if (this == ModBlocks.EBON_SAPLING.get())
+        if (this == sapling(EBON).get())
         {
             return ground == ModBlocks.TEKTITE.get() || ground == ModBlocks.TEKTITE_NECRO.get() || super.canSurvive(state, worldIn, pos);
         }

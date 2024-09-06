@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "blubbysmodofdoom:divine_alloy"
+  },
+  "result": "blubbysmodofdoom:divine_ingot"
+}

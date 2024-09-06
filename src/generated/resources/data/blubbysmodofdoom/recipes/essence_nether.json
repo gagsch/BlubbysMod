@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "B": {
+      "item": "blubbysmodofdoom:essence_flames"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    }
+  },
+  "pattern": [
+    "#SO",
+    "NBN",
+    "OS#"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_nether"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:poppy"
+    },
+    "D": {
+      "item": "minecraft:dandelion"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "pattern": [
+    "#ED",
+    "ETE",
+    "DE#"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_blessed"
+  }
+}

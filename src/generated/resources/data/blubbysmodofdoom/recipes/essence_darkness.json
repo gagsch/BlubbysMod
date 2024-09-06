@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:sculk"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "Z": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    " # ",
+    "EZE",
+    " # "
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_darkness"
+  }
+}

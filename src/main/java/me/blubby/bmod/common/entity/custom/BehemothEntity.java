@@ -3,9 +3,11 @@ package me.blubby.bmod.common.entity.custom;
 import me.blubby.bmod.common.entity.ai.BehemothGroundHitGoal;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -126,17 +128,21 @@ public class BehemothEntity extends Monster {
 
     @Override
     public boolean checkSpawnRules(LevelAccessor world, MobSpawnType spawnReason) {
-        // Get the current position of the entity
         BlockPos pos = this.blockPosition();
 
-        // Check if the block below the entity is solid
         boolean isSolidGroundBelow = world.getBlockState(pos.below()).getMaterial().isSolid();
-
-        // Ensure that the entity is not spawning below the world (over void spaces)
         boolean isAboveVoid = pos.getY() > 0;
 
-        // Return true only if both conditions are satisfied
-        return isSolidGroundBelow && isAboveVoid;
+        if (world instanceof ServerLevel serverWorld) {
+            Player player = serverWorld.getRandomPlayer();
+            if (player != null) {
+                BlockPos playerPos = player.blockPosition();
+                double distance = playerPos.distSqr(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
+
+                return isSolidGroundBelow && isAboveVoid && distance >= 32 * 32;
+            }
+        }
+        return false;
     }
 
     @Override

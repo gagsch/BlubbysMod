@@ -1,8 +1,7 @@
 package me.blubby.bmod.common.blocks;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.custom.BurnablePillarBlock;
-import me.blubby.bmod.common.blocks.custom.CustomSapling;
+import me.blubby.bmod.common.blocks.custom.ModWood;
 import me.blubby.bmod.common.item.ModItems;
 import me.blubby.bmod.server.world.feature.tree.CosmicOakTreeGrower;
 import me.blubby.bmod.server.world.feature.tree.EbonTreeGrower;
@@ -41,99 +40,6 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> NECRIUM_ORE = registerBlock("necrium_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)), CreativeModeTab.TAB_MISC);
-
-    public static final RegistryObject<Block> COSMIC_OAK_LOG = registerBlock("cosmic_oak_log",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> COSMIC_OAK_WOOD = registerBlock("cosmic_oak_wood",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_COSMIC_OAK_LOG = registerBlock("stripped_cosmic_oak_log",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_COSMIC_OAK_WOOD = registerBlock("stripped_cosmic_oak_wood",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> COSMIC_OAK_PLANKS = registerBlock("cosmic_oak_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return true;
-                }
-
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 5;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 20;
-                }
-            }, CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> COSMIC_OAK_LEAVES = registerBlock("cosmic_oak_leaves",
-            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)
-                    .requiresCorrectToolForDrops()) {
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return true;
-                }
-
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 30;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 60;
-                }
-            }, CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> COSMIC_OAK_SAPLING = registerBlock("cosmic_oak_sapling",
-            () -> new CustomSapling(new CosmicOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
-
-
-    public static final RegistryObject<Block> EBON_LOG = registerBlock("ebon_log",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> EBON_WOOD = registerBlock("ebon_wood",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_EBON_LOG = registerBlock("stripped_ebon_log",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> STRIPPED_EBON_WOOD = registerBlock("stripped_ebon_wood",
-            () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> EBON_PLANKS = registerBlock("ebon_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return true;
-                }
-
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 5;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 20;
-                }
-            }, CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> EBON_LEAVES = registerBlock("ebon_leaves",
-            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)
-                    .requiresCorrectToolForDrops()) {
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return true;
-                }
-
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 30;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 60;
-                }
-            }, CreativeModeTab.TAB_MISC);
-    public static final RegistryObject<Block> EBON_SAPLING = registerBlock("ebon_sapling",
-            () -> new CustomSapling(new EbonTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)), CreativeModeTab.TAB_MISC);

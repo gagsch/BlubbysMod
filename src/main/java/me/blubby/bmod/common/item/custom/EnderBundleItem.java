@@ -10,14 +10,13 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
 
-public class EnderBundleItem extends Item {
+public class EnderBundleItem extends ToolTipItem {
     public EnderBundleItem(Properties properties) {
-        super(properties);
+        super(properties, ToolTips.ender_bundle);
     }
 
     @Override

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:essence_infinity"
+  },
+  "base": {
+    "item": "blubbysmodofdoom:soul_space"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:rift_key"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "d": {
+      "item": "blubbysmodofdoom:divine_ingot"
+    },
+    "s": {
+      "item": "minecraft:sunflower"
+    }
+  },
+  "pattern": [
+    " d ",
+    "dsd",
+    " d "
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_day"
+  }
+}

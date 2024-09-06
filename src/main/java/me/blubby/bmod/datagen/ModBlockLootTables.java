@@ -1,14 +1,13 @@
 package me.blubby.bmod.datagen;
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.blocks.custom.ModWood;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -21,13 +20,17 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+
 public class ModBlockLootTables extends BlockLoot {
+    private final Set<String> registeredBlockLoot = new HashSet<>();
+
     @Override
     protected void addTables() {
-        dropSelf(ModBlocks.TEKTITE.get());
-        dropSelf(ModBlocks.COMPRESSED_TEKTITE.get());
         dropOther(ModBlocks.TEKTITE_GRASS.get(), ModBlocks.TEKTITE.get());
         dropOther(ModBlocks.TEKTITE_NECRO.get(), ModBlocks.TEKTITE.get());
         dropOther(ModBlocks.TEKTITE_SNOW.get(), ModBlocks.TEKTITE.get());
@@ -38,25 +41,22 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
 
         add(ModBlocks.DEAD_TISSUE_BLOCK.get(), createSingleItemTable(Items.ROTTEN_FLESH, UniformGenerator.between(1, 4)));
-        dropSelf(ModBlocks.FOSSILIZED_BONE_BLOCK.get());
 
-        dropSelf(ModBlocks.COSMIC_OAK_LOG.get());
-        dropSelf(ModBlocks.COSMIC_OAK_WOOD.get());
-        dropSelf(ModBlocks.STRIPPED_COSMIC_OAK_LOG.get());
-        dropSelf(ModBlocks.STRIPPED_COSMIC_OAK_WOOD.get());
-        add(ModBlocks.COSMIC_OAK_LEAVES.get(), (block) ->
-                createCosmicOakLeavesDrops(block, ModBlocks.COSMIC_OAK_SAPLING.get(), 0.1F));
-        dropSelf(ModBlocks.COSMIC_OAK_PLANKS.get());
-        dropSelf(ModBlocks.COSMIC_OAK_SAPLING.get());
+        add(ModWood.leaves(COSMIC_OAK).get(), (block) ->
+                createCosmicOakLeavesDrops(block, ModWood.sapling(COSMIC_OAK).get(), 0.1F));
+        add(ModWood.leaves(EBON).get(), (block) ->
+                createCosmicOakLeavesDrops(block, ModWood.sapling(EBON).get(), 0.1F));
 
-        dropSelf(ModBlocks.EBON_LOG.get());
-        dropSelf(ModBlocks.EBON_WOOD.get());
-        dropSelf(ModBlocks.STRIPPED_EBON_LOG.get());
-        dropSelf(ModBlocks.STRIPPED_EBON_WOOD.get());
-        add(ModBlocks.EBON_LEAVES.get(), (block) ->
-                createCosmicOakLeavesDrops(block, ModBlocks.EBON_SAPLING.get(), 0.1F));
-        dropSelf(ModBlocks.EBON_PLANKS.get());
-        dropSelf(ModBlocks.EBON_SAPLING.get());
+        registeredBlockLoot.add(ModBlocks.TEKTITE_GRASS.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.TEKTITE_NECRO.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.TEKTITE_SNOW.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.COSMILITE_ORE.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.NECRIUM_ORE.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.DEAD_TISSUE_BLOCK.getId().getPath());
+        registeredBlockLoot.add(ModWood.leaves(COSMIC_OAK).getId().getPath());
+        registeredBlockLoot.add(ModWood.leaves(EBON).getId().getPath());
+
+        dropSelfForUnset();
     }
 
     @Override
@@ -64,6 +64,16 @@ public class ModBlockLootTables extends BlockLoot {
         return ModBlocks.BLOCKS.getEntries().stream()
                 .map(RegistryObject::get)
                 .collect(Collectors.toList());
+    }
+
+    public void dropSelfForUnset() {
+        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
+        {
+            String path = block.getId().getPath();
+            if (!registeredBlockLoot.contains(path)) {
+                dropSelf(block.get());
+            }
+        }
     }
 
     protected static LootTable.Builder createCosmicOakLeavesDrops(Block fromBlock, Block toBlock, float... chance) {

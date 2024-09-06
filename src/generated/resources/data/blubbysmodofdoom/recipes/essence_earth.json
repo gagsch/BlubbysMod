@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "blubbysmodofdoom:essence_sea"
+    },
+    "H": {
+      "item": "blubbysmodofdoom:essence_life"
+    },
+    "W": {
+      "item": "blubbysmodofdoom:essence_planets"
+    }
+  },
+  "pattern": [
+    "BWH"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_earth"
+  }
+}

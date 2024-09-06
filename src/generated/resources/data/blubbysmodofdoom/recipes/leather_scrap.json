@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "cookingtime": 100,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "result": "blubbysmodofdoom:leather_scrap"
+}

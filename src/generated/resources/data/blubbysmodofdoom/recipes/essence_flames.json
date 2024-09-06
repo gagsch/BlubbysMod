@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "/": {
+      "item": "minecraft:blaze_rod"
+    },
+    "F": {
+      "item": "minecraft:fire_charge"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "pattern": [
+    "/N/",
+    "FLF",
+    "/N/"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_flames"
+  }
+}

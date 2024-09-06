@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "n": {
+      "item": "blubbysmodofdoom:nightmare_ingot"
+    },
+    "p": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "pattern": [
+    " p ",
+    "pnp",
+    " p "
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_night"
+  }
+}

@@ -1,6 +1,7 @@
 package me.blubby.bmod;
 
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.blocks.custom.ModWood;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.events.BlockBreakEvent;
 import me.blubby.bmod.common.item.ModItems;
@@ -10,7 +11,10 @@ import me.blubby.bmod.server.world.feature.ModPlacedFeatures;
 import me.blubby.bmod.common.events.BlubbySoundEvent;
 import me.blubby.bmod.common.events.EntityDeathEvent;
 import me.blubby.bmod.common.events.ModEvents;
+import me.blubby.bmod.server.world.feature.tree.CosmicOakTreeGrower;
+import me.blubby.bmod.server.world.feature.tree.EbonTreeGrower;
 import me.blubby.bmod.server.world.structure_types.StructureTypes;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +28,9 @@ public class Blubby_sModOfDoom {
 
   public Blubby_sModOfDoom() {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+    ModWood.registerWood(ModWood.COSMIC_OAK, new CosmicOakTreeGrower(), CreativeModeTab.TAB_MISC);
+    ModWood.registerWood(ModWood.EBON, new EbonTreeGrower(), CreativeModeTab.TAB_MISC);
 
     ModItems.ITEMS.register(modEventBus);
     ModBlocks.BLOCKS.register(modEventBus);

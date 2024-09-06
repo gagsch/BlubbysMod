@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "blubbysmodofdoom:essence_death"
+    },
+    "L": {
+      "item": "blubbysmodofdoom:essence_life"
+    },
+    "b": {
+      "item": "blubbysmodofdoom:divine_ingot"
+    },
+    "t": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "pattern": [
+    " b ",
+    "LtD",
+    " b "
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:totem_of_dreaming"
+  }
+}

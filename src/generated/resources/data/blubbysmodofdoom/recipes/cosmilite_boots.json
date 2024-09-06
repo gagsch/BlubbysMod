@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:cosmilite_ingot"
+  },
+  "base": {
+    "item": "blubbysmodofdoom:divine_boots"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:cosmilite_boots"
+  }
+}

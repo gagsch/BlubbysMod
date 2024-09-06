@@ -4,19 +4,18 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class InventoryItem extends Item {
+public class InventoryItem extends ToolTipItem {
     public enum inventoryItems {
         LuckyRock,
         Flames
     };
 
-    public InventoryItem(Properties properties, inventoryItems i) {
-        super(properties);
-        this.inventoryItem = i;
+    public InventoryItem(Properties properties, inventoryItems inventoryItem, ToolTipItem.ToolTips toolTips) {
+        super(properties, toolTips);
+        this.inventoryItem = inventoryItem;
     }
 
     inventoryItems inventoryItem;

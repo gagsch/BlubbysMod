@@ -2,17 +2,13 @@ package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
-import net.minecraft.core.Direction;
+import static me.blubby.bmod.common.blocks.custom.ModWood.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.state.properties.DoorHingeSide;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,21 +41,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK, blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
         blockWithItem(ModBlocks.DEAD_TISSUE_BLOCK);
 
-        axisBlockWithItem(ModBlocks.COSMIC_OAK_LOG, blockLoc(ModBlocks.COSMIC_OAK_LOG), blockLoc(ModBlocks.COSMIC_OAK_LOG, "top"));
-        axisBlockWithItem(ModBlocks.COSMIC_OAK_WOOD, blockLoc(ModBlocks.COSMIC_OAK_LOG), blockLoc(ModBlocks.COSMIC_OAK_LOG));
-        axisBlockWithItem(ModBlocks.STRIPPED_COSMIC_OAK_LOG, blockLoc(ModBlocks.STRIPPED_COSMIC_OAK_LOG), blockLoc(ModBlocks.STRIPPED_COSMIC_OAK_LOG, "top"));
-        axisBlockWithItem(ModBlocks.STRIPPED_COSMIC_OAK_WOOD, blockLoc(ModBlocks.STRIPPED_COSMIC_OAK_LOG), blockLoc(ModBlocks.STRIPPED_COSMIC_OAK_LOG));
-        blockWithItem(ModBlocks.COSMIC_OAK_LEAVES);
-        blockWithItem(ModBlocks.COSMIC_OAK_PLANKS);
-        saplingBlock(ModBlocks.COSMIC_OAK_SAPLING);
+        axisBlockWithItem(log(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK), "top"));
+        axisBlockWithItem(wood(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK)));
+        axisBlockWithItem(strippedLog(COSMIC_OAK), blockLoc(strippedLog(COSMIC_OAK)), blockLoc(strippedLog(COSMIC_OAK), "top"));
+        axisBlockWithItem(strippedWood(COSMIC_OAK), blockLoc(strippedLog(COSMIC_OAK)), blockLoc(strippedLog(COSMIC_OAK)));
+        blockWithItem(leaves(COSMIC_OAK));
+        blockWithItem(planks(COSMIC_OAK));
+        saplingBlock(sapling(COSMIC_OAK));
 
-        axisBlockWithItem(ModBlocks.EBON_LOG, blockLoc(ModBlocks.EBON_LOG), blockLoc(ModBlocks.EBON_LOG, "top"));
-        axisBlockWithItem(ModBlocks.EBON_WOOD, blockLoc(ModBlocks.EBON_LOG), blockLoc(ModBlocks.EBON_LOG));
-        axisBlockWithItem(ModBlocks.STRIPPED_EBON_LOG, blockLoc(ModBlocks.STRIPPED_EBON_LOG), blockLoc(ModBlocks.STRIPPED_EBON_LOG, "top"));
-        axisBlockWithItem(ModBlocks.STRIPPED_EBON_WOOD, blockLoc(ModBlocks.STRIPPED_EBON_LOG), blockLoc(ModBlocks.STRIPPED_EBON_LOG));
-        blockWithItem(ModBlocks.EBON_LEAVES);
-        blockWithItem(ModBlocks.EBON_PLANKS);
-        saplingBlock(ModBlocks.EBON_SAPLING);
+        axisBlockWithItem(log(EBON), blockLoc(log(EBON)), blockLoc(log(EBON), "top"));
+        axisBlockWithItem(wood(EBON), blockLoc(log(EBON)), blockLoc(log(EBON)));
+        axisBlockWithItem(strippedLog(EBON), blockLoc(strippedLog(EBON)), blockLoc(strippedLog(EBON), "top"));
+        axisBlockWithItem(strippedWood(EBON), blockLoc(strippedLog(EBON)), blockLoc(strippedLog(EBON)));
+        blockWithItem(leaves(EBON));
+        blockWithItem(planks(EBON));
+        saplingBlock(sapling(EBON));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject)

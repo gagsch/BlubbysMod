@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:essence_light"
+  },
+  "base": {
+    "item": "minecraft:nether_star"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:essence_stars"
+  }
+}

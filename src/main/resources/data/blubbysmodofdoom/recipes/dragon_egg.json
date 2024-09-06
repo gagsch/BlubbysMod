@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:end_crystal"
+        },
+        {
+            "item": "minecraft:end_crystal"
+        },
+        {
+            "item": "minecraft:dragon_egg"
+        },
+        {
+            "item": "minecraft:end_crystal"
+        },
+        {
+            "item": "minecraft:end_crystal"
+        }
+    ],
+    "result": {
+        "item": "minecraft:dragon_egg",
+        "count": 1
+    }
+}

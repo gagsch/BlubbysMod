@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmodofdoom:soul_elements"
+    },
+    {
+      "item": "blubbysmodofdoom:soul_dimensions"
+    },
+    {
+      "item": "blubbysmodofdoom:soul_space"
+    },
+    {
+      "item": "blubbysmodofdoom:soul_time"
+    },
+    {
+      "item": "blubbysmodofdoom:soul_balance"
+    },
+    {
+      "item": "blubbysmodofdoom:essence_infinity"
+    }
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:soul_infinity"
+  }
+}

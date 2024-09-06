@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "blubbysmodofdoom:essence_blessed"
+    },
+    "s": {
+      "item": "blubbysmodofdoom:soul_fragment"
+    }
+  },
+  "pattern": [
+    "###",
+    "BsB",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "blubbysmodofdoom:divine_alloy"
+  }
+}

@@ -9,9 +9,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class ChronosClockItem extends Item {
+public class ChronosClockItem extends ToolTipItem {
     public ChronosClockItem(Item.Properties properties) {
-        super(properties);
+        super(properties, ToolTips.chronos_clock);
     }
 
     @Override

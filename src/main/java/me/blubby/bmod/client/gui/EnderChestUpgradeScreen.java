@@ -2,6 +2,7 @@ package me.blubby.bmod.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -9,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class EnderChestUpgradeScreen extends AbstractContainerScreen<EnderChestUpgradeContainer> {
-    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation("textures/gui/container/generic_54.png");
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "textures/gui/void_bundle.png");
 
     public EnderChestUpgradeScreen(EnderChestUpgradeContainer screenContainer, Inventory inv, Component titleIn) {
         super(screenContainer, inv, titleIn);

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:essence_blessed"
+  },
+  "base": {
+    "item": "blubbysmodofdoom:essence_stone"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:lucky_rock"
+  }
+}

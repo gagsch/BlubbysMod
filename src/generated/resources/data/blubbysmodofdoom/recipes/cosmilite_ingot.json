@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "blubbysmodofdoom:cosmilite_chunk"
+    },
+    "c": {
+      "item": "blubbysmodofdoom:concentrated_dark_matter"
+    }
+  },
+  "pattern": [
+    "###",
+    "#c#",
+    "###"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:cosmilite_ingot"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:nightmare_ingot"
+  },
+  "base": {
+    "item": "blubbysmodofdoom:divine_chestplate"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:nightmare_chestplate"
+  }
+}

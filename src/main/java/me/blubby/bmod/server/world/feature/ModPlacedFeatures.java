@@ -1,7 +1,7 @@
 package me.blubby.bmod.server.world.feature;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.blocks.custom.ModWood;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -13,13 +13,15 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
+import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+
 public class ModPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Blubby_sModOfDoom.MOD_ID);
 
     public static final RegistryObject<PlacedFeature> COSMIC_OAK_CHECKED = PLACED_FEATURES.register("cosmic_oak_checked",
             () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK.getHolder().get(),
-                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.COSMIC_OAK_SAPLING.get()))));
+                    List.of(PlacementUtils.filteredByBlockSurvival(sapling(COSMIC_OAK).get()))));
 
     public static final RegistryObject<PlacedFeature> COSMIC_OAK_PLACED = PLACED_FEATURES.register("cosmic_oak_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.COSMIC_OAK_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
@@ -27,7 +29,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> EBON_CHECKED = PLACED_FEATURES.register("ebon_checked",
             () -> new PlacedFeature(ModConfiguredFeatures.EBON.getHolder().get(),
-                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.EBON_SAPLING.get()))));
+                    List.of(PlacementUtils.filteredByBlockSurvival(sapling(EBON).get()))));
 
     public static final RegistryObject<PlacedFeature> EBON_PLACED = PLACED_FEATURES.register("ebon_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.EBON_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(

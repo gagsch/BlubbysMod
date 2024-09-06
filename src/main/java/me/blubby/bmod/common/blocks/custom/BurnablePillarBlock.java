@@ -1,6 +1,5 @@
 package me.blubby.bmod.common.blocks.custom;
 
-import me.blubby.bmod.common.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;
@@ -11,6 +10,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 
 import javax.annotation.Nullable;
+
+import static me.blubby.bmod.common.blocks.custom.ModWood.COSMIC_OAK;
+import static me.blubby.bmod.common.blocks.custom.ModWood.EBON;
 
 public class BurnablePillarBlock extends RotatedPillarBlock {
     public BurnablePillarBlock(Properties pProperties)
@@ -41,22 +43,22 @@ public class BurnablePillarBlock extends RotatedPillarBlock {
     {
         if(context.getItemInHand().getItem() instanceof AxeItem)
         {
-            if(state.is(ModBlocks.COSMIC_OAK_LOG.get()))
+            if(state.is(ModWood.log(COSMIC_OAK).get()))
             {
-               return ModBlocks.STRIPPED_COSMIC_OAK_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+               return ModWood.strippedLog(COSMIC_OAK).get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
-            if(state.is(ModBlocks.COSMIC_OAK_WOOD.get()))
+            if(state.is(ModWood.wood(COSMIC_OAK).get()))
             {
-                return ModBlocks.STRIPPED_COSMIC_OAK_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+                return ModWood.strippedWood(COSMIC_OAK).get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
 
-            if(state.is(ModBlocks.EBON_LOG.get()))
+            if(state.is(ModWood.log(EBON).get()))
             {
-                return ModBlocks.STRIPPED_EBON_LOG.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+                return ModWood.strippedLog(EBON).get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
-            if(state.is(ModBlocks.EBON_WOOD.get()))
+            if(state.is(ModWood.wood(EBON).get()))
             {
-                return ModBlocks.STRIPPED_EBON_WOOD.get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
+                return ModWood.strippedWood(EBON).get().defaultBlockState().setValue(AXIS,state.getValue(AXIS));
             }
         }
 
