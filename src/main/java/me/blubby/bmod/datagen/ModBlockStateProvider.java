@@ -2,17 +2,21 @@ package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
+
+import me.blubby.bmod.common.blocks.custom.HotPepperCropBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -41,6 +45,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK, blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
         blockWithItem(ModBlocks.DEAD_TISSUE_BLOCK);
 
+        cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP, 5, age -> new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "block/hot_pepper_stage" + age));
+
         axisBlockWithItem(log(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK), "top"));
         axisBlockWithItem(wood(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK)));
         axisBlockWithItem(strippedLog(COSMIC_OAK), blockLoc(strippedLog(COSMIC_OAK)), blockLoc(strippedLog(COSMIC_OAK), "top"));
@@ -55,7 +61,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlockWithItem(strippedWood(EBON), blockLoc(strippedLog(EBON)), blockLoc(strippedLog(EBON)));
         blockWithItem(leaves(EBON));
         blockWithItem(planks(EBON));
-        saplingBlock(sapling(EBON));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject)
@@ -86,6 +91,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void cropBlockWithAges(RegistryObject<Block> blockRegistryObject, int maxAge, Function<Integer, ResourceLocation> ageTextureLocationFunction) {
+        Block block = blockRegistryObject.get();
+
+        for (int age = 0; age <= maxAge; age++) {
+            models().withExistingParent(getName(blockRegistryObject) + "_stage" + age, "minecraft:block/crop")
+                    .texture("crop", ageTextureLocationFunction.apply(age))
+                    .renderType("cutout");
+        }
+
+        getVariantBuilder(block).forAllStates(state -> {
+            int age = state.getValue(HotPepperCropBlock.AGE);
+            return ConfiguredModel.builder()
+                    .modelFile(models().getExistingFile(new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "block/" + getName(blockRegistryObject) + "_stage" + age)))
+                    .build();
+        });
     }
 
     public String getName(Supplier<? extends Block> block) {

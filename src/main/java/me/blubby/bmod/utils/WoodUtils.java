@@ -1,7 +1,9 @@
-package me.blubby.bmod.common.blocks.custom;
+package me.blubby.bmod.utils;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.blocks.custom.BurnablePillarBlock;
+import me.blubby.bmod.common.blocks.custom.CustomSapling;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class ModWood {
+public class WoodUtils {
     private static final Map<String, RegistryObject<Block>> registeredBlocks = new HashMap<>();
 
     public static final String COSMIC_OAK = "cosmic_oak";

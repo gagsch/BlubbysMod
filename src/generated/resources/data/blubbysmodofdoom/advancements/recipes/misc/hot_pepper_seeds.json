@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blessed_alloy": {
+    "has_flames": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmodofdoom:divine_alloy"
+              "blubbysmodofdoom:essence_flames"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blubbysmodofdoom:divine_ingot"
+        "recipe": "blubbysmodofdoom:hot_pepper_seeds"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_blessed_alloy",
+      "has_flames",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blubbysmodofdoom:divine_ingot"
+      "blubbysmodofdoom:hot_pepper_seeds"
     ]
   }
 }

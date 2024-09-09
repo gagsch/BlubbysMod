@@ -1,6 +1,7 @@
 package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
+import me.blubby.bmod.common.blocks.ModBlocks;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -15,7 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.HashSet;
 import java.util.Set;
 
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
     private final Set<String> registeredItems = new HashSet<>();
@@ -28,6 +29,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         specialBlockItem(sapling(COSMIC_OAK));
         specialBlockItem(sapling(EBON));
+        simpleItem(ModItems.HOT_PEPPER_SEEDS);
 
         spawnEggItem(ModItems.ROT_FLY_SPAWN_EGG);
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);

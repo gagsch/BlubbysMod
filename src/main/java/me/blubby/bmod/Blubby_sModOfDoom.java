@@ -1,7 +1,7 @@
 package me.blubby.bmod;
 
 import me.blubby.bmod.common.blocks.ModBlocks;
-import me.blubby.bmod.common.blocks.custom.ModWood;
+import me.blubby.bmod.utils.WoodUtils;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.events.BlockBreakEvent;
 import me.blubby.bmod.common.item.ModItems;
@@ -29,8 +29,8 @@ public class Blubby_sModOfDoom {
   public Blubby_sModOfDoom() {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-    ModWood.registerWood(ModWood.COSMIC_OAK, new CosmicOakTreeGrower(), CreativeModeTab.TAB_MISC);
-    ModWood.registerWood(ModWood.EBON, new EbonTreeGrower(), CreativeModeTab.TAB_MISC);
+    WoodUtils.registerWood(WoodUtils.COSMIC_OAK, new CosmicOakTreeGrower(), CreativeModeTab.TAB_MISC);
+    WoodUtils.registerWood(WoodUtils.EBON, new EbonTreeGrower(), CreativeModeTab.TAB_MISC);
 
     ModItems.ITEMS.register(modEventBus);
     ModBlocks.BLOCKS.register(modEventBus);

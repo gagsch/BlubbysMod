@@ -1,7 +1,6 @@
 package me.blubby.bmod.server.world.feature;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.custom.ModWood;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -13,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
 
 public class ModPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =

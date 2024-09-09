@@ -1,7 +1,7 @@
 package me.blubby.bmod.common.item;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.armor.ModArmorItem;
+import me.blubby.bmod.common.blocks.ModBlocks;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.item.custom.*;
 import me.blubby.bmod.common.item.custom.InventoryItem.inventoryItems;
@@ -9,9 +9,13 @@ import me.blubby.bmod.common.tier.ModArmorMaterial;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,15 +23,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import static me.blubby.bmod.common.item.custom.ToolTipItem.ToolTips.*;
+import static me.blubby.bmod.utils.ItemUtils.*;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS
             = DeferredRegister.create(ForgeRegistries.ITEMS, Blubby_sModOfDoom.MOD_ID);
 
-    static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1).stacksTo(64);
-    static Item.Properties _combat = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
-
     public static final TagKey<Item> bossCores = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "boss_cores"));
+
+    public static Item.Properties _misc = new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1).stacksTo(64);
+    public static Item.Properties _food = new Item.Properties().tab(CreativeModeTab.TAB_FOOD).durability(-1).stacksTo(64);
+    public static Item.Properties _combat = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
 
     public static final RegistryObject<Item> BLUBBY_COIN = ITEMS.register("blubby_coin", () -> new Item(_misc));
 
@@ -41,7 +47,18 @@ public class ModItems {
     public static final RegistryObject<Item> LUCKY_ROCK = ITEMS.register("lucky_rock",
             () -> new InventoryItem(_misc, inventoryItems.LuckyRock, lucky_rock));
     public static final RegistryObject<Item> TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
-            () -> new ToolTipItem(_combat, totem_of_dreams));
+            () -> new ToolTipItem(_combat.stacksTo(1), totem_of_dreams));
+    public static final RegistryObject<Item> HOT_PEPPER = ITEMS.register("hot_pepper",
+            () -> new ToolTipItem(_food.food(new FoodProperties.Builder()
+                    .nutrition(3)
+                    .saturationMod(3F)
+                    .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1), 1F)
+                    .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 400, 0), 1F)
+                    .alwaysEat()
+                    .build()
+            ), hot_pepper));
+    public static final RegistryObject<Item> HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get() ,_misc));
 
 
     // Materials
@@ -56,73 +73,71 @@ public class ModItems {
 
     // Nightmare Stuff
     public static final RegistryObject<Item> NIGHTMARE_INGOT = ITEMS.register("nightmare_ingot", () -> new Item(_misc));
-    public static final RegistryObject<Item> NIGHTMARE_HELMET = ITEMS.register("nightmare_helmet",
-            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.HEAD, _combat.durability(66 * 6)));
-    public static final RegistryObject<Item> NIGHTMARE_CHESTPLATE = ITEMS.register("nightmare_chestplate",
-            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.CHEST, _combat.durability(66 * 13)));
-    public static final RegistryObject<Item> NIGHTMARE_LEGGINGS = ITEMS.register("nightmare_leggings",
-            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.LEGS, _combat.durability(66 * 13)));
-    public static final RegistryObject<Item> NIGHTMARE_BOOTS = ITEMS.register("nightmare_boots",
-            () -> new ModArmorItem(ModArmorMaterial.NIGHTMARE, EquipmentSlot.FEET, _combat.durability(66 * 6)));
+
     // Cosmilite Stuff
     public static final RegistryObject<Item> COSMILITE_CHUNK = ITEMS.register("cosmilite_chunk", () -> new Item(_misc));
     public static final RegistryObject<Item> COSMILITE_INGOT = ITEMS.register("cosmilite_ingot", () -> new Item(_misc));
-    public static final RegistryObject<Item> COSMILITE_HELMET = ITEMS.register("cosmilite_helmet",
-            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.HEAD, _combat.durability(80 * 8)));
-    public static final RegistryObject<Item> COSMILITE_CHESTPLATE = ITEMS.register("cosmilite_chestplate",
-            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.CHEST, _combat.durability(80 * 18)));
-    public static final RegistryObject<Item> COSMILITE_LEGGINGS = ITEMS.register("cosmilite_leggings",
-            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.LEGS, _combat.durability(80 * 16)));
-    public static final RegistryObject<Item> COSMILITE_BOOTS = ITEMS.register("cosmilite_boots",
-            () -> new ModArmorItem(ModArmorMaterial.COSMILITE, EquipmentSlot.FEET, _combat.durability(80 * 8)));
+
     // Divine Stuff
     public static final RegistryObject<Item> DIVINE_ALLOY = ITEMS.register("divine_alloy", () -> new Item(_misc));
-    public static final RegistryObject<Item> DIVINE_INGOT = ITEMS.register("divine_ingot", () -> new Item(_misc));
-    public static final RegistryObject<Item> DIVINE_HELMET = ITEMS.register("divine_helmet",
-            () -> new ModArmorItem(ModArmorMaterial.DIVINE, EquipmentSlot.HEAD, _combat.durability(77 * 7)));
-    public static final RegistryObject<Item> DIVINE_CHESTPLATE = ITEMS.register("divine_chestplate",
-            () -> new ModArmorItem(ModArmorMaterial.DIVINE, EquipmentSlot.CHEST, _combat.durability(77 * 7)));
-    public static final RegistryObject<Item> DIVINE_LEGGINGS = ITEMS.register("divine_leggings",
-            () -> new ModArmorItem(ModArmorMaterial.DIVINE, EquipmentSlot.LEGS, _combat.durability(77 * 7)));
-    public static final RegistryObject<Item> DIVINE_BOOTS = ITEMS.register("divine_boots",
-            () -> new ModArmorItem(ModArmorMaterial.DIVINE, EquipmentSlot.FEET, _combat.durability(77 * 7)));
-
 
     // Necrium Stuff
     public static final RegistryObject<Item> NECRIUM_CHUNK = ITEMS.register("necrium_chunk", () -> new Item(_misc));
+    public static final RegistryObject<Item> NECRIUM_INGOT = ITEMS.register("necrium_ingot", () -> new Item(_misc));
+
+    // Armor
+    public static final RegistryObject<Item>
+            // Divine
+            DIVINE_HELMET = equipment(ModArmorMaterial.DIVINE, EquipmentSlot.HEAD),
+            DIVINE_CHESTPLATE = equipment(ModArmorMaterial.DIVINE, EquipmentSlot.CHEST),
+            DIVINE_LEGGINGS = equipment(ModArmorMaterial.DIVINE, EquipmentSlot.LEGS),
+            DIVINE_BOOTS = equipment(ModArmorMaterial.DIVINE, EquipmentSlot.FEET),
+
+            // Cosmilite
+            COSMILITE_HELMET = equipment(ModArmorMaterial.COSMILITE, EquipmentSlot.HEAD),
+            COSMILITE_CHESTPLATE = equipment(ModArmorMaterial.COSMILITE, EquipmentSlot.CHEST),
+            COSMILITE_LEGGINGS = equipment(ModArmorMaterial.COSMILITE, EquipmentSlot.LEGS),
+            COSMILITE_BOOTS = equipment(ModArmorMaterial.COSMILITE, EquipmentSlot.FEET),
+
+            // Nightmare
+            NIGHTMARE_HELMET = equipment(ModArmorMaterial.NIGHTMARE, EquipmentSlot.HEAD),
+            NIGHTMARE_CHESTPLATE = equipment(ModArmorMaterial.NIGHTMARE, EquipmentSlot.CHEST),
+            NIGHTMARE_LEGGINGS = equipment(ModArmorMaterial.NIGHTMARE, EquipmentSlot.LEGS),
+            NIGHTMARE_BOOTS = equipment(ModArmorMaterial.NIGHTMARE, EquipmentSlot.FEET);
 
 
-    // Essence
-    public static final RegistryObject<Item> ESSENCE_BLESSED = ITEMS.register("essence_blessed", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_CONVERGENCE = ITEMS.register("essence_convergence", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_DARKNESS = ITEMS.register("essence_darkness", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_DAY = ITEMS.register("essence_day", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_DEATH = ITEMS.register("essence_death", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_DOOM = ITEMS.register("essence_doom", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_END = ITEMS.register("essence_end", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_OVERWORLD = ITEMS.register("essence_earth", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_ENERGY = ITEMS.register("essence_energy", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_FLAMES = ITEMS.register("essence_flames", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_INFINITY = ITEMS.register("essence_infinity", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_LIFE = ITEMS.register("essence_life", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_LIGHT = ITEMS.register("essence_light", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_NETHER = ITEMS.register("essence_nether", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_NIGHT = ITEMS.register("essence_night", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_PLANETS = ITEMS.register("essence_planets", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_SEA = ITEMS.register("essence_sea", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_STARS = ITEMS.register("essence_stars", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_STONE = ITEMS.register("essence_stone", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_TUNDRA = ITEMS.register("essence_tundra", () -> new Item(_misc));
-    public static final RegistryObject<Item> ESSENCE_VOID = ITEMS.register("essence_void", () -> new Item(_misc));
+    // Essences and Souls
+    public static final RegistryObject<Item>
+            // Essences
+            ESSENCE_BLESSED = essence("blessed"),
+            ESSENCE_CONVERGENCE = essence("convergence"),
+            ESSENCE_DARKNESS = essence("darkness"),
+            ESSENCE_DAY = essence("day"),
+            ESSENCE_DEATH = essence("death"),
+            ESSENCE_DOOM = essence("doom"),
+            ESSENCE_END = essence("end"),
+            ESSENCE_OVERWORLD = essence("earth"),
+            ESSENCE_ENERGY = essence("energy"),
+            ESSENCE_FLAMES = essence("flames"),
+            ESSENCE_INFINITY = essence("infinity"),
+            ESSENCE_LIFE = essence("life"),
+            ESSENCE_LIGHT = essence("light"),
+            ESSENCE_NETHER = essence("nether"),
+            ESSENCE_NIGHT = essence("night"),
+            ESSENCE_PLANETS = essence("planets"),
+            ESSENCE_SEA = essence("sea"),
+            ESSENCE_STARS = essence("stars"),
+            ESSENCE_STONE = essence("stone"),
+            ESSENCE_TUNDRA = essence("tundra"),
+            ESSENCE_VOID = essence("void"),
 
-
-    // Souls
-    public static final RegistryObject<Item> SOUL_BALANCE = ITEMS.register("soul_balance", () -> new Item(_misc));
-    public static final RegistryObject<Item> SOUL_DIMENSIONS = ITEMS.register("soul_dimensions", () -> new Item(_misc));
-    public static final RegistryObject<Item> SOUL_ELEMENTS = ITEMS.register("soul_elements", () -> new Item(_misc));
-    public static final RegistryObject<Item> SOUL_SPACE = ITEMS.register("soul_space", () -> new Item(_misc));
-    public static final RegistryObject<Item> SOUL_TIME = ITEMS.register("soul_time", () -> new Item(_misc));
-    public static final RegistryObject<Item> SOUL_INFINITY = ITEMS.register("soul_infinity", () -> new Item(_misc));
+            // Souls
+            SOUL_BALANCE = soul("balance"),
+            SOUL_DIMENSIONS = soul("dimensions"),
+            SOUL_ELEMENTS = soul("elements"),
+            SOUL_SPACE = soul("space"),
+            SOUL_TIME = soul("time"),
+            SOUL_INFINITY = soul("infinity");
 
 
     // Spawn Eggs

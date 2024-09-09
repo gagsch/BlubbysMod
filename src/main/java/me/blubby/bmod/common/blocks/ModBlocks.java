@@ -1,10 +1,8 @@
 package me.blubby.bmod.common.blocks;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.custom.ModWood;
+import me.blubby.bmod.common.blocks.custom.HotPepperCropBlock;
 import me.blubby.bmod.common.item.ModItems;
-import me.blubby.bmod.server.world.feature.tree.CosmicOakTreeGrower;
-import me.blubby.bmod.server.world.feature.tree.EbonTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -44,7 +42,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)), CreativeModeTab.TAB_MISC);
     public static final RegistryObject<Block> DEAD_TISSUE_BLOCK = registerBlock("dead_tissue_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK)){
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD)){
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -60,6 +58,11 @@ public class ModBlocks {
                     return 20;
                 }
             }, CreativeModeTab.TAB_MISC);
+
+    public static final RegistryObject<Block> HOT_PEPPER_CROP = BLOCKS.register("hot_pepper",
+            () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

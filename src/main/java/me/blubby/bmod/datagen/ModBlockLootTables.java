@@ -1,6 +1,6 @@
 package me.blubby.bmod.datagen;
 import me.blubby.bmod.common.blocks.ModBlocks;
-import me.blubby.bmod.common.blocks.custom.ModWood;
+import me.blubby.bmod.utils.WoodUtils;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
 
 public class ModBlockLootTables extends BlockLoot {
     private final Set<String> registeredBlockLoot = new HashSet<>();
@@ -41,11 +41,12 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
 
         add(ModBlocks.DEAD_TISSUE_BLOCK.get(), createSingleItemTable(Items.ROTTEN_FLESH, UniformGenerator.between(1, 4)));
+        add(ModBlocks.HOT_PEPPER_CROP.get(), createSingleItemTable(ModItems.HOT_PEPPER.get(), UniformGenerator.between(1, 3)));
 
-        add(ModWood.leaves(COSMIC_OAK).get(), (block) ->
-                createCosmicOakLeavesDrops(block, ModWood.sapling(COSMIC_OAK).get(), 0.1F));
-        add(ModWood.leaves(EBON).get(), (block) ->
-                createCosmicOakLeavesDrops(block, ModWood.sapling(EBON).get(), 0.1F));
+        add(WoodUtils.leaves(COSMIC_OAK).get(), (block) ->
+                createCosmicOakLeavesDrops(block, WoodUtils.sapling(COSMIC_OAK).get(), 0.1F));
+        add(WoodUtils.leaves(EBON).get(), (block) ->
+                createCosmicOakLeavesDrops(block, WoodUtils.sapling(EBON).get(), 0.1F));
 
         registeredBlockLoot.add(ModBlocks.TEKTITE_GRASS.getId().getPath());
         registeredBlockLoot.add(ModBlocks.TEKTITE_NECRO.getId().getPath());
@@ -53,8 +54,9 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(ModBlocks.COSMILITE_ORE.getId().getPath());
         registeredBlockLoot.add(ModBlocks.NECRIUM_ORE.getId().getPath());
         registeredBlockLoot.add(ModBlocks.DEAD_TISSUE_BLOCK.getId().getPath());
-        registeredBlockLoot.add(ModWood.leaves(COSMIC_OAK).getId().getPath());
-        registeredBlockLoot.add(ModWood.leaves(EBON).getId().getPath());
+        registeredBlockLoot.add(ModBlocks.HOT_PEPPER_CROP.getId().getPath());
+        registeredBlockLoot.add(WoodUtils.leaves(COSMIC_OAK).getId().getPath());
+        registeredBlockLoot.add(WoodUtils.leaves(EBON).getId().getPath());
 
         dropSelfForUnset();
     }

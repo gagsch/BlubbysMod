@@ -35,8 +35,9 @@ public class ENLangProvider extends LanguageProvider {
         addToolTip(ModItems.ENDER_BUNDLE, "Opens your Ender Chest with three extra rows.");
         addToolTip(ModItems.LUCKY_ROCK, "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
         addToolTip(ModItems.RIFT_KEY, "Summons a mysterious door in front of you...");
-        addToolTip(ModItems.TOTEM_OF_DREAMS, "Teleports you to your spawn point on death while retaining items and EXP.\nEffect applied while in hands.");
+        addToolTip(ModItems.TOTEM_OF_DREAMS, "Teleports you to your spawn point on death while retaining items and EXP.");
         addToolTip(ModItems.CONCENTRATED_DARK_MATTER, "Wubba Lubba Dub Dub!!");
+        addToolTip(ModItems.HOT_PEPPER, "Used to make Flamin' Hot Cheetos™");
 
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
@@ -51,11 +52,14 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.ESSENCE_OVERWORLD, "Essence of the Overworld");
         addItem(ModItems.ESSENCE_SEA, "Essence of the Sea");
         addItem(ModItems.ESSENCE_VOID, "Essence of the Void");
+        addItem(ModItems.HOT_PEPPER_SEEDS, "Fiery Hot Pepper Seeds");
+        addItem(ModItems.HOT_PEPPER, "Fiery Hot Pepper");
         addItem(ModItems.RIFT_KEY, "Cosmic Rift Key");
         addItem(ModItems.SOUL_DUST, "Soul Dust");
         addItem(ModItems.SOUL_ELEMENTS, "Soul of the Elements");
         addItem(ModItems.SOUL_FRAGMENT, "Soul Fragment");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
+        addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
 
         addEntity(ModEntities.BEHEMOTH.getId(), "Necrotic Behemoth");
         addEntity(ModEntities.DIMENSION_TELEPORTER.getId(), "Mysterious Door");

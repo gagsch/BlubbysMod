@@ -2,7 +2,7 @@ package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
-import me.blubby.bmod.common.blocks.custom.ModWood;
+import me.blubby.bmod.utils.WoodUtils;
 import me.blubby.bmod.common.item.ModItems;
 import me.blubby.bmod.common.tier.ModArmorMaterial;
 import me.blubby.bmod.utils.ItemUtils;
@@ -14,11 +14,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
 
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(DataGenerator generator) {
@@ -35,8 +36,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         woodTypeBuilder(consumer, EBON);
 
         ShapedRecipeBuilder
+                .shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
+                .define('s', Tags.Items.SEEDS)
+                .define('F', ModItems.ESSENCE_FLAMES.get())
+                .pattern(" s ")
+                .pattern("sFs")
+                .pattern(" s ")
+                .unlockedBy("has_flames", has(ModItems.ESSENCE_FLAMES.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder
                 .shaped(ModItems.TOTEM_OF_DREAMS.get())
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .define('L', ModItems.ESSENCE_LIFE.get())
                 .define('D', ModItems.ESSENCE_DEATH.get())
                 .define('t', Items.TOTEM_OF_UNDYING)
@@ -169,17 +180,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_soul_fragment", has(ModItems.SOUL_FRAGMENT.get()))
                 .save(consumer);
 
-        SimpleCookingRecipeBuilder
-                .smelting(Ingredient.of(ModItems.DIVINE_ALLOY.get()),
-                        ModItems.DIVINE_INGOT.get(),
-                        2,
-                        200)
-                .unlockedBy("has_blessed_alloy", has(ModItems.DIVINE_ALLOY.get()))
-                .save(consumer);
-
         ShapedRecipeBuilder
                 .shaped(ModItems.DIVINE_HELMET.get(), 1)
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .define('D', Items.DIAMOND_HELMET)
                 .define('g', Items.GOLD_INGOT)
                 .define('#', Items.FEATHER)
@@ -190,7 +193,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder
                 .shaped(ModItems.DIVINE_CHESTPLATE.get(), 1)
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .define('D', Items.DIAMOND_CHESTPLATE)
                 .define('g', Items.GOLD_INGOT)
                 .pattern("b b")
@@ -201,7 +204,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder
                 .shaped(ModItems.DIVINE_LEGGINGS.get(), 1)
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .define('D', Items.DIAMOND_LEGGINGS)
                 .define('g', Items.GOLD_INGOT)
                 .pattern("bDb")
@@ -212,7 +215,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder
                 .shaped(ModItems.DIVINE_BOOTS.get(), 1)
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .define('D', Items.DIAMOND_BOOTS)
                 .define('g', Items.GOLD_INGOT)
                 .pattern("gDg")
@@ -271,7 +274,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ItemLike strippedLog = strippedLog(woodName).get();
         ItemLike strippedWood = strippedWood(woodName).get();
 
-        planksFromLogs(consumer, planks(woodName).get(), ModWood.registerLogItemTag(woodName));
+        planksFromLogs(consumer, planks(woodName).get(), WoodUtils.registerLogItemTag(woodName));
 
         ShapedRecipeBuilder
                 .shaped(wood, 3)
@@ -369,7 +372,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder
                 .shaped(ModItems.ESSENCE_DAY.get(), 1)
                 .define('s', Items.SUNFLOWER)
-                .define('d', ModItems.DIVINE_INGOT.get())
+                .define('d', ModItems.DIVINE_ALLOY.get())
                 .pattern(" d ")
                 .pattern("dsd")
                 .pattern(" d ")
@@ -513,7 +516,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_TUNDRA.get(), 1)
                 .define('#', Items.BLUE_ICE)
                 .define('P', Items.POWDER_SNOW_BUCKET)
-                .define('b', ModItems.DIVINE_INGOT.get())
+                .define('b', ModItems.DIVINE_ALLOY.get())
                 .pattern(" # ")
                 .pattern("PbP")
                 .pattern(" # ")

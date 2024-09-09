@@ -27,10 +27,11 @@ public class InventoryItem extends ToolTipItem {
             switch (inventoryItem)
             {
                 case LuckyRock:
-                    serverPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK, 40, 4, false, false));
-
+                    serverPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK, 39, 4, false, false));
+                    break;
                 case Flames:
                     serverPlayer.clearFire();
+                    break;
             }
         }
     }

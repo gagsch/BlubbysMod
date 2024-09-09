@@ -3,9 +3,9 @@ package me.blubby.bmod.server.world.feature;
 import com.google.common.base.Suppliers;
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
-import static me.blubby.bmod.common.blocks.custom.ModWood.*;
+import static me.blubby.bmod.utils.WoodUtils.*;
 
-import me.blubby.bmod.common.blocks.custom.ModWood;
+import me.blubby.bmod.utils.WoodUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -33,9 +33,9 @@ public class ModConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> COSMIC_OAK =
             CONFIGURED_FEATURES.register("cosmic_oak", () ->
                     new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(log(ModWood.COSMIC_OAK).get()),
+                            BlockStateProvider.simple(log(WoodUtils.COSMIC_OAK).get()),
                             new StraightTrunkPlacer(5, 6, 3),
-                            BlockStateProvider.simple(leaves(ModWood.COSMIC_OAK).get()),
+                            BlockStateProvider.simple(leaves(WoodUtils.COSMIC_OAK).get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
                             new TwoLayersFeatureSize(1, 0, 2))
                             .dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));
@@ -49,9 +49,9 @@ public class ModConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> EBON =
             CONFIGURED_FEATURES.register("ebon", () ->
                     new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(log(ModWood.EBON).get()),
+                            BlockStateProvider.simple(log(WoodUtils.EBON).get()),
                             new StraightTrunkPlacer(5, 6, 3),
-                            BlockStateProvider.simple(leaves(ModWood.EBON).get()),
+                            BlockStateProvider.simple(leaves(WoodUtils.EBON).get()),
                             new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
                             new TwoLayersFeatureSize(1, 0, 2))
                             .dirt(BlockStateProvider.simple(ModBlocks.TEKTITE.get())).build()));

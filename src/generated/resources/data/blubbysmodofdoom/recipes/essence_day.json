@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "d": {
-      "item": "blubbysmodofdoom:divine_ingot"
+      "item": "blubbysmodofdoom:divine_alloy"
     },
     "s": {
       "item": "minecraft:sunflower"
