@@ -16,17 +16,16 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Blubby_sModOfDoom.MOD_ID);
 
-    public static final RegistryObject<EntityType<RotFlyEntity>> ROT_FLY =
-            ENTITY_TYPES.register("rot_fly", () -> EntityType.Builder.of(RotFlyEntity::new, MobCategory.CREATURE)
+    public static final RegistryObject<EntityType<RotFlyEntity>> ROT_FLY = ENTITY_TYPES.register("rot_fly", () -> EntityType.Builder.of(RotFlyEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.8f).build("rot_fly"));
-    public static final RegistryObject<EntityType<BehemothEntity>> BEHEMOTH =
-            ENTITY_TYPES.register("behemoth", () -> EntityType.Builder.of(BehemothEntity::new, MobCategory.MONSTER)
+
+    public static final RegistryObject<EntityType<BehemothEntity>> BEHEMOTH = ENTITY_TYPES.register("behemoth", () -> EntityType.Builder.of(BehemothEntity::new, MobCategory.MONSTER)
                     .sized(2f, 3.6f).build("behemoth"));
-    public static final RegistryObject<EntityType<SnowFlinxEntity>> SNOW_FLINX =
-            ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
+
+    public static final RegistryObject<EntityType<SnowFlinxEntity>> SNOW_FLINX = ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.7f).build("snow_flinx"));
-    public static final RegistryObject<EntityType<DimensionTeleporterEntity>> DIMENSION_TELEPORTER =
-            ENTITY_TYPES.register("dimension_teleporter", () -> EntityType.Builder.of(DimensionTeleporterEntity::new, MobCategory.MISC)
+
+    public static final RegistryObject<EntityType<DimensionTeleporterEntity>> DIMENSION_TELEPORTER = ENTITY_TYPES.register("dimension_teleporter", () -> EntityType.Builder.of(DimensionTeleporterEntity::new, MobCategory.MISC)
                     .sized(0.01f, 2f).build("dimension_teleporter"));
 
 

@@ -1,6 +1,6 @@
 package me.blubby.bmod.server.container;
 
-import me.blubby.bmod.common.events.ModEvents;
+import me.blubby.bmod.client.events.ModClientSetup;
 import me.blubby.bmod.utils.ContainerUtils;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,7 +14,7 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
     private final Player player;
 
     public EnderChestUpgradeContainer(int windowId, Inventory playerInventory, SimpleContainer loot) {
-        super(ModEvents.ENDER_CHEST_UPGRADE_MENU.get(), windowId);
+        super(ModClientSetup.ENDER_CHEST_UPGRADE_MENU.get(), windowId);
         this.loot = loot;
         this.player = playerInventory.player;
 
@@ -60,15 +60,15 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
             ItemStack stackInSlot = slot.getItem();
             itemStack = stackInSlot.copy();
 
-            int lootContainerSize = this.loot.getContainerSize(); // This should be 54
-            int playerInventoryStart = lootContainerSize; // This should be 54
-            int playerInventoryEnd = playerInventoryStart + 36; // Player inventory + hotbar (27+9 = 36)
+            int lootContainerSize = this.loot.getContainerSize();
+            int playerInventoryStart = lootContainerSize;
+            int playerInventoryEnd = playerInventoryStart + 36;
 
-            if (index < lootContainerSize) { // If the slot is within the loot container
+            if (index < lootContainerSize) {
                 if (!this.moveItemStackTo(stackInSlot, playerInventoryStart, playerInventoryEnd, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index >= playerInventoryStart && index < playerInventoryEnd) { // If the slot is within the player inventory
+            } else if (index >= playerInventoryStart && index < playerInventoryEnd) {
                 if (!this.moveItemStackTo(stackInSlot, 0, lootContainerSize, false)) {
                     return ItemStack.EMPTY;
                 }

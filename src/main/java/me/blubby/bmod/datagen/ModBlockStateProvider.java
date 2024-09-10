@@ -45,7 +45,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK, blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
         blockWithItem(ModBlocks.DEAD_TISSUE_BLOCK);
 
-        cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP, 5, age -> new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "block/hot_pepper_stage" + age));
+        translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK);
+        cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP, 6, age -> new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "block/hot_pepper_stage" + age));
 
         axisBlockWithItem(log(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK), "top"));
         axisBlockWithItem(wood(COSMIC_OAK), blockLoc(log(COSMIC_OAK)), blockLoc(log(COSMIC_OAK)));
@@ -61,12 +62,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlockWithItem(strippedWood(EBON), blockLoc(strippedLog(EBON)), blockLoc(strippedLog(EBON)));
         blockWithItem(leaves(EBON));
         blockWithItem(planks(EBON));
+        saplingBlock(sapling(EBON));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject)
     {
         simpleBlock(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
         simpleBlockItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void translucentBlockWithItem(RegistryObject<Block> blockRegistryObject)
+    {
+        simpleBlock(blockRegistryObject.get(),
+                models().cubeAll(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("translucent"));
+        simpleBlockItem(blockRegistryObject.get(),
+                models().cubeAll(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("translucent"));
     }
 
     private void bottomTopBlockWithItem(RegistryObject<Block> blockRegistryObject, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)

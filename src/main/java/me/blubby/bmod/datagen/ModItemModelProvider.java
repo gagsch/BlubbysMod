@@ -1,7 +1,6 @@
 package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.ModBlocks;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +28,9 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         specialBlockItem(sapling(COSMIC_OAK));
         specialBlockItem(sapling(EBON));
+
         simpleItem(ModItems.HOT_PEPPER_SEEDS);
+        simpleHandheldItem(ModItems.BUBBLE_WAND);
 
         spawnEggItem(ModItems.ROT_FLY_SPAWN_EGG);
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
@@ -68,7 +69,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "item/" + item.getId().getPath()));
+                new ResourceLocation(Blubby_sModOfDoom.MOD_ID, "items/" + item.getId().getPath()));
     }
 
     public ItemModelBuilder specialBlockItem(RegistryObject<Block> item) {

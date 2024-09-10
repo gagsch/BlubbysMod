@@ -1,4 +1,5 @@
 {
+  "block.blubbysmodofdoom.bubble_block": "Bubble Block",
   "block.blubbysmodofdoom.compressed_tektite": "Compressed Tektite",
   "block.blubbysmodofdoom.cosmic_oak_leaves": "Cosmic Oak Leaves",
   "block.blubbysmodofdoom.cosmic_oak_log": "Cosmic Oak Log",
@@ -29,6 +30,8 @@
   "entity.blubbysmodofdoom.snow_flinx": "Snow Flinx",
   "item.blubbysmodofdoom.behemoth_spawn_egg": "Necrotic Behemoth Spawn Egg",
   "item.blubbysmodofdoom.blubby_coin": "Penny",
+  "item.blubbysmodofdoom.bubble_wand": "Bubble Wand",
+  "item.blubbysmodofdoom.bubble_wand.tooltip": "Places bubble blocks.",
   "item.blubbysmodofdoom.chronos_clock": "Chronos Clock",
   "item.blubbysmodofdoom.chronos_clock.tooltip": "Skips time forward. Avoid skipping ahead to far!",
   "item.blubbysmodofdoom.concentrated_dark_matter": "Concentrated Dark Matter",

@@ -1,4 +1,5 @@
 {
+  "block.blubbysmodofdoom.bubble_block": "Glimmerin’ glob o’ goo",
   "block.blubbysmodofdoom.compressed_tektite": "Chunk o' Tough meteor",
   "block.blubbysmodofdoom.cosmic_oak_leaves": "Leaves o' space oak",
   "block.blubbysmodofdoom.cosmic_oak_log": "Log o' space oak",
@@ -29,6 +30,8 @@
   "entity.blubbysmodofdoom.snow_flinx": "Furry Skull wit' Peg-Legs",
   "item.blubbysmodofdoom.behemoth_spawn_egg": "Behemoth o' th' Dead Cackle Fruit",
   "item.blubbysmodofdoom.blubby_coin": "Doubloon",
+  "item.blubbysmodofdoom.bubble_wand": "Glimmerin’ goo staff",
+  "item.blubbysmodofdoom.bubble_wand.tooltip": "Aye! Casts ye glimmerin’ goo 'pon the waves!",
   "item.blubbysmodofdoom.chronos_clock": "Clock o' Chronos",
   "item.blubbysmodofdoom.chronos_clock.tooltip": "Skips time ahead, but beware—don’t leap too far forward, or ye might miss the loot!",
   "item.blubbysmodofdoom.concentrated_dark_matter": "Chunk o' Dark",
@@ -77,6 +80,7 @@
   "item.blubbysmodofdoom.lucky_rock": "Rock o' th' Large Booty",
   "item.blubbysmodofdoom.lucky_rock.tooltip": "Increases ye haul o' ores by one. Won't work with Silk Touch or solid booty.",
   "item.blubbysmodofdoom.necrium_chunk": "Scrap o' Deadmen",
+  "item.blubbysmodofdoom.necrium_ingot": "Bullion o' Deadmen",
   "item.blubbysmodofdoom.nightmare_boots": "Peg-Leg o' Demons",
   "item.blubbysmodofdoom.nightmare_chestplate": "Chestplate o' Demons",
   "item.blubbysmodofdoom.nightmare_helmet": "Helmet o' Demons",

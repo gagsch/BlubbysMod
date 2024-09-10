@@ -41,7 +41,8 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
 
         add(ModBlocks.DEAD_TISSUE_BLOCK.get(), createSingleItemTable(Items.ROTTEN_FLESH, UniformGenerator.between(1, 4)));
-        add(ModBlocks.HOT_PEPPER_CROP.get(), createSingleItemTable(ModItems.HOT_PEPPER.get(), UniformGenerator.between(1, 3)));
+        add(ModBlocks.HOT_PEPPER_CROP.get(), createSingleItemTable(ModItems.HOT_PEPPER_SEEDS.get(), UniformGenerator.between(0,1)));
+        add(ModBlocks.BUBBLE_BLOCK.get(), noDrop());
 
         add(WoodUtils.leaves(COSMIC_OAK).get(), (block) ->
                 createCosmicOakLeavesDrops(block, WoodUtils.sapling(COSMIC_OAK).get(), 0.1F));
@@ -55,6 +56,7 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(ModBlocks.NECRIUM_ORE.getId().getPath());
         registeredBlockLoot.add(ModBlocks.DEAD_TISSUE_BLOCK.getId().getPath());
         registeredBlockLoot.add(ModBlocks.HOT_PEPPER_CROP.getId().getPath());
+        registeredBlockLoot.add(ModBlocks.BUBBLE_BLOCK.getId().getPath());
         registeredBlockLoot.add(WoodUtils.leaves(COSMIC_OAK).getId().getPath());
         registeredBlockLoot.add(WoodUtils.leaves(EBON).getId().getPath());
 

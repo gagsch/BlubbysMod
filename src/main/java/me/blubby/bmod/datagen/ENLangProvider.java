@@ -38,8 +38,11 @@ public class ENLangProvider extends LanguageProvider {
         addToolTip(ModItems.TOTEM_OF_DREAMS, "Teleports you to your spawn point on death while retaining items and EXP.");
         addToolTip(ModItems.CONCENTRATED_DARK_MATTER, "Wubba Lubba Dub Dub!!");
         addToolTip(ModItems.HOT_PEPPER, "Used to make Flamin' Hot Cheetos™");
+        addToolTip(ModItems.BUBBLE_WAND, "Places bubble blocks.");
 
+        addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
+        addItem(ModItems.BUBBLE_WAND, "Bubble Wand");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
         addItem(ModItems.ECHOING_SOUL_DUST, "Echoing Soul Dust");
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
@@ -59,7 +62,6 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_ELEMENTS, "Soul of the Elements");
         addItem(ModItems.SOUL_FRAGMENT, "Soul Fragment");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
-        addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
 
         addEntity(ModEntities.BEHEMOTH.getId(), "Necrotic Behemoth");
         addEntity(ModEntities.DIMENSION_TELEPORTER.getId(), "Mysterious Door");

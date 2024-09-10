@@ -22,7 +22,8 @@ public class ToolTipItem extends Item {
         ender_bundle,
         rift_key,
         chronos_clock,
-        hot_pepper
+        hot_pepper,
+        bubble_wand
     };
 
     ToolTips toolTip;
@@ -41,8 +42,8 @@ public class ToolTipItem extends Item {
         toolTipHashMap.put(ToolTips.ender_bundle, component("item.blubbysmodofdoom.ender_bundle.tooltip"));
         toolTipHashMap.put(ToolTips.rift_key, component("item.blubbysmodofdoom.rift_key.tooltip"));
         toolTipHashMap.put(ToolTips.chronos_clock, component("item.blubbysmodofdoom.chronos_clock.tooltip"));
-
         toolTipHashMap.put(ToolTips.hot_pepper, component("item.blubbysmodofdoom.hot_pepper.tooltip"));
+        toolTipHashMap.put(ToolTips.bubble_wand, component("item.blubbysmodofdoom.bubble_wand.tooltip"));
     }
 
     @Override

@@ -35,6 +35,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         woodTypeBuilder(consumer, COSMIC_OAK);
         woodTypeBuilder(consumer, EBON);
 
+        ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
+                .requires(Items.WATER_BUCKET)
+                .requires(ModItems.ESSENCE_SEA.get())
+                .unlockedBy("has_essence_sea", has(ModItems.ESSENCE_SEA.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder
                 .shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
                 .define('s', Tags.Items.SEEDS)

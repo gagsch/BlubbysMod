@@ -1,4 +1,5 @@
 {
+  "block.blubbysmodofdoom.bubble_block": "ʞɔoןᗺ ǝןbbuᗺ",
   "block.blubbysmodofdoom.compressed_tektite": "ǝʇıʇʞǝ⟘ dǝssǝɹpɯoƆ",
   "block.blubbysmodofdoom.cosmic_oak_leaves": "sǝʌɐǝꞀ ʞɐO ɔıɯsoƆ",
   "block.blubbysmodofdoom.cosmic_oak_log": "qoꞀ ʞɐO ɔıɯsoƆ",
@@ -29,6 +30,8 @@
   "entity.blubbysmodofdoom.snow_flinx": "xnıןℲ ʍonS",
   "item.blubbysmodofdoom.behemoth_spawn_egg": "bbƎ uʍɐdS ɥʇoɯǝɥǝᗺ ɔıʇoɹɔǝN",
   "item.blubbysmodofdoom.blubby_coin": "ʎuuǝԀ",
+  "item.blubbysmodofdoom.bubble_wand": "puɐM ǝןqqnᗺ",
+  "item.blubbysmodofdoom.bubble_wand.tooltip": "˙sʞɔoןq ǝןqqnq sǝɔɐןԀ",
   "item.blubbysmodofdoom.chronos_clock": "ʞɔoןƆ sonoɹɥƆ",
   "item.blubbysmodofdoom.chronos_clock.tooltip": "¡ɹɐɟ oʇ pɐǝɥɐ buıddıʞs pıoʌⱯ ˙pɹɐʍɹoɟ ǝɯıʇ sdıʞS",
   "item.blubbysmodofdoom.concentrated_dark_matter": "ɹǝʇʇɐM ʞɹɐᗡ dǝʇɐɹʇnǝɔnoƆ",

@@ -18,6 +18,7 @@ public class EntityDeathEvent {
             return;
         }
 
+
         if (event.getEntity() instanceof ServerPlayer player) {
             if (player.getOffhandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get() || player.getMainHandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get()) {
                 event.setCanceled(true);
@@ -50,13 +51,11 @@ public class EntityDeathEvent {
                 player.inventoryMenu.broadcastChanges();
             }
         }
-
-        if (event.getEntity() instanceof Warden warden) {
-            warden.spawnAtLocation(ModItems.WARDEN_CORE.get());
+        else if (event.getEntity() instanceof Warden) {
+            event.getEntity().spawnAtLocation(ModItems.WARDEN_CORE.get());
         }
-
-        if (event.getEntity() instanceof ElderGuardian guardian) {
-            guardian.spawnAtLocation(ModItems.GUARDIAN_CORE.get());
+        else if (event.getEntity() instanceof ElderGuardian) {
+            event.getEntity().spawnAtLocation(ModItems.GUARDIAN_CORE.get());
         }
     }
 }
