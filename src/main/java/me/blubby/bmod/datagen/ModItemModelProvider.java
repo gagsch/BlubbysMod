@@ -2,23 +2,34 @@ package me.blubby.bmod.datagen;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.item.ModItems;
+import me.blubby.bmod.common.item.custom.BubbleWandItem;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static me.blubby.bmod.utils.WoodUtils.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
     private final Set<String> registeredItems = new HashSet<>();
+
+    private static final List<Class<?>> HANDHELD_CLASS = Arrays.asList(
+            SwordItem.class,
+            PickaxeItem.class,
+            AxeItem.class,
+            ShovelItem.class,
+            HoeItem.class,
+            BubbleWandItem.class
+    );
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, Blubby_sModOfDoom.MOD_ID, existingFileHelper);
@@ -36,6 +47,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
 
+        registeredItems.add(ModItems.SOUL_DIMENSIONS.getId().getPath());
+
         registerUnsetItems();
     }
 
@@ -45,7 +58,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         {
             String path = item.getId().getPath();
             if (!registeredItems.contains(path) && !(item.get() instanceof BlockItem)) {
-                simpleItem(item);
+                if (HANDHELD_CLASS.stream().anyMatch(cls -> cls.isInstance(item.get())))
+                {
+                    simpleHandheldItem(item);
+                } else
+                {
+                    simpleItem(item);
+                }
+
             } else {
                 System.out.println("Item " + path + " is already registered.");
             }

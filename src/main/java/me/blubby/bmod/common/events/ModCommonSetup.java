@@ -15,7 +15,6 @@ import me.blubby.bmod.server.world.feature.tree.CosmicOakTreeGrower;
 import me.blubby.bmod.server.world.feature.tree.EbonTreeGrower;
 import me.blubby.bmod.server.world.structure_types.StructureTypes;
 import me.blubby.bmod.utils.WoodUtils;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,8 +25,8 @@ public class ModCommonSetup {
 
     public static void ModEvents(IEventBus modEventBus)
     {
-        WoodUtils.registerWood(WoodUtils.COSMIC_OAK, new CosmicOakTreeGrower(), CreativeModeTab.TAB_MISC);
-        WoodUtils.registerWood(WoodUtils.EBON, new EbonTreeGrower(), CreativeModeTab.TAB_MISC);
+        WoodUtils.registerWood(WoodUtils.COSMIC_OAK, new CosmicOakTreeGrower());
+        WoodUtils.registerWood(WoodUtils.EBON, new EbonTreeGrower());
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);

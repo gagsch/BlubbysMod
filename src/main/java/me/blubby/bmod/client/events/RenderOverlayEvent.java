@@ -29,7 +29,7 @@ public class RenderOverlayEvent {
             LocalPlayer player = minecraft.player;
             if (isPlayerInsideBlock(player))
             {
-                renderVignette(pStack, window, 0.85f, IMG_LOCATION);
+                renderVignette(pStack, window, 1f, IMG_LOCATION);
             }
 
         });
@@ -47,10 +47,10 @@ public class RenderOverlayEvent {
 
     private static void renderVignette(PoseStack poseStack, Window window, float alpha, ResourceLocation resource) {
         poseStack.pushPose();
-        RenderSystem.disableDepthTest();
+        RenderSystem.enableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.enableBlend();
-        RenderSystem.setShaderColor(0.4F, 0.4F, 0.6F, alpha);
+        RenderSystem.setShaderColor(1F, 1F, 1F, alpha);
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, resource);
         GuiComponent.blit(poseStack, 0, 0, -90, 0.0F, 0.0F, window.getGuiScaledWidth(), window.getGuiScaledHeight(), window.getGuiScaledWidth(), window.getGuiScaledHeight());

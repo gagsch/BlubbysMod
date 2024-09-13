@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "e": {
-      "item": "minecraft:enchanted_golden_apple"
+      "item": "minecraft:golden_apple"
     },
     "s": {
       "item": "minecraft:oak_sapling"

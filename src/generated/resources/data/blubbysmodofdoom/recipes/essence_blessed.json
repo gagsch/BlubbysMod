@@ -4,20 +4,17 @@
     "#": {
       "item": "minecraft:poppy"
     },
-    "D": {
-      "item": "minecraft:dandelion"
-    },
-    "E": {
-      "item": "minecraft:emerald"
+    "Q": {
+      "item": "minecraft:quartz"
     },
     "T": {
-      "item": "minecraft:totem_of_undying"
+      "item": "minecraft:diamond"
     }
   },
   "pattern": [
-    "#ED",
-    "ETE",
-    "DE#"
+    "QTQ",
+    "T#T",
+    "QTQ"
   ],
   "result": {
     "item": "blubbysmodofdoom:essence_blessed"

@@ -1,6 +1,7 @@
 package me.blubby.bmod.common.item.custom;
 
 import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.item.ModCreativeTab;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -24,7 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 
 public class BubbleWandItem extends ToolTipItem {
     public BubbleWandItem() {
-        super(new Item.Properties().tab(CreativeModeTab.TAB_MISC).durability(-1), ToolTips.bubble_wand);
+        super(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1), ToolTips.bubble_wand);
     }
 
     public InteractionResult useOn(UseOnContext context) {

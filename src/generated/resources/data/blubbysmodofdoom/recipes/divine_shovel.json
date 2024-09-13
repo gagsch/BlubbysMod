@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "blubbysmodofdoom:divine_alloy"
+    },
+    "h": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "B",
+    "h",
+    "h"
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:divine_shovel"
+  }
+}

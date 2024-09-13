@@ -9,10 +9,18 @@
     },
     "W": {
       "item": "blubbysmodofdoom:essence_planets"
+    },
+    "g": {
+      "item": "blubbysmodofdoom:guardian_core"
+    },
+    "w": {
+      "item": "blubbysmodofdoom:warden_core"
     }
   },
   "pattern": [
-    "BWH"
+    " w ",
+    "BWH",
+    " g "
   ],
   "result": {
     "item": "blubbysmodofdoom:essence_earth"

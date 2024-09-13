@@ -48,7 +48,7 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
         addItem(ModItems.ESSENCE_BLESSED, "Essence of the Holy");
         addItem(ModItems.ESSENCE_CONVERGENCE, "Essence of the Convergence");
-        addItem(ModItems.ESSENCE_DOOM, "Essence of Havoc");
+        addItem(ModItems.ESSENCE_HAVOC, "Essence of Havoc");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
         addItem(ModItems.ESSENCE_NIGHT, "Essence of the Night");
@@ -66,6 +66,8 @@ public class ENLangProvider extends LanguageProvider {
         addEntity(ModEntities.BEHEMOTH.getId(), "Necrotic Behemoth");
         addEntity(ModEntities.DIMENSION_TELEPORTER.getId(), "Mysterious Door");
 
+        add("itemGroup.blubbys_tab_of_doom", "Blubby's Mod of Doom");
+
         addRemainingItems();
         addRemainingBlocks();
         addRemainingEntities();
@@ -74,7 +76,6 @@ public class ENLangProvider extends LanguageProvider {
     @Override
     public void add(@NotNull String key, @NotNull String value) {
         registeredLang.add(key);
-
         if(upsideDown) super.add(key, toUpsideDown(value));
         else super.add(key, value);
     }

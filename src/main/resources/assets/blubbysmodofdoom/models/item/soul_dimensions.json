@@ -1,0 +1,14 @@
+{
+	"loader": "forge:separate-perspective",
+	"base": {
+		"parent": "blubbysmodofdoom:item/soul_dimensions_3d"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "blubbysmodofdoom:item/soul_dimensions_texture"
+		},
+		"fixed": {
+			"parent": "blubbysmodofdoom:item/soul_dimensions_texture"
+		}
+	}
+}

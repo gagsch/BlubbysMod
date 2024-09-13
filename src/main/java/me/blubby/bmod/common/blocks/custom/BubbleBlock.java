@@ -24,8 +24,6 @@ public class BubbleBlock extends GlassBlock {
 
     static Minecraft mc = Minecraft.getInstance();
     private static final ResourceLocation IMG_LOCATION = new ResourceLocation(Blubby_sModOfDoom.MOD_ID,"textures/block/bubble_block.png");
-    protected static int screenWidth;
-    protected static int screenHeight;
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {

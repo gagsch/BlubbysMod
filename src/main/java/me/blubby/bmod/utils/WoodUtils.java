@@ -4,6 +4,7 @@ import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.blocks.ModBlocks;
 import me.blubby.bmod.common.blocks.custom.BurnablePillarBlock;
 import me.blubby.bmod.common.blocks.custom.CustomSapling;
+import me.blubby.bmod.common.item.ModCreativeTab;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,7 +12,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -32,19 +32,19 @@ public class WoodUtils {
     public static final String COSMIC_OAK = "cosmic_oak";
     public static final String EBON = "ebon";
 
-    public static void registerWood(String woodName, AbstractTreeGrower treeGrower, CreativeModeTab tab)
+    public static void registerWood(String woodName, AbstractTreeGrower treeGrower)
     {
         RegistryObject<Block> log = registerBlock(woodName + "_log",
-                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), tab);
+                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
 
         RegistryObject<Block> wood = registerBlock(woodName + "_wood",
-                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)), tab);
+                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
 
         RegistryObject<Block> strippedLog = registerBlock("stripped_" + woodName + "_log",
-                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), tab);
+                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
 
         RegistryObject<Block> strippedWood = registerBlock("stripped_" + woodName + "_wood",
-                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), tab);
+                () -> new BurnablePillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
 
         RegistryObject<Block> planks = registerBlock(woodName + "_planks",
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
@@ -62,7 +62,7 @@ public class WoodUtils {
                     public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                         return 20;
                     }
-                }, CreativeModeTab.TAB_MISC);
+                });
 
         RegistryObject<Block> leaves = registerBlock(woodName + "_leaves",
                 () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).requiresCorrectToolForDrops()){
@@ -80,10 +80,10 @@ public class WoodUtils {
                     public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                         return 60;
                     }
-                }, CreativeModeTab.TAB_MISC);
+                });
 
         RegistryObject<Block> sapling = registerBlock(woodName + "_sapling",
-                () -> new CustomSapling(treeGrower, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), tab);
+                () -> new CustomSapling(treeGrower, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     }
 
     public static RegistryObject<Block> getBlockRegistry(String blockName) {
@@ -122,16 +122,16 @@ public class WoodUtils {
         return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Blubby_sModOfDoom.MOD_ID, wood + "_logs"));
     }
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = ModBlocks.BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
+        registerBlockItem(name, toReturn);
 
         registeredBlocks.put(name, (RegistryObject<Block>) toReturn);
 
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block, CreativeModeTab tab) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)));
     }
 }

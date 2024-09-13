@@ -1,7 +1,7 @@
 package me.blubby.bmod.common.tier;
 
+import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -9,8 +9,10 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements Tier {
-    Abyss(1, 131, 4.0F, 3.0F, 5, () -> Ingredient.of(Items.FLINT));
+    COSMILITE("cosmilite", 7, 5000, 20f, 9.0F, 40, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get())),
+    DIVINE("divine", 5, 2777, 10.0F, 6.0F, 25, () -> Ingredient.of(ModItems.DIVINE_ALLOY.get()));
 
+    private final String name;
     private final Supplier<Ingredient> repairIngredient;
     private final int enchantmentValue;
     private final float attackDamage;
@@ -18,14 +20,18 @@ public enum ModItemTier implements Tier {
     private final int uses;
     private final int level;
 
-
-    ModItemTier(int level, int uses, float speed, float attackDamage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+    ModItemTier(String name, int level, int uses, float speed, float attackDamage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+        this.name = name;
         this.level = level;
         this.uses = uses;
         this.speed = speed;
         this.attackDamage = attackDamage;
         this.enchantmentValue = enchantmentValue;
         this.repairIngredient = repairIngredient;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     @Override
