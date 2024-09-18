@@ -45,7 +45,7 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.ECHOING_SOUL_DUST, "Echoing Soul Dust");
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
         addItem(ModItems.ESSENCE_BLESSED, "Essence of the Holy");
-        addItem(ModItems.ESSENCE_NIGHTMARE_REALM, "Essence of the Convergence");
+        addItem(ModItems.ESSENCE_NIGHTMARE_REALM, "Essence of the Nightmare Realm");
         addItem(ModItems.ESSENCE_HAVOC, "Essence of Havoc");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
