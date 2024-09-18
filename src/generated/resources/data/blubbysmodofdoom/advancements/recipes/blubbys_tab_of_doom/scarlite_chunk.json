@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nightmare_ore": {
+    "has_scarlite_ore": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_nightmare_ore",
+      "has_scarlite_ore",
       "has_the_recipe"
     ]
   ],

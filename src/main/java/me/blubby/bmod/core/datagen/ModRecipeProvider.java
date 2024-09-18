@@ -140,12 +140,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder
                 .shaped(ModItems.SCARLITE_INGOT.get(), 1)
-                .define('#', ModItems.SCARLITE_CHUNK.get())
-                .define('c', ModItems.VILE_BLOOD.get())
-                .pattern("###")
+                .define('#', ModItems.VILE_BLOOD.get())
+                .define('c', ModItems.SCARLITE_CHUNK.get())
+                .pattern(" # ")
                 .pattern("#c#")
-                .pattern("###")
-                .unlockedBy("has_nightmare_chunk", has(ModItems.SCARLITE_CHUNK.get()))
+                .pattern(" # ")
+                .unlockedBy("has_scarlite_chunk", has(ModItems.SCARLITE_CHUNK.get()))
                 .save(consumer);
 
         SimpleCookingRecipeBuilder
@@ -153,7 +153,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         ModItems.SCARLITE_CHUNK.get(),
                         5,
                         300)
-                .unlockedBy("has_nightmare_ore", has(ModBlocks.SCARLITE_ORE.get()))
+                .unlockedBy("has_scarlite_ore", has(ModBlocks.SCARLITE_ORE.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder

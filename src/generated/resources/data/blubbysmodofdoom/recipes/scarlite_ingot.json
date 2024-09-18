@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "blubbysmodofdoom:scarlite_chunk"
+      "item": "blubbysmodofdoom:vile_blood"
     },
     "c": {
-      "item": "blubbysmodofdoom:concentrated_dark_matter"
+      "item": "blubbysmodofdoom:scarlite_chunk"
     }
   },
   "pattern": [
-    "###",
+    " # ",
     "#c#",
-    "###"
+    " # "
   ],
   "result": {
     "item": "blubbysmodofdoom:scarlite_ingot"

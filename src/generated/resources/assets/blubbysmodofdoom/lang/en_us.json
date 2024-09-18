@@ -34,8 +34,6 @@
   "item.blubbysmodofdoom.bubble_wand.tooltip": "Places bubble blocks.",
   "item.blubbysmodofdoom.chronos_clock": "Chronos Clock",
   "item.blubbysmodofdoom.chronos_clock.tooltip": "Skips time forward. Avoid skipping ahead to far!",
-  "item.blubbysmodofdoom.concentrated_dark_matter": "Concentrated Dark Matter",
-  "item.blubbysmodofdoom.concentrated_dark_matter.tooltip": "Wubba Lubba Dub Dub!!",
   "item.blubbysmodofdoom.divine_alloy": "Divine Alloy",
   "item.blubbysmodofdoom.divine_axe": "Divine Axe",
   "item.blubbysmodofdoom.divine_boots": "Divine Boots",
@@ -104,6 +102,7 @@
   "item.blubbysmodofdoom.soul_time": "Soul of Time",
   "item.blubbysmodofdoom.totem_of_dreaming": "Totem of Dreaming",
   "item.blubbysmodofdoom.totem_of_dreaming.tooltip": "Teleports you to your spawn point on death while retaining items and EXP.",
+  "item.blubbysmodofdoom.vile_blood": "Vile Blood",
   "item.blubbysmodofdoom.warden_core": "Warden Core",
   "itemGroup.blubbys_tab_of_doom": "Blubby's Mod of Doom"
 }

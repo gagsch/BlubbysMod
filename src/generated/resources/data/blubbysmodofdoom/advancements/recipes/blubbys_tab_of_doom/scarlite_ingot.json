@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nightmare_chunk": {
+    "has_scarlite_chunk": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_nightmare_chunk",
+      "has_scarlite_chunk",
       "has_the_recipe"
     ]
   ],
