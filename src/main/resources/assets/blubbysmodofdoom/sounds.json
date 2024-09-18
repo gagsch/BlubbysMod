@@ -11,48 +11,48 @@
 
   "rot_fly_buzz": {
     "sounds": [
-      "blubbysmodofdoom:rot_fly_buzz_1",
-      "blubbysmodofdoom:rot_fly_buzz_2"
+      "blubbysmodofdoom:entity/rot_fly/rot_fly_buzz_1",
+      "blubbysmodofdoom:entity/rot_fly/rot_fly_buzz_2"
     ]
   },
   "rot_fly_hurt": {
     "sounds": [
-      "blubbysmodofdoom:rot_fly_hurt"
+      "blubbysmodofdoom:entity/rot_fly/rot_fly_hurt"
     ]
   },
 
 
   "behemoth_growl": {
     "sounds": [
-      "blubbysmodofdoom:behemoth_growl"
+      "blubbysmodofdoom:entity/behemoth/behemoth_growl"
     ]
   },
   "behemoth_hurt": {
     "sounds": [
-      "blubbysmodofdoom:behemoth_hurt"
+      "blubbysmodofdoom:entity/behemoth/behemoth_hurt"
     ]
   },
   "behemoth_death": {
     "sounds": [
-      "blubbysmodofdoom:behemoth_death"
+      "blubbysmodofdoom:entity/behemoth/behemoth_death"
     ]
   },
 
   "snow_flinx_ambience": {
     "sounds": [
-      "blubbysmodofdoom:snow_flinx_sniff_1",
-      "blubbysmodofdoom:snow_flinx_sniff_2",
-      "blubbysmodofdoom:snow_flinx_speak"
+      "blubbysmodofdoom:entity/snow_flinx/snow_flinx_sniff_1",
+      "blubbysmodofdoom:entity/snow_flinx/snow_flinx_sniff_2",
+      "blubbysmodofdoom:entity/snow_flinx/snow_flinx_speak"
     ]
   },
   "snow_flinx_hurt": {
     "sounds": [
-      "blubbysmodofdoom:snow_flinx_hurt"
+      "blubbysmodofdoom:entity/snow_flinx/snow_flinx_hurt"
     ]
   },
   "snow_flinx_death": {
     "sounds": [
-      "blubbysmodofdoom:snow_flinx_death"
+      "blubbysmodofdoom:entity/snow_flinx/snow_flinx_death"
     ]
   }
 }

@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements Tier {
-    COSMILITE("cosmilite", 7, 5000, 20f, 9.0F, 40, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get())),
-    DIVINE("divine", 5, 2777, 10.0F, 6.0F, 25, () -> Ingredient.of(ModItems.DIVINE_ALLOY.get()));
+    DIVINE("divine", 5, 2777, 10.0F, 6.0F, 25, () -> Ingredient.of(ModItems.DIVINE_ALLOY.get())),
+    SCARLITE("scarlite", 7, 5000, 20f, 9.0F, 40, () -> Ingredient.of(ModItems.SCARLITE_INGOT.get()));
 
     private final String name;
     private final Supplier<Ingredient> repairIngredient;

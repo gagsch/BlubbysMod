@@ -1,0 +1,29 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "temperature_modifier": "none",
+  "effects": {
+    "sky_color": 0,
+    "fog_color": 0,
+    "water_color": 1056573,
+    "water_fog_color": 131602,
+    "grass_color": 1984542,
+    "foliage_color": 1786139,
+    "grass_color_modifier": "dark_forest"
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ],
+    "liquid": [
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    "minecraft:lake_lava_underground",
+    "minecraft:lake_lava_surface"
+  ]
+}

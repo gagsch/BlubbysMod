@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "blubbysmodofdoom:block/dreadwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "blubbysmodofdoom:block/dreadwood_log"
+    },
+    "axis=z": {
+      "model": "blubbysmodofdoom:block/dreadwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

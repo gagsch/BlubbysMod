@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmodofdoom:scarlite_ingot"
+  },
+  "base": {
+    "item": "blubbysmodofdoom:divine_axe"
+  },
+  "result": {
+    "item": "blubbysmodofdoom:scarlite_axe"
+  }
+}

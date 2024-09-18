@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blubbysmodofdoom:block/dark_soil",
+    "side": "blubbysmodofdoom:block/dark_turf_block",
+    "top": "blubbysmodofdoom:block/dark_turf_block_top"
+  }
+}

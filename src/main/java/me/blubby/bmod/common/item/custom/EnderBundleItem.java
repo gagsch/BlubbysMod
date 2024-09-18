@@ -1,7 +1,7 @@
 package me.blubby.bmod.common.item.custom;
 
-import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
-import me.blubby.bmod.server.container.SecondEnderChestContainer;
+import me.blubby.bmod.common.container.EnderChestUpgradeContainer;
+import me.blubby.bmod.common.container.SecondEnderChestContainer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;

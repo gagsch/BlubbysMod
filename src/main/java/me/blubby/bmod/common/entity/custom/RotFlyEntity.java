@@ -1,6 +1,6 @@
 package me.blubby.bmod.common.entity.custom;
 
-import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.client.events.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -109,19 +109,19 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return BlubbySoundEvent.ROT_FLY_BUZZ.get();
+        return ModSounds.ROT_FLY_BUZZ.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return BlubbySoundEvent.ROT_FLY_HURT.get();
+        return ModSounds.ROT_FLY_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return BlubbySoundEvent.ROT_FLY_HURT.get();
+        return ModSounds.ROT_FLY_HURT.get();
     }
 
     @Override

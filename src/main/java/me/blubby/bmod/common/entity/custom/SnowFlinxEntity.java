@@ -1,7 +1,7 @@
 package me.blubby.bmod.common.entity.custom;
 
 import me.blubby.bmod.common.entity.ModEntities;
-import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.client.events.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
@@ -108,12 +108,12 @@ public class SnowFlinxEntity extends TamableAnimal {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() { return BlubbySoundEvent.SNOW_FLINX_AMBIENCE.get(); }
+    protected SoundEvent getAmbientSound() { return ModSounds.SNOW_FLINX_AMBIENCE.get(); }
     @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) { return BlubbySoundEvent.SNOW_FLINX_HURT.get(); }
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) { return ModSounds.SNOW_FLINX_HURT.get(); }
     @Override
     protected SoundEvent getDeathSound() {
-        return BlubbySoundEvent.SNOW_FLINX_DEATH.get();
+        return ModSounds.SNOW_FLINX_DEATH.get();
     }
 
     @Override

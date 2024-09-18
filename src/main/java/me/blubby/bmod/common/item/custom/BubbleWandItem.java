@@ -1,6 +1,6 @@
 package me.blubby.bmod.common.item.custom;
 
-import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.block.ModBlocks;
 import me.blubby.bmod.common.item.ModCreativeTab;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;

@@ -17,7 +17,6 @@ import java.util.List;
 public class ToolTipItem extends Item {
     public enum ToolTips {
         totem_of_dreams,
-        concentrated_dark_matter,
         lucky_rock,
         ender_bundle,
         rift_key,
@@ -37,7 +36,6 @@ public class ToolTipItem extends Item {
     public void writeToolTips()
     {
         toolTipHashMap.put(ToolTips.totem_of_dreams, component("item.blubbysmodofdoom.totem_of_dreaming.tooltip"));
-        toolTipHashMap.put(ToolTips.concentrated_dark_matter, component("item.blubbysmodofdoom.concentrated_dark_matter.tooltip"));
         toolTipHashMap.put(ToolTips.lucky_rock, component("item.blubbysmodofdoom.lucky_rock.tooltip"));
         toolTipHashMap.put(ToolTips.ender_bundle, component("item.blubbysmodofdoom.ender_bundle.tooltip"));
         toolTipHashMap.put(ToolTips.rift_key, component("item.blubbysmodofdoom.rift_key.tooltip"));

@@ -1,12 +1,9 @@
 {
   "replace": false,
   "values": [
-    "blubbysmodofdoom:tektite",
-    "blubbysmodofdoom:necrotic_tektite",
-    "blubbysmodofdoom:compressed_tektite",
-    "blubbysmodofdoom:overgrown_tektite",
-    "blubbysmodofdoom:snow_tektite",
-    "blubbysmodofdoom:cosmilite_ore",
-    "blubbysmodofdoom:necrium_ore"
+    "blubbysmodofdoom:scarlite_ore",
+    "blubbysmodofdoom:necrium_ore",
+    "blubbysmodofdoom:deeperslate",
+    "blubbysmodofdoom:fossilized_bone_block"
   ]
 }

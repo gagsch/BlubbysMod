@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 300,
-  "experience": 5.0,
-  "ingredient": {
-    "item": "blubbysmodofdoom:cosmilite_ore"
-  },
-  "result": "blubbysmodofdoom:cosmilite_chunk"
-}

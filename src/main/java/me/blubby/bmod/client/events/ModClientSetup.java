@@ -2,16 +2,11 @@ package me.blubby.bmod.client.events;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.client.gui.EnderChestUpgradeScreen;
-import me.blubby.bmod.client.layers.EndPortalArmorLayer;
-import me.blubby.bmod.client.layers.EndPortalDimensionalPortalLayer;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.entity.client.*;
-import me.blubby.bmod.common.entity.custom.DimensionTeleporterEntity;
-import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
+import me.blubby.bmod.common.container.EnderChestUpgradeContainer;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -45,21 +40,6 @@ public class ModClientSetup {
         EntityRenderers.register(ModEntities.ROT_FLY.get(), RotFlyRenderer::new);
         EntityRenderers.register(ModEntities.BEHEMOTH.get(), BehemothRenderer::new);
         EntityRenderers.register(ModEntities.SNOW_FLINX.get(), SnowFlinxRenderer::new);
-        EntityRenderers.register(ModEntities.DIMENSION_TELEPORTER.get(), DimensionTeleporterRenderer::new);
-    }
-
-    @SubscribeEvent
-    public static void onAddLayers(EntityRenderersEvent.AddLayers event) {
-        event.getSkins().forEach(skin -> {
-            PlayerRenderer renderer = event.getSkin(skin);
-            if (renderer != null) {
-                renderer.addLayer(new EndPortalArmorLayer<>(renderer));
-            }
-        });
-
-        EntityType<? extends DimensionTeleporterEntity> DimensionTeleporterEntity = ModEntities.DIMENSION_TELEPORTER.get();
-        DimensionTeleporterRenderer renderer = event.getRenderer(DimensionTeleporterEntity);
-        renderer.addLayer(new EndPortalDimensionalPortalLayer<>(renderer));
     }
 
     @SubscribeEvent
@@ -67,7 +47,6 @@ public class ModClientSetup {
         event.registerLayerDefinition(ModModelLayers.ROT_FLY_LAYER, RotFlyModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEHEMOTH_LAYER, BehemothModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.SNOW_FLINX_LAYER, SnowFlinxModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.DIMENSION_TELEPORTER_LAYER, DimensionTeleporterModel::createBodyLayer);
     }
 
     private static<T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String name, MenuType.MenuSupplier<T> menu) {

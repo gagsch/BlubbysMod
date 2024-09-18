@@ -1,7 +1,7 @@
 package me.blubby.bmod.common.entity.custom;
 
 import me.blubby.bmod.common.entity.ai.BehemothGroundHitGoal;
-import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.client.events.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -146,13 +146,18 @@ public class BehemothEntity extends Monster {
     }
 
     @Override
+    protected void dropCustomDeathLoot(DamageSource p_21385_, int p_21386_, boolean p_21387_) {
+        super.dropCustomDeathLoot(p_21385_, p_21386_, p_21387_);
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
-        return BlubbySoundEvent.BEHEMOTH_GROWL.get();
+        return ModSounds.BEHEMOTH_GROWL.get();
     }
     @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) { return BlubbySoundEvent.BEHEMOTH_HURT.get(); }
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) { return ModSounds.BEHEMOTH_HURT.get(); }
     @Override
     protected SoundEvent getDeathSound() {
-        return BlubbySoundEvent.BEHEMOTH_DEATH.get();
+        return ModSounds.BEHEMOTH_DEATH.get();
     }
 }

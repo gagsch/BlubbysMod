@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.blubby.bmod.core.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.blubbysmodofdoom.refmap.json",
+  "mixins": [
+    "MixinDynamicTexture",
+    "MixinGameRenderer",
+    "MixinLightTexture"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

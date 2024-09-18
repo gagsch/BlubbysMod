@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.block.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.player.LocalPlayer;
@@ -31,7 +31,6 @@ public class RenderOverlayEvent {
             {
                 renderVignette(pStack, window, 1f, IMG_LOCATION);
             }
-
         });
     }
 

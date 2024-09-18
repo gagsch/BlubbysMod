@@ -1,6 +1,6 @@
 package me.blubby.bmod.common.tier;
 
-import me.blubby.bmod.common.events.BlubbySoundEvent;
+import me.blubby.bmod.client.events.ModSounds;
 import me.blubby.bmod.common.item.ModItems;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvent;
@@ -14,9 +14,24 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModArmorMaterial implements ArmorMaterial {
-    NIGHTMARE("nightmare", 66 , new int[]{6, 13, 13, 6}, 30, BlubbySoundEvent.EQUIP_NIGHTMARE, 4F, () -> Ingredient.of(ModItems.NIGHTMARE_INGOT.get())),
-    DIVINE("divine", 70 , new int[]{7, 7, 7, 7}, 25, BlubbySoundEvent.EQUIP_NIGHTMARE, 3F, () -> Ingredient.of(ModItems.DIVINE_ALLOY.get())),
-    COSMILITE("cosmilite", 80 , new int[]{8, 16, 18, 8}, 40, BlubbySoundEvent.EQUIP_NIGHTMARE, 8F, () -> Ingredient.of(ModItems.COSMILITE_INGOT.get()));
+    DIVINE(
+            "divine",
+            70,
+            new int[]{7, 7, 7, 7},
+            25,
+            ModSounds.EQUIP_NIGHTMARE,
+            3F,
+            () -> Ingredient.of(ModItems.DIVINE_ALLOY.get()),
+            true),
+    SCARLITE(
+            "scarlite",
+            80,
+            new int[]{8, 16, 18, 8},
+            40,
+            ModSounds.EQUIP_NIGHTMARE,
+            8F,
+            () -> Ingredient.of(ModItems.SCARLITE_INGOT.get()),
+            false);
 
     private final String name;
     private final int maxDamageFactor;
@@ -25,8 +40,9 @@ public enum ModArmorMaterial implements ArmorMaterial {
     private final Supplier<SoundEvent> soundEvent;
     private final float toughness;
     private final Supplier<Ingredient> repairMaterial;
+    private final boolean hidesSecondLayer;
 
-    ModArmorMaterial(String name, int maxDamageFactor, int[] slotProtections, int enchantability, Supplier<SoundEvent> soundEvent, float toughness, Supplier<Ingredient> repairMaterial) {
+    ModArmorMaterial(String name, int maxDamageFactor, int[] slotProtections, int enchantability, Supplier<SoundEvent> soundEvent, float toughness, Supplier<Ingredient> repairMaterial, boolean hidesSecondLayer) {
         this.name = name;
         this.maxDamageFactor = maxDamageFactor;
         this.slotProtections = slotProtections;
@@ -34,6 +50,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
         this.soundEvent = soundEvent;
         this.toughness = toughness;
         this.repairMaterial = repairMaterial;
+        this.hidesSecondLayer = hidesSecondLayer;
     }
 
     @Override
@@ -76,5 +93,9 @@ public enum ModArmorMaterial implements ArmorMaterial {
     @Override
     public float getKnockbackResistance() {
         return 0;
+    }
+
+    public boolean shouldHideSecondLayer() {
+        return this.hidesSecondLayer;
     }
 }

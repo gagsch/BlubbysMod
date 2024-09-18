@@ -3,7 +3,7 @@ package me.blubby.bmod.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import me.blubby.bmod.Blubby_sModOfDoom;
-import me.blubby.bmod.server.container.EnderChestUpgradeContainer;
+import me.blubby.bmod.common.container.EnderChestUpgradeContainer;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

@@ -1,12 +1,10 @@
 package me.blubby.bmod.common.events;
 
-import me.blubby.bmod.common.blocks.ModBlocks;
+import me.blubby.bmod.common.block.ModBlocks;
 import me.blubby.bmod.common.entity.ModEntities;
 import me.blubby.bmod.common.entity.custom.RotFlyEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -52,7 +50,7 @@ public class BlockBreakEvent {
                 }
             }
 
-            if (state.getBlock() == ModBlocks.DEAD_TISSUE_BLOCK.get())
+            if (state.getBlock() == ModBlocks.ROT_BLOCK.get())
             {
                 summonRotFlies(pos, player.level, 1, 3);
             }

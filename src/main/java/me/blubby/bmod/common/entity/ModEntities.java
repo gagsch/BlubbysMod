@@ -2,7 +2,6 @@ package me.blubby.bmod.common.entity;
 
 import me.blubby.bmod.Blubby_sModOfDoom;
 import me.blubby.bmod.common.entity.custom.BehemothEntity;
-import me.blubby.bmod.common.entity.custom.DimensionTeleporterEntity;
 import me.blubby.bmod.common.entity.custom.RotFlyEntity;
 import me.blubby.bmod.common.entity.custom.SnowFlinxEntity;
 import net.minecraft.world.entity.EntityType;
@@ -24,9 +23,6 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<SnowFlinxEntity>> SNOW_FLINX = ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.7f).build("snow_flinx"));
-
-    public static final RegistryObject<EntityType<DimensionTeleporterEntity>> DIMENSION_TELEPORTER = ENTITY_TYPES.register("dimension_teleporter", () -> EntityType.Builder.of(DimensionTeleporterEntity::new, MobCategory.MISC)
-                    .sized(0.01f, 2f).build("dimension_teleporter"));
 
 
 

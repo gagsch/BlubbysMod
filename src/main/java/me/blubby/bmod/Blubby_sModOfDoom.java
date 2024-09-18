@@ -1,10 +1,11 @@
 package me.blubby.bmod;
 
 import me.blubby.bmod.client.events.ModClientSetup;
-import me.blubby.bmod.client.events.RenderOverlayEvent;
 import me.blubby.bmod.common.events.ModCommonSetup;
 import me.blubby.bmod.common.events.BlockBreakEvent;
 import me.blubby.bmod.common.events.EntityDeathEvent;
+import me.blubby.bmod.common.events.PlayerSleepEvent;
+import me.blubby.bmod.core.util.TickHandlerUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -22,7 +23,9 @@ public class Blubby_sModOfDoom {
     ModClientSetup.ModClientSetup(modEventBus);
 
     MinecraftForge.EVENT_BUS.register(EntityDeathEvent.class);
+    MinecraftForge.EVENT_BUS.register(PlayerSleepEvent.class);
     MinecraftForge.EVENT_BUS.register(BlockBreakEvent.class);
+    MinecraftForge.EVENT_BUS.register(TickHandlerUtils.class);
     MinecraftForge.EVENT_BUS.register(this);
   }
 
