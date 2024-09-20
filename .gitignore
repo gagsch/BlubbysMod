@@ -1,7 +1,10 @@
 
 # Remove Genereted Build Directoy and Gradle dir.
-build/
-.gradle/ 
+**/build/
+.gradle/
+common/.gradle/
+fabric/.gradle/
+forge/.gradle/
 .vscode/
 .idea/
 *.iml
@@ -163,3 +166,5 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 /run-data/
+*.gz
+/forge/run

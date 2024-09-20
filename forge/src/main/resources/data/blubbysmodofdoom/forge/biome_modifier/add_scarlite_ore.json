@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "blubbysmodofdoom:stone_plains",
+    "blubbysmodofdoom:plains"
+  ],
+  "features": "blubbysmodofdoom:scarlite_ore_placed",
+  "step": "underground_ores"
+}

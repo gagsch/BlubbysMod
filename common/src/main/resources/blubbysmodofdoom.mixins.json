@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinDynamicTexture",
+    "MixinGameRenderer",
+    "MixinLightTexture"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

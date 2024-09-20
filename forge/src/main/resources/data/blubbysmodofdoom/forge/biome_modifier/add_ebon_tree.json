@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "blubbysmodofdoom:necrosis_weald",
+  "features": "blubbysmodofdoom:ebon_placed",
+  "step": "vegetal_decoration"
+}
