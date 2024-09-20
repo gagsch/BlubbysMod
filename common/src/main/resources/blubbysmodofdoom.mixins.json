@@ -6,7 +6,8 @@
   "mixins": [
     "MixinDynamicTexture",
     "MixinGameRenderer",
-    "MixinLightTexture"
+    "MixinLightTexture",
+    "MixinEntity"
   ],
   "injectors": {
     "defaultRequire": 1

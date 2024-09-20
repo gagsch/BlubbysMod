@@ -1,9 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": [
-    "blubbysmodofdoom:weeping_forest",
-    "blubbysmodofdoom:necrosis_weald"
-  ],
-  "features": "blubbysmodofdoom:grass_patch_placed",
-  "step": "vegetal_decoration"
-}

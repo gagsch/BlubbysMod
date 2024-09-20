@@ -32,9 +32,9 @@ public class ENLangProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("item.blubbysmodofdoom." + ModItems.CHRONOS_CLOCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Skips time forward. Avoid skipping ahead to far!");
-        add("item.blubbysmodofdoom." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
-        add("item.blubbysmodofdoom." + ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Teleports you to your spawn point on death while retaining items and EXP.");
-        add("item.blubbysmodofdoom." + ModItems.TOTEM_OF_DREAMS.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
+        add("item.blubbysmodofdoom." + ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
+        add("item.blubbysmodofdoom." + ModItems.TOTEM_OF_DREAMS.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Teleports you to your spawn point on death while retaining items and EXP.");
+        add("item.blubbysmodofdoom." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
         add("item.blubbysmodofdoom." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
         add("item.blubbysmodofdoom." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
 

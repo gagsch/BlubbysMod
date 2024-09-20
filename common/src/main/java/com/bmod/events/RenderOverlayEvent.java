@@ -1,10 +1,12 @@
-package com.bmod.forge.events;
+package com.bmod.events;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.block.ModBlocks;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
-import com.bmod.registry.block.ModBlocks;
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.client.ClientGuiEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.player.LocalPlayer;
@@ -13,23 +15,23 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-
 
 public class RenderOverlayEvent {
 
     private static final ResourceLocation IMG_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/block/bubble_block.png");
 
-    @SubscribeEvent
-    public static void onRenderGui(RegisterGuiOverlaysEvent event) {
-        event.registerAboveAll("bubble_block_overlay", (gui, pStack, partialTicks, screenWidth, screenHeight) -> {
+    public static void initialize() {
+        events();
+    }
+
+    public static void events() {
+        ClientGuiEvent.RENDER_POST.register((screen, matrices, mouseX, mouseY, delta) -> {
             Minecraft minecraft = Minecraft.getInstance();
             Window window = minecraft.getWindow();
             LocalPlayer player = minecraft.player;
             if (isPlayerInsideBlock(player))
             {
-                renderVignette(pStack, window, 1f, IMG_LOCATION);
+                renderVignette(matrices, window, 1f, IMG_LOCATION);
             }
         });
     }

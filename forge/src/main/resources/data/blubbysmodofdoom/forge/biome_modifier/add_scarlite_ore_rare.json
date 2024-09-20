@@ -1,9 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": [
-    "blubbysmodofdoom:weeping_forest",
-    "blubbysmodofdoom:necrosis_weald"
-  ],
-  "features": "blubbysmodofdoom:scarlite_ore_placed_rare",
-  "step": "underground_ores"
-}

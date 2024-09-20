@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "blubbysmodofdoom:necrosis_weald",
-  "features": "blubbysmodofdoom:gleam_shroom_patch_placed",
-  "step": "vegetal_decoration"
-}

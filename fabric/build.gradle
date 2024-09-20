@@ -7,6 +7,16 @@ architectury {
     fabric()
 }
 
+def generatedResources = project(':common').file("src/main/generated/resources")
+
+sourceSets {
+    main {
+        resources.srcDir generatedResources
+
+        resources.exclude '.cache'
+    }
+}
+
 configurations {
     common {
         canBeResolved = true

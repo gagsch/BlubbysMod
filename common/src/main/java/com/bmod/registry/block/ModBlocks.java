@@ -8,10 +8,12 @@ import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
 import java.util.HashMap;
@@ -21,8 +23,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final Map<String, Supplier<Block>> BLOCK_HASH_MAP = new HashMap<>();
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.BLOCK_REGISTRY);
-
-    public static final TagKey<Block> grassBlocks = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "grass_blocks"));
 
     public static final Supplier<Block> SLUDGE_BLOCK = registerBlock("sludge_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))),
@@ -37,11 +37,15 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT))),
 
     GLEAM_SHROOM = registerBlock("gleam_shroom", true,
-            () -> new MushroomBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((light) -> {
-                return 8;
-            }), () -> {
-                return ModTreeFeatures.DREADWOOD;
-            })),
+            () -> new FlowerBlock(MobEffects.NIGHT_VISION, 200, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE)
+                    .instabreak()
+                    .noCollission()
+                    .noOcclusion()
+                    .lightLevel((light) -> {
+                        return 8;
+                    })
+            )
+    ),
 
     DEEPERSLATE = registerBlock("deeperslate", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),

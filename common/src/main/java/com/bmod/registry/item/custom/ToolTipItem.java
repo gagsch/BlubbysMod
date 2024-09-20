@@ -19,7 +19,6 @@ public class ToolTipItem extends Item {
         totem_of_dreams,
         lucky_rock,
         ender_bundle,
-        rift_key,
         chronos_clock,
         hot_pepper,
         bubble_wand
@@ -38,7 +37,6 @@ public class ToolTipItem extends Item {
         toolTipHashMap.put(ToolTips.totem_of_dreams, component("item.blubbysmodofdoom.totem_of_dreaming.tooltip"));
         toolTipHashMap.put(ToolTips.lucky_rock, component("item.blubbysmodofdoom.lucky_rock.tooltip"));
         toolTipHashMap.put(ToolTips.ender_bundle, component("item.blubbysmodofdoom.ender_bundle.tooltip"));
-        toolTipHashMap.put(ToolTips.rift_key, component("item.blubbysmodofdoom.rift_key.tooltip"));
         toolTipHashMap.put(ToolTips.chronos_clock, component("item.blubbysmodofdoom.chronos_clock.tooltip"));
         toolTipHashMap.put(ToolTips.hot_pepper, component("item.blubbysmodofdoom.hot_pepper.tooltip"));
         toolTipHashMap.put(ToolTips.bubble_wand, component("item.blubbysmodofdoom.bubble_wand.tooltip"));

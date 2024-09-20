@@ -2,7 +2,6 @@ package com.bmod.forge;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.menu.VoidBundleMenu;
-import com.bmod.forge.events.*;
 import dev.architectury.platform.forge.EventBuses;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,24 +11,16 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import static com.bmod.registry.menu.ModMenus.*;
+import static com.bmod.registry.menu.ModMenus.ENDER_CHEST_UPGRADE_MENU;
 
 @Mod(BlubbysMod.MOD_ID)
 public final class BlubbysModForge {
 
     public BlubbysModForge() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         EventBuses.registerModEventBus(BlubbysMod.MOD_ID, modEventBus);
-
-        ModClientSetup.ModClientSetup(modEventBus);
-
-        MinecraftForge.EVENT_BUS.register(EntityDeathEvent.class);
-        MinecraftForge.EVENT_BUS.register(PlayerSleepEvent.class);
-        MinecraftForge.EVENT_BUS.register(BlockBreakEvent.class);
         MinecraftForge.EVENT_BUS.register(this);
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        modEventBus.addListener(this::setup);
 
         BlubbysMod.init();
     }

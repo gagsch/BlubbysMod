@@ -1,31 +1,34 @@
-package com.bmod.forge.command;
+package com.bmod.registry;
 
-import com.bmod.BlubbysMod;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.CommandPerformEvent;
+import dev.architectury.event.events.common.CommandRegistrationEvent;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber(modid = BlubbysMod.MOD_ID)
-public class multiplytp {
-    @SubscribeEvent
-    public static void registerCommands(RegisterCommandsEvent event) {
-        LiteralArgumentBuilder<CommandSourceStack> teleportCommand =
-                Commands.literal("multiplytp")
-                        .then(
+public class ModCommands {
+    public static void initialize()
+    {
+        events();
+    }
+
+    public static void events() {
+        CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> {
+            LiteralArgumentBuilder<CommandSourceStack> teleportCommand = Commands.literal("multiplytp")
+                    .then(
                             Commands.argument("player", EntityArgument.player())
                                     .then(
-                                        Commands.argument("factor", DoubleArgumentType.doubleArg())
-                                                .executes(multiplytp::executeTeleportCommand)))
-                        .requires(multiplytp::hasPermission);
-        event.getDispatcher().register(teleportCommand);
+                                            Commands.argument("factor", DoubleArgumentType.doubleArg())
+                                                    .executes(ModCommands::executeTeleportCommand)))
+                    .requires(ModCommands::hasPermission);
+            dispatcher.register(teleportCommand);
+        });
     }
 
     private static int executeTeleportCommand(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {

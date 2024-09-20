@@ -1,6 +1,7 @@
 package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.ModTags;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.util.WoodUtils;
@@ -131,7 +132,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder
                 .shaped(ModItems.SOUL_FRAGMENT.get(), 2)
                 .define('d', ModItems.SOUL_DUST.get())
-                .define('B', ModItems.bossCores)
+                .define('B', ModTags.BOSS_CORES)
                 .pattern(" d ")
                 .pattern("dBd")
                 .pattern(" d ")

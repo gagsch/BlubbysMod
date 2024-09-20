@@ -1,4 +1,4 @@
-package com.bmod.util.dlUtils;
+package com.bmod.util.mixinUtils;
 
 public interface TextureAccess {
     void darkness_enableUploadHook();

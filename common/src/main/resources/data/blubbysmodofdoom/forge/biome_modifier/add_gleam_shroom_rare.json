@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "blubbysmodofdoom:weeping_forest",
-  "features": "blubbysmodofdoom:gleam_shroom_patch_rare_placed",
-  "step": "vegetal_decoration"
-}

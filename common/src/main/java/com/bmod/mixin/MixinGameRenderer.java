@@ -2,8 +2,8 @@ package com.bmod.mixin;
 
 import com.bmod.registry.world.ModDimensions;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.bmod.util.dlUtils.DimLightSystem;
-import com.bmod.util.dlUtils.LightmapAccess;
+import com.bmod.util.mixinUtils.DimLightSystem;
+import com.bmod.util.mixinUtils.LightmapAccess;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.LightTexture;

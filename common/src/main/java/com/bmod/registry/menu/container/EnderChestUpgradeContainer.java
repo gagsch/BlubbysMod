@@ -1,6 +1,6 @@
 package com.bmod.registry.menu.container;
 
-import com.bmod.platform.ContainerUtils;
+import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -11,6 +11,15 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class EnderChestUpgradeContainer extends AbstractContainerMenu {
+
+    /*
+        I have literally no clue what I am looking at.
+        Must have been on some type of drug making this
+        and other container related stuff.
+
+        New duplication methods may arise with this.
+    */
+
     private final SimpleContainer loot;
 
     public EnderChestUpgradeContainer(int windowId, Inventory playerInventory, SimpleContainer loot) {

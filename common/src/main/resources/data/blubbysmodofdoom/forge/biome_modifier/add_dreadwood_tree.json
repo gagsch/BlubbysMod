@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "blubbysmodofdoom:weeping_forest",
-  "features": "blubbysmodofdoom:dreadwood_placed",
-  "step": "vegetal_decoration"
-}

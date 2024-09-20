@@ -26,10 +26,6 @@ import static com.bmod.registry.item.custom.InventoryItem.*;
 
 public class ModItems  {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ITEM_REGISTRY);
-
-    // Tags
-    public static final TagKey<Item>
-            bossCores = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "boss_cores"));
     
     public static final Supplier<Item>
     BLUBBY_COIN = ITEMS.register("blubby_coin",

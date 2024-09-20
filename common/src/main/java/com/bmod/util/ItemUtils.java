@@ -2,7 +2,6 @@ package com.bmod.util;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.item.ModCreativeTab;
-import com.bmod.registry.item.custom.ModArmorItem;
 import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.registry.item.ModItems;
 import net.minecraft.core.Registry;
@@ -74,6 +73,6 @@ public class ItemUtils {
         slotName = slot == EquipmentSlot.FEET ? "_boots" : slotName;
 
         return ModItems.ITEMS.register(type.getName() + slotName,
-                () -> new ModArmorItem(type, slot, new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(type.getDurabilityForSlot(slot))));
+                () -> new ArmorItem(type, slot, new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(type.getDurabilityForSlot(slot))));
     }
 }
