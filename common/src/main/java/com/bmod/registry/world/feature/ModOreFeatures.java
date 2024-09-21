@@ -30,14 +30,14 @@ public class ModOreFeatures {
     public static void initialize() {
         LifecycleEvent.SETUP.register(() -> {
             SCARLITE_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":scarlite_ores", Feature.ORE,
-                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.SCARLITE_ORE.get().defaultBlockState(), 33));
+                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.SCARLITE_ORE.get().defaultBlockState(), 2));
 
             NECRIUM_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":necrium_ores", Feature.ORE,
-                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.NECRIUM_ORE.get().defaultBlockState(), 33));
+                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.NECRIUM_ORE.get().defaultBlockState(), 6));
 
             SCARLITE_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":scarlite_ore_placed", SCARLITE_ORES,
                     List.of(
-                            CountPlacement.of(4),
+                            CountPlacement.of(6),
                             InSquarePlacement.spread(),
                             HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(200)
                             )

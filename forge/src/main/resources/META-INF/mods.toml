@@ -9,10 +9,8 @@ version = "${version}"
 displayName = "Blubbys Mod Of Doom"
 authors = ""
 description = '''
-
 '''
 #logoFile = ""
-
 [[dependencies.blubbysmodofdoom]]
 modId = "forge"
 mandatory = true
