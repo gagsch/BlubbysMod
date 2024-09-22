@@ -1,6 +1,7 @@
 package com.bmod.registry.item.custom;
 
-import com.bmod.registry.menu.ModMenus;
+import com.bmod.registry.menu.container.EnderChestUpgradeContainer;
+import com.bmod.registry.menu.container.SecondEnderChestContainer;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -25,8 +26,8 @@ public class EnderBundleItem extends ToolTipItem {
             MenuRegistry.openMenu(serverPlayer, new MenuProvider() {
                 @Override
                 public AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player playerEntity) {
-                    return ModMenus.ENDER_CHEST_UPGRADE_MENU.get().create(id, playerInventory);
-                    // return new EnderChestUpgradeContainer(id, playerInventory, new SecondEnderChestContainer(54));
+                    // return ModMenus.ENDER_CHEST_UPGRADE_MENU.get().create(id, playerInventory);
+                    return new EnderChestUpgradeContainer(id, playerInventory, new SecondEnderChestContainer(54));
                 }
 
                 @Override

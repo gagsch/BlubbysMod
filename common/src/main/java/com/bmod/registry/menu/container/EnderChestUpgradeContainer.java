@@ -2,6 +2,7 @@ package com.bmod.registry.menu.container;
 
 import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -25,9 +26,8 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
     public EnderChestUpgradeContainer(int windowId, Inventory playerInventory, SimpleContainer loot) {
         super(ModMenus.ENDER_CHEST_UPGRADE_MENU.get(), windowId);
         this.loot = loot;
-        Player player = playerInventory.player;
 
-        ContainerUtils.loadContainerFromPlayer(loot, player, "EnderChestUpgradeLoot");
+        ContainerUtils.loadContainerFromPlayer(loot, playerInventory.player, "EnderChestUpgradeLoot");
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 9; j++) {

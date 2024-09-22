@@ -1,6 +1,6 @@
 package com.bmod.util;
 
-import com.bmod.util.mixinUtils.PersistentDataAccess;
+import com.bmod.util.mixinUtils.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 public class ContainerUtils {
 
     public static void saveContainerToPlayer(SimpleContainer container, Player player, String key) {
-        CompoundTag playerData = PersistentDataAccess.persistentData;
+        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmodofdoom$getPersistentData();
 
         ListTag itemList = new ListTag();
 
@@ -25,17 +25,13 @@ public class ContainerUtils {
             }
         }
 
-        playerData.put(key + player.getStringUUID(), itemList);
+        playerData.put(key, itemList);
     }
 
     public static void loadContainerFromPlayer(SimpleContainer container, Player player, String key) {
-        if (PersistentDataAccess.persistentData == null)
-        {
-            PersistentDataAccess.persistentData = new CompoundTag();
-        }
-        CompoundTag playerData = PersistentDataAccess.persistentData;
+        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmodofdoom$getPersistentData();
 
-        ListTag itemList = playerData.getList(key + player.getStringUUID(), Tag.TAG_COMPOUND);
+        ListTag itemList = playerData.getList(key, Tag.TAG_COMPOUND);
 
         for (int i = 0; i < itemList.size(); i++) {
             CompoundTag itemTag = itemList.getCompound(i);

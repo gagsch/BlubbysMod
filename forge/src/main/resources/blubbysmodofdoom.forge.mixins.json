@@ -4,9 +4,10 @@
   "package": "com.bmod.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MixinDynamicTexture",
     "MixinGameRenderer",
     "MixinLightTexture",
-    "MixinDynamicTexture"
+    "MixinEntity"
   ],
   "injectors": {
     "defaultRequire": 1
