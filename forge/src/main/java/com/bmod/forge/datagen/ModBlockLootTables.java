@@ -33,13 +33,23 @@ public class ModBlockLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
-        this.dropOther(ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.DARK_SOIL.get());
+        dropOther(ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.DARK_SOIL.get());
         dropOther(ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.DARK_SOIL.get());
+
+        add(ModBlocks.RUBY_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.RUBY_ORE.get(), ModItems.RUBY.get()));
+        add(ModBlocks.DEEPSLATE_RUBY_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModItems.RUBY.get()));
 
         add(ModBlocks.SCARLITE_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.SCARLITE_ORE.get(), ModItems.SCARLITE_CHUNK.get()));
+        add(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get(), ModItems.SCARLITE_CHUNK.get()));
+
         add(ModBlocks.NECRIUM_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
+        add(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
 
         add(ModBlocks.ROT_BLOCK.get(), createSingleItemTable(Items.ROTTEN_FLESH, UniformGenerator.between(1, 4)));
         add(ModBlocks.HOT_PEPPER_CROP.get(), createSingleItemTable(ModItems.HOT_PEPPER_SEEDS.get(), UniformGenerator.between(0,1)));
@@ -52,8 +62,12 @@ public class ModBlockLootTables extends BlockLoot {
 
         registeredBlockLoot.add(ModBlocks.NECROTIC_GRASS_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.RUBY_ORE.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DEEPSLATE_RUBY_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.SCARLITE_ORE.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECRIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.ROT_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.HOT_PEPPER_CROP.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.BUBBLE_BLOCK.get().builtInRegistryHolder().key().location().getPath());

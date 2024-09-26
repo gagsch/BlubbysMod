@@ -4,7 +4,7 @@
     "item": "blubbysmodofdoom:scarlite_ingot"
   },
   "base": {
-    "item": "blubbysmodofdoom:divine_pickaxe"
+    "item": "minecraft:netherite_pickaxe"
   },
   "result": {
     "item": "blubbysmodofdoom:scarlite_pickaxe"

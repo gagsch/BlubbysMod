@@ -21,7 +21,7 @@ public class MixinDynamicTexture implements TextureAccess {
     @Unique
     private boolean blubbysmodofdoom$enableHook = false;
 
-    @Inject(method = "upload", at = @At(value = "HEAD"))
+    @Inject(method = "upload", at = @At("HEAD"))
     private void onUpload(CallbackInfo ci) {
         if (blubbysmodofdoom$enableHook && enabled && pixels != null) {
             final NativeImage img = pixels;

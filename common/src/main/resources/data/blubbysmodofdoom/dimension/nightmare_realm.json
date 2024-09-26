@@ -401,102 +401,130 @@
                         "then_run": {
                             "type": "minecraft:condition",
                             "if_true": {
-                                "type": "minecraft:stone_depth",
-                                "offset": 2,
-                                "surface_type": "floor",
-                                "add_surface_depth": true,
-                                "secondary_depth_range": 0
+                                "type": "minecraft:not",
+                                "invert": {
+                                    "type": "minecraft:water",
+                                    "offset": 0,
+                                    "surface_depth_multiplier": -4,
+                                    "add_stone_depth": false
+                                }
                             },
                             "then_run": {
                                 "type": "minecraft:condition",
                                 "if_true": {
-                                    "type": "minecraft:water",
+                                    "type": "minecraft:stone_depth",
                                     "offset": 0,
+                                    "surface_type": "floor",
+                                    "add_surface_depth": true,
+                                    "secondary_depth_range": 0
+                                },
+                                "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                        "Name": "minecraft:sand"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                            "type": "minecraft:stone_depth",
+                            "offset": 2,
+                            "surface_type": "floor",
+                            "add_surface_depth": false,
+                            "secondary_depth_range": 0
+                        },
+                        "then_run": {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                                "type": "minecraft:water",
+                                "offset": 0,
+                                "surface_depth_multiplier": 0,
+                                "add_stone_depth": false
+                            },
+                            "then_run": {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                    "type": "minecraft:y_above",
+                                    "anchor": {
+                                        "absolute": 55
+                                    },
                                     "surface_depth_multiplier": 0,
                                     "add_stone_depth": false
                                 },
                                 "then_run": {
                                     "type": "minecraft:condition",
                                     "if_true": {
-                                        "type": "minecraft:y_above",
-                                        "anchor": {
-                                            "absolute": 58
-                                        },
-                                        "surface_depth_multiplier": 0,
-                                        "add_stone_depth": false
+                                        "type": "minecraft:not",
+                                        "invert": {
+                                            "type": "minecraft:biome",
+                                            "biome_is": [
+                                                "blubbysmodofdoom:stone_plains"
+                                            ]
+                                        }
                                     },
                                     "then_run": {
-                                        "type": "minecraft:condition",
-                                        "if_true": {
-                                            "type": "minecraft:not",
-                                            "invert": {
-                                                "type": "minecraft:biome",
-                                                "biome_is": [
-                                                    "blubbysmodofdoom:stone_plains"
-                                                ]
-                                            }
-                                        },
-                                        "then_run": {
-                                            "type": "minecraft:sequence",
-                                            "sequence": [
-                                                {
-                                                    "type": "minecraft:condition",
-                                                    "if_true": {
-                                                        "type": "minecraft:stone_depth",
-                                                        "offset": 0,
-                                                        "surface_type": "floor",
-                                                        "add_surface_depth": false,
-                                                        "secondary_depth_range": 0
-                                                    },
-                                                    "then_run": {
-                                                        "type": "minecraft:sequence",
-                                                        "sequence": [
-                                                            {
-                                                                "type": "minecraft:condition",
-                                                                "if_true": {
-                                                                    "type": "minecraft:biome",
-                                                                    "biome_is": [
-                                                                        "blubbysmodofdoom:plains",
-                                                                        "blubbysmodofdoom:weeping_forest",
-                                                                        "minecraft:plains"
-                                                                    ]
-                                                                },
-                                                                "then_run": {
-                                                                    "type": "minecraft:block",
-                                                                    "result_state": {
-                                                                        "Name": "blubbysmodofdoom:dark_turf_block",
-                                                                        "Properties": {
-                                                                            "snowy": "false"
-                                                                        }
-                                                                    }
-                                                                }
+                                        "type": "minecraft:sequence",
+                                        "sequence": [
+                                            {
+                                                "type": "minecraft:condition",
+                                                "if_true": {
+                                                    "type": "minecraft:stone_depth",
+                                                    "offset": 0,
+                                                    "surface_type": "floor",
+                                                    "add_surface_depth": false,
+                                                    "secondary_depth_range": 0
+                                                },
+                                                "then_run": {
+                                                    "type": "minecraft:sequence",
+                                                    "sequence": [
+                                                        {
+                                                            "type": "minecraft:condition",
+                                                            "if_true": {
+                                                                "type": "minecraft:biome",
+                                                                "biome_is": [
+                                                                    "blubbysmodofdoom:plains",
+                                                                    "blubbysmodofdoom:weeping_forest",
+                                                                    "minecraft:plains"
+                                                                ]
                                                             },
-                                                            {
-                                                                "type": "minecraft:condition",
-                                                                "if_true": {
-                                                                    "type": "minecraft:biome",
-                                                                    "biome_is": [
-                                                                        "blubbysmodofdoom:necrosis_weald"
-                                                                    ]
-                                                                },
-                                                                "then_run": {
-                                                                    "type": "minecraft:block",
-                                                                    "result_state": {
-                                                                        "Name": "blubbysmodofdoom:necrotic_grass_block"
+                                                            "then_run": {
+                                                                "type": "minecraft:block",
+                                                                "result_state": {
+                                                                    "Name": "blubbysmodofdoom:dark_turf_block",
+                                                                    "Properties": {
+                                                                        "snowy": "false"
                                                                     }
                                                                 }
                                                             }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "type": "minecraft:block",
-                                                    "result_state": {
-                                                        "Name": "blubbysmodofdoom:dark_soil"
-                                                    }
+                                                        },
+                                                        {
+                                                            "type": "minecraft:condition",
+                                                            "if_true": {
+                                                                "type": "minecraft:biome",
+                                                                "biome_is": [
+                                                                    "blubbysmodofdoom:necrosis_weald"
+                                                                ]
+                                                            },
+                                                            "then_run": {
+                                                                "type": "minecraft:block",
+                                                                "result_state": {
+                                                                    "Name": "blubbysmodofdoom:necrotic_grass_block"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
                                                 }
-                                            ]
-                                        }
+                                            },
+                                            {
+                                                "type": "minecraft:block",
+                                                "result_state": {
+                                                    "Name": "blubbysmodofdoom:dark_soil"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             }
@@ -532,51 +560,78 @@
                                             "invert": {
                                                 "type": "minecraft:water",
                                                 "offset": -2,
-                                                "surface_depth_multiplier": -2,
+                                                "surface_depth_multiplier": 1,
                                                 "add_stone_depth": false
                                             }
                                         },
                                         "then_run": {
-                                            "type": "minecraft:block",
-                                            "result_state": {
-                                                "Name": "minecraft:gravel"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "type": "minecraft:condition",
-                                        "if_true": {
-                                            "type": "minecraft:not",
-                                            "invert": {
-                                                "type": "minecraft:water",
-                                                "offset": -2,
-                                                "surface_depth_multiplier": -1,
-                                                "add_stone_depth": false
-                                            }
-                                        },
-                                        "then_run": {
-                                            "type": "minecraft:block",
-                                            "result_state": {
-                                                "Name": "minecraft:sand"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "type": "minecraft:condition",
-                                        "if_true": {
-                                            "type": "minecraft:not",
-                                            "invert": {
-                                                "type": "minecraft:water",
-                                                "offset": -2,
-                                                "surface_depth_multiplier": 3,
-                                                "add_stone_depth": false
-                                            }
-                                        },
-                                        "then_run": {
-                                            "type": "minecraft:block",
-                                            "result_state": {
-                                                "Name": "blubbysmodofdoom:dark_soil"
-                                            }
+                                            "type": "minecraft:sequence",
+                                            "sequence": [
+                                                {
+                                                    "type": "minecraft:condition",
+                                                    "if_true": {
+                                                        "type": "minecraft:not",
+                                                        "invert": {
+                                                            "type": "minecraft:water",
+                                                            "offset": -2,
+                                                            "surface_depth_multiplier": 0,
+                                                            "add_stone_depth": false
+                                                        }
+                                                    },
+                                                    "then_run": {
+                                                        "type": "minecraft:sequence",
+                                                        "sequence": [
+                                                            {
+                                                                "type": "minecraft:condition",
+                                                                "if_true": {
+                                                                    "type": "minecraft:water",
+                                                                    "offset": 0,
+                                                                    "surface_depth_multiplier": -1,
+                                                                    "add_stone_depth": false
+                                                                },
+                                                                "then_run": {
+                                                                    "type": "minecraft:block",
+                                                                    "result_state": {
+                                                                        "Name": "minecraft:sand"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "minecraft:sequence",
+                                                                "sequence": [
+                                                                    {
+                                                                        "type": "minecraft:block",
+                                                                        "result_state": {
+                                                                            "Name": "minecraft:gravel"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "minecraft:condition",
+                                                                        "if_true": {
+                                                                            "type": "minecraft:noise_threshold",
+                                                                            "noise": "minecraft:surface",
+                                                                            "min_threshold": 0.12121212121212122,
+                                                                            "max_threshold": 1.7976931348623157e+308
+                                                                        },
+                                                                        "then_run": {
+                                                                            "type": "minecraft:block",
+                                                                            "result_state": {
+                                                                                "Name": "minecraft:clay"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "minecraft:block",
+                                                    "result_state": {
+                                                        "Name": "blubbysmodofdoom:dark_soil"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
@@ -628,26 +683,17 @@
             "type": "minecraft:multi_noise",
             "biomes": [
                 {
-                    "biome": "blubbysmodofdoom:necrosis_weald",
-                    "parameters": {
-                        "temperature": 0,
-                        "humidity": 0,
-                        "continentalness": 0,
-                        "erosion": 0,
-                        "weirdness": 0.1,
-                        "depth": 0,
-                        "offset": 0
-                    }
-                },
-                {
                     "biome": "blubbysmodofdoom:weeping_forest",
                     "parameters": {
                         "temperature": 0,
                         "humidity": 0,
                         "continentalness": 0,
                         "erosion": 0,
-                        "weirdness": -0.1,
-                        "depth": 0,
+                        "weirdness": [
+                            -2,
+                            -0.1
+                        ],
+                        "depth": 1,
                         "offset": 0
                     }
                 },
@@ -659,20 +705,56 @@
                         "continentalness": 0,
                         "erosion": 0,
                         "weirdness": 0,
-                        "depth": 0,
+                        "depth": 1,
+                        "offset": 0
+                    }
+                },
+                {
+                    "biome": "blubbysmodofdoom:necrosis_weald",
+                    "parameters": {
+                        "temperature": 0,
+                        "humidity": 0,
+                        "continentalness": 0,
+                        "erosion": 0,
+                        "weirdness": [
+                            0.1,
+                            0.7
+                        ],
+                        "depth": 1,
                         "offset": 0
                     }
                 },
                 {
                     "biome": "blubbysmodofdoom:stone_plains",
                     "parameters": {
-                        "temperature": 1,
+                        "temperature": 0,
                         "humidity": 0,
                         "continentalness": 0,
                         "erosion": 0,
-                        "weirdness": 1,
-                        "depth": 0,
-                        "offset": 0.1
+                        "weirdness": [
+                            1.1,
+                            2
+                        ],
+                        "depth": 1,
+                        "offset": 0
+                    }
+                },
+                {
+                    "biome": "blubbysmodofdoom:spider_den",
+                    "parameters": {
+                        "temperature": 2,
+                        "humidity": 2,
+                        "continentalness": 2,
+                        "erosion": 2,
+                        "weirdness": [
+                            0.7,
+                            1.1
+                        ],
+                        "depth": [
+                            0.2,
+                            0.9
+                        ],
+                        "offset": 0
                     }
                 }
             ]

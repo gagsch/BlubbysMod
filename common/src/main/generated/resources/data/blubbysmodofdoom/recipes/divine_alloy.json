@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "#": {
+    "D": {
       "item": "minecraft:diamond"
     },
-    "B": {
-      "item": "blubbysmodofdoom:essence_blessed"
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "R": {
+      "item": "blubbysmodofdoom:ruby"
     },
     "s": {
       "item": "blubbysmodofdoom:soul_fragment"
     }
   },
   "pattern": [
-    "###",
-    "BsB",
-    "###"
+    "DRD",
+    "QsQ",
+    "DRD"
   ],
   "result": {
     "count": 2,

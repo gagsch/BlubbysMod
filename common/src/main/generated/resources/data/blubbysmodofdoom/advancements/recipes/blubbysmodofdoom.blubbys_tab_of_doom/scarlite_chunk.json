@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_scarlite_ore": {
+    "has_scarlite_ores": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "blubbysmodofdoom:scarlite_ore"
-            ]
+            "tag": "blubbysmodofdoom:scarlite_ores"
           }
         ]
       },
@@ -22,7 +20,7 @@
   },
   "requirements": [
     [
-      "has_scarlite_ore",
+      "has_scarlite_ores",
       "has_the_recipe"
     ]
   ],

@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -42,14 +41,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.DEEPERSLATE.get());
 
+        blockWithItem(ModBlocks.RUBY_ORE.get());
+        blockWithItem(ModBlocks.DEEPSLATE_RUBY_ORE.get());
         blockWithItem(ModBlocks.SCARLITE_ORE.get());
+        blockWithItem(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get());
         blockWithItem(ModBlocks.NECRIUM_ORE.get());
+        blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());
 
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK.get(), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
         blockWithItem(ModBlocks.ROT_BLOCK.get());
 
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
+        northFacingBlockWithItem(ModBlocks.ENRICHMENT_TABLE.get(), blockLoc(ModBlocks.ENRICHMENT_TABLE, "bottom"), blockLoc(ModBlocks.ENRICHMENT_TABLE, "top"), blockLoc(ModBlocks.ENRICHMENT_TABLE, "side"));
 
         crossBlock(ModBlocks.GLEAM_SHROOM.get());
 
@@ -84,8 +88,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void bottomTopBlockWithItem(Block block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)
     {
-        simpleBlock(block, cubeBottomTop(block, bottomTexture, topTexture, sideTexture));
-        simpleBlockItem(block, cubeBottomTop(block, bottomTexture, topTexture, sideTexture));
+        simpleBlock(block, models().cubeBottomTop(getName(block), sideTexture, bottomTexture, topTexture));
+        simpleBlockItem(block, models().cubeBottomTop(getName(block), sideTexture, bottomTexture, topTexture));
     }
 
     private void axisBlockWithItem(Block block, ResourceLocation sideTexture, ResourceLocation endTexture)
@@ -96,9 +100,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(block, models().withExistingParent(getName(block), "minecraft:block/cube_column"));
     }
 
-    private ModelFile cubeBottomTop(Block blockRegistryObject, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)
+    private void northFacingBlockWithItem(Block block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)
     {
-        return models().cubeBottomTop(getName(blockRegistryObject), sideTexture, bottomTexture, topTexture);
+        simpleBlock(block, models().cube(getName(block), bottomTexture, topTexture, blockLoc(block.builtInRegistryHolder()), sideTexture, sideTexture, sideTexture));
+        simpleBlockItem(block, models().cube(getName(block), bottomTexture, topTexture, blockLoc(block.builtInRegistryHolder()), sideTexture, sideTexture, sideTexture));
     }
 
     private void crossBlock(Block block) {

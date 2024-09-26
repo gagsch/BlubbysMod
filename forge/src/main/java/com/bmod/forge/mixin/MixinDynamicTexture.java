@@ -1,9 +1,9 @@
 package com.bmod.forge.mixin;
 
+import static com.bmod.util.mixinUtils.DimLightSystem.enabled;
+
 import com.bmod.util.mixinUtils.DimLightSystem;
 import com.bmod.util.mixinUtils.TextureAccess;
-import com.mojang.blaze3d.platform.NativeImage;
-import net.minecraft.client.renderer.texture.DynamicTexture;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.bmod.util.mixinUtils.DimLightSystem.enabled;
+import com.mojang.blaze3d.platform.NativeImage;
 
-@Mixin(DynamicTexture.class)
+@Mixin(net.minecraft.client.renderer.texture.DynamicTexture.class)
 public class MixinDynamicTexture implements TextureAccess {
     @Shadow
     private NativeImage pixels;
@@ -21,7 +21,7 @@ public class MixinDynamicTexture implements TextureAccess {
     @Unique
     private boolean blubbysmodofdoom$enableHook = false;
 
-    @Inject(method = "upload", at = @At(value = "HEAD"))
+    @Inject(method = "upload", at = @At("HEAD"))
     private void onUpload(CallbackInfo ci) {
         if (blubbysmodofdoom$enableHook && enabled && pixels != null) {
             final NativeImage img = pixels;

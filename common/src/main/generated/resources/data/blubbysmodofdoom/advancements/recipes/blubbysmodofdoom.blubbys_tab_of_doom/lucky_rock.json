@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_essence_blessed": {
+    "has_essence_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmodofdoom:essence_blessed"
+              "blubbysmodofdoom:essence_stone"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_essence_blessed",
+      "has_essence_stone",
       "has_the_recipe"
     ]
   ],

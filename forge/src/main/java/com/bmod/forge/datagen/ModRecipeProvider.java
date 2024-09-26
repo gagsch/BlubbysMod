@@ -11,9 +11,7 @@ import com.bmod.util.ItemUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
@@ -32,20 +30,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer)
     {
+        buildAllSouls(consumer);
+        buildAllEssences(consumer);
+
+        woodTypeBuilder(consumer, DREADWOOD);
+        woodTypeBuilder(consumer, EBON);
+
+        upgradeToolsBuilder(consumer, Tiers.NETHERITE, ModItemTier.SCARLITE, ModItems.SCARLITE_INGOT.get());
+        upgradeArmorTypeBuilder(consumer, ArmorMaterials.NETHERITE, ModArmorMaterial.SCARLITE, ModItems.SCARLITE_INGOT.get());
+
         swordBuilder(consumer, ModItems.DIVINE_SWORD.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         pickaxeBuilder(consumer, ModItems.DIVINE_PICKAXE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         axeBuilder(consumer, ModItems.DIVINE_AXE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         shovelBuilder(consumer, ModItems.DIVINE_SHOVEL.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         hoeBuilder(consumer, ModItems.DIVINE_HOE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
 
-        upgradeToolsBuilder(consumer, ModItemTier.DIVINE, ModItemTier.SCARLITE, null);
-        upgradeArmorTypeBuilder(consumer, ModArmorMaterial.DIVINE, ModArmorMaterial.SCARLITE, null);
-
-        buildAllSouls(consumer);
-        buildAllEssences(consumer);
-
-        woodTypeBuilder(consumer, DREADWOOD);
-        woodTypeBuilder(consumer, EBON);
+        coreBuilder(consumer, ModItems.NETHERITE_CORE.get(), Items.NETHERITE_INGOT, "netherite", "");
+        coreBuilder(consumer, ModItems.DIAMOND_CORE.get(), Items.DIAMOND, "diamond", "");
+        coreBuilder(consumer, ModItems.IRON_CORE.get(), Items.IRON_INGOT, "iron", "");
+        coreBuilder(consumer, ModItems.GOLDEN_CORE.get(), Items.GOLD_INGOT, "golden", "");
+        coreBuilder(consumer, ModItems.DIVINE_CORE.get(), ModItems.DIVINE_ALLOY.get(), "divine", BlubbysMod.MOD_ID);
+        coreBuilder(consumer, ModItems.SCARLITE_CORE.get(), ModItems.SCARLITE_INGOT.get(), "scarlite", BlubbysMod.MOD_ID);
 
         ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
                 .requires(Items.WATER_BUCKET)
@@ -97,6 +102,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         UpgradeRecipeBuilder
+                .smithing(Ingredient.of(Items.SMITHING_TABLE),
+                        Ingredient.of(ModItems.SOUL_FRAGMENT.get()),
+                        ModBlocks.ENRICHMENT_TABLE.get().asItem())
+                .unlocks("has_smithing_table", has(Items.SMITHING_TABLE))
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModBlocks.ENRICHMENT_TABLE.get().asItem().builtInRegistryHolder().key().location().getPath()));
+
+        UpgradeRecipeBuilder
                 .smithing(Ingredient.of(Items.BUNDLE),
                         Ingredient.of(ModItems.ESSENCE_VOID.get()),
                         ModItems.ENDER_BUNDLE.get())
@@ -105,9 +117,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         UpgradeRecipeBuilder
                 .smithing(Ingredient.of(ModItems.ESSENCE_STONE.get()),
-                        Ingredient.of(ModItems.ESSENCE_BLESSED.get()),
+                        Ingredient.of(ModItems.DIVINE_ALLOY.get()),
                         ModItems.LUCKY_ROCK.get())
-                .unlocks("has_essence_blessed", has(ModItems.ESSENCE_BLESSED.get()))
+                .unlocks("has_essence_stone", has(ModItems.ESSENCE_STONE.get()))
                 .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath()));
 
         ShapedRecipeBuilder
@@ -121,13 +133,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("ddd")
                 .unlockedBy("has_heart_of_the_sea", has(Items.HEART_OF_THE_SEA))
                 .save(consumer);
-
-        UpgradeRecipeBuilder
-                .smithing(Ingredient.of(Items.CLOCK),
-                        Ingredient.of(ModItems.SOUL_TIME.get()),
-                        ModItems.CHRONOS_CLOCK.get())
-                .unlocks("has_soul_time", has(ModItems.SOUL_TIME.get()))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.CHRONOS_CLOCK.get().builtInRegistryHolder().key().location().getPath()));
 
         ShapedRecipeBuilder
                 .shaped(ModItems.SOUL_FRAGMENT.get(), 2)
@@ -150,22 +155,47 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         SimpleCookingRecipeBuilder
-                .smelting(Ingredient.of(ModBlocks.SCARLITE_ORE.get()),
+                .smelting(Ingredient.of(ModItems.NECRIUM_CHUNK.get()),
+                        ModItems.NECRIUM_INGOT.get(),
+                        5,
+                        300)
+                .unlockedBy("has_necrium_chunk", has(ModItems.NECRIUM_CHUNK.get()))
+                .save(consumer);
+
+        SimpleCookingRecipeBuilder
+                .smelting(Ingredient.of(ModTags.RUBY_ORES),
+                        ModItems.RUBY.get(),
+                        5,
+                        300)
+                .unlockedBy("has_ruby_ores", has(ModTags.RUBY_ORES))
+                .save(consumer);
+
+        SimpleCookingRecipeBuilder
+                .smelting(Ingredient.of(ModTags.NECRIUM_ORES),
+                        ModItems.NECRIUM_CHUNK.get(),
+                        5,
+                        300)
+                .unlockedBy("has_necrium_ores", has(ModTags.NECRIUM_ORES))
+                .save(consumer);
+
+        SimpleCookingRecipeBuilder
+                .smelting(Ingredient.of(ModTags.SCARLITE_ORES),
                         ModItems.SCARLITE_CHUNK.get(),
                         5,
                         300)
-                .unlockedBy("has_scarlite_ore", has(ModBlocks.SCARLITE_ORE.get()))
+                .unlockedBy("has_scarlite_ores", has(ModTags.SCARLITE_ORES))
                 .save(consumer);
 
         ShapedRecipeBuilder
                 .shaped(ModItems.DIVINE_ALLOY.get(), 2)
-                .define('#', Items.DIAMOND)
-                .define('B', ModItems.ESSENCE_BLESSED.get())
+                .define('D', Items.DIAMOND)
+                .define('Q', Items.QUARTZ)
+                .define('R', ModItems.RUBY.get())
                 .define('s', ModItems.SOUL_FRAGMENT.get())
-                .pattern("###")
-                .pattern("BsB")
-                .pattern("###")
-                .unlockedBy("has_soul_fragment", has(ModItems.SOUL_FRAGMENT.get()))
+                .pattern("DRD")
+                .pattern("QsQ")
+                .pattern("DRD")
+                .unlockedBy("has_soul_fragment", has(ModItems.RUBY.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder
@@ -209,6 +239,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("gDg")
                 .pattern("b b")
                 .unlockedBy("has_diamond", has(Items.DIAMOND_BOOTS))
+                .save(consumer);
+    }
+
+    protected void coreBuilder(Consumer<FinishedRecipe> consumer, ItemLike core, Item unlockRequirement, String materialName, String ID) {
+        ShapelessRecipeBuilder.shapeless(core, 1)
+                .requires(ItemUtils.getItemFromId(materialName + "_boots", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_leggings", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_chestplate", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_helmet", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_sword", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_pickaxe", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_axe", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_shovel", ID))
+                .requires(ItemUtils.getItemFromId(materialName + "_hoe", ID))
+                .unlockedBy("has_unlock_requirement", has(unlockRequirement))
                 .save(consumer);
     }
 
@@ -272,23 +317,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
     }
 
-    protected void upgradeToolsBuilder(Consumer<FinishedRecipe> consumer, ModItemTier inputItemTier, ModItemTier outputItemTier, ItemLike upgradeItem) {
+    protected void upgradeToolsBuilder(Consumer<FinishedRecipe> consumer, Tier inputItemTier, ModItemTier outputItemTier, ItemLike upgradeItem) {
         if (upgradeItem == null)
         {
             upgradeItem = Arrays.stream(outputItemTier.getRepairIngredient().getItems()).toList().get(0).getItem();
         }
 
-        Ingredient inputSword = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.getName() + "_sword"));
-        Ingredient inputPickaxe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.getName() + "_pickaxe"));
-        Ingredient inputAxe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.getName() + "_axe"));
-        Ingredient inputShovel = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.getName() + "_shovel"));
-        Ingredient inputHoe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.getName() + "_hoe"));
+        Ingredient inputSword;
+        Ingredient inputPickaxe;
+        Ingredient inputAxe;
+        Ingredient inputShovel;
+        Ingredient inputHoe;
 
-        Item outputSword = ItemUtils.getItemFromId(outputItemTier.getName() + "_sword");
-        Item outputPickaxe = ItemUtils.getItemFromId(outputItemTier.getName() + "_pickaxe");
-        Item outputAxe = ItemUtils.getItemFromId(outputItemTier.getName() + "_axe");
-        Item outputShovel = ItemUtils.getItemFromId(outputItemTier.getName() + "_shovel");
-        Item outputHoe = ItemUtils.getItemFromId(outputItemTier.getName() + "_hoe");
+        if (inputItemTier instanceof ModItemTier modItemTier)
+        {
+            inputSword = Ingredient.of(ItemUtils.getItemFromId(modItemTier.getName() + "_sword"));
+            inputPickaxe = Ingredient.of(ItemUtils.getItemFromId(modItemTier.getName() + "_pickaxe"));
+            inputAxe = Ingredient.of(ItemUtils.getItemFromId(modItemTier.getName() + "_axe"));
+            inputShovel = Ingredient.of(ItemUtils.getItemFromId(modItemTier.getName() + "_shovel"));
+            inputHoe = Ingredient.of(ItemUtils.getItemFromId(modItemTier.getName() + "_hoe"));
+        }
+        else {
+            inputSword = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.toString().toLowerCase() + "_sword", ""));
+            inputPickaxe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.toString().toLowerCase() + "_pickaxe", ""));
+            inputAxe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.toString().toLowerCase() + "_axe", ""));
+            inputShovel = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.toString().toLowerCase() + "_shovel", ""));
+            inputHoe = Ingredient.of(ItemUtils.getItemFromId(inputItemTier.toString().toLowerCase() + "_hoe", ""));
+        }
+
+
+        Item outputSword = ItemUtils.getItemFromId(outputItemTier.name().toLowerCase() + "_sword");
+        Item outputPickaxe = ItemUtils.getItemFromId(outputItemTier.name().toLowerCase() + "_pickaxe");
+        Item outputAxe = ItemUtils.getItemFromId(outputItemTier.name().toLowerCase() + "_axe");
+        Item outputShovel = ItemUtils.getItemFromId(outputItemTier.name().toLowerCase() + "_shovel");
+        Item outputHoe = ItemUtils.getItemFromId(outputItemTier.name().toLowerCase() + "_hoe");
 
         UpgradeRecipeBuilder
                 .smithing(
@@ -337,10 +399,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             upgradeItem = Arrays.stream(outputArmorMaterial.getRepairIngredient().getItems()).toList().get(0).getItem();
         }
 
-        Ingredient inputHelmet = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_helmet"));
-        Ingredient inputChest = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_chestplate"));
-        Ingredient inputLeggings = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_leggings"));
-        Ingredient inputBoots = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_boots"));
+        Ingredient inputHelmet;
+        Ingredient inputChest;
+        Ingredient inputLeggings;
+        Ingredient inputBoots;
+
+        if (inputArmorMaterial instanceof ModArmorMaterial)
+        {
+            inputHelmet = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_helmet"));
+            inputChest = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_chestplate"));
+            inputLeggings = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_leggings"));
+            inputBoots = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_boots"));
+        }
+        else {
+            inputHelmet = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_helmet", ""));
+            inputChest = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_chestplate", ""));
+            inputLeggings = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_leggings", ""));
+            inputBoots = Ingredient.of(ItemUtils.getItemFromId(inputArmorMaterial.getName() + "_boots", ""));
+        }
+
 
         Item outputHelmet = ItemUtils.getItemFromId(outputArmorMaterial.getName() + "_helmet");
         Item outputChest = ItemUtils.getItemFromId(outputArmorMaterial.getName() + "_chestplate");
@@ -416,36 +493,31 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_essence_infinity", has(ModItems.ESSENCE_INFINITY.get()))
                 .save(consumer);
 
-        soulCrossBuilder(consumer,
-                ModItems.SOUL_ELEMENTS.get(),
+        soulCrossBuilder(consumer, ModItems.SOUL_ELEMENTS.get(),
                 ModItems.ESSENCE_SEA.get(),
                 ModItems.ESSENCE_FLAMES.get(),
-                ModItems.ESSENCE_TUNDRA.get(),
+                ModItems.ESSENCE_WIND.get(),
                 ModItems.ESSENCE_STONE.get());
 
-        soulCrossBuilder(consumer,
-                ModItems.SOUL_BALANCE.get(),
-                ModItems.ESSENCE_BLESSED.get(),
-                ModItems.ESSENCE_HAVOC.get(),
+        soulCrossBuilder(consumer, ModItems.SOUL_BALANCE.get(),
+                ModItems.ESSENCE_LIFE.get(),
+                ModItems.ESSENCE_DEATH.get(),
                 ModItems.ESSENCE_LIGHT.get(),
                 ModItems.ESSENCE_DARKNESS.get());
 
-        soulCrossBuilder(consumer,
-                ModItems.SOUL_TIME.get(),
-                ModItems.ESSENCE_LIFE.get(),
-                ModItems.ESSENCE_DEATH.get(),
+        soulCrossBuilder(consumer, ModItems.SOUL_TIME.get(),
+                ModItems.ESSENCE_CONTINUITY.get(),
+                ModItems.ESSENCE_CHANGE.get(),
                 ModItems.ESSENCE_NIGHT.get(),
                 ModItems.ESSENCE_DAY.get());
 
-        soulCrossBuilder(consumer,
-                ModItems.SOUL_SPACE.get(),
+        soulCrossBuilder(consumer, ModItems.SOUL_SPACE.get(),
                 ModItems.ESSENCE_PLANETS.get(),
                 ModItems.ESSENCE_STARS.get(),
                 ModItems.ESSENCE_ENERGY.get(),
                 ModItems.ESSENCE_VOID.get());
 
-        soulCrossBuilder(consumer,
-                ModItems.SOUL_DIMENSIONS.get(),
+        soulCrossBuilder(consumer, ModItems.SOUL_DIMENSIONS.get(),
                 ModItems.ESSENCE_OVERWORLD.get(),
                 ModItems.ESSENCE_NETHER.get(),
                 ModItems.ESSENCE_END.get(),
@@ -454,14 +526,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     protected void buildAllEssences(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder
-            .shaped(ModItems.ESSENCE_BLESSED.get(), 1)
-            .define('#', Items.POPPY)
-            .define('Q', Items.QUARTZ)
-            .define('T', Items.DIAMOND)
-            .pattern("QTQ")
-            .pattern("T#T")
-            .pattern("QTQ")
-                .unlockedBy("has_quartz", has(Items.QUARTZ))
+                .shaped(ModItems.ESSENCE_CHANGE.get(), 1)
+                .define('E', Items.ENDER_PEARL)
+                .define('C', Items.END_CRYSTAL)
+                .define('O', Items.CRYING_OBSIDIAN)
+                .pattern("OEO")
+                .pattern("ECE")
+                .pattern("OEO")
+                .unlockedBy("has_air", has(Items.ENDER_PEARL))
+                .save(consumer);
+
+        ShapedRecipeBuilder
+                .shaped(ModItems.ESSENCE_CONTINUITY.get(), 1)
+                .define('E', Items.ENDER_EYE)
+                .define('C', Items.REINFORCED_DEEPSLATE)
+                .define('O', Items.OBSIDIAN)
+                .pattern("OEO")
+                .pattern("ECE")
+                .pattern("OEO")
+                .unlockedBy("has_air", has(Items.ENDER_PEARL))
                 .save(consumer);
 
         ShapedRecipeBuilder
@@ -493,18 +576,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.BONE)
                 .requires(ModItems.SOUL_DUST.get(), 4)
                 .unlockedBy("has_air", has(Items.GHAST_TEAR))
-                .save(consumer);
-
-        ShapedRecipeBuilder
-                .shaped(ModItems.ESSENCE_HAVOC.get(), 1)
-                .define('#', Items.BLAZE_POWDER)
-                .define('T', Items.TNT)
-                .define('W', Items.WITHER_SKELETON_SKULL)
-                .define('E', Items.END_CRYSTAL)
-                .pattern("#T#")
-                .pattern("WEW")
-                .pattern("#T#")
-                .unlockedBy("has_air", has(Items.BLAZE_POWDER))
                 .save(consumer);
 
         ShapedRecipeBuilder
@@ -623,14 +694,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_air", has(Items.DIAMOND))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_TUNDRA.get(), 1)
-                .define('#', Items.BLUE_ICE)
-                .define('P', Items.POWDER_SNOW_BUCKET)
-                .define('b', ModItems.DIVINE_ALLOY.get())
-                .pattern(" # ")
-                .pattern("PbP")
-                .pattern(" # ")
-                .unlockedBy("has_air", has(ModItems.DIVINE_ALLOY.get()))
+        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_WIND.get(), 1)
+                .define('#', ModItems.SOUL_DUST.get())
+                .define('p', Items.PHANTOM_MEMBRANE)
+                .define('f', Items.FEATHER)
+                .pattern(" p ")
+                .pattern("f#f")
+                .pattern(" p ")
+                .unlockedBy("has_air", has(ModItems.SOUL_DUST.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_VOID.get(), 1)

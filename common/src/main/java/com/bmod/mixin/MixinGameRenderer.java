@@ -35,7 +35,7 @@ public class MixinGameRenderer {
 
         if (lightmap.darkness_isDirty()) {
             minecraft.getProfiler().push("lightTex");
-            DimLightSystem.updateLuminance(tickDelta, minecraft, (GameRenderer) (Object) this, lightmap.darkness_prevFlicker());
+            DimLightSystem.updateLuminance(minecraft, lightmap.darkness_prevFlicker());
             minecraft.getProfiler().pop();
         }
     }

@@ -3,7 +3,7 @@
   "cookingtime": 300,
   "experience": 5.0,
   "ingredient": {
-    "item": "blubbysmodofdoom:scarlite_ore"
+    "tag": "blubbysmodofdoom:scarlite_ores"
   },
   "result": "blubbysmodofdoom:scarlite_chunk"
 }

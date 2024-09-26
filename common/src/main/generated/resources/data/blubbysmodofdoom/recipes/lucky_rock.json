@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "blubbysmodofdoom:essence_blessed"
+    "item": "blubbysmodofdoom:divine_alloy"
   },
   "base": {
     "item": "blubbysmodofdoom:essence_stone"

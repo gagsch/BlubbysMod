@@ -2,7 +2,11 @@
   "replace": false,
   "values": [
     "blubbysmodofdoom:scarlite_ore",
+    "blubbysmodofdoom:deeperslate_scarlite_ore",
     "blubbysmodofdoom:necrium_ore",
+    "blubbysmodofdoom:deeperslate_necrium_ore",
+    "blubbysmodofdoom:ruby_ore",
+    "blubbysmodofdoom:deepslate_ruby_ore",
     "blubbysmodofdoom:deeperslate",
     "blubbysmodofdoom:fossilized_bone_block"
   ]

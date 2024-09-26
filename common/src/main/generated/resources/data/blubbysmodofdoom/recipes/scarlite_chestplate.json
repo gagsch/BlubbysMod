@@ -4,7 +4,7 @@
     "item": "blubbysmodofdoom:scarlite_ingot"
   },
   "base": {
-    "item": "blubbysmodofdoom:divine_chestplate"
+    "item": "minecraft:netherite_chestplate"
   },
   "result": {
     "item": "blubbysmodofdoom:scarlite_chestplate"

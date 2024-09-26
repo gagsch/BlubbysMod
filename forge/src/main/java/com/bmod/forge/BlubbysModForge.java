@@ -1,6 +1,7 @@
 package com.bmod.forge;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.menu.EnrichmentTableMenu;
 import com.bmod.registry.menu.VoidBundleMenu;
 import dev.architectury.platform.forge.EventBuses;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static com.bmod.registry.menu.ModMenus.ENDER_CHEST_UPGRADE_MENU;
+import static com.bmod.registry.menu.ModMenus.ENRICHMENT_TABLE_MENU;
 
 @Mod(BlubbysMod.MOD_ID)
 public final class BlubbysModForge {
@@ -27,6 +29,7 @@ public final class BlubbysModForge {
 
     private void setup(FMLClientSetupEvent event) {
         MenuScreens.register(ENDER_CHEST_UPGRADE_MENU.get(), VoidBundleMenu::new);
+        MenuScreens.register(ENRICHMENT_TABLE_MENU.get(), EnrichmentTableMenu::new);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) { }

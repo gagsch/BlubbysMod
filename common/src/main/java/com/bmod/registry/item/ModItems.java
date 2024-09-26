@@ -9,8 +9,6 @@ import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.util.ItemUtils;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -38,7 +36,7 @@ public class ModItems  {
             () -> new ChronosClockItem(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
-                    .stacksTo(64))),
+                    .stacksTo(1))),
 
     ENDER_BUNDLE = ITEMS.register("ender_bundle",
             () -> new EnderBundleItem(new Item.Properties()
@@ -52,6 +50,12 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(1), inventoryItems.LuckyRock, ToolTips.lucky_rock)),
 
+    VOID_LANTERN = ITEMS.register("void_lantern",
+            () -> new InventoryItem(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1), inventoryItems.VoidLantern, ToolTips.void_lantern)),
+
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -61,14 +65,15 @@ public class ModItems  {
     BUBBLE_WAND = ITEMS.register("bubble_wand",
             BubbleWandItem::new),
 
-    HOT_PEPPER = ITEMS.register("hot_pepper",
-            () -> new HotPepperItem(new Item.Properties()
+    HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
-    HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Item.Properties()
+    // Food
+    HOT_PEPPER = ITEMS.register("hot_pepper",
+            () -> new HotPepperItem(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
@@ -99,6 +104,18 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
+    WITHER_CORE = ITEMS.register("wither_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    DRAGON_CORE = ITEMS.register("dragon_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
     HEART_OF_THE_ABYSS = ITEMS.register("heart_of_the_abyss",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -111,13 +128,55 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
-    ECHOING_SOUL_DUST = ITEMS.register("echoing_soul_dust",
+    SOUL_FRAGMENT = ITEMS.register("soul_fragment",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
-    SOUL_FRAGMENT = ITEMS.register("soul_fragment",
+    RUBY = ITEMS.register("ruby",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    SOUL_INFUSED_RUBY = ITEMS.register("soul_infused_ruby",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    IRON_CORE = ITEMS.register("iron_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    GOLDEN_CORE = ITEMS.register("golden_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    DIAMOND_CORE = ITEMS.register("diamond_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    DIVINE_CORE = ITEMS.register("divine_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    NETHERITE_CORE = ITEMS.register("netherite_core",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    SCARLITE_CORE = ITEMS.register("scarlite_core",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -189,8 +248,9 @@ public class ModItems  {
             SCARLITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.LEGS),
             SCARLITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.FEET),
 
-    // Essences and Souls
-    ESSENCE_BLESSED = ItemUtils.essence("blessed"),
+    // Essences
+    ESSENCE_CHANGE = ItemUtils.essence("change"),
+            ESSENCE_CONTINUITY = ItemUtils.essence("continuity"),
             ESSENCE_DARKNESS = ItemUtils.essence("darkness"),
             ESSENCE_DAY = ItemUtils.essence("day"),
             ESSENCE_DEATH = ItemUtils.essence("death"),
@@ -198,24 +258,27 @@ public class ModItems  {
             ESSENCE_OVERWORLD = ItemUtils.essence("earth"),
             ESSENCE_ENERGY = ItemUtils.essence("energy"),
             ESSENCE_FLAMES = ItemUtils.essence("flames"),
-            ESSENCE_HAVOC = ItemUtils.essence("havoc"),
             ESSENCE_INFINITY = ItemUtils.essence("infinity"),
             ESSENCE_LIFE = ItemUtils.essence("life"),
-            ESSENCE_LIGHT = ItemUtils.essence("light"),
-            ESSENCE_NIGHTMARE_REALM = ItemUtils.essence("nightmare_realm"),
+            ESSENCE_LIGHT = ItemUtils.essence("light"), //
+            ESSENCE_NIGHTMARE_REALM = ItemUtils.essence("nightmare_realm"), // Night-Vision Goggles
             ESSENCE_NETHER = ItemUtils.essence("nether"),
             ESSENCE_NIGHT = ItemUtils.essence("night"),
             ESSENCE_PLANETS = ItemUtils.essence("planets"),
-            ESSENCE_SEA = ItemUtils.essence("sea"),
-            ESSENCE_STARS = ItemUtils.essence("stars"),
-            ESSENCE_STONE = ItemUtils.essence("stone"),
-            ESSENCE_TUNDRA = ItemUtils.essence("tundra"),
-            ESSENCE_VOID = ItemUtils.essence("void"),
-            SOUL_BALANCE = ItemUtils.soul("balance"),
-            SOUL_DIMENSIONS = ItemUtils.soul("dimensions"),
-            SOUL_ELEMENTS = ItemUtils.soul("elements"),
+            ESSENCE_SEA = ItemUtils.essence("sea"), // Bubble Wand - Places bubble blocks
+            ESSENCE_STARS = ItemUtils.essence("stars"), //
+            ESSENCE_STONE = ItemUtils.essence("stone"), // Lucky Rock - +1 ore drop besides solid drops
+            ESSENCE_VOID = ItemUtils.essence("void"), // Void Bundle - Persistent Double Chest
+            ESSENCE_WIND = ItemUtils.essence("wind"), // Air Rocket - Infinite Rocket for Elytra, Essence Wind + 2 Rocket + Soul of Infinity
+    // Souls
+    SOUL_BALANCE = ItemUtils.soul("balance"),
+            SOUL_DIMENSIONS = ItemUtils.soul("dimensions"), // Super-Portal - Can go thru all dimensions (maybe mod exclusive ones as well if possible)
+            SOUL_ELEMENTS = ItemUtils.soul("elements"), //
             SOUL_SPACE = ItemUtils.soul("space"),
+                //
             SOUL_TIME = ItemUtils.soul("time"),
+                // Chronos' Clock - Skips time,
+                // Chronos' Stopwatch - On right click, saves your position and then sends you back when clicked again,
             SOUL_INFINITY = ItemUtils.soul("infinity"),
 
     // Spawn Eggs

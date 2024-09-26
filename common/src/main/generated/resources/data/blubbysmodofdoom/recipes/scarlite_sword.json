@@ -4,7 +4,7 @@
     "item": "blubbysmodofdoom:scarlite_ingot"
   },
   "base": {
-    "item": "blubbysmodofdoom:divine_sword"
+    "item": "minecraft:netherite_sword"
   },
   "result": {
     "item": "blubbysmodofdoom:scarlite_sword"

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "blubbysmodofdoom:block/enrichment_table_bottom",
+    "east": "blubbysmodofdoom:block/enrichment_table_side",
+    "north": "blubbysmodofdoom:block/enrichment_table",
+    "south": "blubbysmodofdoom:block/enrichment_table_side",
+    "up": "blubbysmodofdoom:block/enrichment_table_top",
+    "west": "blubbysmodofdoom:block/enrichment_table_side"
+  }
+}

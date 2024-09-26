@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "blubbysmodofdoom:soul_powder"
+    },
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "p": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "pattern": [
+    " p ",
+    "f#f",
+    " p "
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:essence_wind"
+  }
+}

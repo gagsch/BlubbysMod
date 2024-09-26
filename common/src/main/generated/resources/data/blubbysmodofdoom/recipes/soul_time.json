@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "1": {
-      "item": "blubbysmodofdoom:essence_life"
+      "item": "blubbysmodofdoom:essence_continuity"
     },
     "2": {
-      "item": "blubbysmodofdoom:essence_death"
+      "item": "blubbysmodofdoom:essence_change"
     },
     "3": {
       "item": "blubbysmodofdoom:essence_night"

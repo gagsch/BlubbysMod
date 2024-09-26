@@ -3,7 +3,9 @@ package com.bmod.registry.item.tier;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.ModSounds;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -17,7 +19,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
             70,
             new int[]{7, 7, 7, 7},
             25,
-            ModSounds.EQUIP_NIGHTMARE,
+            ModSounds.EQUIP_MOD_ARMOR_1,
             3F,
             () -> Ingredient.of(ModItems.DIVINE_ALLOY.get())),
     SCARLITE(
@@ -25,7 +27,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
             80,
             new int[]{8, 16, 18, 8},
             40,
-            ModSounds.EQUIP_NIGHTMARE,
+            ModSounds.EQUIP_MOD_ARMOR_1,
             8F,
             () -> Ingredient.of(ModItems.SCARLITE_INGOT.get()));
 

@@ -52,7 +52,7 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
     }
 
     public EnderChestUpgradeContainer(int id, Inventory playerInventory) {
-        this(id, playerInventory, new SecondEnderChestContainer(54));
+        this(id, playerInventory, new SimpleContainer(54));
     }
 
 

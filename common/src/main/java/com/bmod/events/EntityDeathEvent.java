@@ -10,6 +10,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.level.Level;
@@ -77,6 +79,12 @@ public class EntityDeathEvent {
             }
             else if (entity instanceof ElderGuardian) {
                 entity.spawnAtLocation(ModItems.GUARDIAN_CORE.get());
+            }
+            else if (entity instanceof WitherBoss) {
+                entity.spawnAtLocation(ModItems.WITHER_CORE.get());
+            }
+            else if (entity instanceof EnderDragon) {
+                entity.spawnAtLocation(ModItems.DRAGON_CORE.get());
             }
             
             

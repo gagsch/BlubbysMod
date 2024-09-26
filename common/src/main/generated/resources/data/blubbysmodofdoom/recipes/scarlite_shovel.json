@@ -4,7 +4,7 @@
     "item": "blubbysmodofdoom:scarlite_ingot"
   },
   "base": {
-    "item": "blubbysmodofdoom:divine_shovel"
+    "item": "minecraft:netherite_shovel"
   },
   "result": {
     "item": "blubbysmodofdoom:scarlite_shovel"

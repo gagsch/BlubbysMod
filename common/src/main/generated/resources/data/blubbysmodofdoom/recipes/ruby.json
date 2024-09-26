@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 5.0,
+  "ingredient": {
+    "tag": "blubbysmodofdoom:ruby_ores"
+  },
+  "result": "blubbysmodofdoom:ruby"
+}

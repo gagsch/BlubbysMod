@@ -37,16 +37,15 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmodofdoom." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
         add("item.blubbysmodofdoom." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
         add("item.blubbysmodofdoom." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
+        add("item.blubbysmodofdoom." + ModItems.VOID_LANTERN.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Lights up everything around you.");
 
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.BUBBLE_WAND, "Bubble Wand");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
-        addItem(ModItems.ECHOING_SOUL_DUST, "Echoing Soul Dust");
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
-        addItem(ModItems.ESSENCE_BLESSED, "Essence of the Holy");
+        addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
         addItem(ModItems.ESSENCE_NIGHTMARE_REALM, "Essence of the Nightmare Realm");
-        addItem(ModItems.ESSENCE_HAVOC, "Essence of Havoc");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
         addItem(ModItems.ESSENCE_NIGHT, "Essence of the Night");
@@ -58,6 +57,7 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_DUST, "Soul Dust");
         addItem(ModItems.SOUL_ELEMENTS, "Soul of the Elements");
         addItem(ModItems.SOUL_FRAGMENT, "Soul Fragment");
+        addItem(ModItems.SOUL_INFUSED_RUBY, "Soul-Infused Ruby");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");

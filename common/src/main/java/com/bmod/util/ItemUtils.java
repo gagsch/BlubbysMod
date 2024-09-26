@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class ItemUtils {
@@ -16,12 +17,23 @@ public class ItemUtils {
         return Registry.ITEM.get(new ResourceLocation(BlubbysMod.MOD_ID, itemId));
     }
 
+    public static Item getItemFromId(String itemId, String ID) {
+        if (Objects.equals(ID, ""))
+        {
+            return Registry.ITEM.get(new ResourceLocation(itemId));
+        }
+        else
+        {
+            return Registry.ITEM.get(new ResourceLocation(ID, itemId));
+        }
+    }
+
     public static Supplier<Item> essence(String name) {
         return ModItems.ITEMS.register("essence_"+name, () -> new Item(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1).stacksTo(64)));
     }
 
     public static Supplier<Item> soul(String name) {
-        return ModItems.ITEMS.register("soul_"+name, () -> new Item(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1).stacksTo(64)));
+        return ModItems.ITEMS.register("soul_"+name, () -> new Item(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1).stacksTo(1)));
     }
 
     public static Supplier<Item> sword(ModItemTier type, int damage, float attackSpeed) {

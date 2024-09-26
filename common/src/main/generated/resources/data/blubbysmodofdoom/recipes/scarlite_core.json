@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmodofdoom:scarlite_boots"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_leggings"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_chestplate"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_helmet"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_sword"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_pickaxe"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_axe"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_shovel"
+    },
+    {
+      "item": "blubbysmodofdoom:scarlite_hoe"
+    }
+  ],
+  "result": {
+    "item": "blubbysmodofdoom:scarlite_core"
+  }
+}
