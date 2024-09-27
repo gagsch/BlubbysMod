@@ -9,13 +9,15 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.CraftingTableBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 
-public class EnrichmentTableBlock extends CraftingTableBlock {
+public class EnrichmentTableBlock extends Block {
     private static final Component CONTAINER_TITLE = Component.translatable("block.blubbysmodofdoom.enrichment_table");
 
     public EnrichmentTableBlock(BlockBehaviour.Properties properties) {
@@ -23,12 +25,10 @@ public class EnrichmentTableBlock extends CraftingTableBlock {
     }
 
     public MenuProvider getMenuProvider(BlockState blockState, Level level, BlockPos blockPos) {
-        return new SimpleMenuProvider((i, inventory, player) -> {
-            return new EnrichmentTableContainer(i, inventory);
-        }, CONTAINER_TITLE);
+        return new SimpleMenuProvider((i, inventory, player) -> new EnrichmentTableContainer(i, inventory, ContainerLevelAccess.create(level, blockPos)), CONTAINER_TITLE);
     }
 
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {

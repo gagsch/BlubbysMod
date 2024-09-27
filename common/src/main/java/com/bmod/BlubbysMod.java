@@ -2,7 +2,7 @@ package com.bmod;
 
 import com.bmod.events.BlockBreakEvent;
 import com.bmod.events.EntityDeathEvent;
-import com.bmod.events.RenderOverlayEvent;
+import com.bmod.events.client.RenderOverlayEvent;
 import com.bmod.events.UseBlockEvent;
 import com.bmod.registry.ModCommands;
 import com.bmod.registry.entity.client.*;

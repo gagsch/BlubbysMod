@@ -13,10 +13,6 @@ import java.util.Objects;
 public class UseBlockEvent {
 
     public static void initialize() {
-        events();
-    }
-
-    public static void events() {
         InteractionEvent.RIGHT_CLICK_BLOCK.register((player, hand, pos, face) ->
         {
             if (!player.level.isClientSide() && player instanceof ServerPlayer serverPlayer) {

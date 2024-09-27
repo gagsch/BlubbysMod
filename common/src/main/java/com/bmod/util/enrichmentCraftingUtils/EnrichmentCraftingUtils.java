@@ -1,83 +1,101 @@
 package com.bmod.util.enrichmentCraftingUtils;
 
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EnrichmentCraftingUtils {
+
     public static ItemStack getResult(List<Object> inputs) {
         List<Object> inputSubset = inputs.subList(0, 9);
+        List<Object> inputWithoutAir = new ArrayList<>(List.of());
         Object requirement = inputs.get(9);
 
-        for (List<Object> recipe : new EnrichmentCraftingRecipes().getRecipes()) {
-            boolean shapelessCrafting = (boolean) recipe.get(recipe.size() - 1);
-            ItemStack recipeOutput = (ItemStack) recipe.get(recipe.size() - 2);
-            RequirementItem requiredInput = (RequirementItem) recipe.get(recipe.size() - 3);
-
-            System.out.println(recipe + ":" + inputs);
-
-            if (!requirement.equals(requiredInput.getRequirement())) {
-                continue;
+        for (int i = 0; i < 9; i++)
+        {
+            if (inputSubset.get(i) != Items.AIR) {
+                inputWithoutAir.add(inputSubset.get(i));
             }
+        }
 
-            if (shapelessCrafting && checkRecipe(inputSubset, recipe.subList(0, recipe.size() - 3))) {
+        for (List<Object> recipe : new EnrichmentCraftingRecipes().getRecipes()) {
+            String recipeShape = (String) recipe.get(recipe.size() - 1);
+            ItemStack recipeOutput = (ItemStack) recipe.get(recipe.size() - 2);
+            Item requiredInput = (Item) recipe.get(recipe.size() - 3);
+
+            List<Object> recipeSubset = recipe.subList(0, recipe.size() - 3);
+
+            if (!requirement.equals(requiredInput) || !(inputWithoutAir.size() == recipeSubset.size())) continue;
+
+            if (Objects.equals(recipeShape, "shapeless") && checkRecipe(inputSubset, recipeSubset)) {
                 return recipeOutput;
             }
-
-            switch (recipe.size()) {
-                case 4: // 1x1
-                    if (inputSubset.contains(recipe.get(0))) {
-                        return recipeOutput;
-                    }
-                    break;
-
-                case 7: // 2x2
-                    List<Object> inputSubject1 = createInputSubject(inputSubset, 0);
-                    List<Object> inputSubject2 = createInputSubject(inputSubset, 1);
-                    List<Object> inputSubject3 = createInputSubject(inputSubset, 3);
-                    List<Object> inputSubject4 = createInputSubject(inputSubset, 4);
-
-                    boolean check = checkRecipe(inputSubject1, recipe.subList(0, 4)) ||
-                            checkRecipe(inputSubject2, recipe.subList(0, 4)) ||
-                            checkRecipe(inputSubject3, recipe.subList(0, 4)) ||
-                            checkRecipe(inputSubject4, recipe.subList(0, 4));
-
-                    if (check)
-                        return recipeOutput;
-                    break;
-
-                case 12:
-                    boolean isSame = true;
-                    for (int i = 0; i < 9; i++) {
-                        if (!recipe.get(i).equals(inputSubset.get(i))) {
-                            isSame = false;
-                            break;
-                        }
-                    }
-                    if (isSame) {
-                        return recipeOutput;
-                    }
-                    break;
-                default:
-                    if (checkRecipe(inputSubset, recipe.subList(0, recipe.size() - 3)))
-                    {
-                        return recipeOutput;
-                    }
-                    break;
+            else if (checkItemsShapedRecipe(inputSubset, recipeSubset, recipeShape)) {
+                return recipeOutput;
             }
         }
         return ItemStack.EMPTY;
     }
 
-    private static List<Object> createInputSubject(List<Object> inputSubset, int base) {
-        return List.of(
-                inputSubset.get(base),
-                inputSubset.get(base + 1),
-                inputSubset.get(base + 3),
-                inputSubset.get(base + 4)
-        );
+    private static boolean checkItemsShapedRecipe(List<Object> inputs, List<Object> recipe, String recipeShape)
+    {
+        int[] gridBounds = getItemBounds(inputs);
+        String inputShape = gridBounds[0] + "x" + gridBounds[1];
+
+        System.out.println("inventory shape is: " + inputShape + " and recipe shape is: " + recipeShape);
+
+        if (!inputShape.equals(recipeShape)) return false;
+
+        boolean isSame = true;
+
+        for (int width = 0; width < gridBounds[0]; width++)
+        {
+            for (int height = 0; height < gridBounds[1]; height++)
+            {
+                Object inputItemAtPos = inputs.get((width + (height * 3)) + (gridBounds[2] + (gridBounds[3] * 3)));
+                Object recipeItemAtPos = recipe.get(width + (height * gridBounds[0]));
+
+                System.out.println("Getting recipe item at: " + (width + (height * gridBounds[0])));
+
+                if (!(inputItemAtPos == recipeItemAtPos))
+                {
+                    System.out.println("Broken! " + inputItemAtPos + recipeItemAtPos);
+                    isSame = false;
+                    break;
+                }
+            }
+            if (!isSame) break;
+        }
+
+        return isSame;
+    }
+
+    private static int[] getItemBounds(List<Object> inputs) {
+        int minX = 3, minY = 3, maxX = -1, maxY = -1;
+
+        // Loop through the grid to find bounds
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (inputs.get(y * 3 + x) != Items.AIR) {
+                    minX = Math.min(minX, x);
+                    minY = Math.min(minY, y);
+                    maxX = Math.max(maxX, x);
+                    maxY = Math.max(maxY, y);
+                }
+            }
+        }
+
+        int width = maxX >= 0 ? maxX - minX + 1 : 0;
+        int height = maxY >= 0 ? maxY - minY + 1 : 0;
+
+        return new int[] { width, height, minX, minY };
+    }
+
+    public static Object get(List<Object> inputs, int x, int y)
+    {
+        return inputs.get((x - 1) * (y - 1));
     }
 
     public static boolean checkRecipe(List<Object> inputs, List<Object> recipe) {

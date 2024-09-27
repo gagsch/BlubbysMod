@@ -1,4 +1,4 @@
-package com.bmod.events;
+package com.bmod.events.client;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
@@ -21,17 +21,13 @@ public class RenderOverlayEvent {
     private static final ResourceLocation IMG_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/block/bubble_block.png");
 
     public static void initialize() {
-        events();
-    }
-
-    public static void events() {
-        ClientGuiEvent.RENDER_POST.register((screen, matrices, mouseX, mouseY, delta) -> {
+        ClientGuiEvent.RENDER_HUD.register((matrices, tickDelta) -> {
             Minecraft minecraft = Minecraft.getInstance();
             Window window = minecraft.getWindow();
             LocalPlayer player = minecraft.player;
             if (isPlayerInsideBlock(player))
             {
-                renderVignette(matrices, window, 1f, IMG_LOCATION);
+                renderVignette(matrices, window, .7f, IMG_LOCATION);
             }
         });
     }

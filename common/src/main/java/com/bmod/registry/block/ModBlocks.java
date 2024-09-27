@@ -69,7 +69,7 @@ public class ModBlocks {
             () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT))),
 
     ENRICHMENT_TABLE = registerBlock("enrichment_table", true,
-            () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE)));
+            () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name, block);

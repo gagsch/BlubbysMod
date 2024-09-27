@@ -25,10 +25,6 @@ import java.util.Random;
 public class BlockBreakEvent {
 
     public static void initialize() {
-        events();
-    }
-
-    public static void events() {
         BlockEvent.BREAK.register((world, pos, state, player, xp) -> {
             if (!player.getLevel().isClientSide())
             {

@@ -17,11 +17,8 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.level.Level;
 
 public class EntityDeathEvent {
-    public static void initialize() {
-        events();
-    }
 
-    public static void events() {
+    public static void initialize() {
         EntityEvent.LIVING_DEATH.register((entity, source) -> {
             if (entity.getLevel().isClientSide){
                 return EventResult.pass();
