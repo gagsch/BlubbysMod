@@ -4,7 +4,8 @@ import com.bmod.events.BlockBreakEvent;
 import com.bmod.events.EntityDeathEvent;
 import com.bmod.events.client.RenderOverlayEvent;
 import com.bmod.events.UseBlockEvent;
-import com.bmod.registry.ModCommands;
+import com.bmod.events.CommandRegisterEvent;
+import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.entity.client.*;
 import com.bmod.registry.entity.custom.BehemothEntity;
 import com.bmod.registry.entity.custom.RotFlyEntity;
@@ -35,7 +36,7 @@ public final class BlubbysMod {
         UseBlockEvent.initialize();
         BlockBreakEvent.initialize();
         EntityDeathEvent.initialize();
-        ModCommands.initialize();
+        CommandRegisterEvent.initialize();
 
         ModMenus.MENUS.register();
 
@@ -46,6 +47,8 @@ public final class BlubbysMod {
         ModBlocks.BLOCKS.register();
         ModItems.ITEMS.register();
         ModSounds.SOUNDS.register();
+        ModRecipeTypes.RECIPE_SERIALIZERS.register();
+        ModRecipeTypes.RECIPE_TYPES.register();
 
         ModFeatures.init();
 

@@ -2,7 +2,6 @@ package com.bmod.registry.menu.container;
 
 import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +10,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class EnderChestUpgradeContainer extends AbstractContainerMenu {
+public class EnderChestUpgradeMenu extends AbstractContainerMenu {
 
     /*
         I have literally no clue what I am looking at.
@@ -23,7 +22,7 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
 
     private final SimpleContainer loot;
 
-    public EnderChestUpgradeContainer(int windowId, Inventory playerInventory, SimpleContainer loot) {
+    public EnderChestUpgradeMenu(int windowId, Inventory playerInventory, SimpleContainer loot) {
         super(ModMenus.ENDER_CHEST_UPGRADE_MENU.get(), windowId);
         this.loot = loot;
 
@@ -51,7 +50,7 @@ public class EnderChestUpgradeContainer extends AbstractContainerMenu {
         }
     }
 
-    public EnderChestUpgradeContainer(int id, Inventory playerInventory) {
+    public EnderChestUpgradeMenu(int id, Inventory playerInventory) {
         this(id, playerInventory, new SimpleContainer(54));
     }
 

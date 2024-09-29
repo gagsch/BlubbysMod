@@ -1,0 +1,21 @@
+{
+  "type": "blubbysmodofdoom:enrichment_shapeless",
+  "ingredients": [
+    { "item": "blubbysmodofdoom:golden_core" },
+    { "item": "blubbysmodofdoom:iron_core" },
+    { "item": "blubbysmodofdoom:diamond_core" },
+    { "item": "blubbysmodofdoom:soul_powder" },
+    { "item": "blubbysmodofdoom:ruby" },
+    { "item": "blubbysmodofdoom:soul_powder" },
+    { "item": "blubbysmodofdoom:divine_core" },
+    { "item": "blubbysmodofdoom:netherite_core" },
+    { "item": "blubbysmodofdoom:scarlite_core" }
+  ],
+  "requirement": {
+    "item": "blubbysmodofdoom:soul_infinity"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmodofdoom:soul_infused_ruby"
+  }
+}

@@ -1,8 +1,8 @@
 package com.bmod.fabric.client;
 
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.menu.EnrichmentTableMenu;
-import com.bmod.registry.menu.VoidBundleMenu;
+import com.bmod.registry.menu.EnrichmentTableScreen;
+import com.bmod.registry.menu.VoidBundleScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -19,7 +19,7 @@ public final class BlubbysModFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(sapling(DREADWOOD).get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(sapling(EBON).get(), RenderType.cutout());
 
-        MenuScreens.register(ENDER_CHEST_UPGRADE_MENU.get(), VoidBundleMenu::new);
-        MenuScreens.register(ENRICHMENT_TABLE_MENU.get(), EnrichmentTableMenu::new);
+        MenuScreens.register(ENDER_CHEST_UPGRADE_MENU.get(), VoidBundleScreen::new);
+        MenuScreens.register(ENRICHMENT_TABLE_MENU.get(), EnrichmentTableScreen::new);
     }
 }

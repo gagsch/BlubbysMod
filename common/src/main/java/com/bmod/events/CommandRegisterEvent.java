@@ -1,4 +1,4 @@
-package com.bmod.registry;
+package com.bmod.events;
 
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -10,21 +10,16 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.server.level.ServerPlayer;
 
-public class ModCommands {
-    public static void initialize()
-    {
-        events();
-    }
-
-    public static void events() {
+public class CommandRegisterEvent {
+    public static void initialize() {
         CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> {
             LiteralArgumentBuilder<CommandSourceStack> teleportCommand = Commands.literal("multiplytp")
                     .then(
                             Commands.argument("player", EntityArgument.player())
                                     .then(
                                             Commands.argument("factor", DoubleArgumentType.doubleArg())
-                                                    .executes(ModCommands::executeTeleportCommand)))
-                    .requires(ModCommands::hasPermission);
+                                                    .executes(CommandRegisterEvent::executeTeleportCommand)))
+                    .requires(CommandRegisterEvent::hasPermission);
             dispatcher.register(teleportCommand);
         });
     }

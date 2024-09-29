@@ -2,7 +2,8 @@ package com.bmod.registry.menu.container;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.menu.ModMenus;
-import com.bmod.util.enrichmentCraftingUtils.EnrichmentCraftingUtils;
+import com.bmod.registry.recipe.EnrichmentRecipe;
+import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -13,33 +14,33 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
-public class EnrichmentTableContainer extends AbstractContainerMenu {
+public class EnrichmentTableMenu extends AbstractContainerMenu {
 
     private final SimpleContainer craftSlots;
-    private ItemStack output;
     protected final ResultContainer resultSlots = new ResultContainer();
     private final ContainerLevelAccess access;
+    private final Player player;
 
-    public EnrichmentTableContainer(int windowId, Inventory inventory) {
+    public EnrichmentTableMenu(int windowId, Inventory inventory) {
         this(windowId, inventory, ContainerLevelAccess.NULL);
     }
 
-    public EnrichmentTableContainer(int windowId, Inventory inventory, ContainerLevelAccess access) {
+    public EnrichmentTableMenu(int windowId, Inventory inventory, ContainerLevelAccess access) {
         super(ModMenus.ENRICHMENT_TABLE_MENU.get(), windowId);
 
+        this.player = inventory.player;
         this.access = access;
         this.craftSlots = new SimpleContainer(10) {
             public void setChanged() {
                 super.setChanged();
-                EnrichmentTableContainer.this.slotsChanged(this);
+                EnrichmentTableMenu.this.slotsChanged(this);
             }
         };
 
-        int j;
-        int k;
+        int j, k;
         for(j = 0; j < 3; ++j) {
             for(k = 0; k < 3; ++k) {
                 this.addSlot(new Slot(craftSlots, k + j * 3, 47 + k * 18, 17 + j * 18));
@@ -53,11 +54,11 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
             }
 
             public boolean mayPickup(Player player) {
-                return EnrichmentTableContainer.this.mayPickup(player);
+                return EnrichmentTableMenu.this.mayPickup(player);
             }
 
             public void onTake(Player player, ItemStack itemStack) {
-                EnrichmentTableContainer.this.onTake(player, itemStack);
+                EnrichmentTableMenu.this.onTake(itemStack);
             }
         });
 
@@ -74,24 +75,26 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
         this.slotsChanged(craftSlots);
     }
 
-    public void createResult(Level level, SimpleContainer craftingContainer, ResultContainer resultContainer) {
+    public void createResult(Level level, SimpleContainer simpleContainer, ResultContainer resultContainer, Player player) {
         if (!level.isClientSide) {
-            List<Object> inputItems = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                inputItems.add(craftingContainer.getItem(i).getItem());
+            ServerPlayer serverPlayer = (ServerPlayer) player;
+            ItemStack itemStack = ItemStack.EMPTY;
+            Optional<EnrichmentRecipe> optional = Objects.requireNonNull(level.getServer()).getRecipeManager().getRecipeFor(EnrichmentRecipe.Type.INSTANCE, simpleContainer, level);
+            if (optional.isPresent()) {
+                EnrichmentRecipe enrichmentRecipe = optional.get();
+                itemStack = enrichmentRecipe.assemble(simpleContainer);
             }
 
-            this.output = EnrichmentCraftingUtils.getResult(inputItems);
-
-            resultContainer.setItem(0, this.output);
-            this.setRemoteSlot(11, this.output);
+            resultContainer.setItem(0, itemStack);
+            this.setRemoteSlot(11, itemStack);
+            serverPlayer.connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 0, itemStack));
         }
     }
 
-    public void onTake(Player player, ItemStack itemStack) {
+    public void onTake(ItemStack itemStack) {
 
-        itemStack.onCraftedBy(player.level, player, itemStack.getCount());
-        this.resultSlots.awardUsedRecipes(player);
+        itemStack.onCraftedBy(this.player.level, this.player, itemStack.getCount());
+        this.resultSlots.awardUsedRecipes(this.player);
 
         for (int i = 0; i < 9; i++) {
             ItemStack slotStack = this.craftSlots.getItem(i);
@@ -101,11 +104,11 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
             }
         }
 
-        this.createResult(player.level, this.craftSlots, this.resultSlots);
+        this.createResult(this.player.level, this.craftSlots, this.resultSlots, this.player);
     }
 
     protected boolean mayPickup(Player player) {
-        return this.output != null && player instanceof ServerPlayer;
+        return resultSlots.getItem(0) != ItemStack.EMPTY && this.player instanceof ServerPlayer;
     }
 
     @Override
@@ -126,7 +129,7 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
                     return ItemStack.EMPTY;
                 }
 
-                EnrichmentTableContainer.this.onTake(player, stackInSlot);
+                EnrichmentTableMenu.this.onTake(stackInSlot);
 
             } else if (index < craftSlotsContainerSize) {
                 if (!this.moveItemStackTo(stackInSlot, inventoryStartIndex, inventoryEndIndex, true)) {
@@ -144,7 +147,7 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
                 slot.setChanged();
             }
 
-            this.createResult(player.level, this.craftSlots, this.resultSlots);
+            this.createResult(this.player.level, this.craftSlots, this.resultSlots, this.player);
         }
 
         return itemStack;
@@ -160,21 +163,21 @@ public class EnrichmentTableContainer extends AbstractContainerMenu {
     {
         if (!level.isClientSide) {
             if (craftSlots == this.craftSlots) {
-                this.createResult(level, craftSlots, resultSlots);
+                this.createResult(level, craftSlots, resultSlots, this.player);
             }
         }
     }
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(this.access, player, ModBlocks.ENRICHMENT_TABLE.get());
+        return stillValid(this.access, this.player, ModBlocks.ENRICHMENT_TABLE.get());
     }
 
     @Override
     public void removed(Player player) {
-        super.removed(player);
+        super.removed(this.player);
         this.access.execute((level, blockPos) -> {
-            this.clearContainer(player, this.craftSlots);
+            this.clearContainer(this.player, this.craftSlots);
         });
     }
 }

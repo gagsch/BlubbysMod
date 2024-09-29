@@ -16,6 +16,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -28,7 +29,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer)
+    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
         buildAllSouls(consumer);
         buildAllEssences(consumer);
@@ -114,13 +115,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         ModItems.ENDER_BUNDLE.get())
                 .unlocks("has_essence_void", has(ModItems.ESSENCE_VOID.get()))
                 .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath()));
-
-        UpgradeRecipeBuilder
-                .smithing(Ingredient.of(ModItems.ESSENCE_STONE.get()),
-                        Ingredient.of(ModItems.DIVINE_ALLOY.get()),
-                        ModItems.LUCKY_ROCK.get())
-                .unlocks("has_essence_stone", has(ModItems.ESSENCE_STONE.get()))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath()));
 
         ShapedRecipeBuilder
                 .shaped(ModItems.HEART_OF_THE_ABYSS.get())
@@ -483,15 +477,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected void buildAllSouls(Consumer<FinishedRecipe> consumer) {
-        ShapelessRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(),1)
-                .requires(ModItems.SOUL_ELEMENTS.get())
-                .requires(ModItems.SOUL_DIMENSIONS.get())
-                .requires(ModItems.SOUL_SPACE.get())
-                .requires(ModItems.SOUL_TIME.get())
-                .requires(ModItems.SOUL_BALANCE.get())
-                .requires(ModItems.ESSENCE_INFINITY.get())
-                .unlockedBy("has_essence_infinity", has(ModItems.ESSENCE_INFINITY.get()))
-                .save(consumer);
 
         soulCrossBuilder(consumer, ModItems.SOUL_ELEMENTS.get(),
                 ModItems.ESSENCE_SEA.get(),
@@ -569,13 +554,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.ESSENCE_DEATH.get(), 1)
+                .requires(ModItems.SOUL_DUST.get())
                 .requires(Items.WITHER_ROSE)
+                .requires(ModItems.SOUL_DUST.get())
                 .requires(Items.WITHER_SKELETON_SKULL)
-                .requires(Items.ROTTEN_FLESH)
                 .requires(Items.GHAST_TEAR)
+                .requires(Items.ROTTEN_FLESH)
+                .requires(ModItems.SOUL_DUST.get())
                 .requires(Items.BONE)
-                .requires(ModItems.SOUL_DUST.get(), 4)
-                .unlockedBy("has_air", has(Items.GHAST_TEAR))
+                .requires(ModItems.SOUL_DUST.get())
+                .unlockedBy("has_bone", has(Items.BONE))
                 .save(consumer);
 
         ShapedRecipeBuilder

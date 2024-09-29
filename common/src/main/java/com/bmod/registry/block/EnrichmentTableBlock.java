@@ -1,6 +1,6 @@
 package com.bmod.registry.block;
 
-import com.bmod.registry.menu.container.EnrichmentTableContainer;
+import com.bmod.registry.menu.container.EnrichmentTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -25,7 +25,7 @@ public class EnrichmentTableBlock extends Block {
     }
 
     public MenuProvider getMenuProvider(BlockState blockState, Level level, BlockPos blockPos) {
-        return new SimpleMenuProvider((i, inventory, player) -> new EnrichmentTableContainer(i, inventory, ContainerLevelAccess.create(level, blockPos)), CONTAINER_TITLE);
+        return new SimpleMenuProvider((i, inventory, player) -> new EnrichmentTableMenu(i, inventory, ContainerLevelAccess.create(level, blockPos)), CONTAINER_TITLE);
     }
 
     public @NotNull InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {

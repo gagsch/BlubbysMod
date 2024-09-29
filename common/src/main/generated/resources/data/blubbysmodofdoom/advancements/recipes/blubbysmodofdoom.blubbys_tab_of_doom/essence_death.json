@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_air": {
+    "has_bone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:ghast_tear"
+              "minecraft:bone"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_air",
+      "has_bone",
       "has_the_recipe"
     ]
   ],

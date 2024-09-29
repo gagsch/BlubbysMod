@@ -1,7 +1,7 @@
 {
   "temperature": 0.7,
   "downfall": 0.8,
-  "precipitation": "rain",
+  "precipitation": "none",
   "temperature_modifier": "none",
   "effects": {
     "sky_color": 0,

@@ -3,16 +3,16 @@ package com.bmod.registry.menu;
 import com.bmod.BlubbysMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.bmod.registry.menu.container.EnderChestUpgradeContainer;
+import com.bmod.registry.menu.container.EnderChestUpgradeMenu;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class VoidBundleMenu extends AbstractContainerScreen<EnderChestUpgradeContainer> {
+public class VoidBundleScreen extends AbstractContainerScreen<EnderChestUpgradeMenu> {
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/void_bundle.png");
 
-    public VoidBundleMenu(EnderChestUpgradeContainer screenContainer, Inventory inv, Component titleIn) {
+    public VoidBundleScreen(EnderChestUpgradeMenu screenContainer, Inventory inv, Component titleIn) {
         super(screenContainer, inv, titleIn);
         this.imageWidth = 176;
         this.imageHeight = 222;

@@ -34,7 +34,7 @@ allprojects {
     repositories {
         maven {
             name = "Jared"
-            url = "https://maven.blamejared.com/" // for JEI and Patchouli PS: Thanks Jared.
+            url = "https://maven.blamejared.com/" // for JEI
         }
     }
 

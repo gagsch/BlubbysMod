@@ -1,24 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:end_crystal"
-        },
-        {
-            "item": "minecraft:end_crystal"
-        },
-        {
+    "type": "blubbysmodofdoom:enrichment_shaped",
+    "key": {
+        "D": {
             "item": "minecraft:dragon_egg"
         },
-        {
-            "item": "minecraft:end_crystal"
-        },
-        {
+        "c": {
             "item": "minecraft:end_crystal"
         }
+    },
+    "pattern": [
+        " c ",
+        "cDc",
+        " c "
     ],
+    "requirement": {
+        "item": "blubbysmodofdoom:essence_infinity"
+    },
     "result": {
-        "item": "minecraft:dragon_egg",
-        "count": 1
+        "count": 1,
+        "item": "minecraft:dragon_egg"
     }
 }

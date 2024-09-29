@@ -6,6 +6,8 @@ import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.registry.item.ModItems;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 
@@ -14,18 +16,17 @@ import java.util.function.Supplier;
 
 public class ItemUtils {
     public static Item getItemFromId(String itemId) {
+        String[] stuff = itemId.split(":");
+
+        if (stuff.length == 2)
+        {
+            return Registry.ITEM.get(new ResourceLocation(stuff[0], stuff[1]));
+        }
         return Registry.ITEM.get(new ResourceLocation(BlubbysMod.MOD_ID, itemId));
     }
 
     public static Item getItemFromId(String itemId, String ID) {
-        if (Objects.equals(ID, ""))
-        {
-            return Registry.ITEM.get(new ResourceLocation(itemId));
-        }
-        else
-        {
-            return Registry.ITEM.get(new ResourceLocation(ID, itemId));
-        }
+        return Objects.equals(ID, "") ? Registry.ITEM.get(new ResourceLocation(itemId)) : Registry.ITEM.get(new ResourceLocation(ID, itemId));
     }
 
     public static Supplier<Item> essence(String name) {

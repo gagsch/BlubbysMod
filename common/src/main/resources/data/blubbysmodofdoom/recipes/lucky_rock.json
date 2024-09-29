@@ -1,0 +1,23 @@
+{
+  "type": "blubbysmodofdoom:enrichment_shaped",
+  "key": {
+    "d": {
+      "item": "blubbysmodofdoom:divine_alloy"
+    },
+    "E": {
+      "item": "blubbysmodofdoom:essence_stone"
+    }
+  },
+  "pattern": [
+    " d ",
+    "dEd",
+    " d "
+  ],
+  "requirement": {
+    "item": "blubbysmodofdoom:essence_infinity"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmodofdoom:lucky_rock"
+  }
+}
