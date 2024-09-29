@@ -77,9 +77,11 @@ public class EnrichmentTableMenu extends AbstractContainerMenu {
 
     public void createResult(Level level, SimpleContainer simpleContainer, ResultContainer resultContainer, Player player) {
         if (!level.isClientSide) {
+
             ServerPlayer serverPlayer = (ServerPlayer) player;
             ItemStack itemStack = ItemStack.EMPTY;
-            Optional<EnrichmentRecipe> optional = Objects.requireNonNull(level.getServer()).getRecipeManager().getRecipeFor(EnrichmentRecipe.Type.INSTANCE, simpleContainer, level);
+            Optional<EnrichmentRecipe> optional = level.getServer().getRecipeManager().getRecipeFor(EnrichmentRecipe.Type.INSTANCE, simpleContainer, level);
+
             if (optional.isPresent()) {
                 EnrichmentRecipe enrichmentRecipe = optional.get();
                 itemStack = enrichmentRecipe.assemble(simpleContainer);
@@ -87,7 +89,7 @@ public class EnrichmentTableMenu extends AbstractContainerMenu {
 
             resultContainer.setItem(0, itemStack);
             this.setRemoteSlot(11, itemStack);
-            serverPlayer.connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 0, itemStack));
+            // serverPlayer.connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 11, itemStack));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.bmod.registry.menu.container;
 
+import com.bmod.registry.item.ModItems;
 import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
 import net.minecraft.world.SimpleContainer;
@@ -9,6 +10,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class EnderChestUpgradeMenu extends AbstractContainerMenu {
 
@@ -31,10 +34,20 @@ public class EnderChestUpgradeMenu extends AbstractContainerMenu {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 9; j++) {
                 if (i < 3) {
-                    this.addSlot(new Slot(playerInventory.player.getEnderChestInventory(), j + i * 9, 8 + j * 18, 18 + i * 18));
+                    this.addSlot(new Slot(playerInventory.player.getEnderChestInventory(), j + i * 9, 8 + j * 18, 18 + i * 18) {
+                        @Override
+                        public boolean mayPlace(ItemStack itemStack) {
+                            return !Objects.equals(itemStack.getItem(), ModItems.ENDER_BUNDLE.get());
+                        }
+                    });
                 }
                 else {
-                    this.addSlot(new Slot(loot, j + i * 9 - 27, 8 + j * 18, 18 + i * 18));
+                    this.addSlot(new Slot(loot, j + i * 9 - 27, 8 + j * 18, 18 + i * 18) {
+                        @Override
+                        public boolean mayPlace(ItemStack itemStack) {
+                            return !Objects.equals(itemStack.getItem(), ModItems.ENDER_BUNDLE.get());
+                        }
+                    } );
                 }
             }
         }

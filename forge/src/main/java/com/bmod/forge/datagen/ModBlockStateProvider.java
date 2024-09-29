@@ -53,7 +53,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
-        northFacingBlockWithItem(ModBlocks.ENRICHMENT_TABLE.get(), blockLoc(ModBlocks.ENRICHMENT_TABLE, "bottom"), blockLoc(ModBlocks.ENRICHMENT_TABLE, "top"), blockLoc(ModBlocks.ENRICHMENT_TABLE, "side"));
+        northFacingBlockWithItem(ModBlocks.ENRICHMENT_TABLE,
+                blockLoc(ModBlocks.ENRICHMENT_TABLE, "bottom"),
+                blockLoc(ModBlocks.ENRICHMENT_TABLE, "top"),
+                blockLoc(ModBlocks.ENRICHMENT_TABLE, "side"),
+                blockLoc(ModBlocks.ENRICHMENT_TABLE, "front"));
 
         crossBlock(ModBlocks.GLEAM_SHROOM.get());
 
@@ -100,10 +104,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(block, models().withExistingParent(getName(block), "minecraft:block/cube_column"));
     }
 
-    private void northFacingBlockWithItem(Block block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)
+    private void northFacingBlockWithItem(Supplier<Block> block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture, ResourceLocation frontTexture)
     {
-        simpleBlock(block, models().cube(getName(block), bottomTexture, topTexture, blockLoc(block.builtInRegistryHolder()), sideTexture, sideTexture, sideTexture));
-        simpleBlockItem(block, models().cube(getName(block), bottomTexture, topTexture, blockLoc(block.builtInRegistryHolder()), sideTexture, sideTexture, sideTexture));
+        simpleBlock(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture).texture("particle", topTexture));
+        simpleBlockItem(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture));
     }
 
     private void crossBlock(Block block) {

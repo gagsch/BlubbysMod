@@ -3,7 +3,8 @@
   "textures": {
     "down": "blubbysmodofdoom:block/enrichment_table_bottom",
     "east": "blubbysmodofdoom:block/enrichment_table_side",
-    "north": "blubbysmodofdoom:block/enrichment_table",
+    "north": "blubbysmodofdoom:block/enrichment_table_front",
+    "particle": "blubbysmodofdoom:block/enrichment_table_top",
     "south": "blubbysmodofdoom:block/enrichment_table_side",
     "up": "blubbysmodofdoom:block/enrichment_table_top",
     "west": "blubbysmodofdoom:block/enrichment_table_side"
