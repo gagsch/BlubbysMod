@@ -22,14 +22,14 @@ public enum ModArmorMaterial implements ArmorMaterial {
             ModSounds.EQUIP_MOD_ARMOR_1,
             3F,
             () -> Ingredient.of(ModItems.DIVINE_ALLOY.get())),
-    SCARLITE(
-            "scarlite",
+    SHROOMITE(
+            "shroomite",
             80,
             new int[]{8, 16, 18, 8},
             40,
             ModSounds.EQUIP_MOD_ARMOR_1,
             8F,
-            () -> Ingredient.of(ModItems.SCARLITE_INGOT.get()));
+            () -> Ingredient.of(ModItems.SHROOMITE_INGOT.get()));
 
     private final String name;
     private final int maxDamageFactor;

@@ -1,11 +1,9 @@
 package com.bmod.events;
 
-import com.bmod.util.PositionUtils;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.world.ModDimensions;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
-import dev.architectury.event.events.common.PlayerEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -72,16 +70,16 @@ public class EntityDeathEvent {
                 }
             }
             else if (entity instanceof Warden) {
-                entity.spawnAtLocation(ModItems.WARDEN_CORE.get());
+                entity.spawnAtLocation(ModItems.WARDEN_TENDRIL.get());
             }
             else if (entity instanceof ElderGuardian) {
                 entity.spawnAtLocation(ModItems.GUARDIAN_CORE.get());
             }
             else if (entity instanceof WitherBoss) {
-                entity.spawnAtLocation(ModItems.WITHER_CORE.get());
+                entity.spawnAtLocation(ModItems.WITHER_SPINE.get());
             }
             else if (entity instanceof EnderDragon) {
-                entity.spawnAtLocation(ModItems.DRAGON_CORE.get());
+                entity.spawnAtLocation(ModItems.DRAGON_HEART.get());
             }
             
             

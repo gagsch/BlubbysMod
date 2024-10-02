@@ -41,10 +41,10 @@ public class ModBlockLootTables extends BlockLoot {
         add(ModBlocks.DEEPSLATE_RUBY_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModItems.RUBY.get()));
 
-        add(ModBlocks.SCARLITE_ORE.get(),
-                (block) -> createOreDrop(ModBlocks.SCARLITE_ORE.get(), ModItems.SCARLITE_CHUNK.get()));
-        add(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get(),
-                (block) -> createOreDrop(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get(), ModItems.SCARLITE_CHUNK.get()));
+        add(ModBlocks.DREADIUM_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DREADIUM_ORE.get(), ModItems.DREADIUM_CHUNK.get()));
+        add(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModItems.DREADIUM_CHUNK.get()));
 
         add(ModBlocks.NECRIUM_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.NECRIUM_ORE.get(), ModItems.NECRIUM_CHUNK.get()));
@@ -64,8 +64,8 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.RUBY_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DEEPSLATE_RUBY_ORE.get().builtInRegistryHolder().key().location().getPath());
-        registeredBlockLoot.add(ModBlocks.SCARLITE_ORE.get().builtInRegistryHolder().key().location().getPath());
-        registeredBlockLoot.add(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DREADIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECRIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.ROT_BLOCK.get().builtInRegistryHolder().key().location().getPath());

@@ -33,23 +33,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels()
     {
+        crossBlock(ModBlocks.GLEAM_SHROOM.get());
+        blockWithItem(ModBlocks.ROT_BLOCK.get());
+        axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK.get(), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
+        bottomTopBlockWithItem(ModBlocks.DARK_TURF_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.DARK_TURF_BLOCK, "top"), blockLoc(ModBlocks.DARK_TURF_BLOCK));
+        bottomTopBlockWithItem(ModBlocks.NECROTIC_GRASS_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK, "top"), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK));
+        blockWithItem(ModBlocks.DARK_SOIL.get());
+        blockWithItem(ModBlocks.DEEPERSLATE.get());
         bottomTopBlockWithItem(ModBlocks.SLUDGE_BLOCK.get(), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK));
 
-        bottomTopBlockWithItem(ModBlocks.NECROTIC_GRASS_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK, "top"), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK));
-        bottomTopBlockWithItem(ModBlocks.DARK_TURF_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.DARK_TURF_BLOCK, "top"), blockLoc(ModBlocks.DARK_TURF_BLOCK));
-        blockWithItem(ModBlocks.DARK_SOIL.get());
-
-        blockWithItem(ModBlocks.DEEPERSLATE.get());
-
-        blockWithItem(ModBlocks.RUBY_ORE.get());
-        blockWithItem(ModBlocks.DEEPSLATE_RUBY_ORE.get());
-        blockWithItem(ModBlocks.SCARLITE_ORE.get());
-        blockWithItem(ModBlocks.DEEPERSLATE_SCARLITE_ORE.get());
-        blockWithItem(ModBlocks.NECRIUM_ORE.get());
-        blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());
-
-        axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK.get(), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
-        blockWithItem(ModBlocks.ROT_BLOCK.get());
+        woodType(DREADWOOD);
+        woodType(EBON);
 
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
@@ -59,10 +53,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 blockLoc(ModBlocks.ENRICHMENT_TABLE, "side"),
                 blockLoc(ModBlocks.ENRICHMENT_TABLE, "front"));
 
-        crossBlock(ModBlocks.GLEAM_SHROOM.get());
-
-        woodType(DREADWOOD);
-        woodType(EBON);
+        blockWithItem(ModBlocks.NECRIUM_ORE.get());
+        blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());
+        blockWithItem(ModBlocks.RUBY_ORE.get());
+        blockWithItem(ModBlocks.DEEPSLATE_RUBY_ORE.get());
+        blockWithItem(ModBlocks.DREADIUM_ORE.get());
+        blockWithItem(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get());
     }
 
     private void woodType(String wood)

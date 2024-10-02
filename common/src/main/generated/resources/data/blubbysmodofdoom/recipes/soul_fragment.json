@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
-      "tag": "blubbysmodofdoom:boss_cores"
+      "tag": "blubbysmodofdoom:boss_drops"
     },
     "d": {
       "item": "blubbysmodofdoom:soul_powder"

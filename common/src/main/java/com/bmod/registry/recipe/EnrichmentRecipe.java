@@ -3,7 +3,6 @@ package com.bmod.registry.recipe;
 import com.bmod.BlubbysMod;
 import com.bmod.util.ItemUtils;
 import com.google.gson.*;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -22,15 +21,13 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
     public final Ingredient requiredItem;
     public final ItemStack outputItemStack;
     public final String recipeType;
-    public final int serializerId;
     private final ResourceLocation id;
 
-    public EnrichmentRecipe(NonNullList<Ingredient> inputItems, Ingredient requiredItem, ItemStack outputItemStack, String recipeType, int serializerId, ResourceLocation id) {
+    public EnrichmentRecipe(NonNullList<Ingredient> inputItems, Ingredient requiredItem, ItemStack outputItemStack, String recipeType, ResourceLocation id) {
         this.inputItems = inputItems;
         this.requiredItem = requiredItem;
         this.outputItemStack = outputItemStack;
         this.recipeType = recipeType;
-        this.serializerId = serializerId;
         this.id = id;
     }
 
@@ -40,7 +37,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        if(Objects.equals(serializerId, 1)) return shapeless(container);
+        if(Objects.equals(recipeType, "shapeless")) return shapeless(container);
 
         String[] recipeBoundStrings = recipeType.split("x");
         int[] recipeBounds = {Integer.parseInt(recipeBoundStrings[0]), Integer.parseInt(recipeBoundStrings[1])};
@@ -157,7 +154,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public @NotNull NonNullList<Ingredient> getIngredients() {
         return inputItems;
     }
 
@@ -172,7 +169,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return serializerId == 0 ? EnrichmentRecipeSerializer.INSTANCE : EnrichmentShapelessRecipeSerializer.INSTANCE;
+        return Objects.equals(recipeType, "shapeless") ? EnrichmentShapelessRecipeSerializer.INSTANCE : EnrichmentRecipeSerializer.INSTANCE;
     }
 
     @Override
@@ -180,23 +177,10 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-
-
-
-
-
-
     public static class Type implements RecipeType<EnrichmentRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "enrichment";
     }
-
-
-
-
-
-
-
 
     public static class EnrichmentRecipeSerializer implements RecipeSerializer<EnrichmentRecipe> {
 
@@ -237,7 +221,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
 
-            return new EnrichmentRecipe(inputs, additional, output, recipeWidth + "x" + recipeHeight, 0, pRecipeId);
+            return new EnrichmentRecipe(inputs, additional, output, recipeWidth + "x" + recipeHeight, pRecipeId);
         }
 
         private String[][] parsePattern(JsonArray patternJson) {
@@ -298,7 +282,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = friendlyByteBuf.readItem();
 
-            return new EnrichmentRecipe(inputs, additional, output, recipeType, 0, pRecipeId);
+            return new EnrichmentRecipe(inputs, additional, output, recipeType, pRecipeId);
         }
 
         @Override
@@ -315,14 +299,6 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
             friendlyByteBuf.writeItem(recipe.getResultItem());
         }
     }
-
-
-
-
-
-
-
-
 
     public static class EnrichmentShapelessRecipeSerializer implements RecipeSerializer<EnrichmentRecipe> {
         public static final RecipeSerializer<EnrichmentRecipe> INSTANCE = new EnrichmentShapelessRecipeSerializer();
@@ -346,7 +322,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             Ingredient additional = Ingredient.fromJson(additionalObject);
 
-            return new EnrichmentRecipe(inputs, additional, output, "shapeless", 1, pRecipeId);
+            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pRecipeId);
         }
 
         @Override
@@ -365,7 +341,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = pBuffer.readItem();
 
-            return new EnrichmentRecipe(inputs, additional, output, "shapeless", 1, pRecipeId);
+            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pRecipeId);
         }
 
         @Override

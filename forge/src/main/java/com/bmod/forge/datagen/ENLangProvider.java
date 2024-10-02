@@ -44,7 +44,6 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.BUBBLE_WAND, "Bubble Wand");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
-        addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
         addItem(ModItems.ESSENCE_NIGHTMARE_REALM, "Essence of the Nightmare Realm");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
@@ -59,6 +58,8 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_FRAGMENT, "Soul Fragment");
         addItem(ModItems.SOUL_INFUSED_RUBY, "Soul-Infused Ruby");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
+
+        addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");
 

@@ -68,6 +68,8 @@ processResources {
 }
 
 shadowJar {
+    archiveBaseName.set("blubbysmodofdoom-forge")
+
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
 
@@ -76,11 +78,15 @@ shadowJar {
 }
 
 remapJar {
+    archiveBaseName.set("blubbysmodofdoom-forge")
+
     input.set shadowJar.archiveFile
     dependsOn shadowJar
 }
 
 sourcesJar {
+    archiveBaseName.set("blubbysmodofdoom-forge")
+
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }

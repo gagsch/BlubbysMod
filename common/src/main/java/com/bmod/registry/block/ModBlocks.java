@@ -47,9 +47,9 @@ public class ModBlocks {
     DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
 
-    SCARLITE_ORE = registerBlock("scarlite_ore", true,
+    DREADIUM_ORE = registerBlock("dreadium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
-    DEEPERSLATE_SCARLITE_ORE = registerBlock("deeperslate_scarlite_ore", true,
+    DEEPERSLATE_DREADIUM_ORE = registerBlock("deeperslate_dreadium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
 
     NECRIUM_ORE = registerBlock("necrium_ore", true,

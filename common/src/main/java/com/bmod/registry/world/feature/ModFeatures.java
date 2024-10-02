@@ -31,7 +31,7 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GLEAM_SHROOM_PATCH_RARE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GRASS_PATCH_PLACED);
 
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_SCARLITE_ORE_RARE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_RARE_PLACED);
                 }
             });
 
@@ -42,7 +42,7 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GLEAM_SHROOM_PATCH_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GRASS_PATCH_PLACED);
 
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_SCARLITE_ORE_RARE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_RARE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.NECRIUM_ORE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_NECRIUM_ORE_PLACED);
                 }
@@ -50,15 +50,15 @@ public class ModFeatures {
 
             BiomeModifications.addProperties((ctx, mutable) -> {
                 if (ctx.hasTag(ModTags.IS_PLAINS)) {
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.SCARLITE_ORE_PLACED);
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_SCARLITE_ORE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DREADIUM_ORE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_PLACED);
                 }
             });
 
             BiomeModifications.addProperties((ctx, mutable) -> {
                 if (ctx.hasTag(ModTags.IS_STONE_PLAINS)) {
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.SCARLITE_ORE_PLACED);
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_SCARLITE_ORE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DREADIUM_ORE_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_PLACED);
                 }
             });
         });

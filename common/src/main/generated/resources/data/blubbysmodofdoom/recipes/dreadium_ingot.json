@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 5.0,
+  "ingredient": {
+    "item": "blubbysmodofdoom:dreadium_chunk"
+  },
+  "result": "blubbysmodofdoom:dreadium_ingot"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "blubbysmodofdoom:enrichment_shaped",
+  "key": {
+    "D": {
+      "item": "blubbysmodofdoom:dreadium_ingot"
+    },
+    "g": {
+      "item": "blubbysmodofdoom:gleam_shroom"
+    },
+    "b": {
+      "item": "blubbysmodofdoom:vile_blood"
+    }
+  },
+  "pattern": [
+    "bgb",
+    "gDg",
+    "bgb"
+  ],
+  "requirement": {
+    "item": "blubbysmodofdoom:essence_continuity"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmodofdoom:shroomite_ingot"
+  }
+}

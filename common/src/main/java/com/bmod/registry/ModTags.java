@@ -6,12 +6,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
 
 public class ModTags {
-    public static TagKey<Item> BOSS_CORES;
+    public static TagKey<Item> BOSS_DROPS;
     public static TagKey<Item> RUBY_ORES;
-    public static TagKey<Item> SCARLITE_ORES;
+    public static TagKey<Item> DREADIUM_ORES;
     public static TagKey<Item> NECRIUM_ORES;
 
     public static TagKey<Biome> IS_NECROSIS_WEALD;
@@ -23,9 +22,9 @@ public class ModTags {
 
     public static void initialize()
     {
-        BOSS_CORES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "boss_cores"));
+        BOSS_DROPS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "boss_drops"));
         RUBY_ORES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "ruby_ores"));
-        SCARLITE_ORES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "scarlite_ores"));
+        DREADIUM_ORES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "dreadium_ores"));
         NECRIUM_ORES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "necrium_ores"));
 
         IS_WEEPING_FOREST = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "is_weeping_forest"));

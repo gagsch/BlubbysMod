@@ -171,3 +171,4 @@ cython_debug/
 /fabric/run
 /forge/run
 /forge/run/logs
+forge/run/logs/debug-5.log.gz

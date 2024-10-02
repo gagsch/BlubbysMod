@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class EnrichmentCategory implements IRecipeCategory<EnrichmentRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(BlubbysMod.MOD_ID, "enrichment");
-    public static final ResourceLocation TEXTURE = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/enrichment_table_front.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/enrichment_table.png");
 
     public static final RecipeType<EnrichmentRecipe> ENRICHMENT_TYPE = new RecipeType<>(UID, EnrichmentRecipe.class);
 

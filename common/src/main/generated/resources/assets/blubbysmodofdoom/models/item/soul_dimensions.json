@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "blubbysmodofdoom:items/soul_dimensions_old"
+    "layer0": "blubbysmodofdoom:items/soul_dimensions"
   }
 }

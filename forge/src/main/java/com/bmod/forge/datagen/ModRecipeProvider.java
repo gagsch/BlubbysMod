@@ -37,8 +37,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         woodTypeBuilder(consumer, DREADWOOD);
         woodTypeBuilder(consumer, EBON);
 
-        upgradeToolsBuilder(consumer, Tiers.NETHERITE, ModItemTier.SCARLITE, ModItems.SCARLITE_INGOT.get());
-        upgradeArmorTypeBuilder(consumer, ArmorMaterials.NETHERITE, ModArmorMaterial.SCARLITE, ModItems.SCARLITE_INGOT.get());
+        upgradeToolsBuilder(consumer, Tiers.NETHERITE, ModItemTier.SHROOMITE, ModItems.DREADIUM_INGOT.get());
+        upgradeArmorTypeBuilder(consumer, ArmorMaterials.NETHERITE, ModArmorMaterial.SHROOMITE, ModItems.DREADIUM_INGOT.get());
 
         swordBuilder(consumer, ModItems.DIVINE_SWORD.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         pickaxeBuilder(consumer, ModItems.DIVINE_PICKAXE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
@@ -46,12 +46,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shovelBuilder(consumer, ModItems.DIVINE_SHOVEL.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         hoeBuilder(consumer, ModItems.DIVINE_HOE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
 
-        coreBuilder(consumer, ModItems.NETHERITE_CORE.get(), Items.NETHERITE_INGOT, "netherite", "");
-        coreBuilder(consumer, ModItems.DIAMOND_CORE.get(), Items.DIAMOND, "diamond", "");
         coreBuilder(consumer, ModItems.IRON_CORE.get(), Items.IRON_INGOT, "iron", "");
         coreBuilder(consumer, ModItems.GOLDEN_CORE.get(), Items.GOLD_INGOT, "golden", "");
+        coreBuilder(consumer, ModItems.DIAMOND_CORE.get(), Items.DIAMOND, "diamond", "");
         coreBuilder(consumer, ModItems.DIVINE_CORE.get(), ModItems.DIVINE_ALLOY.get(), "divine", BlubbysMod.MOD_ID);
-        coreBuilder(consumer, ModItems.SCARLITE_CORE.get(), ModItems.SCARLITE_INGOT.get(), "scarlite", BlubbysMod.MOD_ID);
+        coreBuilder(consumer, ModItems.NETHERITE_CORE.get(), Items.NETHERITE_INGOT, "netherite", "");
+
+        ShapelessRecipeBuilder.shapeless(ModItems.DREADIUM_CORE.get(), 1)
+                .requires(ModItems.SHROOMITE_BOOTS.get())
+                .requires(ModItems.SHROOMITE_LEGGINGS.get())
+                .requires(ModItems.SHROOMITE_CHESTPLATE.get())
+                .requires(ModItems.SHROOMITE_HELMET.get())
+                .requires(ModItems.DREADIUM_INGOT.get())
+                .unlockedBy("has_unlock_requirement", has(ModItems.DREADIUM_INGOT.get()))
+                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
                 .requires(Items.WATER_BUCKET)
@@ -131,21 +139,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder
                 .shaped(ModItems.SOUL_FRAGMENT.get(), 2)
                 .define('d', ModItems.SOUL_DUST.get())
-                .define('B', ModTags.BOSS_CORES)
+                .define('B', ModTags.BOSS_DROPS)
                 .pattern(" d ")
                 .pattern("dBd")
                 .pattern(" d ")
                 .unlockedBy("has_soul_dust", has(ModItems.SOUL_DUST.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder
-                .shaped(ModItems.SCARLITE_INGOT.get(), 1)
-                .define('#', ModItems.VILE_BLOOD.get())
-                .define('c', ModItems.SCARLITE_CHUNK.get())
-                .pattern(" # ")
-                .pattern("#c#")
-                .pattern(" # ")
-                .unlockedBy("has_scarlite_chunk", has(ModItems.SCARLITE_CHUNK.get()))
+        SimpleCookingRecipeBuilder
+                .smelting(Ingredient.of(ModItems.DREADIUM_CHUNK.get()),
+                        ModItems.DREADIUM_INGOT.get(),
+                        5,
+                        300)
+                .unlockedBy("has_dreadium_chunk", has(ModItems.DREADIUM_CHUNK.get()))
                 .save(consumer);
 
         SimpleCookingRecipeBuilder
@@ -173,11 +179,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         SimpleCookingRecipeBuilder
-                .smelting(Ingredient.of(ModTags.SCARLITE_ORES),
-                        ModItems.SCARLITE_CHUNK.get(),
+                .smelting(Ingredient.of(ModTags.DREADIUM_ORES),
+                        ModItems.DREADIUM_CHUNK.get(),
                         5,
                         300)
-                .unlockedBy("has_scarlite_ores", has(ModTags.SCARLITE_ORES))
+                .unlockedBy("has_dreadium_ores", has(ModTags.DREADIUM_ORES))
                 .save(consumer);
 
         ShapedRecipeBuilder
@@ -571,7 +577,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', ModItems.ESSENCE_SEA.get())
                 .define('W', ModItems.ESSENCE_PLANETS.get())
                 .define('H', ModItems.ESSENCE_LIFE.get())
-                .define('w', ModItems.WARDEN_CORE.get())
+                .define('w', ModItems.WARDEN_TENDRIL.get())
                 .define('g', ModItems.GUARDIAN_CORE.get())
                 .pattern(" w ")
                 .pattern("BWH")
@@ -645,11 +651,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHT.get(), 1)
                 .define('p', Items.PHANTOM_MEMBRANE)
-                .define('n', ModItems.SCARLITE_INGOT.get())
+                .define('n', ModItems.DREADIUM_INGOT.get())
                 .pattern(" p ")
                 .pattern("pnp")
                 .pattern(" p ")
-                .unlockedBy("has_air", has(ModItems.SCARLITE_INGOT.get()))
+                .unlockedBy("has_air", has(ModItems.DREADIUM_INGOT.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_SEA.get(), 1)
@@ -723,7 +729,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHTMARE_REALM.get(), 1)
                 .define('#', ModItems.NECRIUM_INGOT.get())
-                .define('N', ModItems.SCARLITE_INGOT.get())
+                .define('N', ModItems.DREADIUM_INGOT.get())
                 .define('D', ModBlocks.DEEPERSLATE.get().asItem())
                 .define('T', ModBlocks.DARK_TURF_BLOCK.get().asItem())
                 .define('I', ModBlocks.NECROTIC_GRASS_BLOCK.get().asItem())
@@ -732,7 +738,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("TIG")
                 .pattern("NS#")
                 .pattern("DDD")
-                .unlockedBy("has_air", has(ModItems.SCARLITE_INGOT.get()))
+                .unlockedBy("has_air", has(ModItems.DREADIUM_INGOT.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_END.get(), 1)

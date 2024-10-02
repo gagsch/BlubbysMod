@@ -25,8 +25,8 @@ public class ModOreFeatures {
     public static Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORES;
     public static Holder<ConfiguredFeature<OreConfiguration, ?>> DEEPSLATE_RUBY_ORES;
 
-    public static Holder<ConfiguredFeature<OreConfiguration, ?>> SCARLITE_ORES;
-    public static Holder<ConfiguredFeature<OreConfiguration, ?>> DEEPER_SCARLITE_ORES;
+    public static Holder<ConfiguredFeature<OreConfiguration, ?>> DREADIUM_ORES;
+    public static Holder<ConfiguredFeature<OreConfiguration, ?>> DEEPER_DREADIUM_ORES;
 
     public static Holder<ConfiguredFeature<OreConfiguration, ?>> NECRIUM_ORES;
     public static Holder<ConfiguredFeature<OreConfiguration, ?>> DEEPER_NECRIUM_ORES;
@@ -35,9 +35,9 @@ public class ModOreFeatures {
     public static Holder<PlacedFeature> RUBY_ORE_PLACED;
     public static Holder<PlacedFeature> DEEPSLATE_RUBY_ORE_PLACED;
 
-    public static Holder<PlacedFeature> SCARLITE_ORE_PLACED;
-    public static Holder<PlacedFeature> DEEPER_SCARLITE_ORE_PLACED;
-    public static Holder<PlacedFeature> DEEPER_SCARLITE_ORE_RARE_PLACED;
+    public static Holder<PlacedFeature> DREADIUM_ORE_PLACED;
+    public static Holder<PlacedFeature> DEEPER_DREADIUM_ORE_PLACED;
+    public static Holder<PlacedFeature> DEEPER_DREADIUM_ORE_RARE_PLACED;
 
     public static Holder<PlacedFeature> NECRIUM_ORE_PLACED;
     public static Holder<PlacedFeature> DEEPER_NECRIUM_ORE_PLACED;
@@ -50,10 +50,10 @@ public class ModOreFeatures {
             DEEPSLATE_RUBY_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":deepslate_ruby_ores", Feature.ORE,
                     new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState(), 5));
 
-            SCARLITE_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":scarlite_ores", Feature.ORE,
-                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.SCARLITE_ORE.get().defaultBlockState(), 6));
-            DEEPER_SCARLITE_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":deeper_scarlite_ores", Feature.ORE,
-                    new OreConfiguration(new BlockMatchTest(ModBlocks.DEEPERSLATE.get()), ModBlocks.DEEPERSLATE_SCARLITE_ORE.get().defaultBlockState(), 8));
+            DREADIUM_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":dreadium_ores", Feature.ORE,
+                    new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DREADIUM_ORE.get().defaultBlockState(), 6));
+            DEEPER_DREADIUM_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":deeper_dreadium_ores", Feature.ORE,
+                    new OreConfiguration(new BlockMatchTest(ModBlocks.DEEPERSLATE.get()), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get().defaultBlockState(), 8));
 
             NECRIUM_ORES = FeatureUtils.register(BlubbysMod.MOD_ID + ":necrium_ores", Feature.ORE,
                     new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.NECRIUM_ORE.get().defaultBlockState(), 6));
@@ -79,7 +79,7 @@ public class ModOreFeatures {
                     )
             );
 
-            SCARLITE_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":scarlite_ore_placed", SCARLITE_ORES,
+            DREADIUM_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":dreadium_ore_placed", DREADIUM_ORES,
                     List.of(
                             CountPlacement.of(3),
                             InSquarePlacement.spread(),
@@ -88,7 +88,7 @@ public class ModOreFeatures {
                     )
             );
 
-            DEEPER_SCARLITE_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":deeper_scarlite_ore_placed", DEEPER_SCARLITE_ORES,
+            DEEPER_DREADIUM_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":deeper_dreadium_ore_placed", DEEPER_DREADIUM_ORES,
                     List.of(
                             CountPlacement.of(5),
                             InSquarePlacement.spread(),
@@ -97,7 +97,7 @@ public class ModOreFeatures {
                     )
             );
 
-            DEEPER_SCARLITE_ORE_RARE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":deeper_scarlite_ore_placed_rare", DEEPER_SCARLITE_ORES,
+            DEEPER_DREADIUM_ORE_RARE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":deeper_scarlite_ore_placed_rare", DEEPER_DREADIUM_ORES,
                     List.of(
                             CountPlacement.of(2),
                             InSquarePlacement.spread(),

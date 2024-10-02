@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "n": {
-      "item": "blubbysmodofdoom:scarlite_ingot"
+      "item": "blubbysmodofdoom:dreadium_ingot"
     },
     "p": {
       "item": "minecraft:phantom_membrane"

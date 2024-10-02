@@ -52,19 +52,24 @@ processResources {
 }
 
 shadowJar {
-    exclude "architectury.common.json"
+    archiveBaseName.set("blubbysmodofdoom-fabric")
 
+    exclude "architectury.common.json"
     configurations = [project.configurations.shadowCommon]
     archiveClassifier = "dev-shadow"
 }
 
 remapJar {
+    archiveBaseName.set("blubbysmodofdoom-fabric")
+
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
 }
 
 sourcesJar {
+    archiveBaseName.set("blubbysmodofdoom-fabric")
+
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }

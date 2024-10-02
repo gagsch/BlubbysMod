@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blubbysmodofdoom:block/deeperslate_dreadium_ore"
+  }
+}

@@ -92,7 +92,7 @@ public class ModItems  {
                             .build()))),
 
     // Materials
-    WARDEN_CORE = ITEMS.register("warden_core",
+    WARDEN_TENDRIL = ITEMS.register("warden_tendril",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -104,13 +104,13 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
-    WITHER_CORE = ITEMS.register("wither_core",
+    WITHER_SPINE = ITEMS.register("wither_spine",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
-    DRAGON_CORE = ITEMS.register("dragon_core",
+    DRAGON_HEART = ITEMS.register("dragon_heart",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -176,7 +176,7 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
-    SCARLITE_CORE = ITEMS.register("scarlite_core",
+    DREADIUM_CORE = ITEMS.register("dreadium_core",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -194,14 +194,20 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
-    // Scarlite Stuff
-    SCARLITE_CHUNK = ITEMS.register("scarlite_chunk",
+    // Dreadium Stuff
+    DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
+            () -> new Item(new Item.Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+    DREADIUM_INGOT = ITEMS.register("dreadium_ingot",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
-    SCARLITE_INGOT = ITEMS.register("scarlite_ingot",
+    // Dreadium Branches
+    SHROOMITE_INGOT = ITEMS.register("shroomite_ingot",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -220,7 +226,6 @@ public class ModItems  {
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
-
     NECRIUM_INGOT = ITEMS.register("necrium_ingot",
             () -> new Item(new Item.Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -238,15 +243,15 @@ public class ModItems  {
             DIVINE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.LEGS),
             DIVINE_BOOTS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.FEET),
 
-    SCARLITE_SWORD = ItemUtils.sword(ModItemTier.SCARLITE, 6, -0.4f),
-            SCARLITE_PICKAXE = ItemUtils.pickaxe(ModItemTier.SCARLITE, -1, 0),
-            SCARLITE_AXE = ItemUtils.axe(ModItemTier.SCARLITE, 13, -0.2f),
-            SCARLITE_SHOVEL = ItemUtils.shovel(ModItemTier.SCARLITE, 0, 0),
-            SCARLITE_HOE = ItemUtils.hoe(ModItemTier.SCARLITE, -9, 0),
-            SCARLITE_HELMET = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.HEAD),
-            SCARLITE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.CHEST),
-            SCARLITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.LEGS),
-            SCARLITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SCARLITE, EquipmentSlot.FEET),
+    SHROOMITE_SWORD = ItemUtils.sword(ModItemTier.SHROOMITE, 6, -0.4f),
+            SHROOMITE_PICKAXE = ItemUtils.pickaxe(ModItemTier.SHROOMITE, -1, 0),
+            SHROOMITE_AXE = ItemUtils.axe(ModItemTier.SHROOMITE, 13, -0.2f),
+            SHROOMITE_SHOVEL = ItemUtils.shovel(ModItemTier.SHROOMITE, 0, 0),
+            SHROOMITE_HOE = ItemUtils.hoe(ModItemTier.SHROOMITE, -9, 0),
+            SHROOMITE_HELMET = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.HEAD),
+            SHROOMITE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.CHEST),
+            SHROOMITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.LEGS),
+            SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET),
 
     // Essences
     ESSENCE_CHANGE = ItemUtils.essence("change"),
