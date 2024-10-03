@@ -15,6 +15,7 @@ import com.bmod.registry.entity.ModEntities;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.ModSounds;
 import com.bmod.registry.menu.ModMenus;
+import com.bmod.registry.world.biome.ModBiomes;
 import com.bmod.registry.world.feature.ModFeatures;
 import com.bmod.registry.world.feature.tree_grower.DreadwoodTreeGrower;
 import com.bmod.registry.world.feature.tree_grower.EbonTreeGrower;
@@ -49,6 +50,7 @@ public final class BlubbysMod {
         ModSounds.SOUNDS.register();
         ModRecipeTypes.RECIPE_SERIALIZERS.register();
         ModRecipeTypes.RECIPE_TYPES.register();
+        ModBiomes.BIOMES.register();
 
         ModFeatures.init();
 
@@ -56,7 +58,7 @@ public final class BlubbysMod {
         EntityAttributeRegistry.register(ModEntities.BEHEMOTH, BehemothEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntities.SNOW_FLINX, SnowFlinxEntity::createAttributes);
 
-        EnvExecutor.runInEnv(Env.CLIENT, () -> BlubbysMod.Client::initializeClient);
+        EnvExecutor.runInEnv(Env.CLIENT, () -> Client::initializeClient);
     }
 
     @Environment(EnvType.CLIENT)

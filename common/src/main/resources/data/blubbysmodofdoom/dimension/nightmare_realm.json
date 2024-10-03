@@ -396,6 +396,72 @@
                     {
                         "type": "minecraft:condition",
                         "if_true": {
+                            "type": "minecraft:y_above",
+                            "anchor": {
+                                "absolute": -59
+                            },
+                            "surface_depth_multiplier": 0,
+                            "add_stone_depth": false
+                        },
+                        "then_run": {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                                "type": "minecraft:biome",
+                                "biome_is": [
+                                    "blubbysmodofdoom:spider_den"
+                                ]
+                            },
+                            "then_run": {
+                                "type": "minecraft:sequence",
+                                "sequence": [
+                                    {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                            "type": "minecraft:noise_threshold",
+                                            "noise": "minecraft:aquifer_barrier",
+                                            "min_threshold": -10,
+                                            "max_threshold": 0.2
+                                        },
+                                        "then_run": {
+                                            "type": "minecraft:sequence",
+                                            "sequence": [
+                                                {
+                                                    "type": "minecraft:condition",
+                                                    "if_true": {
+                                                        "type": "minecraft:noise_threshold",
+                                                        "noise": "minecraft:aquifer_barrier",
+                                                        "min_threshold": -10,
+                                                        "max_threshold": -0.2
+                                                    },
+                                                    "then_run": {
+                                                        "type": "minecraft:block",
+                                                        "result_state": {
+                                                            "Name": "blubbysmodofdoom:silk_block"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "minecraft:block",
+                                                    "result_state": {
+                                                        "Name": "blubbysmodofdoom:web_stone"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                            "Name": "blubbysmodofdoom:deeperslate"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "minecraft:condition",
+                        "if_true": {
                             "type": "minecraft:above_preliminary_surface"
                         },
                         "then_run": {
@@ -449,7 +515,7 @@
                                 "if_true": {
                                     "type": "minecraft:y_above",
                                     "anchor": {
-                                        "absolute": 55
+                                        "absolute": 58
                                     },
                                     "surface_depth_multiplier": 0,
                                     "add_stone_depth": false
@@ -505,7 +571,8 @@
                                                             "if_true": {
                                                                 "type": "minecraft:biome",
                                                                 "biome_is": [
-                                                                    "blubbysmodofdoom:necrosis_weald"
+                                                                    "blubbysmodofdoom:necrosis_weald",
+                                                                    "blubbysmodofdoom:spider_den"
                                                                 ]
                                                             },
                                                             "then_run": {
@@ -604,21 +671,6 @@
                                                                         "result_state": {
                                                                             "Name": "minecraft:gravel"
                                                                         }
-                                                                    },
-                                                                    {
-                                                                        "type": "minecraft:condition",
-                                                                        "if_true": {
-                                                                            "type": "minecraft:noise_threshold",
-                                                                            "noise": "minecraft:surface",
-                                                                            "min_threshold": 0.12121212121212122,
-                                                                            "max_threshold": 1.7976931348623157e+308
-                                                                        },
-                                                                        "then_run": {
-                                                                            "type": "minecraft:block",
-                                                                            "result_state": {
-                                                                                "Name": "minecraft:clay"
-                                                                            }
-                                                                        }
                                                                     }
                                                                 ]
                                                             }
@@ -693,7 +745,7 @@
                             -2,
                             -0.1
                         ],
-                        "depth": 1,
+                        "depth": 0,
                         "offset": 0
                     }
                 },
@@ -705,7 +757,7 @@
                         "continentalness": 0,
                         "erosion": 0,
                         "weirdness": 0,
-                        "depth": 1,
+                        "depth": 0,
                         "offset": 0
                     }
                 },
@@ -720,40 +772,37 @@
                             0.1,
                             0.7
                         ],
-                        "depth": 1,
+                        "depth": 0,
                         "offset": 0
                     }
                 },
                 {
                     "biome": "blubbysmodofdoom:stone_plains",
                     "parameters": {
-                        "temperature": 0,
-                        "humidity": 0,
+                        "temperature": 1,
+                        "humidity": 1,
                         "continentalness": 0,
                         "erosion": 0,
                         "weirdness": [
                             1.1,
                             2
                         ],
-                        "depth": 1,
+                        "depth": 0,
                         "offset": 0
                     }
                 },
                 {
                     "biome": "blubbysmodofdoom:spider_den",
                     "parameters": {
-                        "temperature": 2,
-                        "humidity": 2,
-                        "continentalness": 2,
-                        "erosion": 2,
+                        "temperature": 0,
+                        "humidity": 0.5,
+                        "continentalness": 0,
+                        "erosion": 0,
                         "weirdness": [
                             0.7,
-                            1.1
+                            2
                         ],
-                        "depth": [
-                            0.2,
-                            0.9
-                        ],
+                        "depth": 1.1,
                         "offset": 0
                     }
                 }

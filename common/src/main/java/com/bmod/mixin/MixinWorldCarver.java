@@ -14,7 +14,14 @@ public class MixinWorldCarver<C extends CarverConfiguration> {
 
     @Inject(method = "canReplaceBlock", at = @At("RETURN"), cancellable = true)
     protected void canReplaceBlock(C carverConfiguration, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
-        boolean modBlocks = blockState.is(ModBlocks.DARK_SOIL.get()) || blockState.is(ModBlocks.DARK_TURF_BLOCK.get()) || blockState.is(ModBlocks.NECROTIC_GRASS_BLOCK.get()) || blockState.is(ModBlocks.DEEPERSLATE.get());
+        boolean modBlocks =
+                blockState.is(ModBlocks.DARK_SOIL.get()) ||
+                blockState.is(ModBlocks.DARK_TURF_BLOCK.get()) ||
+                blockState.is(ModBlocks.NECROTIC_GRASS_BLOCK.get()) ||
+                blockState.is(ModBlocks.DEEPERSLATE.get()) ||
+                blockState.is(ModBlocks.WEB_STONE.get()) ||
+                blockState.is(ModBlocks.SILK_BLOCK.get());
+
         cir.setReturnValue(blockState.is(carverConfiguration.replaceable) || modBlocks);
     }
 }

@@ -41,6 +41,10 @@ public class ModBlocks {
 
     DEEPERSLATE = registerBlock("deeperslate", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    WEB_STONE = registerBlock("web_stone", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+    SILK_BLOCK = registerBlock("silk_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).sound(SoundType.HONEY_BLOCK).requiresCorrectToolForDrops())),
 
     RUBY_ORE = registerBlock("ruby_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops())),
@@ -63,7 +67,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD))),
 
     BUBBLE_BLOCK = registerBlock("bubble_block", false,
-            () -> new BubbleBlock(BlockBehaviour.Properties.of(Material.STONE).noCollission().strength(0.1f).sound(SoundType.WET_GRASS))),
+            () -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).noCollission().strength(0.1f).sound(SoundType.WET_GRASS))),
 
     HOT_PEPPER_CROP = registerBlock("hot_pepper", false,
             () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT))),

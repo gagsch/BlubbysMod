@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 public class EnrichmentTableBlock extends Block {
     private static final Component CONTAINER_TITLE = Component.translatable("block.blubbysmodofdoom.enrichment_table");
 
-    public EnrichmentTableBlock(BlockBehaviour.Properties properties) {
+    public EnrichmentTableBlock(Properties properties) {
         super(properties);
     }
 

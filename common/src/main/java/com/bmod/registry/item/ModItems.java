@@ -27,37 +27,37 @@ public class ModItems  {
     
     public static final Supplier<Item>
     BLUBBY_COIN = ITEMS.register("blubby_coin",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     CHRONOS_CLOCK = ITEMS.register("chronos_clock",
-            () -> new ChronosClockItem(new Item.Properties()
+            () -> new ChronosClockItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1))),
 
     ENDER_BUNDLE = ITEMS.register("ender_bundle",
-            () -> new EnderBundleItem(new Item.Properties()
+            () -> new EnderBundleItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1))),
 
     LUCKY_ROCK = ITEMS.register("lucky_rock",
-            () -> new InventoryItem(new Item.Properties()
+            () -> new InventoryItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1), inventoryItems.LuckyRock, ToolTips.lucky_rock)),
 
     VOID_LANTERN = ITEMS.register("void_lantern",
-            () -> new InventoryItem(new Item.Properties()
+            () -> new InventoryItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1), inventoryItems.VoidLantern, ToolTips.void_lantern)),
 
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
-            () -> new ToolTipItem(new Item.Properties()
+            () -> new ToolTipItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1), ToolTips.totem_of_dreams)),
@@ -66,20 +66,20 @@ public class ModItems  {
             BubbleWandItem::new),
 
     HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Item.Properties()
+            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",
-            () -> new HotPepperItem(new Item.Properties()
+            () -> new HotPepperItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     ROTTEN_APPLE = ITEMS.register("rotten_apple",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)
@@ -93,141 +93,141 @@ public class ModItems  {
 
     // Materials
     WARDEN_TENDRIL = ITEMS.register("warden_tendril",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     GUARDIAN_CORE = ITEMS.register("guardian_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     WITHER_SPINE = ITEMS.register("wither_spine",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     DRAGON_HEART = ITEMS.register("dragon_heart",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     HEART_OF_THE_ABYSS = ITEMS.register("heart_of_the_abyss",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SOUL_DUST = ITEMS.register("soul_powder",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SOUL_FRAGMENT = ITEMS.register("soul_fragment",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     RUBY = ITEMS.register("ruby",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SOUL_INFUSED_RUBY = ITEMS.register("soul_infused_ruby",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     IRON_CORE = ITEMS.register("iron_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     GOLDEN_CORE = ITEMS.register("golden_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     DIAMOND_CORE = ITEMS.register("diamond_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     DIVINE_CORE = ITEMS.register("divine_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     NETHERITE_CORE = ITEMS.register("netherite_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     DREADIUM_CORE = ITEMS.register("dreadium_core",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     VILE_BLOOD = ITEMS.register("vile_blood",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     LEATHER_SCRAP = ITEMS.register("leather_scrap",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     // Dreadium Stuff
     DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
     DREADIUM_INGOT = ITEMS.register("dreadium_ingot",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     // Dreadium Branches
     SHROOMITE_INGOT = ITEMS.register("shroomite_ingot",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     // Divine Stuff
     DIVINE_ALLOY = ITEMS.register("divine_alloy",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     // Necrium Stuff
     NECRIUM_CHUNK = ITEMS.register("necrium_chunk",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
     NECRIUM_INGOT = ITEMS.register("necrium_ingot",
-            () -> new Item(new Item.Properties()
+            () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
@@ -288,19 +288,19 @@ public class ModItems  {
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.ROT_FLY.get(), 0x382946, 0xa41717, new Item.Properties()
+            () -> new SpawnEggItem(ModEntities.ROT_FLY.get(), 0x382946, 0xa41717, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.BEHEMOTH.get(), 0x442266, 0x111133, new Item.Properties()
+            () -> new SpawnEggItem(ModEntities.BEHEMOTH.get(), 0x442266, 0x111133, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SNOW_FLINX_SPAWN_EGG = ITEMS.register("snow_flinx_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.SNOW_FLINX.get(), 0xddeeee, 0xfad2ac, new Item.Properties()
+            () -> new SpawnEggItem(ModEntities.SNOW_FLINX.get(), 0xddeeee, 0xfad2ac, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)));

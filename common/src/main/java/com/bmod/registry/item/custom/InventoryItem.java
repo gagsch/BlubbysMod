@@ -18,7 +18,7 @@ public class InventoryItem extends ToolTipItem {
         VoidLantern
     };
 
-    public InventoryItem(Properties properties, inventoryItems inventoryItem, ToolTipItem.ToolTips toolTips) {
+    public InventoryItem(Properties properties, inventoryItems inventoryItem, ToolTips toolTips) {
         super(properties, toolTips);
         this.inventoryItem = inventoryItem;
     }

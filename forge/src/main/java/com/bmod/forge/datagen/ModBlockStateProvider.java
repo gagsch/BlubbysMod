@@ -40,6 +40,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         bottomTopBlockWithItem(ModBlocks.NECROTIC_GRASS_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK, "top"), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK));
         blockWithItem(ModBlocks.DARK_SOIL.get());
         blockWithItem(ModBlocks.DEEPERSLATE.get());
+        blockWithItem(ModBlocks.WEB_STONE.get());
+        blockWithItem(ModBlocks.SILK_BLOCK.get());
         bottomTopBlockWithItem(ModBlocks.SLUDGE_BLOCK.get(), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK));
 
         woodType(DREADWOOD);

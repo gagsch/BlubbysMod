@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "blubbysmodofdoom:dreadium_ingot"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_unlock_requirement": {
+    "has_dreadium_chunk": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmodofdoom:dreadium_ingot"
+              "blubbysmodofdoom:dreadium_chunk"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blubbysmodofdoom:dreadium_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_unlock_requirement",
+      "has_dreadium_chunk",
       "has_the_recipe"
     ]
   ],

@@ -128,7 +128,7 @@ public class BehemothEntity extends Monster {
         BlockPos pos = this.blockPosition();
 
         boolean isSolidGroundBelow = world.getBlockState(pos.below()).getMaterial().isSolid();
-        boolean isAboveVoid = pos.getY() > 0;
+        boolean isAboveVoid = pos.getY() > 60;
 
         if (world instanceof ServerLevel serverWorld) {
             Player player = serverWorld.getRandomPlayer();

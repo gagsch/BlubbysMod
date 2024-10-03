@@ -27,7 +27,7 @@ public class CustomSapling extends SaplingBlock implements BonemealableBlock
     public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     private final AbstractTreeGrower tree;
 
-    public CustomSapling(AbstractTreeGrower tree, Block.Properties properties)
+    public CustomSapling(AbstractTreeGrower tree, Properties properties)
     {
         super(tree, properties);
         this.tree = tree;

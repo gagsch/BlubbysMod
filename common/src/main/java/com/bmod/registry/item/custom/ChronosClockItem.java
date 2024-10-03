@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class ChronosClockItem extends ToolTipItem {
-    public ChronosClockItem(Item.Properties properties) {
+    public ChronosClockItem(Properties properties) {
         super(properties, ToolTips.chronos_clock);
     }
 

@@ -28,7 +28,7 @@ public class ToolTipItem extends Item {
     ToolTips toolTip;
     HashMap<ToolTips, MutableComponent> toolTipHashMap = new HashMap<>();
 
-    public ToolTipItem(Item.Properties properties, ToolTips toolTip) {
+    public ToolTipItem(Properties properties, ToolTips toolTip) {
         super(properties);
         this.toolTip = toolTip;
     }
