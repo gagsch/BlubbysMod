@@ -5,7 +5,7 @@ import com.bmod.registry.block.ModBlocks;
 
 import static com.bmod.util.WoodUtils.*;
 
-import com.bmod.registry.block.HotPepperCropBlock;
+import com.bmod.registry.block.custom.HotPepperCropBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;

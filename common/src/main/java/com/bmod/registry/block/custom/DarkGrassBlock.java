@@ -1,5 +1,6 @@
-package com.bmod.registry.block;
+package com.bmod.registry.block.custom;
 
+import com.bmod.registry.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;

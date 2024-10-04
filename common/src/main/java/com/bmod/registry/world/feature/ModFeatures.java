@@ -13,6 +13,7 @@ public class ModFeatures {
         ModOreFeatures.initialize();
         ModTreeFeatures.initialize();
         ModVegetationFeatures.initialize();
+        ModDecorationFeatures.initialize();
 
         ModTags.initialize();
 
@@ -45,6 +46,12 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_RARE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.NECRIUM_ORE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_NECRIUM_ORE_PLACED);
+                }
+            });
+
+            BiomeModifications.addProperties((ctx, mutable) -> {
+                if (ctx.hasTag(ModTags.IS_SPIDER_DEN)) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModDecorationFeatures.COBWEB_PATCH_PLACED);
                 }
             });
 

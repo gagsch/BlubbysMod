@@ -1,4 +1,4 @@
-package com.bmod.registry.block;
+package com.bmod.registry.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

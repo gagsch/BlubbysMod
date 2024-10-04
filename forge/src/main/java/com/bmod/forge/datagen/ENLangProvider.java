@@ -59,6 +59,8 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_INFUSED_RUBY, "Soul-Infused Ruby");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
 
+        add("enchantment.blubbysmodofdoom.web_walker", "Web Walker");
+
         addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");

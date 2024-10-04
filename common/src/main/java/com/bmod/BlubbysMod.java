@@ -5,6 +5,7 @@ import com.bmod.events.EntityDeathEvent;
 import com.bmod.events.client.RenderOverlayEvent;
 import com.bmod.events.UseBlockEvent;
 import com.bmod.events.CommandRegisterEvent;
+import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.entity.client.*;
 import com.bmod.registry.entity.custom.BehemothEntity;
@@ -39,6 +40,7 @@ public final class BlubbysMod {
         EntityDeathEvent.initialize();
         CommandRegisterEvent.initialize();
 
+
         ModMenus.MENUS.register();
 
         WoodUtils.registerWood(WoodUtils.DREADWOOD, new DreadwoodTreeGrower());
@@ -47,11 +49,11 @@ public final class BlubbysMod {
         ModEntities.ENTITY_TYPES.register();
         ModBlocks.BLOCKS.register();
         ModItems.ITEMS.register();
+        ModEnchantments.ENCHANTMENTS.register();
         ModSounds.SOUNDS.register();
         ModRecipeTypes.RECIPE_SERIALIZERS.register();
         ModRecipeTypes.RECIPE_TYPES.register();
         ModBiomes.BIOMES.register();
-
         ModFeatures.init();
 
         EntityAttributeRegistry.register(ModEntities.ROT_FLY, RotFlyEntity::createAttributes);

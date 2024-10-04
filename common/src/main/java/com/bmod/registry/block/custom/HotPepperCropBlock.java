@@ -1,4 +1,4 @@
-package com.bmod.registry.block;
+package com.bmod.registry.block.custom;
 
 import com.bmod.registry.item.ModItems;
 import net.minecraft.core.BlockPos;

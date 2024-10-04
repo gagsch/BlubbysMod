@@ -1,7 +1,7 @@
 package com.bmod.util;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.block.CustomSapling;
+import com.bmod.registry.block.custom.CustomSapling;
 import com.bmod.registry.block.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;

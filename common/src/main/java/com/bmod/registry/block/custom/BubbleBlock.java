@@ -1,5 +1,6 @@
-package com.bmod.registry.block;
+package com.bmod.registry.block.custom;
 
+import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;

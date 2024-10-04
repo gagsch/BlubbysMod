@@ -1,6 +1,7 @@
 package com.bmod.registry.block;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.block.custom.*;
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.registry.item.ModItems;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -10,7 +11,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 
 import java.util.HashMap;
 import java.util.Map;
