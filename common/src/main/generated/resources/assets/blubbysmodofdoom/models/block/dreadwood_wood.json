@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "blubbysmodofdoom:block/dreadwood_log",
-    "side": "blubbysmodofdoom:block/dreadwood_log"
-  }
-}

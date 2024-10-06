@@ -277,7 +277,6 @@ public class ModItems  {
             ESSENCE_WIND = ItemUtils.essence("wind"), // Air Rocket - Infinite Rocket for Elytra, Essence Wind + 2 Rocket + Soul of Infinity
     // Souls
     SOUL_BALANCE = ItemUtils.soul("balance"),
-            SOUL_DIMENSIONS = ItemUtils.soul("dimensions"), // Super-Portal - Can go thru all dimensions (maybe mod exclusive ones as well if possible)
             SOUL_ELEMENTS = ItemUtils.soul("elements"), //
             SOUL_SPACE = ItemUtils.soul("space"),
                 //

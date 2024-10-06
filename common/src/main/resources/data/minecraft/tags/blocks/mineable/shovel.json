@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "blubbysmodofdoom:necrotic_grass_block",
-    "blubbysmodofdoom:dark_turf_block",
-    "blubbysmodofdoom:dark_soil"
+    "blubbysmod:necrotic_grass_block",
+    "blubbysmod:dark_turf_block",
+    "blubbysmod:dark_soil"
   ]
 }

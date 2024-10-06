@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 75,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "minecraft:soul_sand"
+  },
+  "result": "blubbysmod:soul_powder"
+}

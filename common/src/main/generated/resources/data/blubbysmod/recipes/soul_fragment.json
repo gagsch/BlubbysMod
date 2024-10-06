@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "tag": "blubbysmod:boss_drops"
+    },
+    "d": {
+      "item": "blubbysmod:soul_powder"
+    }
+  },
+  "pattern": [
+    " d ",
+    "dBd",
+    " d "
+  ],
+  "result": {
+    "count": 2,
+    "item": "blubbysmod:soul_fragment"
+  }
+}

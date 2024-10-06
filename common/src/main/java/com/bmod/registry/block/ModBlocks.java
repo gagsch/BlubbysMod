@@ -20,7 +20,11 @@ public class ModBlocks {
     public static final Map<String, Supplier<Block>> BLOCK_HASH_MAP = new HashMap<>();
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.BLOCK_REGISTRY);
 
-    public static final Supplier<Block> SLUDGE_BLOCK = registerBlock("sludge_block", true,
+    public static final Supplier<Block>
+    SOUL_DIMENSIONS = registerBlock("soul_dimensions", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ZOMBIE_HEAD).noOcclusion())),
+
+    SLUDGE_BLOCK = registerBlock("sludge_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))),
 
     NECROTIC_GRASS_BLOCK = registerBlock("necrotic_grass_block", true,

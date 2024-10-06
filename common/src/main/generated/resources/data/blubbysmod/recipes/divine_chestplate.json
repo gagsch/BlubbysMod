@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond_chestplate"
+    },
+    "b": {
+      "item": "blubbysmod:divine_alloy"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "b b",
+    "bDb",
+    "gbg"
+  ],
+  "result": {
+    "item": "blubbysmod:divine_chestplate"
+  }
+}

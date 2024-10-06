@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond_boots"
+    },
+    "b": {
+      "item": "blubbysmod:divine_alloy"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "gDg",
+    "b b"
+  ],
+  "result": {
+    "item": "blubbysmod:divine_boots"
+  }
+}

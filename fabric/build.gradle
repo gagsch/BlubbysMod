@@ -52,7 +52,7 @@ processResources {
 }
 
 shadowJar {
-    archiveBaseName.set("blubbysmodofdoom-fabric")
+    archiveBaseName.set("blubbysmod-fabric")
 
     exclude "architectury.common.json"
     configurations = [project.configurations.shadowCommon]
@@ -60,7 +60,7 @@ shadowJar {
 }
 
 remapJar {
-    archiveBaseName.set("blubbysmodofdoom-fabric")
+    archiveBaseName.set("blubbysmod-fabric")
 
     injectAccessWidener = true
     input.set shadowJar.archiveFile
@@ -68,7 +68,7 @@ remapJar {
 }
 
 sourcesJar {
-    archiveBaseName.set("blubbysmodofdoom-fabric")
+    archiveBaseName.set("blubbysmod-fabric")
 
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources

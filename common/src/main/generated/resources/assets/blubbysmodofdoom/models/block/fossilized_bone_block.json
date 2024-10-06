@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "blubbysmodofdoom:block/fossilized_bone_block_top",
-    "side": "blubbysmodofdoom:block/fossilized_bone_block"
-  }
-}

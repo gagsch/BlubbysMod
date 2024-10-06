@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "blubbysmodofdoom:divine_sword"
+    "item": "blubbysmod:divine_sword"
   },
   "addition": {
     "item": "minecraft:netherite_ingot"

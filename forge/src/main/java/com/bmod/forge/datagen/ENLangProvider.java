@@ -31,13 +31,13 @@ public class ENLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("item.blubbysmodofdoom." + ModItems.CHRONOS_CLOCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Skips time forward. Avoid skipping ahead to far!");
-        add("item.blubbysmodofdoom." + ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
-        add("item.blubbysmodofdoom." + ModItems.TOTEM_OF_DREAMS.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Teleports you to your spawn point on death while retaining items and EXP.");
-        add("item.blubbysmodofdoom." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
-        add("item.blubbysmodofdoom." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
-        add("item.blubbysmodofdoom." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
-        add("item.blubbysmodofdoom." + ModItems.VOID_LANTERN.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Lights up everything around you.");
+        add("item.blubbysmod." + ModItems.CHRONOS_CLOCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Skips time forward. Avoid skipping ahead to far!");
+        add("item.blubbysmod." + ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
+        add("item.blubbysmod." + ModItems.TOTEM_OF_DREAMS.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Teleports you to your spawn point on death while retaining items and EXP.");
+        add("item.blubbysmod." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
+        add("item.blubbysmod." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
+        add("item.blubbysmod." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
+        add("item.blubbysmod." + ModItems.VOID_LANTERN.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Lights up everything around you.");
 
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
@@ -59,13 +59,13 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_INFUSED_RUBY, "Soul-Infused Ruby");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
 
-        add("enchantment.blubbysmodofdoom.web_walker", "Web Walker");
+        add("enchantment.blubbysmod.web_walker", "Web Walker");
 
         addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");
 
-        add("itemGroup.blubbysmodofdoom.blubbys_tab_of_doom", "Blubby's Mod of Doom");
+        add("itemGroup.blubbysmod.blubbys_tab_of_doom", "Blubby's Mod");
 
         addRemainingItems();
         addRemainingBlocks();
@@ -80,15 +80,15 @@ public class ENLangProvider extends LanguageProvider {
     }
 
     public void addItem(Supplier<? extends Item> item, @NotNull String name) {
-        add("item.blubbysmodofdoom." + item.get().builtInRegistryHolder().key().location().getPath(), name);
+        add("item.blubbysmod." + item.get().builtInRegistryHolder().key().location().getPath(), name);
     }
 
     public void addBlock(Supplier<? extends Block> block, @NotNull String name) {
-        add("block.blubbysmodofdoom." + block.get().builtInRegistryHolder().key().location().getPath(), name);
+        add("block.blubbysmod." + block.get().builtInRegistryHolder().key().location().getPath(), name);
     }
 
     private void addEntity(String entityId, String name) {
-        add("entity.blubbysmodofdoom." + entityId, name);
+        add("entity.blubbysmod." + entityId, name);
     }
 
     private void addRemainingItems() {
@@ -96,8 +96,8 @@ public class ENLangProvider extends LanguageProvider {
         {
             String key = getPath((RegistrySupplier<Item>) item);
 
-            if (!registeredLang.contains("item.blubbysmodofdoom." + key) && !(item.get() instanceof BlockItem)) {
-                add("item.blubbysmodofdoom." + key, convertToName(key));
+            if (!registeredLang.contains("item.blubbysmod." + key) && !(item.get() instanceof BlockItem)) {
+                add("item.blubbysmod." + key, convertToName(key));
             } else {
                 System.out.println("Lang " + key + " is already registered.");
             }
@@ -114,8 +114,8 @@ public class ENLangProvider extends LanguageProvider {
         {
             String key = entity.getId().getPath();
 
-            if (!registeredLang.contains("entity.blubbysmodofdoom." + key)) {
-                add("entity.blubbysmodofdoom." + key, convertToName(key));
+            if (!registeredLang.contains("entity.blubbysmod." + key)) {
+                add("entity.blubbysmod." + key, convertToName(key));
             } else {
                 System.out.println("Lang " + key + " is already registered.");
             }
@@ -127,8 +127,8 @@ public class ENLangProvider extends LanguageProvider {
         {
             String key = block.getId().getPath();
 
-            if (!registeredLang.contains("block.blubbysmodofdoom." + key)) {
-                add("block.blubbysmodofdoom." + key, convertToName(key));
+            if (!registeredLang.contains("block.blubbysmod." + key)) {
+                add("block.blubbysmod." + key, convertToName(key));
             } else {
                 System.out.println("Lang " + key + " is already registered.");
             }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "blubbysmod:stripped_ebon_log",
+    "blubbysmod:stripped_ebon_wood",
+    "blubbysmod:ebon_log",
+    "blubbysmod:ebon_wood"
+  ]
+}

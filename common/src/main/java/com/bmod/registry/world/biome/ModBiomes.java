@@ -1,11 +1,9 @@
 package com.bmod.registry.world.biome;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.world.feature.ModDecorationFeatures;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Music;
@@ -14,7 +12,6 @@ import net.minecraft.util.random.Weight;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;

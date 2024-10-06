@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'blubbysmodofdoom'
+rootProject.name = 'blubbysmod'
 
 include 'common'
 include 'fabric'

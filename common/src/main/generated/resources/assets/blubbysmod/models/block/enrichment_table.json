@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "blubbysmod:block/enrichment_table_bottom",
+    "east": "blubbysmod:block/enrichment_table_side",
+    "north": "blubbysmod:block/enrichment_table_front",
+    "particle": "blubbysmod:block/enrichment_table_top",
+    "south": "blubbysmod:block/enrichment_table_side",
+    "up": "blubbysmod:block/enrichment_table_top",
+    "west": "blubbysmod:block/enrichment_table_side"
+  }
+}

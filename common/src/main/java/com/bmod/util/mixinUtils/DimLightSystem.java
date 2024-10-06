@@ -13,10 +13,10 @@ public class DimLightSystem {
     public static boolean enabled = false;
     private static final float[][] LUMINANCE = new float[16][16];
 
-    public static int darken(int c, int blockIndex, int skyIndex) {
+    public static int darken(int c, int blockPixelIndex, int skyIndex) {
         // this is the whole function in one line:
         // return ((((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f) > 0 ? Math.min(1, LUMINANCE[blockIndex][skyIndex] / (((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f)) : 0) == 1f ? c : 0xFF000000 | Math.round(((((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f) > 0 ? Math.min(1, LUMINANCE[blockIndex][skyIndex] / (((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f)) : 0) * ((c & 0xFF) / 255f) * 255) | (Math.round(((((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f) > 0 ? Math.min(1, LUMINANCE[blockIndex][skyIndex] / (((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f)) : 0) * (((c >> 8) & 0xFF) / 255f) * 255) << 8) | (Math.round(((((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f) > 0 ? Math.min(1, LUMINANCE[blockIndex][skyIndex] / (((c & 0xFF) / 255f) * 0.2126f + (((c >> 8) & 0xFF) / 255f) * 0.7152f + (((c >> 16) & 0xFF) / 255f) * 0.0722f)) : 0) * (((c >> 16) & 0xFF) / 255f) * 255) << 16);
-        final float lTarget = LUMINANCE[blockIndex][skyIndex];
+        final float lTarget = LUMINANCE[blockPixelIndex][skyIndex];
         final float r = (c & 0xFF) / 255f;
         final float g = ((c >> 8) & 0xFF) / 255f;
         final float b = ((c >> 16) & 0xFF) / 255f;
@@ -29,7 +29,10 @@ public class DimLightSystem {
         final ClientLevel world = client.level;
 
         if (world != null) {
-            enabled = !(!(world.dimension() == ModDimensions.BLYDIM_KEY) || Objects.requireNonNull(client.player).hasEffect(MobEffects.NIGHT_VISION) || (client.player.hasEffect(MobEffects.CONDUIT_POWER) && client.player.getWaterVision() > 0) || world.getSkyFlashTime() > 0);
+            enabled = !(!(world.dimension() == ModDimensions.BLYDIM_KEY) ||
+                    Objects.requireNonNull(client.player).hasEffect(MobEffects.NIGHT_VISION) ||
+                    (client.player.hasEffect(MobEffects.CONDUIT_POWER) && client.player.getWaterVision() > 0) ||
+                    world.getSkyFlashTime() > 0);
             if (!enabled)
                 return;
 

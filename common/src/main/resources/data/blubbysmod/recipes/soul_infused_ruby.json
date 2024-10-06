@@ -1,0 +1,21 @@
+{
+  "type": "blubbysmod:enrichment_shapeless",
+  "ingredients": [
+    { "item": "blubbysmod:golden_core" },
+    { "item": "blubbysmod:iron_core" },
+    { "item": "blubbysmod:diamond_core" },
+    { "item": "blubbysmod:soul_powder" },
+    { "item": "blubbysmod:ruby" },
+    { "item": "blubbysmod:soul_powder" },
+    { "item": "blubbysmod:divine_core" },
+    { "item": "blubbysmod:netherite_core" },
+    { "item": "blubbysmod:dreadium_core" }
+  ],
+  "requirement": {
+    "item": "blubbysmod:soul_infinity"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:soul_infused_ruby"
+  }
+}

@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "blubbysmodofdoom:dreadium_ore",
-    "blubbysmodofdoom:deeperslate_dreadium_ore",
-    "blubbysmodofdoom:necrium_ore",
-    "blubbysmodofdoom:deeperslate_necrium_ore",
-    "blubbysmodofdoom:ruby_ore",
-    "blubbysmodofdoom:deepslate_ruby_ore",
-    "blubbysmodofdoom:deeperslate",
-    "blubbysmodofdoom:web_stone",
-    "blubbysmodofdoom:fossilized_bone_block"
+    "blubbysmod:dreadium_ore",
+    "blubbysmod:deeperslate_dreadium_ore",
+    "blubbysmod:necrium_ore",
+    "blubbysmod:deeperslate_necrium_ore",
+    "blubbysmod:ruby_ore",
+    "blubbysmod:deepslate_ruby_ore",
+    "blubbysmod:deeperslate",
+    "blubbysmod:web_stone",
+    "blubbysmod:fossilized_bone_block"
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:soul_powder"
+    },
+    {
+      "item": "minecraft:wither_rose"
+    },
+    {
+      "item": "blubbysmod:soul_powder"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "blubbysmod:soul_powder"
+    },
+    {
+      "item": "minecraft:bone"
+    },
+    {
+      "item": "blubbysmod:soul_powder"
+    }
+  ],
+  "result": {
+    "item": "blubbysmod:essence_death"
+  }
+}

@@ -63,7 +63,7 @@ public class ModOreFeatures {
 
             RUBY_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":ruby_ore_placed", RUBY_ORES,
                     List.of(
-                            CountPlacement.of(4),
+                            CountPlacement.of(2),
                             InSquarePlacement.spread(),
                             HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(40)
                             )
@@ -72,7 +72,7 @@ public class ModOreFeatures {
 
             DEEPSLATE_RUBY_ORE_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":deepslate_ruby_ore_placed", DEEPSLATE_RUBY_ORES,
                     List.of(
-                            CountPlacement.of(4),
+                            CountPlacement.of(2),
                             InSquarePlacement.spread(),
                             HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(0)
                             )

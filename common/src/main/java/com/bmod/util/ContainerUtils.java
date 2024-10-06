@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 public class ContainerUtils {
 
     public static void saveContainerToPlayer(SimpleContainer container, Player player, String key) {
-        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmodofdoom$getPersistentData();
+        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmod$getPersistentData();
 
         ListTag itemList = new ListTag();
 
@@ -29,7 +29,7 @@ public class ContainerUtils {
     }
 
     public static void loadContainerFromPlayer(SimpleContainer container, Player player, String key) {
-        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmodofdoom$getPersistentData();
+        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmod$getPersistentData();
 
         ListTag itemList = playerData.getList(key, Tag.TAG_COMPOUND);
 

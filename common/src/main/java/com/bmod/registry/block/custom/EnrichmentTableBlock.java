@@ -17,7 +17,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 
 public class EnrichmentTableBlock extends Block {
-    private static final Component CONTAINER_TITLE = Component.translatable("block.blubbysmodofdoom.enrichment_table");
+    private static final Component CONTAINER_TITLE = Component.translatable("block.blubbysmod.enrichment_table");
 
     public EnrichmentTableBlock(Properties properties) {
         super(properties);

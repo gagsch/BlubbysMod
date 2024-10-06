@@ -14,27 +14,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Entity.class)
 public abstract class MixinEntity implements IEntityDataSaver {
     @Unique
-    private CompoundTag blubbysmodofdoom$persistentData;
+    private CompoundTag blubbysmod$persistentData;
 
     @Override
-    public CompoundTag blubbysmodofdoom$getPersistentData() {
-        if(this.blubbysmodofdoom$persistentData == null) {
-            this.blubbysmodofdoom$persistentData = new CompoundTag();
+    public CompoundTag blubbysmod$getPersistentData() {
+        if(this.blubbysmod$persistentData == null) {
+            this.blubbysmod$persistentData = new CompoundTag();
         }
-        return blubbysmodofdoom$persistentData;
+        return blubbysmod$persistentData;
     }
 
     @Inject(method = "saveWithoutId", at = @At("HEAD"))
     protected void saveWithoutID(CompoundTag compoundTag, CallbackInfoReturnable<CompoundTag> cir) {
-        if(blubbysmodofdoom$persistentData != null) {
-            compoundTag.put(BlubbysMod.MOD_ID + "data", blubbysmodofdoom$persistentData);
+        if(blubbysmod$persistentData != null) {
+            compoundTag.put(BlubbysMod.MOD_ID + "data", blubbysmod$persistentData);
         }
     }
 
     @Inject(method = "load", at = @At("HEAD"))
     protected void load(CompoundTag compoundTag, CallbackInfo info) {
         if (compoundTag.contains(BlubbysMod.MOD_ID + "data", 10)) {
-            blubbysmodofdoom$persistentData = compoundTag.getCompound(BlubbysMod.MOD_ID + "data");
+            blubbysmod$persistentData = compoundTag.getCompound(BlubbysMod.MOD_ID + "data");
         }
     }
 }

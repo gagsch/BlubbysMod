@@ -33,16 +33,21 @@ public class MixinGameRenderer {
     private void onRenderLevel(float tickDelta, long nanos, PoseStack matrixStack, CallbackInfo ci) {
         final LightmapAccess lightmap = (LightmapAccess) lightTexture;
 
-        if (lightmap.darkness_isDirty()) {
+        if (lightmap.blubbysmod$isDirty()) {
             minecraft.getProfiler().push("lightTex");
-            DimLightSystem.updateLuminance(minecraft, lightmap.darkness_prevFlicker());
+            DimLightSystem.updateLuminance(minecraft, lightmap.blubbysmod$prevFlicker());
             minecraft.getProfiler().pop();
         }
     }
 
     @Inject(method = "getNightVisionScale", at = @At("RETURN"), cancellable = true)
-    private static void getNightVisionScale(LivingEntity entity, float sinvar, CallbackInfoReturnable<Float> cir) {
+    private static void getNightVisionScale(LivingEntity entity, float sinVar, CallbackInfoReturnable<Float> cir) {
         int duration = Objects.requireNonNull(entity.getEffect(MobEffects.NIGHT_VISION)).getDuration();
-        cir.setReturnValue(entity.level.dimension() == ModDimensions.BLYDIM_KEY ? (duration > 200 ? 0.1F : 0.0F + Mth.sin(((float)duration - sinvar) * 3.1415927F * 0.2F) * 0.1F) : (duration > 200 ? 1.0F : 0.7F + Mth.sin(((float)duration - sinvar) * 3.1415927F * 0.2F) * 0.3F));
+
+        float base = entity.level.dimension() == ModDimensions.BLYDIM_KEY ? 0.0F : 0.7F;
+        float factor = entity.level.dimension() == ModDimensions.BLYDIM_KEY ? 0.1F : 0.3F;
+
+        float sinComponent = Mth.sin(((float)duration - sinVar) * 3.1415927F * 0.2F) * factor;
+        cir.setReturnValue(duration > 200 ? (base + 0.1F) : (base + sinComponent));
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmod:soul_fragment"
+  },
+  "base": {
+    "item": "minecraft:smithing_table"
+  },
+  "result": {
+    "item": "blubbysmod:enrichment_table"
+  }
+}

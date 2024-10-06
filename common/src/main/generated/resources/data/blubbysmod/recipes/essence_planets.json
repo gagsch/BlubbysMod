@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "E": {
+      "item": "blubbysmod:essence_stone"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "pattern": [
+    "NCN",
+    "CEC",
+    "NCN"
+  ],
+  "result": {
+    "item": "blubbysmod:essence_planets"
+  }
+}

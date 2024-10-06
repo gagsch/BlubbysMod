@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 5.0,
+  "ingredient": {
+    "tag": "blubbysmod:necrium_ores"
+  },
+  "result": "blubbysmod:necrium_chunk"
+}

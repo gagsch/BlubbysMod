@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "blubbysmod:necrium_ingot"
+    },
+    "D": {
+      "item": "blubbysmod:deeperslate"
+    },
+    "G": {
+      "item": "blubbysmod:gleam_shroom"
+    },
+    "I": {
+      "item": "blubbysmod:necrotic_grass_block"
+    },
+    "N": {
+      "item": "blubbysmod:dreadium_ingot"
+    },
+    "S": {
+      "item": "blubbysmod:dark_soil"
+    },
+    "T": {
+      "item": "blubbysmod:dark_turf_block"
+    }
+  },
+  "pattern": [
+    "TIG",
+    "NS#",
+    "DDD"
+  ],
+  "result": {
+    "item": "blubbysmod:essence_nightmare_realm"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "blubbysmod:block/hot_pepper_stage0"
+    },
+    "age=1": {
+      "model": "blubbysmod:block/hot_pepper_stage1"
+    },
+    "age=2": {
+      "model": "blubbysmod:block/hot_pepper_stage2"
+    },
+    "age=3": {
+      "model": "blubbysmod:block/hot_pepper_stage3"
+    },
+    "age=4": {
+      "model": "blubbysmod:block/hot_pepper_stage4"
+    },
+    "age=5": {
+      "model": "blubbysmod:block/hot_pepper_stage5"
+    },
+    "age=6": {
+      "model": "blubbysmod:block/hot_pepper_stage6"
+    },
+    "age=7": {
+      "model": "blubbysmod:block/hot_pepper_stage7"
+    }
+  }
+}

@@ -5,6 +5,8 @@ import com.bmod.registry.menu.EnrichmentTableScreen;
 import com.bmod.registry.menu.VoidBundleScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.fabricmc.fabric.mixin.object.builder.client.ModelPredicateProviderRegistryAccessor;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.RenderType;
 

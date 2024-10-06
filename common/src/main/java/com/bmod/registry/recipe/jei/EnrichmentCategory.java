@@ -37,7 +37,7 @@ public class EnrichmentCategory implements IRecipeCategory<EnrichmentRecipe> {
 
     @Override
     public Component getTitle() {
-        return Component.translatable("block.blubbysmodofdoom.enrichment_table");
+        return Component.translatable("block.blubbysmod.enrichment_table");
     }
 
     @Override

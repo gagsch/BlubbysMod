@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "blubbysmod:block/fossilized_bone_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "blubbysmod:block/fossilized_bone_block"
+    },
+    "axis=z": {
+      "model": "blubbysmod:block/fossilized_bone_block_horizontal",
+      "x": 90
+    }
+  }
+}

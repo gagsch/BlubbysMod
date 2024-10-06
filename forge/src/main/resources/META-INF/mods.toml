@@ -4,28 +4,28 @@ loaderVersion = "[43,)"
 license = "All Rights Reserved"
 
 [[mods]]
-modId = "blubbysmodofdoom"
+modId = "blubbysmod"
 version = "${version}"
-displayName = "Blubbys Mod Of Doom"
+displayName = "Blubby's Mod"
 authors = ""
 description = '''
 '''
 #logoFile = ""
-[[dependencies.blubbysmodofdoom]]
+[[dependencies.blubbysmod]]
 modId = "forge"
 mandatory = true
 versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.blubbysmodofdoom]]
+[[dependencies.blubbysmod]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19.2,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.blubbysmodofdoom]]
+[[dependencies.blubbysmod]]
 modId = "architectury"
 mandatory = true
 versionRange = "[6.6.92,)"

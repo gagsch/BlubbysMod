@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "blubbysmod:necrosis_fossil_1",
+      "weight": 10
+    },
+    {
+      "structure": "blubbysmod:necrosis_fossil_2",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1642136474,
+    "spacing": 4,
+    "separation": 1
+  }
+}

@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "blubbysmodofdoom:leather_scrap"
+      "item": "blubbysmod:leather_scrap"
     },
     {
-      "item": "blubbysmodofdoom:leather_scrap"
+      "item": "blubbysmod:leather_scrap"
     },
     {
-      "item": "blubbysmodofdoom:leather_scrap"
+      "item": "blubbysmod:leather_scrap"
     },
     {
-      "item": "blubbysmodofdoom:leather_scrap"
+      "item": "blubbysmod:leather_scrap"
     }
   ],
   "result": {

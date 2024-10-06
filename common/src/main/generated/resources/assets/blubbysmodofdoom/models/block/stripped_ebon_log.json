@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "blubbysmodofdoom:block/stripped_ebon_log_top",
-    "side": "blubbysmodofdoom:block/stripped_ebon_log"
-  }
-}

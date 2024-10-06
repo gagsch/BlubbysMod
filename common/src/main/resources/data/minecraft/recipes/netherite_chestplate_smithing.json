@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "blubbysmodofdoom:divine_chestplate"
+    "item": "blubbysmod:divine_chestplate"
   },
   "addition": {
     "item": "minecraft:netherite_ingot"

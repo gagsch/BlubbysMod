@@ -19,11 +19,11 @@ public class MixinDynamicTexture implements TextureAccess {
     private NativeImage pixels;
 
     @Unique
-    private boolean blubbysmodofdoom$enableHook = false;
+    private boolean blubbysmod$enableHook = false;
 
     @Inject(method = "upload", at = @At("HEAD"))
     private void onUpload(CallbackInfo ci) {
-        if (blubbysmodofdoom$enableHook && enabled && pixels != null) {
+        if (blubbysmod$enableHook && enabled && pixels != null) {
             final NativeImage img = pixels;
 
             for (int b = 0; b < 16; b++) {
@@ -36,7 +36,7 @@ public class MixinDynamicTexture implements TextureAccess {
     }
 
     @Override
-    public void darkness_enableUploadHook() {
-        blubbysmodofdoom$enableHook = true;
+    public void blubbysmod$enableUploadHook() {
+        blubbysmod$enableHook = true;
     }
 }

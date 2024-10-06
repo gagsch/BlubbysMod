@@ -1,0 +1,58 @@
+{
+  "equip_mod_armor_1": {
+    "sounds": [
+      "item/armor/equip_netherite1",
+      "item/armor/equip_netherite2",
+      "item/armor/equip_netherite3",
+      "item/armor/equip_netherite4"
+    ]
+  },
+
+
+  "rot_fly_buzz": {
+    "sounds": [
+      "blubbysmod:entity/rot_fly/rot_fly_buzz_1",
+      "blubbysmod:entity/rot_fly/rot_fly_buzz_2"
+    ]
+  },
+  "rot_fly_hurt": {
+    "sounds": [
+      "blubbysmod:entity/rot_fly/rot_fly_hurt"
+    ]
+  },
+
+
+  "behemoth_growl": {
+    "sounds": [
+      "blubbysmod:entity/behemoth/behemoth_growl"
+    ]
+  },
+  "behemoth_hurt": {
+    "sounds": [
+      "blubbysmod:entity/behemoth/behemoth_hurt"
+    ]
+  },
+  "behemoth_death": {
+    "sounds": [
+      "blubbysmod:entity/behemoth/behemoth_death"
+    ]
+  },
+
+  "snow_flinx_ambience": {
+    "sounds": [
+      "blubbysmod:entity/snow_flinx/snow_flinx_sniff_1",
+      "blubbysmod:entity/snow_flinx/snow_flinx_sniff_2",
+      "blubbysmod:entity/snow_flinx/snow_flinx_speak"
+    ]
+  },
+  "snow_flinx_hurt": {
+    "sounds": [
+      "blubbysmod:entity/snow_flinx/snow_flinx_hurt"
+    ]
+  },
+  "snow_flinx_death": {
+    "sounds": [
+      "blubbysmod:entity/snow_flinx/snow_flinx_death"
+    ]
+  }
+}

@@ -31,7 +31,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 public final class BlubbysMod {
-    public static final String MOD_ID = "blubbysmodofdoom";
+    public static final String MOD_ID = "blubbysmod";
 
     public static void init() {
         TickHandlerUtils.initialize();
@@ -39,7 +39,6 @@ public final class BlubbysMod {
         BlockBreakEvent.initialize();
         EntityDeathEvent.initialize();
         CommandRegisterEvent.initialize();
-
 
         ModMenus.MENUS.register();
 

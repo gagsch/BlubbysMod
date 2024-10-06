@@ -1,0 +1,13 @@
+{
+  "type": "blubbysmod:enrichment_shapeless",
+  "ingredients": [
+    { "item": "minecraft:clock" }
+  ],
+  "requirement": {
+    "item": "blubbysmod:soul_time"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:chronos_clock"
+  }
+}

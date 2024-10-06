@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "blubbysmod:stripped_dreadwood_log",
+    "blubbysmod:stripped_dreadwood_wood",
+    "blubbysmod:dreadwood_log",
+    "blubbysmod:dreadwood_wood"
+  ]
+}

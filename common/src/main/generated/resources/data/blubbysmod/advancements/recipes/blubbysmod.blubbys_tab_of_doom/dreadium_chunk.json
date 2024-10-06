@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dreadium_ores": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "blubbysmod:dreadium_ores"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blubbysmod:dreadium_chunk"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dreadium_ores",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blubbysmod:dreadium_chunk"
+    ]
+  }
+}

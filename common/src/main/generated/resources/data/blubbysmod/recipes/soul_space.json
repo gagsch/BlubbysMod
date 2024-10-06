@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": {
+      "item": "blubbysmod:essence_planets"
+    },
+    "2": {
+      "item": "blubbysmod:essence_stars"
+    },
+    "3": {
+      "item": "blubbysmod:essence_energy"
+    },
+    "4": {
+      "item": "blubbysmod:essence_void"
+    },
+    "S": {
+      "item": "blubbysmod:soul_fragment"
+    }
+  },
+  "pattern": [
+    " 3 ",
+    "1S2",
+    " 4 "
+  ],
+  "result": {
+    "item": "blubbysmod:soul_space"
+  }
+}

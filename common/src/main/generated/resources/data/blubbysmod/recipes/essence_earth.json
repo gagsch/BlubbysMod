@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "blubbysmod:essence_sea"
+    },
+    "H": {
+      "item": "blubbysmod:essence_life"
+    },
+    "W": {
+      "item": "blubbysmod:essence_planets"
+    },
+    "g": {
+      "item": "blubbysmod:guardian_core"
+    },
+    "w": {
+      "item": "blubbysmod:warden_tendril"
+    }
+  },
+  "pattern": [
+    " w ",
+    "BWH",
+    " g "
+  ],
+  "result": {
+    "item": "blubbysmod:essence_earth"
+  }
+}

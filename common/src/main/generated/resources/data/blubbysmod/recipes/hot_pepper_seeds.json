@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "blubbysmod:essence_flames"
+    },
+    "s": {
+      "tag": "forge:seeds"
+    }
+  },
+  "pattern": [
+    " s ",
+    "sFs",
+    " s "
+  ],
+  "result": {
+    "count": 4,
+    "item": "blubbysmod:hot_pepper_seeds"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "blubbysmod:necrosis_fossil/fossil_2",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "blubbysmod:necrosis_fossil_2",
+        "processors": "blubbysmod:keep_70"
+      }
+    }
+  ]
+}

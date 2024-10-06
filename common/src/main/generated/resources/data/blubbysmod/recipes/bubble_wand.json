@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "blubbysmod:essence_sea"
+    }
+  ],
+  "result": {
+    "item": "blubbysmod:bubble_wand"
+  }
+}

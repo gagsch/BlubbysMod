@@ -28,7 +28,7 @@ public class VoidBundleScreen extends AbstractContainerScreen<EnderChestUpgradeM
 
     @Override
     protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
-        this.font.draw(matrixStack, Component.translatable("item.blubbysmodofdoom.ender_bundle"), 8.0F, 6.0F, 4210752);
+        this.font.draw(matrixStack, Component.translatable("item.blubbysmod.ender_bundle"), 8.0F, 6.0F, 4210752);
         this.font.draw(matrixStack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 94), 4210752);
     }
 

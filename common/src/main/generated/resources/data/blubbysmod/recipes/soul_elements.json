@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": {
+      "item": "blubbysmod:essence_sea"
+    },
+    "2": {
+      "item": "blubbysmod:essence_flames"
+    },
+    "3": {
+      "item": "blubbysmod:essence_wind"
+    },
+    "4": {
+      "item": "blubbysmod:essence_stone"
+    },
+    "S": {
+      "item": "blubbysmod:soul_fragment"
+    }
+  },
+  "pattern": [
+    " 3 ",
+    "1S2",
+    " 4 "
+  ],
+  "result": {
+    "item": "blubbysmod:soul_elements"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmod:essence_void"
+  },
+  "base": {
+    "item": "minecraft:bundle"
+  },
+  "result": {
+    "item": "blubbysmod:ender_bundle"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:end_crystal"
+    },
+    "E": {
+      "item": "minecraft:dragon_egg"
+    },
+    "S": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "SES",
+    "CSC"
+  ],
+  "result": {
+    "item": "blubbysmod:essence_end"
+  }
+}

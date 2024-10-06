@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "blubbysmodofdoom",
+  "id": "blubbysmod",
   "version": "${version}",
-  "name": "Blubbys Mod Of Doom",
+  "name": "Blubby's Mod",
   "description": "",
   "authors": [
     ""
@@ -11,7 +11,7 @@
     "homepage": ""
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/blubbysmodofdoom/icon.png",
+  "icon": "assets/blubbysmod/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -25,7 +25,7 @@
     ]
   },
   "mixins": [
-    "blubbysmodofdoom.mixins.json"
+    "blubbysmod.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.5",

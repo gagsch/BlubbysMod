@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blubbysmod:block/sludge_block_top",
+    "side": "blubbysmod:block/sludge_block",
+    "top": "blubbysmod:block/sludge_block_top"
+  }
+}

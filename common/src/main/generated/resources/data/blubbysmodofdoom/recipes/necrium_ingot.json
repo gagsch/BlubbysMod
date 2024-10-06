@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 300,
-  "experience": 5.0,
-  "ingredient": {
-    "item": "blubbysmodofdoom:necrium_chunk"
-  },
-  "result": "blubbysmodofdoom:necrium_ingot"
-}

@@ -508,7 +508,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.ESSENCE_ENERGY.get(),
                 ModItems.ESSENCE_VOID.get());
 
-        soulCrossBuilder(consumer, ModItems.SOUL_DIMENSIONS.get(),
+        soulCrossBuilder(consumer, ModBlocks.SOUL_DIMENSIONS.get().asItem(),
                 ModItems.ESSENCE_OVERWORLD.get(),
                 ModItems.ESSENCE_NETHER.get(),
                 ModItems.ESSENCE_END.get(),

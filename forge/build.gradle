@@ -22,13 +22,13 @@ loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 
     forge {
-        mixinConfig "blubbysmodofdoom.forge.mixins.json"
+        mixinConfig "blubbysmod.forge.mixins.json"
 
         runs {
             data {
                 data()
                 programArgs "--all"
-                programArgs"--mod", "blubbysmodofdoom"
+                programArgs"--mod", "blubbysmod"
                 programArgs "--output", generatedResources.absolutePath
                 programArgs '--existing', existingResources.absolutePath
             }
@@ -68,7 +68,7 @@ processResources {
 }
 
 shadowJar {
-    archiveBaseName.set("blubbysmodofdoom-forge")
+    archiveBaseName.set("blubbysmod-forge")
 
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
@@ -78,14 +78,14 @@ shadowJar {
 }
 
 remapJar {
-    archiveBaseName.set("blubbysmodofdoom-forge")
+    archiveBaseName.set("blubbysmod-forge")
 
     input.set shadowJar.archiveFile
     dependsOn shadowJar
 }
 
 sourcesJar {
-    archiveBaseName.set("blubbysmodofdoom-forge")
+    archiveBaseName.set("blubbysmod-forge")
 
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources

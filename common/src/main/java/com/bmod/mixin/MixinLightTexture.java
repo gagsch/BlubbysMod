@@ -27,16 +27,16 @@ public class MixinLightTexture implements LightmapAccess {
 
     @Inject(method = "<init>*", at = @At(value = "RETURN"))
     private void afterInit(GameRenderer gameRenderer, Minecraft minecraftClient, CallbackInfo ci) {
-        ((TextureAccess) lightTexture).darkness_enableUploadHook();
+        ((TextureAccess) lightTexture).blubbysmod$enableUploadHook();
     }
 
     @Override
-    public float darkness_prevFlicker() {
+    public float blubbysmod$prevFlicker() {
         return blockLightRedFlicker;
     }
 
     @Override
-    public boolean darkness_isDirty() {
+    public boolean blubbysmod$isDirty() {
         return updateLightTexture;
     }
 }

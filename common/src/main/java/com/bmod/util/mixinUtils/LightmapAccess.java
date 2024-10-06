@@ -1,7 +1,7 @@
 package com.bmod.util.mixinUtils;
 
 public interface LightmapAccess {
-    boolean darkness_isDirty();
+    boolean blubbysmod$isDirty();
 
-    float darkness_prevFlicker();
+    float blubbysmod$prevFlicker();
 }

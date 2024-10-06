@@ -48,8 +48,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
 
-        // registeredItems.add(getPath(ModItems.SOUL_DIMENSIONS.get()));
-
         registerUnsetItems();
     }
 
