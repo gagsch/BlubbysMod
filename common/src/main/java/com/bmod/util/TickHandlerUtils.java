@@ -4,10 +4,6 @@ import dev.architectury.event.events.common.TickEvent;
 
 public class TickHandlerUtils {
 
-    public static void initialize() {
-        events();
-    }
-
     private static int ticksRemaining = 0;
     private static boolean shouldExecuteAction = false;
     private static Runnable action;
@@ -18,7 +14,7 @@ public class TickHandlerUtils {
         action = actionToExecute;
     }
 
-    public static void events() {
+    public static void initialize() {
         TickEvent.SERVER_LEVEL_PRE.register(instance ->
         {
             if (shouldExecuteAction) {

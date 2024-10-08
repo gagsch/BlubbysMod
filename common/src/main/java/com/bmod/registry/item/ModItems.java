@@ -38,6 +38,12 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(1))),
 
+    CURSED_VOODOO_DOLL = ITEMS.register("cursed_voodoo_doll",
+            () -> new InventoryItem(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1), inventoryItems.VOODOO_DOLL, tooltips.VOODOO_DOLL)),
+
     ENDER_BUNDLE = ITEMS.register("ender_bundle",
             () -> new EnderBundleItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -48,19 +54,13 @@ public class ModItems  {
             () -> new InventoryItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
-                    .stacksTo(1), inventoryItems.LuckyRock, ToolTips.lucky_rock)),
-
-    VOID_LANTERN = ITEMS.register("void_lantern",
-            () -> new InventoryItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1), inventoryItems.VoidLantern, ToolTips.void_lantern)),
+                    .stacksTo(1), inventoryItems.LUCKY_ROCK, tooltips.LUCKY_ROCK)),
 
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
-                    .stacksTo(1), ToolTips.totem_of_dreams)),
+                    .stacksTo(1), tooltips.TOTEM_OF_DREAMS)),
 
     BUBBLE_WAND = ITEMS.register("bubble_wand",
             BubbleWandItem::new),
@@ -266,7 +266,7 @@ public class ModItems  {
             ESSENCE_INFINITY = ItemUtils.essence("infinity"),
             ESSENCE_LIFE = ItemUtils.essence("life"),
             ESSENCE_LIGHT = ItemUtils.essence("light"), //
-            ESSENCE_NIGHTMARE_REALM = ItemUtils.essence("nightmare_realm"), // Night-Vision Goggles
+            ESSENCE_NIGHTMARES = ItemUtils.essence("nightmares"), // Night-Vision Goggles
             ESSENCE_NETHER = ItemUtils.essence("nether"),
             ESSENCE_NIGHT = ItemUtils.essence("night"),
             ESSENCE_PLANETS = ItemUtils.essence("planets"),

@@ -12,7 +12,10 @@ import java.util.function.Supplier;
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.SOUND_EVENT_REGISTRY);
 
-    public static final Supplier<SoundEvent> EQUIP_MOD_ARMOR_1 = register("item/armor/equip_mod_armor_1");
+    public static final Supplier<SoundEvent> EQUIP_MOD_ARMOR_1 = register("equip_mod_armor_1");
+
+    public static final Supplier<SoundEvent> PIN_PUSH = register("pin_push");
+    public static final Supplier<SoundEvent> PIN_PULL = register("pin_pull");
 
     public static final Supplier<SoundEvent> ROT_FLY_BUZZ = register("rot_fly_buzz");
     public static final Supplier<SoundEvent> ROT_FLY_HURT = register("rot_fly_hurt");

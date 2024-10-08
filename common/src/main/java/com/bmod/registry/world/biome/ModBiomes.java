@@ -21,6 +21,8 @@ public class ModBiomes {
 
     public static final Supplier<Biome> SPIDER_DEN = BIOMES.register("spider_den", ModBiomes::spiderDen);
     public static final ResourceKey<Biome> SPIDER_DEN_KEY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "spider_den"));
+    public static final ResourceKey<Biome> WEEPING_FOREST_KEY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "weeping_forest"));
+    public static final ResourceKey<Biome> NECROSIS_WEALD_KEY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "necrosis_weald"));
 
     public static Biome spiderDen() {
         MobSpawnSettings.Builder mobBuilder = new MobSpawnSettings.Builder();

@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "blubbysmodofdoom:stripped_dreadwood_log",
-    "blubbysmodofdoom:stripped_dreadwood_wood",
-    "blubbysmodofdoom:dreadwood_log",
-    "blubbysmodofdoom:dreadwood_wood",
-    "blubbysmodofdoom:stripped_ebon_log",
-    "blubbysmodofdoom:stripped_ebon_wood",
-    "blubbysmodofdoom:ebon_log",
-    "blubbysmodofdoom:ebon_wood"
+    "blubbysmod:stripped_dreadwood_log",
+    "blubbysmod:stripped_dreadwood_wood",
+    "blubbysmod:dreadwood_log",
+    "blubbysmod:dreadwood_wood",
+    "blubbysmod:stripped_ebon_log",
+    "blubbysmod:stripped_ebon_wood",
+    "blubbysmod:ebon_log",
+    "blubbysmod:ebon_wood"
   ]
 }

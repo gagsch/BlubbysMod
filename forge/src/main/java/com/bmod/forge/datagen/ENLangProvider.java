@@ -37,14 +37,13 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
         add("item.blubbysmod." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
         add("item.blubbysmod." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
-        add("item.blubbysmod." + ModItems.VOID_LANTERN.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Lights up everything around you.");
+        add("item.blubbysmod." + ModItems.CURSED_VOODOO_DOLL.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "While the pin is pushed in, gain the Horrified effect to enter the Nightmare Realm while sleeping.");
 
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.BUBBLE_WAND, "Bubble Wand");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
         addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
-        addItem(ModItems.ESSENCE_NIGHTMARE_REALM, "Essence of the Nightmare Realm");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
         addItem(ModItems.ESSENCE_NIGHT, "Essence of the Night");
@@ -61,7 +60,7 @@ public class ENLangProvider extends LanguageProvider {
 
         add("enchantment.blubbysmod.web_walker", "Web Walker");
 
-        addBlock(ModBlocks.ENRICHMENT_TABLE, "Enrichment Table");
+        add("effect.blubbysmod.horrified", "Horrified");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");
 

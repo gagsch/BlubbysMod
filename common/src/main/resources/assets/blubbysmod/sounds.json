@@ -8,6 +8,18 @@
     ]
   },
 
+  "pin_pull": {
+    "sounds": [
+      "blubbysmod:item/pin/pin_pull"
+    ]
+  },
+
+  "pin_push": {
+    "sounds": [
+      "blubbysmod:item/pin/pin_push"
+    ]
+  },
+
 
   "rot_fly_buzz": {
     "sounds": [

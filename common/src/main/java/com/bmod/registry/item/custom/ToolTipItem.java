@@ -15,33 +15,33 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ToolTipItem extends Item {
-    public enum ToolTips {
-        totem_of_dreams,
-        lucky_rock,
-        ender_bundle,
-        chronos_clock,
-        hot_pepper,
-        bubble_wand,
-        void_lantern
+    public enum tooltips {
+        TOTEM_OF_DREAMS,
+        LUCKY_ROCK,
+        ENDER_BUNDLE,
+        CHRONOS_CLOCK,
+        HOT_PEPPER,
+        BUBBLE_WAND,
+        VOODOO_DOLL
     };
 
-    ToolTips toolTip;
-    HashMap<ToolTips, MutableComponent> toolTipHashMap = new HashMap<>();
+    tooltips toolTip;
+    HashMap<tooltips, MutableComponent> toolTipHashMap = new HashMap<>();
 
-    public ToolTipItem(Properties properties, ToolTips toolTip) {
+    public ToolTipItem(Properties properties, tooltips toolTip) {
         super(properties);
         this.toolTip = toolTip;
     }
 
     public void writeToolTips()
     {
-        toolTipHashMap.put(ToolTips.totem_of_dreams, component("item.blubbysmod.totem_of_dreaming.tooltip"));
-        toolTipHashMap.put(ToolTips.lucky_rock, component("item.blubbysmod.lucky_rock.tooltip"));
-        toolTipHashMap.put(ToolTips.ender_bundle, component("item.blubbysmod.ender_bundle.tooltip"));
-        toolTipHashMap.put(ToolTips.chronos_clock, component("item.blubbysmod.chronos_clock.tooltip"));
-        toolTipHashMap.put(ToolTips.hot_pepper, component("item.blubbysmod.hot_pepper.tooltip"));
-        toolTipHashMap.put(ToolTips.bubble_wand, component("item.blubbysmod.bubble_wand.tooltip"));
-        toolTipHashMap.put(ToolTips.void_lantern, component("item.blubbysmod.void_lantern.tooltip"));
+        toolTipHashMap.put(tooltips.TOTEM_OF_DREAMS, component("item.blubbysmod.totem_of_dreaming.tooltip"));
+        toolTipHashMap.put(tooltips.LUCKY_ROCK, component("item.blubbysmod.lucky_rock.tooltip"));
+        toolTipHashMap.put(tooltips.ENDER_BUNDLE, component("item.blubbysmod.ender_bundle.tooltip"));
+        toolTipHashMap.put(tooltips.CHRONOS_CLOCK, component("item.blubbysmod.chronos_clock.tooltip"));
+        toolTipHashMap.put(tooltips.HOT_PEPPER, component("item.blubbysmod.hot_pepper.tooltip"));
+        toolTipHashMap.put(tooltips.BUBBLE_WAND, component("item.blubbysmod.bubble_wand.tooltip"));
+        toolTipHashMap.put(tooltips.VOODOO_DOLL, component("item.blubbysmod.cursed_voodoo_doll.tooltip"));
     }
 
     @Override
@@ -52,10 +52,10 @@ public class ToolTipItem extends Item {
 
         switch (toolTip)
         {
-            case lucky_rock:
+            case LUCKY_ROCK:
                 components.add(effect(MobEffects.LUCK, 4, 0));
                 break;
-            case hot_pepper:
+            case HOT_PEPPER:
                 components.add(effect(MobEffects.FIRE_RESISTANCE, 0, 20));
                 components.add(effect(MobEffects.MOVEMENT_SPEED, 1, 20));
                 break;

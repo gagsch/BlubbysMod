@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "blubbysmod:items/void_lantern"
+    "layer0": "blubbysmod:items/cursed_voodoo_doll_0"
   }
 }

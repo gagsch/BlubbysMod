@@ -77,18 +77,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_flames", has(ModItems.ESSENCE_FLAMES.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder
-                .shaped(ModItems.TOTEM_OF_DREAMS.get())
-                .define('b', ModItems.DIVINE_ALLOY.get())
-                .define('L', ModItems.ESSENCE_LIFE.get())
-                .define('D', ModItems.ESSENCE_DEATH.get())
-                .define('t', Items.TOTEM_OF_UNDYING)
-                .pattern(" b ")
-                .pattern("LtD")
-                .pattern(" b ")
-                .unlockedBy("has_totem_of_undying", has(Items.TOTEM_OF_UNDYING))
-                .save(consumer);
-
         SimpleCookingRecipeBuilder
                 .smoking(Ingredient.of(Items.ROTTEN_FLESH),
                         ModItems.LEATHER_SCRAP.get(),
@@ -512,7 +500,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.ESSENCE_OVERWORLD.get(),
                 ModItems.ESSENCE_NETHER.get(),
                 ModItems.ESSENCE_END.get(),
-                ModItems.ESSENCE_NIGHTMARE_REALM.get());
+                ModItems.ESSENCE_NIGHTMARES.get());
     }
 
     protected void buildAllEssences(Consumer<FinishedRecipe> consumer) {
@@ -727,7 +715,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlocks("has_air", has(ModItems.ESSENCE_LIGHT.get()))
                 .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.ESSENCE_STARS.get().builtInRegistryHolder().key().location().getPath()));
 
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHTMARE_REALM.get(), 1)
+        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHTMARES.get(), 1)
                 .define('#', ModItems.NECRIUM_INGOT.get())
                 .define('N', ModItems.DREADIUM_INGOT.get())
                 .define('D', ModBlocks.DEEPERSLATE.get().asItem())

@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Arrays;
@@ -47,6 +48,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.ROT_FLY_SPAWN_EGG);
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
+
+        cursedVoodooDoll(ModItems.CURSED_VOODOO_DOLL);
 
         registerUnsetItems();
     }
@@ -111,5 +114,28 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(getPath(item.get()),
                 mcLoc("item/template_spawn_egg"));
+    }
+
+    public void cursedVoodooDoll(Supplier<Item> item) {
+        String path = getPath(item.get());
+        registeredItems.add(path);
+
+        for (int textures = 0; textures <= 1; textures++) {
+            withExistingParent(getPath(item.get()) + "_" + textures,
+                    new ResourceLocation("item/generated")).texture("layer0",
+                    new ResourceLocation(BlubbysMod.MOD_ID, "items/" + getPath(item.get()) + "_" + textures));
+        }
+
+        getBuilder(path)
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", new ResourceLocation(BlubbysMod.MOD_ID, "items/" + path + "_0"))
+                .override()
+                    .predicate(new ResourceLocation(BlubbysMod.MOD_ID,"pin"), 0)
+                    .model(new ModelFile.UncheckedModelFile(modLoc("item/" + path + "_0")))
+                    .end()
+                .override()
+                    .predicate(new ResourceLocation(BlubbysMod.MOD_ID,"pin"), 1)
+                    .model(new ModelFile.UncheckedModelFile(modLoc("item/" + path + "_1")))
+                    .end();
     }
 }

@@ -1,6 +1,7 @@
 package com.bmod.events;
 
 import com.bmod.registry.item.ModItems;
+import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.world.ModDimensions;
 import com.bmod.util.TickHandlerUtils;
 import dev.architectury.event.EventResult;
@@ -18,8 +19,9 @@ public class UseBlockEvent {
             if (!player.level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
 
                 TickHandlerUtils.startCountdown(60, () -> {
-                    if (serverPlayer.isSleeping() && serverPlayer.getInventory().contains(ModItems.TOTEM_OF_DREAMS.get().getDefaultInstance()) && serverPlayer.level.dimension() == Level.OVERWORLD) {
+                    if (serverPlayer.isSleeping() && serverPlayer.hasEffect(ModMobEffects.HORRIFIED.get()) && serverPlayer.level.dimension() == Level.OVERWORLD) {
                         serverPlayer.stopSleeping();
+                        serverPlayer.removeEffect(ModMobEffects.HORRIFIED.get());
 
                         serverPlayer.teleportTo(serverPlayer.level.getServer().getLevel(ModDimensions.BLYDIM_KEY),
                                 serverPlayer.position().x,
