@@ -49,7 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
 
-        cursedVoodooDoll(ModItems.CURSED_VOODOO_DOLL);
+        voodooDoll(ModItems.VOODOO_DOLL);
 
         registerUnsetItems();
     }
@@ -116,7 +116,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 mcLoc("item/template_spawn_egg"));
     }
 
-    public void cursedVoodooDoll(Supplier<Item> item) {
+    public void voodooDoll(Supplier<Item> item) {
         String path = getPath(item.get());
         registeredItems.add(path);
 

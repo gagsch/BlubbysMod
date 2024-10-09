@@ -11,10 +11,10 @@ import com.bmod.util.ItemUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -69,7 +69,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder
                 .shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
-                .define('s', Tags.Items.SEEDS)
+                .define('s', Items.WHEAT_SEEDS)
                 .define('F', ModItems.ESSENCE_FLAMES.get())
                 .pattern(" s ")
                 .pattern("sFs")
@@ -98,12 +98,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_leather_scrap", has(ModItems.LEATHER_SCRAP.get()))
                 .save(consumer);
 
-        UpgradeRecipeBuilder
-                .smithing(Ingredient.of(Items.SMITHING_TABLE),
-                        Ingredient.of(ModItems.SOUL_FRAGMENT.get()),
-                        ModBlocks.ENRICHMENT_TABLE.get().asItem())
-                .unlocks("has_smithing_table", has(Items.SMITHING_TABLE))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModBlocks.ENRICHMENT_TABLE.get().asItem().builtInRegistryHolder().key().location().getPath()));
+        ShapedRecipeBuilder
+                .shaped(ModBlocks.ENRICHMENT_TABLE.get().asItem())
+                .define('s', Items.SMITHING_TABLE)
+                .define('p', ItemTags.PLANKS)
+                .define('c', Items.CRAFTING_TABLE)
+                .define('r', ModItems.RUBY.get())
+                .pattern("rcr")
+                .pattern("psp")
+                .pattern("ppp")
+                .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
+                .save(consumer);
 
         UpgradeRecipeBuilder
                 .smithing(Ingredient.of(Items.BUNDLE),

@@ -38,11 +38,11 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(1))),
 
-    CURSED_VOODOO_DOLL = ITEMS.register("cursed_voodoo_doll",
-            () -> new InventoryItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1), inventoryItems.VOODOO_DOLL, tooltips.VOODOO_DOLL)),
+    VOODOO_DOLL = ITEMS.register("cursed_doll",
+            VoodooDollItem::new),
+
+    CURSED_GEM = ITEMS.register("cursed_gem",
+            CursedGemItem::new),
 
     ENDER_BUNDLE = ITEMS.register("ender_bundle",
             () -> new EnderBundleItem(new Properties()

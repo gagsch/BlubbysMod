@@ -2,19 +2,19 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "blubbysmod:item/cursed_voodoo_doll_0",
+      "model": "blubbysmod:item/cursed_doll_0",
       "predicate": {
         "blubbysmod:pin": 0.0
       }
     },
     {
-      "model": "blubbysmod:item/cursed_voodoo_doll_1",
+      "model": "blubbysmod:item/cursed_doll_1",
       "predicate": {
         "blubbysmod:pin": 1.0
       }
     }
   ],
   "textures": {
-    "layer0": "blubbysmod:items/cursed_voodoo_doll_0"
+    "layer0": "blubbysmod:items/cursed_doll_0"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "r": {
+      "item": "blubbysmod:ruby"
+    },
+    "D": {
+      "item": "blubbysmod:essence_death"
+    }
+  },
+  "pattern": [
+    " r ",
+    "rDr",
+    " r "
+  ],
+  "requirement": {
+    "item": "blubbysmod:cursed_doll"
+  },
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:cursed_gem"
+  }
+}

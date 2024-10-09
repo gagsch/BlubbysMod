@@ -86,6 +86,7 @@ remapJar {
 
 sourcesJar {
     archiveBaseName.set("blubbysmod-forge")
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources

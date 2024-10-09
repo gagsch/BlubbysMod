@@ -5,7 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.layers.VillagerProfessionLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,8 +25,8 @@ public abstract class MixinVillagerProfessionLayer {
     @Unique
     String blubbysmod$entityName;
 
-    @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", at = @At("HEAD"))
-    public void getResourceLocation(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, LivingEntity livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
+    @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/Entity;FFFFFF)V", at = @At("HEAD"))
+    public void getResourceLocation(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, Entity livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo ci) {
         this.blubbysmod$entityName = ChatFormatting.stripFormatting(livingEntity.getName().getString());
     }
 

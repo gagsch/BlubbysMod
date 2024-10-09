@@ -21,7 +21,6 @@ public class UseBlockEvent {
                 TickHandlerUtils.startCountdown(60, () -> {
                     if (serverPlayer.isSleeping() && serverPlayer.hasEffect(ModMobEffects.HORRIFIED.get()) && serverPlayer.level.dimension() == Level.OVERWORLD) {
                         serverPlayer.stopSleeping();
-                        serverPlayer.removeEffect(ModMobEffects.HORRIFIED.get());
 
                         serverPlayer.teleportTo(serverPlayer.level.getServer().getLevel(ModDimensions.BLYDIM_KEY),
                                 serverPlayer.position().x,

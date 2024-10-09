@@ -1,11 +1,24 @@
 {
-  "type": "minecraft:smithing",
-  "addition": {
-    "item": "blubbysmod:soul_fragment"
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "item": "minecraft:crafting_table"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "r": {
+      "item": "blubbysmod:ruby"
+    },
+    "s": {
+      "item": "minecraft:smithing_table"
+    }
   },
-  "base": {
-    "item": "minecraft:smithing_table"
-  },
+  "pattern": [
+    "rcr",
+    "psp",
+    "ppp"
+  ],
   "result": {
     "item": "blubbysmod:enrichment_table"
   }

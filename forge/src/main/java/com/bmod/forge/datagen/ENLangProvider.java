@@ -37,7 +37,8 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
         add("item.blubbysmod." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
         add("item.blubbysmod." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
-        add("item.blubbysmod." + ModItems.CURSED_VOODOO_DOLL.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "While the pin is pushed in, gain the Horrified effect to enter the Nightmare Realm while sleeping.");
+        add("item.blubbysmod." + ModItems.VOODOO_DOLL.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "While the pin is pushed in, gain the Horrified effect to enter the Nightmare Realm while sleeping.");
+        add("item.blubbysmod." + ModItems.CURSED_GEM.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Use on a player who has a Cursed Doll, and you will be affected by its curse.");
 
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");

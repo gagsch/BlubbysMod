@@ -22,7 +22,8 @@ public class ToolTipItem extends Item {
         CHRONOS_CLOCK,
         HOT_PEPPER,
         BUBBLE_WAND,
-        VOODOO_DOLL
+        VOODOO_DOLL,
+        CURSED_GEM
     };
 
     tooltips toolTip;
@@ -41,7 +42,8 @@ public class ToolTipItem extends Item {
         toolTipHashMap.put(tooltips.CHRONOS_CLOCK, component("item.blubbysmod.chronos_clock.tooltip"));
         toolTipHashMap.put(tooltips.HOT_PEPPER, component("item.blubbysmod.hot_pepper.tooltip"));
         toolTipHashMap.put(tooltips.BUBBLE_WAND, component("item.blubbysmod.bubble_wand.tooltip"));
-        toolTipHashMap.put(tooltips.VOODOO_DOLL, component("item.blubbysmod.cursed_voodoo_doll.tooltip"));
+        toolTipHashMap.put(tooltips.VOODOO_DOLL, component("item.blubbysmod.cursed_doll.tooltip"));
+        toolTipHashMap.put(tooltips.CURSED_GEM, component("item.blubbysmod.cursed_gem.tooltip"));
     }
 
     @Override
