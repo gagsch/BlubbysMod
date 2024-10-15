@@ -1,10 +1,12 @@
 package com.bmod.events;
 
 import com.bmod.registry.item.ModItems;
+import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.world.ModDimensions;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -12,6 +14,7 @@ import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EntityDeathEvent {
@@ -25,16 +28,26 @@ public class EntityDeathEvent {
             if (entity instanceof ServerPlayer player) {
                 if (player.level.dimension() == ModDimensions.BLYDIM_KEY)
                 {
-                    player.setHealth(player.getMaxHealth());
-
-                    player.teleportTo(player.level.getServer().getLevel(Level.OVERWORLD),
-                            player.getRespawnPosition().getX(),
-                            player.getRespawnPosition().getY(),
-                            player.getRespawnPosition().getZ(),
-                            0,0);
-
                     player.clearFire();
                     player.setAirSupply(player.getMaxAirSupply());
+
+                    player.setHealth(player.getMaxHealth());
+
+                    for (ItemStack item : player.getInventory().items)
+                    {
+                        if (item.getItem() == ModItems.CURSED_GEM.get() || item.getItem() == ModItems.VOODOO_DOLL.get())
+                        {
+                            item.setTag(new CompoundTag());
+                        }
+                    }
+
+                    BlockPos respawnPos = player.getRespawnPosition() != null ? player.getRespawnPosition() : player.server.overworld().getSharedSpawnPos();
+
+                    player.teleportTo(player.level.getServer().getLevel(Level.OVERWORLD),
+                            respawnPos.getX(),
+                            respawnPos.getY(),
+                            respawnPos.getZ(),
+                            0,0);
 
                     return EventResult.interruptFalse();
                 }
@@ -65,6 +78,18 @@ public class EntityDeathEvent {
                     player.setAirSupply(player.getMaxAirSupply());
 
                     player.inventoryMenu.broadcastChanges();
+
+                    return EventResult.interruptFalse();
+                }
+                else if (player.hasEffect(ModMobEffects.CARDIAC_ARREST.get())) {
+                    player.removeEffect(ModMobEffects.CARDIAC_ARREST.get());
+                    player.setHealth(player.getMaxHealth());
+
+                    player.teleportTo(player.level.getServer().getLevel(ModDimensions.BLYDIM_KEY),
+                            player.position().x,
+                            player.position().y,
+                            player.position().z,
+                            0,0);
 
                     return EventResult.interruptFalse();
                 }

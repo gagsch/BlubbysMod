@@ -62,6 +62,7 @@ public class ENLangProvider extends LanguageProvider {
         add("enchantment.blubbysmod.web_walker", "Web Walker");
 
         add("effect.blubbysmod.horrified", "Horrified");
+        add("effect.blubbysmod.cardiac_arrest", "Cardiac Arrest");
 
         addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");
 

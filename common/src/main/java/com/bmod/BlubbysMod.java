@@ -38,7 +38,6 @@ public final class BlubbysMod {
 
     public static void init() {
         TickHandlerUtils.initialize();
-        UseBlockEvent.initialize();
         BlockBreakEvent.initialize();
         EntityDeathEvent.initialize();
         CommandRegisterEvent.initialize();

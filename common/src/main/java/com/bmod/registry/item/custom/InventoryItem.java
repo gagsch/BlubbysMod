@@ -44,9 +44,8 @@ public class InventoryItem extends ToolTipItem {
                     if (stack.getOrCreateTag().hasUUID(BlubbysMod.MOD_ID + ":player_link")) {
                         Player player = level.getServer().getPlayerList().getPlayer(stack.getOrCreateTag().getUUID(BlubbysMod.MOD_ID + ":player_link"));
 
-                        if (player != null && player.hasEffect(ModMobEffects.HORRIFIED.get())) {
+                        if (player != null && player.hasEffect(ModMobEffects.HORRIFIED.get()))
                             serverPlayer.addEffect(new MobEffectInstance(ModMobEffects.HORRIFIED.get(), 19, 0, false, false));
-                        }
                     }
                     break;
             }
