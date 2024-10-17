@@ -13,11 +13,10 @@
     "rDr",
     " r "
   ],
-  "requirement": {
-    "item": "blubbysmod:cursed_doll"
-  },
+  "requirement": "blubbysmod:cursed_doll",
   "result": {
     "count": 1,
     "item": "blubbysmod:cursed_gem"
-  }
+  },
+  "page_number": 5
 }

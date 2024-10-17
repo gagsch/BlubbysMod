@@ -1,4 +1,4 @@
-package com.bmod.events;
+package com.bmod.event;
 
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.world.ModDimensions;

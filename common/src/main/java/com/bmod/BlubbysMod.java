@@ -1,7 +1,8 @@
 package com.bmod;
 
-import com.bmod.events.*;
-import com.bmod.events.client.RenderOverlayEvent;
+import com.bmod.event.*;
+import com.bmod.event.client.RenderOverlayEvent;
+import com.bmod.packet.ModPackets;
 import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.recipe.ModRecipeTypes;
@@ -42,6 +43,7 @@ public final class BlubbysMod {
         EntityDeathEvent.initialize();
         CommandRegisterEvent.initialize();
         PlayerTickEvent.initialize();
+        ModifyLootEvent.initialize();
 
         ModMenus.MENUS.register();
 
@@ -50,7 +52,6 @@ public final class BlubbysMod {
 
         ModEntities.ENTITY_TYPES.register();
         ModBlocks.BLOCKS.register();
-        System.out.println("Registering Items");
         ModItems.ITEMS.register();
         ModEnchantments.ENCHANTMENTS.register();
         ModSounds.SOUNDS.register();
@@ -58,6 +59,7 @@ public final class BlubbysMod {
         ModRecipeTypes.RECIPE_TYPES.register();
         ModBiomes.BIOMES.register();
         ModMobEffects.MOB_EFFECTS.register();
+        ModPackets.initialize();
 
         ModFeatures.init();
 
@@ -71,11 +73,10 @@ public final class BlubbysMod {
     @Environment(EnvType.CLIENT)
     public static class Client {
         public static void initializeClient() {
-            System.out.println("Registering Predicate");
-            ItemPropertiesRegistry.registerGeneric(new ResourceLocation("blubbysmod", "pin"),
+            ItemPropertiesRegistry.registerGeneric(new ResourceLocation(MOD_ID, "pin"),
                     (ItemStack stack, ClientLevel world, LivingEntity entity, int seed) -> {
-                        if (stack.hasTag() && stack.getTag().contains("blubbysmod:pin")) {
-                            return stack.getTag().getFloat("blubbysmod:pin");
+                        if (stack.hasTag() && stack.getTag().contains(MOD_ID + ":pin")) {
+                            return stack.getTag().getFloat(MOD_ID + ":pin");
                         }
                         return 0.0F;
                     });

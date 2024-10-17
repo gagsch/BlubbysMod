@@ -8,11 +8,10 @@
     { "item": "blubbysmod:soul_time" },
     { "item": "blubbysmod:soul_space" }
   ],
-  "requirement": {
-    "item": "blubbysmod:essence_infinity"
-  },
+  "requirement": "blubbysmod:essence_infinity",
   "result": {
     "count": 1,
     "item": "blubbysmod:soul_infinity"
-  }
+  },
+  "page_number": 8
 }

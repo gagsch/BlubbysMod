@@ -59,7 +59,7 @@ public class EnrichmentCategory implements IRecipeCategory<EnrichmentRecipe> {
             }
         }
 
-        builder.addSlot(RecipeIngredientRole.CATALYST, 5, 19).addIngredients(recipe.getRequired()); // RecipeIngredientRole.CATALYST would be PERFECT for this if it wasn't ignored when you right-click it
+        builder.addSlot(RecipeIngredientRole.CATALYST, 5, 19).addIngredients(recipe.getRequired());
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 127, 19).addItemStack(recipe.getResultItem());
     }

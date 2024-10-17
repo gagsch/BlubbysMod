@@ -19,7 +19,7 @@ public class ContainerUtils {
             ItemStack stack = container.getItem(i);
             if (!stack.isEmpty()) {
                 CompoundTag itemTag = new CompoundTag();
-                itemTag.putInt("Slot", i);
+                itemTag.putInt("slot", i);
                 stack.save(itemTag);
                 itemList.add(itemTag);
             }
@@ -35,7 +35,7 @@ public class ContainerUtils {
 
         for (int i = 0; i < itemList.size(); i++) {
             CompoundTag itemTag = itemList.getCompound(i);
-            int slot = itemTag.getInt("Slot");
+            int slot = itemTag.getInt("slot");
             ItemStack stack = ItemStack.of(itemTag);
             container.setItem(slot, stack);
         }

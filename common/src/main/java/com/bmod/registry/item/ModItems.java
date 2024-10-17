@@ -25,21 +25,26 @@ import static com.bmod.registry.item.custom.InventoryItem.*;
 public class ModItems  {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ITEM_REGISTRY);
     
-    public static final Supplier<Item>
-    BLUBBY_COIN = ITEMS.register("blubby_coin",
+    public static final Supplier<Item> BLUBBY_COIN = ITEMS.register("blubby_coin",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
+
+    ANCIENT_RECIPE_PAGE = ITEMS.register("ancient_recipe_page",
+            AncientRecipePageItem::new),
+
+    ANCIENT_RECIPE_BOOK = ITEMS.register("ancient_recipe_book",
+            AncientRecipeBookItem::new),
+
+    BUBBLE_WAND = ITEMS.register("bubble_wand",
+            BubbleWandItem::new),
 
     CHRONOS_CLOCK = ITEMS.register("chronos_clock",
             () -> new ChronosClockItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1))),
-
-    VOODOO_DOLL = ITEMS.register("cursed_doll",
-            VoodooDollItem::new),
 
     CURSED_GEM = ITEMS.register("cursed_gem",
             CursedGemItem::new),
@@ -49,6 +54,12 @@ public class ModItems  {
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1))),
+
+    HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
 
     LUCKY_ROCK = ITEMS.register("lucky_rock",
             () -> new InventoryItem(new Properties()
@@ -62,14 +73,8 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(1), tooltips.TOTEM_OF_DREAMS)),
 
-    BUBBLE_WAND = ITEMS.register("bubble_wand",
-            BubbleWandItem::new),
-
-    HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
+    VOODOO_DOLL = ITEMS.register("cursed_doll",
+            VoodooDollItem::new),
 
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",

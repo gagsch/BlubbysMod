@@ -1,4 +1,4 @@
-package com.bmod.events;
+package com.bmod.event;
 
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;

@@ -1,4 +1,4 @@
-package com.bmod.events;
+package com.bmod.event;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntities;
@@ -6,7 +6,6 @@ import com.bmod.registry.entity.custom.RotFlyEntity;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;

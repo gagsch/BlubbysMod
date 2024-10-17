@@ -600,16 +600,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_air", has(Items.NETHERITE_SCRAP))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_INFINITY.get(), 1)
-                .define('#', Items.QUARTZ)
-                .define('E', Items.ENCHANTED_GOLDEN_APPLE)
-                .define('B', ModItems.SOUL_FRAGMENT.get())
-                .pattern("#E#")
-                .pattern("EBE")
-                .pattern("#E#")
-                .unlockedBy("has_air", has(Items.ENCHANTED_GOLDEN_APPLE))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_LIFE.get(), 1)
                 .define('e', Items.GOLDEN_APPLE)
                 .define('t', Items.TOTEM_OF_UNDYING)

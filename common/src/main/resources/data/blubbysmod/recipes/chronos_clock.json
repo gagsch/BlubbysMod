@@ -3,11 +3,10 @@
   "ingredients": [
     { "item": "minecraft:clock" }
   ],
-  "requirement": {
-    "item": "blubbysmod:soul_time"
-  },
+  "requirement": "blubbysmod:soul_time",
   "result": {
     "count": 1,
     "item": "blubbysmod:chronos_clock"
-  }
+  },
+  "page_number": 6
 }

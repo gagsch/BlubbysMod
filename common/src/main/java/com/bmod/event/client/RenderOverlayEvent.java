@@ -1,11 +1,10 @@
-package com.bmod.events.client;
+package com.bmod.event.client;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientGuiEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;

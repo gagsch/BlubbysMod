@@ -1,6 +1,7 @@
 package com.bmod.forge;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.menu.AncientRecipeBookScreen;
 import com.bmod.registry.menu.EnrichmentTableScreen;
 import com.bmod.registry.menu.VoidBundleScreen;
 import dev.architectury.platform.forge.EventBuses;

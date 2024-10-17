@@ -5,6 +5,7 @@ import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntities;
 import com.bmod.registry.item.ModItems;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.Holder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
@@ -16,6 +17,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
+
+import static com.bmod.util.ItemUtils.getIdFromItem;
 
 public class ENLangProvider extends LanguageProvider {
     private static final String NORMAL_CHARS = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_,;.?!/\\'";
@@ -31,14 +34,35 @@ public class ENLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("item.blubbysmod." + ModItems.CHRONOS_CLOCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Skips time forward. Avoid skipping ahead to far!");
-        add("item.blubbysmod." + ModItems.LUCKY_ROCK.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
-        add("item.blubbysmod." + ModItems.TOTEM_OF_DREAMS.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Teleports you to your spawn point on death while retaining items and EXP.");
-        add("item.blubbysmod." + ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
-        add("item.blubbysmod." + ModItems.HOT_PEPPER.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Used to make Flamin' Hot Cheetos™");
-        add("item.blubbysmod." + ModItems.BUBBLE_WAND.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Places bubble blocks.");
-        add("item.blubbysmod." + ModItems.VOODOO_DOLL.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "While the pin is pushed in, gain the Horrified effect to enter the Nightmare Realm while sleeping.");
-        add("item.blubbysmod." + ModItems.CURSED_GEM.get().builtInRegistryHolder().key().location().getPath() + ".tooltip", "Use on a player who has a Cursed Doll, and you will be affected by its curse.");
+        add("item.blubbysmod." + getIdFromItem(ModItems.CHRONOS_CLOCK) + ".tooltip",
+                "Skips time forward. Avoid skipping ahead to far!");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.LUCKY_ROCK) + ".tooltip",
+                "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.TOTEM_OF_DREAMS) + ".tooltip",
+                "Teleports you to your spawn point on death while retaining items and EXP.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.ENDER_BUNDLE) + ".tooltip",
+                "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.HOT_PEPPER) + ".tooltip",
+                "Used to make Flamin' Hot Cheetos™");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.BUBBLE_WAND) + ".tooltip",
+                "Places bubble blocks.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.VOODOO_DOLL) + ".tooltip",
+                "While the pin is pushed in, the Horrified effect is given. The Gateway to the Nightmare Realm");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.CURSED_GEM) + ".tooltip",
+                "Use on a player who has a Cursed Doll, and you will be affected by its curse.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.ANCIENT_RECIPE_BOOK) + ".tooltip",
+                "The Guide to the Enrichment Table.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.ANCIENT_RECIPE_PAGE) + ".tooltip",
+                "When used, unlocks a page in the Ancient Recipe Book.");
 
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
@@ -64,7 +88,7 @@ public class ENLangProvider extends LanguageProvider {
         add("effect.blubbysmod.horrified", "Horrified");
         add("effect.blubbysmod.cardiac_arrest", "Cardiac Arrest");
 
-        addEntity(ModEntities.BEHEMOTH.get().builtInRegistryHolder().key().location().getPath(), "Necrotic Behemoth");
+        addEntity(ModEntities.BEHEMOTH.get(), "Necrotic Behemoth");
 
         add("itemGroup.blubbysmod.blubbys_tab_of_doom", "Blubby's Mod");
 
@@ -80,22 +104,22 @@ public class ENLangProvider extends LanguageProvider {
         else super.add(key, value);
     }
 
-    public void addItem(Supplier<? extends Item> item, @NotNull String name) {
-        add("item.blubbysmod." + item.get().builtInRegistryHolder().key().location().getPath(), name);
+    public void addItem(@NotNull Supplier<? extends Item> item, @NotNull String name) {
+        add("item.blubbysmod." + getIdFromItem(item), name);
     }
 
-    public void addBlock(Supplier<? extends Block> block, @NotNull String name) {
-        add("block.blubbysmod." + block.get().builtInRegistryHolder().key().location().getPath(), name);
+    public void addBlock(@NotNull Supplier<? extends Block> block, @NotNull String name) {
+        add("block.blubbysmod." + getIdFromItem(Holder.direct(block.get().asItem())), name);
     }
 
-    private void addEntity(String entityId, String name) {
-        add("entity.blubbysmod." + entityId, name);
+    private void addEntity(EntityType<?> entity, String name) {
+        add("entity.blubbysmod." + entity.builtInRegistryHolder().key().location().getPath(), name);
     }
 
     private void addRemainingItems() {
-        for (Supplier<? extends Item> item : ModItems.ITEMS)
+        for (Supplier<Item> item : ModItems.ITEMS)
         {
-            String key = getPath((RegistrySupplier<Item>) item);
+            String key = getIdFromItem(item);
 
             if (!registeredLang.contains("item.blubbysmod." + key) && !(item.get() instanceof BlockItem)) {
                 add("item.blubbysmod." + key, convertToName(key));
@@ -105,15 +129,10 @@ public class ENLangProvider extends LanguageProvider {
         }
     }
 
-    private String getPath(Supplier<Item> item)
-    {
-        return item.get().builtInRegistryHolder().key().location().getPath();
-    }
-
     private void addRemainingEntities() {
         for (RegistrySupplier<EntityType<?>> entity : ModEntities.ENTITY_TYPES)
         {
-            String key = entity.getId().getPath();
+            String key = entity.get().builtInRegistryHolder().key().location().getPath();
 
             if (!registeredLang.contains("entity.blubbysmod." + key)) {
                 add("entity.blubbysmod." + key, convertToName(key));

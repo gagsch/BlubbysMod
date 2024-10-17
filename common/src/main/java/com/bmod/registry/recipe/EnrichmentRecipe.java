@@ -21,13 +21,15 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
     public final Ingredient requiredItem;
     public final ItemStack outputItemStack;
     public final String recipeType;
+    public final int pageNumber;
     private final ResourceLocation id;
 
-    public EnrichmentRecipe(NonNullList<Ingredient> inputItems, Ingredient requiredItem, ItemStack outputItemStack, String recipeType, ResourceLocation id) {
+    public EnrichmentRecipe(NonNullList<Ingredient> inputItems, Ingredient requiredItem, ItemStack outputItemStack, String recipeType, int pageNumber, ResourceLocation id) {
         this.inputItems = inputItems;
         this.requiredItem = requiredItem;
         this.outputItemStack = outputItemStack;
         this.recipeType = recipeType;
+        this.pageNumber = pageNumber;
         this.id = id;
     }
 
@@ -167,6 +169,10 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
         return id;
     }
 
+    public int getPageNumber() {
+        return pageNumber;
+    }
+
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return Objects.equals(recipeType, "shapeless") ? EnrichmentShapelessRecipeSerializer.INSTANCE : EnrichmentRecipeSerializer.INSTANCE;
@@ -216,12 +222,14 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
                 }
             }
 
-            JsonObject additionalObject = GsonHelper.getAsJsonObject(jsonObject, "requirement");
-            Ingredient additional = Ingredient.fromJson(additionalObject);
+            Item additionalObject = GsonHelper.getAsItem(jsonObject, "requirement");
+            Ingredient additional = Ingredient.of(additionalObject);
 
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
 
-            return new EnrichmentRecipe(inputs, additional, output, recipeWidth + "x" + recipeHeight, pRecipeId);
+            int pageNumber = GsonHelper.getAsInt(jsonObject, "page_number");
+
+            return new EnrichmentRecipe(inputs, additional, output, recipeWidth + "x" + recipeHeight, pageNumber, pRecipeId);
         }
 
         private String[][] parsePattern(JsonArray patternJson) {
@@ -282,7 +290,9 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = friendlyByteBuf.readItem();
 
-            return new EnrichmentRecipe(inputs, additional, output, recipeType, pRecipeId);
+            int ancientPageNumber = friendlyByteBuf.readVarInt();
+
+            return new EnrichmentRecipe(inputs, additional, output, recipeType, ancientPageNumber, pRecipeId);
         }
 
         @Override
@@ -297,6 +307,8 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
             recipe.requiredItem.toNetwork(friendlyByteBuf);
 
             friendlyByteBuf.writeItem(recipe.getResultItem());
+
+            friendlyByteBuf.writeVarInt(recipe.pageNumber);
         }
     }
 
@@ -305,11 +317,11 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
         public static final ResourceLocation ID = new ResourceLocation(BlubbysMod.MOD_ID, "enrichment_shapeless");
 
         @Override
-        public EnrichmentRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
+        public EnrichmentRecipe fromJson(ResourceLocation recipeId, JsonObject jsonObject) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
 
-            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            JsonObject additionalObject = GsonHelper.getAsJsonObject(pSerializedRecipe, "requirement");
+            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
+            Item additionalObject = GsonHelper.getAsItem(jsonObject, "requirement");
 
             NonNullList<Ingredient> inputs = NonNullList.withSize(9, Ingredient.EMPTY);
 
@@ -320,41 +332,47 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
                 }
             }
 
-            Ingredient additional = Ingredient.fromJson(additionalObject);
+            Ingredient additional = Ingredient.of(additionalObject);
 
-            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pRecipeId);
+            int pageNumber = GsonHelper.getAsInt(jsonObject, "page_number");
+
+            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pageNumber, recipeId);
         }
 
         @Override
-        public EnrichmentRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            int maxSize = pBuffer.readVarInt();
+        public EnrichmentRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf friendlyByteBuf) {
+            int maxSize = friendlyByteBuf.readVarInt();
             NonNullList<Ingredient> inputs = NonNullList.withSize(9, Ingredient.EMPTY);
 
             for(int i = 0; i < 9; i++) {
                 if (maxSize > i)
                 {
-                    inputs.set(i, Ingredient.fromNetwork(pBuffer));
+                    inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
                 }
             }
 
-            Ingredient additional = Ingredient.fromNetwork(pBuffer);
+            Ingredient additional = Ingredient.fromNetwork(friendlyByteBuf);
 
-            ItemStack output = pBuffer.readItem();
+            ItemStack output = friendlyByteBuf.readItem();
 
-            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pRecipeId);
+            int pageNumber = friendlyByteBuf.readVarInt();
+
+            return new EnrichmentRecipe(inputs, additional, output, "shapeless", pageNumber, recipeId);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, EnrichmentRecipe pRecipe) {
-            pBuffer.writeVarInt(pRecipe.inputItems.size());
+        public void toNetwork(FriendlyByteBuf friendlyByteBuf, EnrichmentRecipe recipe) {
+            friendlyByteBuf.writeVarInt(recipe.inputItems.size());
 
-            for (Ingredient ingredient : pRecipe.getIngredients()) {
-                ingredient.toNetwork(pBuffer);
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                ingredient.toNetwork(friendlyByteBuf);
             }
 
-            pRecipe.requiredItem.toNetwork(pBuffer);
+            recipe.requiredItem.toNetwork(friendlyByteBuf);
 
-            pBuffer.writeItem(pRecipe.getResultItem());
+            friendlyByteBuf.writeItem(recipe.getResultItem());
+
+            friendlyByteBuf.writeVarInt(recipe.pageNumber);
         }
     }
 }

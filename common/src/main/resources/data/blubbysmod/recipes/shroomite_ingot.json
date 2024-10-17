@@ -16,11 +16,10 @@
     "gDg",
     "bgb"
   ],
-  "requirement": {
-    "item": "blubbysmod:essence_continuity"
-  },
+  "requirement": "blubbysmod:essence_continuity",
   "result": {
     "count": 1,
     "item": "blubbysmod:shroomite_ingot"
-  }
+  },
+  "page_number": 3
 }

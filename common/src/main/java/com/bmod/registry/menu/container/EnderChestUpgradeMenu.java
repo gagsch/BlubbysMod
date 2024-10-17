@@ -15,13 +15,7 @@ import java.util.Objects;
 
 public class EnderChestUpgradeMenu extends AbstractContainerMenu {
 
-    /*
-        I have literally no clue what I am looking at.
-        Must have been on some type of drug making this
-        and other container related stuff.
-
-        New duplication methods may arise with this.
-    */
+    // New duplication methods may arise with this. Report them at owner@gagsch.xyz
 
     private final SimpleContainer loot;
 

@@ -11,11 +11,10 @@
     { "item": "blubbysmod:netherite_core" },
     { "item": "blubbysmod:dreadium_core" }
   ],
-  "requirement": {
-    "item": "blubbysmod:soul_infinity"
-  },
+  "requirement": "blubbysmod:soul_infinity",
   "result": {
     "count": 1,
     "item": "blubbysmod:soul_infused_ruby"
-  }
+  },
+  "page_number": 9
 }

@@ -4,18 +4,22 @@ import com.bmod.BlubbysMod;
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.registry.item.ModItems;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.biome.Biome;
 
 import java.util.Objects;
 import java.util.function.Supplier;
 
 public class ItemUtils {
+
+    public static String getIdFromItem(Supplier<? extends Item> item)
+    {
+        return item.get().builtInRegistryHolder().key().location().getPath();
+    }
+
     public static Item getItemFromId(String itemId) {
         String[] stuff = itemId.split(":");
 
@@ -26,8 +30,8 @@ public class ItemUtils {
         return Registry.ITEM.get(new ResourceLocation(BlubbysMod.MOD_ID, itemId));
     }
 
-    public static Item getItemFromId(String itemId, String ID) {
-        return Objects.equals(ID, "") ? Registry.ITEM.get(new ResourceLocation(itemId)) : Registry.ITEM.get(new ResourceLocation(ID, itemId));
+    public static Item getItemFromId(String itemId, String ownerId) {
+        return Objects.equals(ownerId, "") ? Registry.ITEM.get(new ResourceLocation(itemId)) : Registry.ITEM.get(new ResourceLocation(ownerId, itemId));
     }
 
     public static Supplier<Item> essence(String name) {

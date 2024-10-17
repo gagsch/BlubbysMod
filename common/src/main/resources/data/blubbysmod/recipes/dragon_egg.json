@@ -13,11 +13,10 @@
         "cDc",
         " c "
     ],
-    "requirement": {
-        "item": "blubbysmod:essence_infinity"
-    },
+    "requirement": "blubbysmod:essence_infinity",
     "result": {
         "count": 2,
         "item": "minecraft:dragon_egg"
-    }
+    },
+    "page_number": 7
 }

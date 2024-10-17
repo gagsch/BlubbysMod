@@ -13,11 +13,10 @@
     "dEd",
     " d "
   ],
-  "requirement": {
-    "item": "blubbysmod:essence_infinity"
-  },
+  "requirement": "blubbysmod:essence_infinity",
   "result": {
     "count": 1,
     "item": "blubbysmod:lucky_rock"
-  }
+  },
+  "page_number": 2
 }

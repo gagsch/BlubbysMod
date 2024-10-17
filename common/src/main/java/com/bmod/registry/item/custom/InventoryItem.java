@@ -2,6 +2,8 @@ package com.bmod.registry.item.custom;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.mob_effect.ModMobEffects;
+import com.bmod.util.mixinUtils.IEntityDataSaver;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,7 +17,8 @@ public class InventoryItem extends ToolTipItem {
     public enum inventoryItems {
         LUCKY_ROCK,
         VOODOO_DOLL,
-        CURSED_GEM
+        CURSED_GEM,
+        ANCIENT_RECIPE_BOOK
     };
 
     public InventoryItem(Properties properties, inventoryItems inventoryItem, tooltips toolTips) {
@@ -47,6 +50,12 @@ public class InventoryItem extends ToolTipItem {
                         if (player != null && player.hasEffect(ModMobEffects.HORRIFIED.get()))
                             serverPlayer.addEffect(new MobEffectInstance(ModMobEffects.HORRIFIED.get(), 19, 0, false, false));
                     }
+                    break;
+                case ANCIENT_RECIPE_BOOK:
+                    CompoundTag playerData = ((IEntityDataSaver) serverPlayer).blubbysmod$getPersistentData();
+                    int pagesDiscovered = playerData.getInt("ancient_recipes_unlocked");
+
+                    stack.getOrCreateTag().putInt(BlubbysMod.MOD_ID + ":pages", pagesDiscovered);
                     break;
             }
         }

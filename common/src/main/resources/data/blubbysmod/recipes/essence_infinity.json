@@ -1,0 +1,25 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "q": {
+      "item": "minecraft:quartz"
+    },
+    "s": {
+      "item": "blubbysmod:soul_powder"
+    }
+  },
+  "pattern": [
+    "sqs",
+    "qDq",
+    "sqs"
+  ],
+  "requirement": "blubbysmod:essence_infinity",
+  "result": {
+    "count": 2,
+    "item": "blubbysmod:essence_infinity"
+  },
+  "page_number": 1
+}
