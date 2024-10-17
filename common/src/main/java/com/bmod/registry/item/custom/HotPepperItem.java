@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class HotPepperItem extends ToolTipItem {
     public HotPepperItem(Properties properties) {
-        super(properties, tooltips.HOT_PEPPER);
+        super(properties);
     }
 
     @Override

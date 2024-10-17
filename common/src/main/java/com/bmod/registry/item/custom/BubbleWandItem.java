@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class BubbleWandItem extends ToolTipItem {
     public BubbleWandItem() {
-        super(new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1), tooltips.BUBBLE_WAND);
+        super(new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1));
     }
 
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {

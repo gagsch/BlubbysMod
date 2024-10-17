@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EnderBundleItem extends ToolTipItem {
     public EnderBundleItem(Properties properties) {
-        super(properties, tooltips.ENDER_BUNDLE);
+        super(properties);
     }
 
     @Override

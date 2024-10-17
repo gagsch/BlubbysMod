@@ -1,6 +1,7 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.BlubbysMod;
+import com.bmod.util.ItemUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -17,40 +18,27 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ToolTipItem extends Item {
-    public enum tooltips {
-        TOTEM_OF_DREAMS,
-        LUCKY_ROCK,
-        ENDER_BUNDLE,
-        CHRONOS_CLOCK,
-        HOT_PEPPER,
-        BUBBLE_WAND,
-        VOODOO_DOLL,
-        CURSED_GEM,
-        ANCIENT_RECIPE_BOOK,
-        ANCIENT_RECIPE_PAGE
-    }
 
-    tooltips toolTip;
-
-    public ToolTipItem(Properties properties, tooltips toolTip) {
+    public ToolTipItem(Properties properties) {
         super(properties);
-        this.toolTip = toolTip;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(component("item." + BlubbysMod.MOD_ID + "." + toolTip.name().toLowerCase() + ".tooltip"));
+        String itemName = ItemUtils.getIdFromItem(stack.getItem());
 
-        switch (toolTip)
+        components.add(component("item." + BlubbysMod.MOD_ID + "." + itemName + ".tooltip"));
+
+        switch (itemName)
         {
-            case LUCKY_ROCK:
+            case "lucky_rock":
                 components.add(effect(MobEffects.LUCK, 4, 0));
                 break;
-            case HOT_PEPPER:
+            case "hot_pepper":
                 components.add(effect(MobEffects.FIRE_RESISTANCE, 0, 20));
                 components.add(effect(MobEffects.MOVEMENT_SPEED, 1, 20));
                 break;
-            case CURSED_GEM:
+            case "cursed_gem":
                 CompoundTag tag = stack.getOrCreateTag();
 
                 String playerName = "Nobody";
@@ -67,7 +55,7 @@ public class ToolTipItem extends Item {
 
                 components.add(Component.literal("Linked to: " + playerName).withStyle(ChatFormatting.YELLOW));
                 break;
-            case ANCIENT_RECIPE_BOOK, ANCIENT_RECIPE_PAGE:
+            case "ancient_recipe_book", "ancient_recipe_page":
                 components.add(Component.literal("Pages discovered: " + stack.getOrCreateTag().getInt(BlubbysMod.MOD_ID + ":pages")).withStyle(ChatFormatting.YELLOW));
                 break;
         }

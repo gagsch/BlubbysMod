@@ -17,7 +17,12 @@ public class ItemUtils {
 
     public static String getIdFromItem(Supplier<? extends Item> item)
     {
-        return item.get().builtInRegistryHolder().key().location().getPath();
+        return getIdFromItem(item.get());
+    }
+
+    public static String getIdFromItem(Item item)
+    {
+        return item.builtInRegistryHolder().key().location().getPath();
     }
 
     public static Item getItemFromId(String itemId) {

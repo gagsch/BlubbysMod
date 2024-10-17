@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ChronosClockItem extends ToolTipItem {
     public ChronosClockItem(Properties properties) {
-        super(properties, tooltips.CHRONOS_CLOCK);
+        super(properties);
     }
 
     @Override

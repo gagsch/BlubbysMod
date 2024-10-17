@@ -65,13 +65,13 @@ public class ModItems  {
             () -> new InventoryItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
-                    .stacksTo(1), inventoryItems.LUCKY_ROCK, tooltips.LUCKY_ROCK)),
+                    .stacksTo(1), inventoryItems.LUCKY_ROCK)),
 
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
-                    .stacksTo(1), tooltips.TOTEM_OF_DREAMS)),
+                    .stacksTo(1))),
 
     VOODOO_DOLL = ITEMS.register("cursed_doll",
             VoodooDollItem::new),

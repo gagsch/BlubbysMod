@@ -21,8 +21,8 @@ public class InventoryItem extends ToolTipItem {
         ANCIENT_RECIPE_BOOK
     };
 
-    public InventoryItem(Properties properties, inventoryItems inventoryItem, tooltips toolTips) {
-        super(properties, toolTips);
+    public InventoryItem(Properties properties, inventoryItems inventoryItem) {
+        super(properties);
         this.inventoryItem = inventoryItem;
     }
 

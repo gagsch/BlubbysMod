@@ -19,8 +19,7 @@ public class AncientRecipeBookItem extends InventoryItem {
                         .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                         .durability(-1)
                         .stacksTo(1),
-                inventoryItems.ANCIENT_RECIPE_BOOK,
-                tooltips.ANCIENT_RECIPE_BOOK
+                inventoryItems.ANCIENT_RECIPE_BOOK
         );
     }
 

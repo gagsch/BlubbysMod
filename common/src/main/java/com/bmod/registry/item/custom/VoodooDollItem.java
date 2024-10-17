@@ -21,8 +21,7 @@ public class VoodooDollItem extends InventoryItem {
                         .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                         .durability(-1)
                         .stacksTo(1),
-                inventoryItems.VOODOO_DOLL,
-                tooltips.VOODOO_DOLL
+                inventoryItems.VOODOO_DOLL
         );
     }
 

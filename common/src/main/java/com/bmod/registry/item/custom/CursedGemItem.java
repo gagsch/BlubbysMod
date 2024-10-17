@@ -25,8 +25,7 @@ public class CursedGemItem extends InventoryItem {
                         .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                         .durability(-1)
                         .stacksTo(1),
-                inventoryItems.CURSED_GEM,
-                tooltips.CURSED_GEM
+                inventoryItems.CURSED_GEM
         );
     }
 
