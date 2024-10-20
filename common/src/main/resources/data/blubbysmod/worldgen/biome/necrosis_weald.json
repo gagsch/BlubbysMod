@@ -17,22 +17,8 @@
       "replace_current_music": false
     }
   },
-  "spawners": {
-    "monster": [
-      {
-        "type": "blubbysmod:behemoth",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 2
-      }
-    ]
-  },
-  "spawn_costs": {
-    "blubbysmod:behemoth": {
-      "energy_budget": 0.12,
-      "charge": 1
-    }
-  },
+  "spawners": { },
+  "spawn_costs": { },
   "carvers": {
     "air": [
       "minecraft:cave"

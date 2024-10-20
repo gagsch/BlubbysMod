@@ -2,7 +2,7 @@ package com.bmod.registry.item;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.entity.ModEntities;
+import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.custom.*;
 import com.bmod.registry.item.tier.ModArmorMaterial;
 import com.bmod.registry.item.tier.ModItemTier;
@@ -292,19 +292,19 @@ public class ModItems  {
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.ROT_FLY.get(), 0x382946, 0xa41717, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.ROT_FLY.get(), 0x382946, 0xa41717, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.BEHEMOTH.get(), 0x442266, 0x111133, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.BEHEMOTH.get(), 0x442266, 0x111133, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SNOW_FLINX_SPAWN_EGG = ITEMS.register("snow_flinx_spawn_egg",
-            () -> new SpawnEggItem(ModEntities.SNOW_FLINX.get(), 0xddeeee, 0xfad2ac, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.SNOW_FLINX.get(), 0xddeeee, 0xfad2ac, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)));

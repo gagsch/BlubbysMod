@@ -1,7 +1,7 @@
 package com.bmod.event;
 
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.entity.ModEntities;
+import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.entity.custom.RotFlyEntity;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
@@ -61,7 +61,7 @@ public class BlockBreakEvent {
         int numberOfEntities = random.nextInt(maxCount - minCount + 1) + minCount;
 
         for (int i = 0; i < numberOfEntities; i++) {
-            RotFlyEntity entity = new RotFlyEntity(ModEntities.ROT_FLY.get(), world);
+            RotFlyEntity entity = new RotFlyEntity(ModEntityTypes.ROT_FLY.get(), world);
             entity.moveTo(pos, 0, 0);
             world.addFreshEntity(entity);
         }

@@ -1,9 +1,7 @@
 package com.bmod.registry.entity.custom;
 
-import com.bmod.registry.entity.ModEntities;
+import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.ModSounds;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
@@ -20,7 +18,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.NotNull;
 
 public class SnowFlinxEntity extends TamableAnimal {
@@ -86,25 +83,6 @@ public class SnowFlinxEntity extends TamableAnimal {
     }
 
     @Override
-    public boolean checkSpawnRules(LevelAccessor world, @NotNull MobSpawnType spawnReason) {
-        BlockPos pos = this.blockPosition();
-
-        boolean isSolidGroundBelow = world.getBlockState(pos.below()).getMaterial().isSolid();
-        boolean isAboveVoid = pos.getY() > 0;
-
-        if (world instanceof ServerLevel serverWorld) {
-            Player player = serverWorld.getRandomPlayer();
-            if (player != null) {
-                BlockPos playerPos = player.blockPosition();
-                double distance = playerPos.distSqr(new Vec3i(pos.getX(), pos.getY(), pos.getZ()));
-
-                return isSolidGroundBelow && isAboveVoid && distance >= 32 * 32;
-            }
-        }
-        return false;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() { return ModSounds.SNOW_FLINX_AMBIENCE.get(); }
     @Override
     protected SoundEvent getHurtSound(@NotNull DamageSource pDamageSource) { return ModSounds.SNOW_FLINX_HURT.get(); }
@@ -115,7 +93,7 @@ public class SnowFlinxEntity extends TamableAnimal {
 
     @Override
     public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
-        SnowFlinxEntity offspring = ModEntities.SNOW_FLINX.get().create(serverLevel);
+        SnowFlinxEntity offspring = ModEntityTypes.SNOW_FLINX.get().create(serverLevel);
 
         if (offspring != null && ageableMob instanceof SnowFlinxEntity parent) {
             if (parent.isTame()) {

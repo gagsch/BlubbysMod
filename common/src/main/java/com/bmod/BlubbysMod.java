@@ -11,7 +11,7 @@ import com.bmod.registry.entity.custom.BehemothEntity;
 import com.bmod.registry.entity.custom.RotFlyEntity;
 import com.bmod.registry.entity.custom.SnowFlinxEntity;
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.entity.ModEntities;
+import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.ModSounds;
 import com.bmod.registry.menu.ModMenus;
@@ -50,7 +50,7 @@ public final class BlubbysMod {
         WoodUtils.registerWood(WoodUtils.DREADWOOD, new DreadwoodTreeGrower());
         WoodUtils.registerWood(WoodUtils.EBON, new EbonTreeGrower());
 
-        ModEntities.ENTITY_TYPES.register();
+        ModEntityTypes.ENTITY_TYPES.register();
         ModBlocks.BLOCKS.register();
         ModItems.ITEMS.register();
         ModEnchantments.ENCHANTMENTS.register();
@@ -62,10 +62,11 @@ public final class BlubbysMod {
         ModPackets.initialize();
 
         ModFeatures.init();
+        ModEntityTypes.initSpawns();
 
-        EntityAttributeRegistry.register(ModEntities.ROT_FLY, RotFlyEntity::createAttributes);
-        EntityAttributeRegistry.register(ModEntities.BEHEMOTH, BehemothEntity::createAttributes);
-        EntityAttributeRegistry.register(ModEntities.SNOW_FLINX, SnowFlinxEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.BEHEMOTH, BehemothEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxEntity::createAttributes);
 
         EnvExecutor.runInEnv(Env.CLIENT, () -> Client::initializeClient);
     }
@@ -87,9 +88,9 @@ public final class BlubbysMod {
             EntityModelLayerRegistry.register(ModModelLayers.SNOW_FLINX_LAYER, SnowFlinxModel::createBodyLayer);
             EntityModelLayerRegistry.register(ModModelLayers.BEHEMOTH_LAYER, BehemothModel::createBodyLayer);
 
-            EntityRendererRegistry.register(ModEntities.ROT_FLY, RotFlyRenderer::new);
-            EntityRendererRegistry.register(ModEntities.SNOW_FLINX, SnowFlinxRenderer::new);
-            EntityRendererRegistry.register(ModEntities.BEHEMOTH, BehemothRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.ROT_FLY, RotFlyRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.BEHEMOTH, BehemothRenderer::new);
         }
     }
 }

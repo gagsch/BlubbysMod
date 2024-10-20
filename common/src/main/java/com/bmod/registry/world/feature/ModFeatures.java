@@ -3,6 +3,8 @@ package com.bmod.registry.world.feature;
 import com.bmod.registry.ModTags;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.level.biome.BiomeModifications;
+import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
@@ -30,7 +32,10 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModTreeFeatures.DREADWOOD_PLACED);
 
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GLEAM_SHROOM_PATCH_RARE_PLACED);
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GRASS_PATCH_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_TALL_GRASS);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_RIVER);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.KELP_COLD);
 
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_RARE_PLACED);
                 }
@@ -41,7 +46,9 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModTreeFeatures.EBON_PLACED);
 
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GLEAM_SHROOM_PATCH_PLACED);
-                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GRASS_PATCH_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_JUNGLE);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.KELP_WARM);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
 
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_DREADIUM_ORE_RARE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.NECRIUM_ORE_PLACED);
@@ -51,6 +58,8 @@ public class ModFeatures {
 
             BiomeModifications.addProperties((ctx, mutable) -> {
                 if (ctx.hasTag(ModTags.IS_SPIDER_DEN)) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_WATERLILY);
+
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModDecorationFeatures.COBWEB_PATCH_PLACED);
                 }
             });

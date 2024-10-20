@@ -2,7 +2,7 @@ package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.entity.ModEntities;
+import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Holder;
@@ -88,7 +88,7 @@ public class ENLangProvider extends LanguageProvider {
         add("effect.blubbysmod.horrified", "Horrified");
         add("effect.blubbysmod.cardiac_arrest", "Cardiac Arrest");
 
-        addEntity(ModEntities.BEHEMOTH.get(), "Necrotic Behemoth");
+        addEntity(ModEntityTypes.BEHEMOTH.get(), "Necrotic Behemoth");
 
         add("itemGroup.blubbysmod.blubbys_tab_of_doom", "Blubby's Mod");
 
@@ -130,7 +130,7 @@ public class ENLangProvider extends LanguageProvider {
     }
 
     private void addRemainingEntities() {
-        for (RegistrySupplier<EntityType<?>> entity : ModEntities.ENTITY_TYPES)
+        for (RegistrySupplier<EntityType<?>> entity : ModEntityTypes.ENTITY_TYPES)
         {
             String key = entity.get().builtInRegistryHolder().key().location().getPath();
 
