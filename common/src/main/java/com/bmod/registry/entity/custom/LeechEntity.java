@@ -16,7 +16,10 @@ import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.EnumSet;
 
 public class LeechEntity extends WaterAnimal implements Enemy {
 
@@ -32,9 +35,8 @@ public class LeechEntity extends WaterAnimal implements Enemy {
     public static AttributeSupplier.Builder createAttributes() {
         return WaterAnimal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 5D)
-                .add(Attributes.MOVEMENT_SPEED, 2D)
                 .add(Attributes.JUMP_STRENGTH, 1D)
-                .add(Attributes.ATTACK_DAMAGE, 3f)
+                .add(Attributes.MOVEMENT_SPEED, 2D)
                 .add(Attributes.FOLLOW_RANGE, 32)
                 .add(Attributes.ATTACK_KNOCKBACK, 0)
                 .add(Attributes.KNOCKBACK_RESISTANCE, -1);
@@ -51,15 +53,6 @@ public class LeechEntity extends WaterAnimal implements Enemy {
     @Override
     public double getMyRidingOffset() {
         return -0.25D;
-    }
-
-    @Override
-    public void handleEntityEvent(byte pId) {
-        if(pId == 36) {
-            this.ridingAnimationState.start(this.tickCount);
-        } else {
-            super.handleEntityEvent(pId);
-        }
     }
 
     @Override
@@ -83,7 +76,6 @@ public class LeechEntity extends WaterAnimal implements Enemy {
         this.goalSelector.addGoal(1, new RandomSwimmingGoal(this, 1.0, 10));
         this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(1, new LeechSwimGoal(this, 1D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2000000476837158D, true));
         this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
@@ -95,17 +87,51 @@ public class LeechEntity extends WaterAnimal implements Enemy {
         {
             Entity vehicle = this.getVehicle();
 
-            if (vehicle != null && vehicle.isAlive() && !this.isDeadOrDying() && !(vehicle instanceof Player player && player.isCreative()))
+            if (vehicle != null && vehicle.isAlive() && !this.isDeadOrDying())
             {
                 vehicle.hurt(DamageSource.GENERIC, 3);
                 this.setYRot(vehicle.getYRot());
-            }
-            else {
-                this.stopRiding();
+
+                if (!this.ridingAnimationState.isStarted()) {
+                    this.ridingAnimationState.start(1);
+                    if (vehicle instanceof ServerPlayer player) {
+                        new S2CEntityRidingMessage(player, this, true).sendToLevel(player.getLevel());
+                    }
+                }
             }
         }
+    }
 
-        this.getNavigation().setCanFloat(this.isInWater());
+    @Override
+    public void travel(Vec3 vec3) {
+        LivingEntity target = this.getTarget();
+
+        if (this.isEffectiveAi() && this.isInWater()) {
+            this.moveRelative(this.getSpeed(), vec3);
+            this.move(MoverType.SELF, this.getDeltaMovement());
+            this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
+
+            Vec3 deltaMovement = this.getDeltaMovement();
+
+            if (target == null || !target.isInWater()) {
+                this.setDeltaMovement(deltaMovement.x, Math.max(deltaMovement.y - 0.005, -0.01), deltaMovement.z);
+            }
+        } else {
+            super.travel(vec3);
+        }
+    }
+
+
+    @Override
+    public void stopRiding() {
+        this.ridingAnimationState.stop();
+
+        if (this.getVehicle() instanceof ServerPlayer player)
+        {
+            new S2CEntityRidingMessage(player, this, false).sendToLevel(player.getLevel());
+        }
+
+        super.stopRiding();
     }
 
     @Override
@@ -129,27 +155,41 @@ public class LeechEntity extends WaterAnimal implements Enemy {
         public LeechSwimGoal(LeechEntity leech, double speed) {
             this.leech = leech;
             this.speed = speed;
+            this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
         @Override
         public boolean canUse() {
-            return this.leech.getTarget() != null;
+            return leech.getTarget() != null;
         }
 
         @Override
         public void tick() {
-            LivingEntity target = this.leech.getTarget();
-            if (target != null) {
-                this.leech.getNavigation().moveTo(target, speed);
+            LivingEntity target = leech.getTarget();
+            if (target == null){
+                leech.getNavigation().setCanFloat(leech.isInWater());
+                return;
+            }
 
-                if (this.leech.getBoundingBox().inflate(0.2D).intersects(target.getBoundingBox())) {
-                    this.leech.startRiding(target);
-                    this.leech.level.broadcastEntityEvent(this.leech, (byte) 36);
+            if (leech.level.isWaterAt(target.blockPosition().below()) || target.isInWater()) {
+                if (leech.isInWater() && target.position().y > leech.position().y)
+                {
+                    leech.getNavigation().setCanFloat(true);
 
-                    if (target instanceof ServerPlayer player && !player.isCreative() && !player.isDeadOrDying())
-                    {
-                        new S2CEntityRidingMessage(player, this.leech).sendToLevel(player.getLevel());
-                    }
+                    if (leech.distanceTo(target) < 5)
+                        leech.setDeltaMovement(leech.getDeltaMovement().x, .15, leech.getDeltaMovement().z);
+                }
+                else
+                    leech.getNavigation().setCanFloat(false);
+
+                leech.lookAt(target, 0, 0);
+                leech.getNavigation().moveTo(target, speed);
+            }
+
+            if (leech.getBoundingBox().intersects(target.getBoundingBox()) && !target.isVehicle() && !target.isDeadOrDying()) {
+                if (target instanceof ServerPlayer player && !player.isCreative())
+                {
+                    leech.startRiding(target);
                 }
             }
         }

@@ -12,12 +12,12 @@ public class CardiacArrestEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity livingEntity, int i) {
+    public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
         livingEntity.hurt(DamageSource.OUT_OF_WORLD, 5);
     }
 
     @Override
-    public boolean isDurationEffectTick(int currentTick, int frequency) {
-        return currentTick == 2;
+    public boolean isDurationEffectTick(int remainingTicks, int frequency) {
+        return remainingTicks == 2;
     }
 }

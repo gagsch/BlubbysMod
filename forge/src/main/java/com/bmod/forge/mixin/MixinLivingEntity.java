@@ -22,6 +22,16 @@ public class MixinLivingEntity {
     @Shadow
     private Optional<BlockPos> lastClimbablePos;
 
+    @Inject(method = "rideableUnderWater", at = @At("RETURN"), cancellable = true)
+    public void rideableUnderWater(CallbackInfoReturnable<Boolean> cir)
+    {
+        LivingEntity livingEntity = (LivingEntity) (Object) this;
+
+        if (livingEntity instanceof Player player) {
+            cir.setReturnValue(true);
+        }
+    }
+
     @Inject(method = "onClimbable", at = @At("TAIL"), cancellable = true)
     public void onClimbable(CallbackInfoReturnable<Boolean> cir)
     {

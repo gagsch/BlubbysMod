@@ -8,7 +8,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.WebBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,6 +21,16 @@ public class MixinLivingEntity {
 
     @Shadow
     private Optional<BlockPos> lastClimbablePos;
+
+    @Inject(method = "rideableUnderWater", at = @At("RETURN"), cancellable = true)
+    public void rideableUnderWater(CallbackInfoReturnable<Boolean> cir)
+    {
+        LivingEntity livingEntity = (LivingEntity) (Object) this;
+
+        if (livingEntity instanceof Player player) {
+            cir.setReturnValue(true);
+        }
+    }
 
     @Inject(method = "onClimbable", at = @At("TAIL"), cancellable = true)
     public void onClimbable(CallbackInfoReturnable<Boolean> cir)

@@ -76,7 +76,7 @@ public class LeechModel<T extends Entity> extends HierarchicalModel<T> {
 
 		this.animateWalk(limbSwing, limbSwingAmount);
 
-		this.animate(((LeechEntity) entity).ridingAnimationState, ModAnimationDefinitions.LEECH_RIDING, ageInTicks / 20, 1f);
+		this.animate(((LeechEntity) entity).ridingAnimationState, ModAnimationDefinitions.LEECH_RIDING, ageInTicks, 1f);
 	}
 
 	private void animateWalk(float pLimbSwing, float pLimbSwingAmount) {

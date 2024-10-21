@@ -13,15 +13,18 @@ import java.util.UUID;
 public class S2CEntityRidingMessage extends BaseS2CMessage {
     private final UUID playerUUID;
     private final int entityId;
+    private final boolean gettingOn;
 
-    public S2CEntityRidingMessage(ServerPlayer player, Entity entity) {
+    public S2CEntityRidingMessage(ServerPlayer player, Entity entity, boolean gettingOn) {
         this.playerUUID = player.getUUID();
         this.entityId = entity.getId();
+        this.gettingOn = gettingOn;
     }
 
     public S2CEntityRidingMessage(FriendlyByteBuf buf) {
         this.playerUUID = buf.readUUID();
         this.entityId = buf.readVarInt();
+        this.gettingOn = buf.readBoolean();
     }
 
     @Override
@@ -33,6 +36,7 @@ public class S2CEntityRidingMessage extends BaseS2CMessage {
     public void write(FriendlyByteBuf buf) {
         buf.writeUUID(playerUUID);
         buf.writeVarInt(entityId);
+        buf.writeBoolean(gettingOn);
     }
 
     @Override
@@ -40,6 +44,6 @@ public class S2CEntityRidingMessage extends BaseS2CMessage {
         Entity entity = context.getPlayer().getLevel().getEntity(entityId);
         Player player = context.getPlayer().getLevel().getPlayerByUUID(playerUUID);
 
-        context.queue(() -> CEntityRidingHandler.handle(player, entity));
+        context.queue(() -> CEntityRidingHandler.handle(player, entity, gettingOn));
     }
 }

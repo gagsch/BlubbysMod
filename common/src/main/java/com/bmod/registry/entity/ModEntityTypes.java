@@ -29,7 +29,7 @@ public class ModEntityTypes {
                     .sized(1.8f, 3.2f).build("behemoth"));
 
     public static final Supplier<EntityType<LeechEntity>> LEECH = ENTITY_TYPES.register("leech", () -> EntityType.Builder.of(LeechEntity::new, MobCategory.MONSTER)
-            .sized(0.7f, 0.7f).build("leech"));
+            .sized(0.9f, 0.9f).build("leech"));
 
     public static final Supplier<EntityType<SnowFlinxEntity>> SNOW_FLINX = ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.7f).build("snow_flinx"));
@@ -42,7 +42,7 @@ public class ModEntityTypes {
 
         BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_NECROSIS_WEALD), (ctx, mutable) -> {
                 mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.BEHEMOTH.get(), 4, 1, 1));
-                mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.LEECH.get(), 10, 1, 20));
+                mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.LEECH.get(), 10, 3, 6));
                 mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.ROT_FLY.get(), 7, 1, 2));
         });
 
