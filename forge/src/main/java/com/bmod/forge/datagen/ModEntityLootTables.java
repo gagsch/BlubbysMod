@@ -25,6 +25,7 @@ public class ModEntityLootTables extends EntityLoot {
         add(ModEntityTypes.BEHEMOTH.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(ModItems.VILE_BLOOD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))).when(LootItemKilledByPlayerCondition.killedByPlayer())));
         add(ModEntityTypes.ROT_FLY.get(), LootTable.lootTable());
         add(ModEntityTypes.SNOW_FLINX.get(), LootTable.lootTable());
+        add(ModEntityTypes.LEECH.get(), LootTable.lootTable());
     }
 
     @NotNull

@@ -66,5 +66,23 @@
     "sounds": [
       "blubbysmod:entity/snow_flinx/snow_flinx_death"
     ]
+  },
+
+  "leech_ambience": {
+    "sounds": [
+      "blubbysmod:entity/leech/leech_ambient_1",
+      "blubbysmod:entity/leech/leech_ambient_2"
+    ]
+  },
+  "leech_hurt": {
+    "sounds": [
+      "blubbysmod:entity/leech/leech_hurt_1",
+      "blubbysmod:entity/leech/leech_hurt_2"
+    ]
+  },
+  "leech_death": {
+    "sounds": [
+      "blubbysmod:entity/leech/leech_death"
+    ]
   }
 }

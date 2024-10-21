@@ -17,7 +17,6 @@ import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
@@ -39,10 +38,6 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.lookControl = new LookControl(this);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.WATER_BORDER, 16.0F);
-        this.setPathfindingMalus(BlockPathTypes.COCOA, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.FENCE, -1.0F);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -91,10 +86,6 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         } else {
             --this.flyingAnimationTimeout;
         }
-    }
-
-    public String getAnimationState() {
-        return "flying";
     }
 
     @Override

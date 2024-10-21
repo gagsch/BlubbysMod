@@ -48,6 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.ROT_FLY_SPAWN_EGG);
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
+        spawnEggItem(ModItems.LEECH_SPAWN_EGG);
 
         voodooDoll(ModItems.VOODOO_DOLL);
 

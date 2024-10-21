@@ -64,7 +64,6 @@ public class SnowFlinxModel<T extends Entity> extends HierarchicalModel<T> {
 		this.animateWalk(limbSwing, limbSwingAmount);
 
 		this.animate(((SnowFlinxEntity) entity).idleAnimationState, ModAnimationDefinitions.SNOW_FLINX_IDLE, ageInTicks, 1f);
-		// this.animate(((SnowFlinxEntity) entity).sittingAnimationState, ModAnimationDefinitions.SNOW_FLINX_SIT, ageInTicks, 1f);
 	}
 
 	private void animateWalk(float pLimbSwing, float pLimbSwingAmount) {

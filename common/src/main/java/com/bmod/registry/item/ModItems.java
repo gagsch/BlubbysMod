@@ -292,19 +292,25 @@ public class ModItems  {
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
-            () -> new SpawnEggItem(ModEntityTypes.ROT_FLY.get(), 0x382946, 0xa41717, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.ROT_FLY.get(), 0x382946, 0xA41717, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
-            () -> new SpawnEggItem(ModEntityTypes.BEHEMOTH.get(), 0x442266, 0x111133, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.BEHEMOTH.get(), 0x442266, 0x040410, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
     SNOW_FLINX_SPAWN_EGG = ITEMS.register("snow_flinx_spawn_egg",
-            () -> new SpawnEggItem(ModEntityTypes.SNOW_FLINX.get(), 0xddeeee, 0xfad2ac, new Properties()
+            () -> new SpawnEggItem(ModEntityTypes.SNOW_FLINX.get(), 0xDDEEEE, 0xFAD2AC, new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    LEECH_SPAWN_EGG = ITEMS.register("leech_spawn_egg",
+            () -> new SpawnEggItem(ModEntityTypes.LEECH.get(), 0x3C1B22, 0x6B3640, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)));

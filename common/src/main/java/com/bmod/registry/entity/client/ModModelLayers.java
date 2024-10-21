@@ -11,6 +11,6 @@ public class ModModelLayers {
             new ResourceLocation(BlubbysMod.MOD_ID, "behemoth_layer"), "main");
     public static final ModelLayerLocation SNOW_FLINX_LAYER = new ModelLayerLocation(
             new ResourceLocation(BlubbysMod.MOD_ID, "snow_flinx_layer"), "main");
-    public static final ModelLayerLocation DIMENSION_TELEPORTER_LAYER = new ModelLayerLocation(
-            new ResourceLocation(BlubbysMod.MOD_ID, "dimensional_teleporter_layer"), "main");
+    public static final ModelLayerLocation LEECH_LAYER = new ModelLayerLocation(
+            new ResourceLocation(BlubbysMod.MOD_ID, "leech_layer"), "main");
 }

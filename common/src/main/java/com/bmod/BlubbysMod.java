@@ -4,6 +4,7 @@ import com.bmod.event.*;
 import com.bmod.event.client.RenderOverlayEvent;
 import com.bmod.packet.ModPackets;
 import com.bmod.registry.enchantment.ModEnchantments;
+import com.bmod.registry.entity.custom.LeechEntity;
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.entity.client.*;
@@ -67,6 +68,7 @@ public final class BlubbysMod {
         EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.BEHEMOTH, BehemothEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.LEECH, LeechEntity::createAttributes);
 
         EnvExecutor.runInEnv(Env.CLIENT, () -> Client::initializeClient);
     }
@@ -87,10 +89,12 @@ public final class BlubbysMod {
             EntityModelLayerRegistry.register(ModModelLayers.ROT_FLY_LAYER, RotFlyModel::createBodyLayer);
             EntityModelLayerRegistry.register(ModModelLayers.SNOW_FLINX_LAYER, SnowFlinxModel::createBodyLayer);
             EntityModelLayerRegistry.register(ModModelLayers.BEHEMOTH_LAYER, BehemothModel::createBodyLayer);
+            EntityModelLayerRegistry.register(ModModelLayers.LEECH_LAYER, LeechModel::createBodyLayer);
 
             EntityRendererRegistry.register(ModEntityTypes.ROT_FLY, RotFlyRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.BEHEMOTH, BehemothRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.LEECH, LeechRenderer::new);
         }
     }
 }
