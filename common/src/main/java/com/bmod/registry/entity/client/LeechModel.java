@@ -2,9 +2,9 @@ package com.bmod.registry.entity.client;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.entity.animations.ModAnimationDefinitions;
+import com.bmod.registry.entity.custom.LeechEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.bmod.registry.entity.custom.RotFlyEntity;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.animation.KeyframeAnimations;
 import net.minecraft.client.model.HierarchicalModel;
@@ -14,6 +14,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 
 public class LeechModel<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
@@ -74,6 +75,8 @@ public class LeechModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 
 		this.animateWalk(limbSwing, limbSwingAmount);
+
+		this.animate(((LeechEntity) entity).ridingAnimationState, ModAnimationDefinitions.LEECH_RIDING, ageInTicks / 20, 1f);
 	}
 
 	private void animateWalk(float pLimbSwing, float pLimbSwingAmount) {
@@ -88,7 +91,7 @@ public class LeechModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public ModelPart root() {
+	public @NotNull ModelPart root() {
 		return leech;
 	}
 }

@@ -7,9 +7,11 @@ import dev.architectury.networking.simple.SimpleNetworkManager;
 public interface ModPackets {
     SimpleNetworkManager NET = SimpleNetworkManager.create(BlubbysMod.MOD_ID);
 
-    MessageType SERVER_2_CLIENT_INT = NET.registerS2C("s2c_int", Server2ClientIntMessage::new);
+    MessageType S2C_OPEN_RECIPE_BOOK = NET.registerS2C("s2c_int", S2COpenRecipeBookMessage::new);
+    MessageType S2C_ENTITY_RIDING = NET.registerS2C("s2c_entity_riding", S2CEntityRidingMessage::new);
 
     static void initialize() {
-        NET.registerS2C("s2c_int", Server2ClientIntMessage::new);
+        NET.registerS2C("s2c_int", S2COpenRecipeBookMessage::new);
+        NET.registerS2C("s2c_entity_riding", S2CEntityRidingMessage::new);
     }
 }

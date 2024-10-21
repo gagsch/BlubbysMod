@@ -1,6 +1,6 @@
 package com.bmod.registry.item.custom;
 
-import com.bmod.packet.Server2ClientIntMessage;
+import com.bmod.packet.S2COpenRecipeBookMessage;
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.util.mixinUtils.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
@@ -31,7 +31,7 @@ public class AncientRecipeBookItem extends InventoryItem {
             CompoundTag playerData = ((IEntityDataSaver) player).blubbysmod$getPersistentData();
             int pagesDiscovered = playerData.getInt("ancient_recipes_unlocked");
 
-            new Server2ClientIntMessage(pagesDiscovered).sendTo(serverPlayer);
+            new S2COpenRecipeBookMessage(pagesDiscovered).sendTo(serverPlayer);
 
             return InteractionResultHolder.success(item);
         }

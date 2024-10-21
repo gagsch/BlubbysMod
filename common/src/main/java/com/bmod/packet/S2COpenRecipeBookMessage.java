@@ -5,20 +5,20 @@ import dev.architectury.networking.simple.BaseS2CMessage;
 import dev.architectury.networking.simple.MessageType;
 import net.minecraft.network.FriendlyByteBuf;
 
-public class Server2ClientIntMessage extends BaseS2CMessage {
+public class S2COpenRecipeBookMessage extends BaseS2CMessage {
     private final int pages;
 
-    public Server2ClientIntMessage(int pages) {
+    public S2COpenRecipeBookMessage(int pages) {
         this.pages = pages;
     }
 
-    public Server2ClientIntMessage(FriendlyByteBuf buf) {
+    public S2COpenRecipeBookMessage(FriendlyByteBuf buf) {
         pages = buf.readVarInt();
     }
 
     @Override
     public MessageType getType() {
-        return ModPackets.SERVER_2_CLIENT_INT;
+        return ModPackets.S2C_OPEN_RECIPE_BOOK;
     }
 
     @Override
@@ -28,6 +28,6 @@ public class Server2ClientIntMessage extends BaseS2CMessage {
 
     @Override
     public void handle(NetworkManager.PacketContext context) {
-        context.queue(() -> ClientPacketHandler.handleOpenRecipeBook(pages));
+        context.queue(() -> COpenRecipeBookHandler.handle(pages));
     }
 }

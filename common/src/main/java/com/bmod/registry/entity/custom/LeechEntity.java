@@ -1,5 +1,6 @@
 package com.bmod.registry.entity.custom;
 
+import com.bmod.packet.S2CEntityRidingMessage;
 import com.bmod.registry.ModSounds;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -18,7 +19,8 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class LeechEntity extends WaterAnimal implements Enemy {
-    public ServerPlayer latchedPlayer;
+
+    public final AnimationState ridingAnimationState = new AnimationState();
 
     public LeechEntity(EntityType<? extends WaterAnimal> type, Level world) {
         super(type, world);
@@ -32,20 +34,32 @@ public class LeechEntity extends WaterAnimal implements Enemy {
                 .add(Attributes.MAX_HEALTH, 5D)
                 .add(Attributes.MOVEMENT_SPEED, 2D)
                 .add(Attributes.JUMP_STRENGTH, 1D)
-                .add(Attributes.ATTACK_DAMAGE, 1f)
+                .add(Attributes.ATTACK_DAMAGE, 3f)
                 .add(Attributes.FOLLOW_RANGE, 32)
                 .add(Attributes.ATTACK_KNOCKBACK, 0)
                 .add(Attributes.KNOCKBACK_RESISTANCE, -1);
     }
 
     @Override
-    protected void handleAirSupply(int i) {
-
-    }
+    protected void handleAirSupply(int i) { }
 
     @Override
     public boolean isPushedByFluid() {
         return false;
+    }
+
+    @Override
+    public double getMyRidingOffset() {
+        return -0.25D;
+    }
+
+    @Override
+    public void handleEntityEvent(byte pId) {
+        if(pId == 36) {
+            this.ridingAnimationState.start(this.tickCount);
+        } else {
+            super.handleEntityEvent(pId);
+        }
     }
 
     @Override
@@ -77,21 +91,21 @@ public class LeechEntity extends WaterAnimal implements Enemy {
     public void tick() {
         super.tick();
 
-        this.getNavigation().setCanFloat(this.isInWater());
-
-        if(latchedPlayer != null) {
-            this.startRiding(latchedPlayer);
-        }
-    }
-
-    @Override
-    public boolean doHurtTarget(Entity entity) {
-        if (entity instanceof ServerPlayer player)
+        if (this.isPassenger())
         {
-            latchedPlayer = player;
+            Entity vehicle = this.getVehicle();
+
+            if (vehicle != null && vehicle.isAlive() && !this.isDeadOrDying() && !(vehicle instanceof Player player && player.isCreative()))
+            {
+                vehicle.hurt(DamageSource.GENERIC, 3);
+                this.setYRot(vehicle.getYRot());
+            }
+            else {
+                this.stopRiding();
+            }
         }
 
-        return super.doHurtTarget(entity);
+        this.getNavigation().setCanFloat(this.isInWater());
     }
 
     @Override
@@ -127,6 +141,16 @@ public class LeechEntity extends WaterAnimal implements Enemy {
             LivingEntity target = this.leech.getTarget();
             if (target != null) {
                 this.leech.getNavigation().moveTo(target, speed);
+
+                if (this.leech.getBoundingBox().inflate(0.2D).intersects(target.getBoundingBox())) {
+                    this.leech.startRiding(target);
+                    this.leech.level.broadcastEntityEvent(this.leech, (byte) 36);
+
+                    if (target instanceof ServerPlayer player && !player.isCreative() && !player.isDeadOrDying())
+                    {
+                        new S2CEntityRidingMessage(player, this.leech).sendToLevel(player.getLevel());
+                    }
+                }
             }
         }
     }
