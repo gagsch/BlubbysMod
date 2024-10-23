@@ -1,6 +1,7 @@
 package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
+import com.bmod.forge.datagen.enrichment_recipe.EnrichmentRecipeBuilder;
 import com.bmod.registry.ModTags;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.tier.ModItemTier;
@@ -51,6 +52,88 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         coreBuilder(consumer, ModItems.DIAMOND_CORE.get(), Items.DIAMOND, "diamond", "");
         coreBuilder(consumer, ModItems.DIVINE_CORE.get(), ModItems.DIVINE_ALLOY.get(), "divine", BlubbysMod.MOD_ID);
         coreBuilder(consumer, ModItems.NETHERITE_CORE.get(), Items.NETHERITE_INGOT, "netherite", "");
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.ESSENCE_INFINITY.get(), 2)
+                .key('D', Items.DIAMOND)
+                .key('q', Items.QUARTZ)
+                .key('s', ModItems.SOUL_DUST.get())
+                .pattern("sqs")
+                .pattern("qDq")
+                .pattern("sqs")
+                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.LUCKY_ROCK.get())
+                .key('d', ModItems.DIVINE_ALLOY.get())
+                .key('E', ModItems.ESSENCE_STONE.get())
+                .pattern(" d ")
+                .pattern("dEd")
+                .pattern(" d ")
+                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.TOTEM_OF_DREAMS.get())
+                .key('L', ModItems.ESSENCE_LIFE.get())
+                .key('D', ModItems.ESSENCE_DEATH.get())
+                .key('a', ModItems.DIVINE_ALLOY.get())
+                .key('t', Items.TOTEM_OF_UNDYING)
+                .pattern(" a ")
+                .pattern("LtD")
+                .pattern(" a ")
+                .requirement(ModItems.ESSENCE_NIGHTMARES.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.SHROOMITE_INGOT.get())
+                .key('D', ModItems.DREADIUM_INGOT.get())
+                .key('g', ModBlocks.GLEAM_SHROOM.get().asItem())
+                .key('b', ModItems.VILE_BLOOD.get())
+                .pattern("bgb")
+                .pattern("gDg")
+                .pattern("bgb")
+                .requirement(ModItems.ESSENCE_CONTINUITY.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapeless(ModItems.CHRONOS_CLOCK.get())
+                .ingredient(Items.CLOCK)
+                .requirement(ModItems.SOUL_TIME.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.CURSED_GEM.get())
+                .key('D', ModItems.ESSENCE_DEATH.get())
+                .key('r', ModItems.RUBY.get())
+                .pattern(" r ")
+                .pattern("rDr")
+                .pattern(" r ")
+                .requirement(ModItems.VOODOO_DOLL.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.WIND_ROCKET.get())
+                .key('w', ModItems.ESSENCE_WIND.get())
+                .key('R', Items.FIREWORK_ROCKET)
+                .pattern("w")
+                .pattern("R")
+                .pattern("w")
+                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 2)
+                .key('c', Items.END_CRYSTAL)
+                .key('D', Items.DRAGON_EGG)
+                .pattern(" c ")
+                .pattern("cDc")
+                .pattern(" c ")
+                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(), 1)
+                .ingredient(ModItems.SOUL_BALANCE.get())
+                .ingredient(ModBlocks.SOUL_DIMENSIONS.get().asItem())
+                .ingredient(ModItems.SOUL_ELEMENTS.get())
+                .ingredient(ModItems.SOUL_FRAGMENT.get())
+                .ingredient(ModItems.SOUL_TIME.get())
+                .ingredient(ModItems.SOUL_SPACE.get())
+                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.DREADIUM_CORE.get(), 1)
                 .requires(ModItems.SHROOMITE_BOOTS.get())

@@ -13,10 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeManager;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class AncientRecipeBookScreen extends Screen {
     public static final ResourceLocation ANCIENT_BOOK_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/ancient_recipe_book.png");
@@ -75,9 +72,18 @@ public class AncientRecipeBookScreen extends Screen {
         Minecraft.getInstance().getItemRenderer().renderGuiItem(recipe.getRequired().getItems()[0], startX + 83, startY + 32);
 
         // 3x3 Crafting Items
-        for (int x = 0; x < 3; x++) {
-            for (int y = 0; y < 3; y++) {
-                int index = x + (y * 3);
+        int maxWidth = 3;
+        int maxHeight = 3;
+
+        if (!Objects.equals(recipe.recipeType, "shapeless"))
+        {
+            String[] recipeBoundStrings = recipe.recipeType.split("x");
+            maxWidth = Integer.parseInt(recipeBoundStrings[0]);
+            maxHeight = Integer.parseInt(recipeBoundStrings[1]);
+        }
+        for (int x = 0; x < maxWidth; x++) {
+            for (int y = 0; y < maxHeight; y++) {
+                int index = x + (y * maxWidth);
 
                 if (index < recipe.getIngredients().size()) {
                     Ingredient ingredient = recipe.getIngredients().get(index);

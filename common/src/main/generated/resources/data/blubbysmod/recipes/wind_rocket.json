@@ -1,0 +1,22 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "R": {
+      "item": "minecraft:firework_rocket"
+    },
+    "w": {
+      "item": "blubbysmod:essence_wind"
+    }
+  },
+  "page_number": 6,
+  "pattern": [
+    "w",
+    "R",
+    "w"
+  ],
+  "requirement": "blubbysmod:essence_infinity",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:wind_rocket"
+  }
+}

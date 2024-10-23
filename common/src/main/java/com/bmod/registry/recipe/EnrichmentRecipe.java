@@ -24,6 +24,9 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
     public final int pageNumber;
     private final ResourceLocation id;
 
+    private int width;
+    private int height;
+
     public EnrichmentRecipe(NonNullList<Ingredient> inputItems, Ingredient requiredItem, ItemStack outputItemStack, String recipeType, int pageNumber, ResourceLocation id) {
         this.inputItems = inputItems;
         this.requiredItem = requiredItem;
@@ -35,64 +38,52 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer container, Level level) {
-        if(level.isClientSide() || !this.requiredItem.test(container.getItem(9))) {
+        if (level.isClientSide() || !this.requiredItem.test(container.getItem(9))) {
             return false;
         }
 
-        if(Objects.equals(recipeType, "shapeless")) return shapeless(container);
+        if (Objects.equals(recipeType, "shapeless")) return shapeless(container);
 
         String[] recipeBoundStrings = recipeType.split("x");
-        int[] recipeBounds = {Integer.parseInt(recipeBoundStrings[0]), Integer.parseInt(recipeBoundStrings[1])};
+        width = Integer.parseInt(recipeBoundStrings[0]);
+        height = Integer.parseInt(recipeBoundStrings[1]);
 
-        int firstItem = -1;
-        int containerWithoutAir = 0;
-        int inputWithoutAir = 0;
-        for (int i = 0; i < 9; i++)
-        {
-            if (container.getItem(i) != ItemStack.EMPTY) {
-                containerWithoutAir++;
-            }
-            if (this.inputItems.get(i).test(container.getItem(i)))
-            {
-                firstItem = firstItem == -1 ? i : firstItem;
+        for (int startRow = 0; startRow <= 3 - height; ++startRow) {
+            for (int startCol = 0; startCol <= 3 - width; ++startCol) {
+                if (this.shaped(container, startCol, startRow, true) || this.shaped(container, startCol, startRow, false)) {
+                    return true;
+                }
             }
         }
+        return false;
+    }
 
-        for (Ingredient inputItem : this.inputItems) {
-            if (inputItem != Ingredient.EMPTY) {
-                inputWithoutAir++;
-            }
-        }
-        System.out.println("Recipe without air: " + inputWithoutAir);
-        System.out.println("Container without air: " + containerWithoutAir);
-        if (firstItem == -1 || inputWithoutAir != containerWithoutAir) {
-            return false;
-        }
+    private boolean shaped(SimpleContainer container, int startCol, int startRow, boolean isNormal) {
+        for (int i = 0; i < width; ++i) {
+            for (int j = 0; j < height; ++j) {
+                int gridX = startCol + i;
+                int gridY = startRow + j;
 
-        System.out.println("Recipe bound width: " + recipeBounds[0]);
-        System.out.println("Recipe bound height: " + recipeBounds[1]);
-
-        for (int x = 0; x < recipeBounds[0]; x++)
-        {
-            for (int y = 0; y < recipeBounds[1]; y++)
-            {
-                int recipeIndex = x + (y * recipeBounds[0]);
-                int containerIndex = firstItem + x + (y * 3);
-
-                if (containerIndex > 9) {
-                    System.out.println("Stopped Recipe! Cause: " + containerIndex + " > 9");
+                if (gridX >= 3 || gridY >= 3) {
                     return false;
-                } else if (!this.inputItems.get(recipeIndex).test(container.getItem(containerIndex))) {
-                    System.out.println("Stopped Recipe! Cause: " + Arrays.toString(this.inputItems.get(recipeIndex).getItems()) + " != " + container.getItem(containerIndex));
+                }
 
-                    System.out.println("DATA RECIPE INDEX = " + recipeIndex);
-                    System.out.println("DATA CONTAINER INDEX = " + containerIndex);
+                int recipeIndex;
+                if (isNormal) {
+                    recipeIndex = i + j * width;
+                } else {
+                    recipeIndex = (width - i - 1) + j * width;
+                }
 
+                Ingredient ingredient = inputItems.get(recipeIndex);
+
+                ItemStack currentItem = container.getItem(gridX + gridY * 3);
+
+                if (!ingredient.test(currentItem)) {
                     return false;
                 }
             }
         }
-
         return true;
     }
 
@@ -169,9 +160,7 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
         return id;
     }
 
-    public int getPageNumber() {
-        return pageNumber;
-    }
+    public int getPageNumber() { return pageNumber; }
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
@@ -203,9 +192,6 @@ public class EnrichmentRecipe implements Recipe<SimpleContainer> {
 
             int recipeWidth = pattern[0].length;
             int recipeHeight = pattern.length;
-
-            System.out.println("width " + recipeWidth);
-            System.out.println("height " + recipeHeight);
 
             for (int y = 0; y < recipeHeight; y++) {
                 for (int x = 0; x < recipeWidth; x++) {

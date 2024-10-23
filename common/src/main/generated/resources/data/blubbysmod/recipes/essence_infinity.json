@@ -11,6 +11,7 @@
       "item": "blubbysmod:soul_powder"
     }
   },
+  "page_number": 0,
   "pattern": [
     "sqs",
     "qDq",
@@ -20,6 +21,5 @@
   "result": {
     "count": 2,
     "item": "blubbysmod:essence_infinity"
-  },
-  "page_number": 1
+  }
 }

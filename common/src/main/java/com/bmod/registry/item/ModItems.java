@@ -76,6 +76,9 @@ public class ModItems  {
     VOODOO_DOLL = ITEMS.register("cursed_doll",
             VoodooDollItem::new),
 
+    WIND_ROCKET = ITEMS.register("wind_rocket",
+            WindRocketItem::new),
+
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",
             () -> new HotPepperItem(new Properties()
@@ -271,22 +274,20 @@ public class ModItems  {
             ESSENCE_INFINITY = ItemUtils.essence("infinity"),
             ESSENCE_LIFE = ItemUtils.essence("life"),
             ESSENCE_LIGHT = ItemUtils.essence("light"), //
-            ESSENCE_NIGHTMARES = ItemUtils.essence("nightmares"), // Night-Vision Goggles
+            ESSENCE_NIGHTMARES = ItemUtils.essence("nightmares"),
             ESSENCE_NETHER = ItemUtils.essence("nether"),
             ESSENCE_NIGHT = ItemUtils.essence("night"),
             ESSENCE_PLANETS = ItemUtils.essence("planets"),
-            ESSENCE_SEA = ItemUtils.essence("sea"), // Bubble Wand - Places bubble blocks
-            ESSENCE_STARS = ItemUtils.essence("stars"), //
-            ESSENCE_STONE = ItemUtils.essence("stone"), // Lucky Rock - +1 ore drop besides solid drops
-            ESSENCE_VOID = ItemUtils.essence("void"), // Void Bundle - Persistent Double Chest
+            ESSENCE_SEA = ItemUtils.essence("sea"),
+            ESSENCE_STARS = ItemUtils.essence("stars"),
+            ESSENCE_STONE = ItemUtils.essence("stone"),
+            ESSENCE_VOID = ItemUtils.essence("void"),
             ESSENCE_WIND = ItemUtils.essence("wind"), // Air Rocket - Infinite Rocket for Elytra, Essence Wind + 2 Rocket + Soul of Infinity
     // Souls
     SOUL_BALANCE = ItemUtils.soul("balance"),
             SOUL_ELEMENTS = ItemUtils.soul("elements"), //
             SOUL_SPACE = ItemUtils.soul("space"),
-                //
             SOUL_TIME = ItemUtils.soul("time"),
-                // Chronos' Clock - Skips time,
                 // Chronos' Stopwatch - On right click, saves your position and then sends you back when clicked again,
             SOUL_INFINITY = ItemUtils.soul("infinity"),
 

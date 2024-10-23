@@ -1,13 +1,14 @@
 {
   "type": "blubbysmod:enrichment_shaped",
   "key": {
-    "d": {
-      "item": "blubbysmod:divine_alloy"
-    },
     "E": {
       "item": "blubbysmod:essence_stone"
+    },
+    "d": {
+      "item": "blubbysmod:divine_alloy"
     }
   },
+  "page_number": 1,
   "pattern": [
     " d ",
     "dEd",
@@ -17,6 +18,5 @@
   "result": {
     "count": 1,
     "item": "blubbysmod:lucky_rock"
-  },
-  "page_number": 2
+  }
 }

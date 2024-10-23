@@ -2,13 +2,9 @@ package com.bmod.registry.item;
 
 import com.bmod.BlubbysMod;
 import dev.architectury.registry.CreativeTabRegistry;
-import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
-import org.jetbrains.annotations.NotNull;
 
 public class ModCreativeTab {
     public static final CreativeModeTab BLUBBYS_TAB_OF_DOOM = CreativeTabRegistry.create(

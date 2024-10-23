@@ -1,13 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "blubbysmod:enrichment_shaped",
   "key": {
-    "r": {
-      "item": "blubbysmod:ruby"
-    },
     "D": {
       "item": "blubbysmod:essence_death"
+    },
+    "r": {
+      "item": "blubbysmod:ruby"
     }
   },
+  "page_number": 5,
   "pattern": [
     " r ",
     "rDr",
@@ -17,6 +18,5 @@
   "result": {
     "count": 1,
     "item": "blubbysmod:cursed_gem"
-  },
-  "page_number": 5
+  }
 }

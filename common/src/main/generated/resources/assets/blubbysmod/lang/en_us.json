@@ -133,6 +133,8 @@
   "item.blubbysmod.totem_of_dreaming.tooltip": "Teleports you to your spawn point on death while retaining items and EXP.",
   "item.blubbysmod.vile_blood": "Vile Blood",
   "item.blubbysmod.warden_tendril": "Warden Tendril",
+  "item.blubbysmod.wind_rocket": "Wind Rocket",
+  "item.blubbysmod.wind_rocket.tooltip": "This rocket uses the air around you to propel you forward in flight.",
   "item.blubbysmod.wither_spine": "Wither Spine",
   "itemGroup.blubbysmod.blubbys_tab_of_doom": "Blubby's Mod"
 }

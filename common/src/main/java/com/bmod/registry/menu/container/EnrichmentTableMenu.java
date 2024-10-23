@@ -3,7 +3,6 @@ package com.bmod.registry.menu.container;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.menu.ModMenus;
 import com.bmod.registry.recipe.EnrichmentRecipe;
-import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -14,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public class EnrichmentTableMenu extends AbstractContainerMenu {

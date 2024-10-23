@@ -43,6 +43,9 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + getIdFromItem(ModItems.TOTEM_OF_DREAMS) + ".tooltip",
                 "Teleports you to your spawn point on death while retaining items and EXP.");
 
+        add("item.blubbysmod." + getIdFromItem(ModItems.WIND_ROCKET) + ".tooltip",
+                "This rocket uses the air around you to propel you forward in flight.");
+
         add("item.blubbysmod." + getIdFromItem(ModItems.ENDER_BUNDLE) + ".tooltip",
                 "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
 

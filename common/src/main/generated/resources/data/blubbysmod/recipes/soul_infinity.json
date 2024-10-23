@@ -1,0 +1,29 @@
+{
+  "type": "blubbysmod:enrichment_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:soul_balance"
+    },
+    {
+      "item": "blubbysmod:soul_dimensions"
+    },
+    {
+      "item": "blubbysmod:soul_elements"
+    },
+    {
+      "item": "blubbysmod:soul_fragment"
+    },
+    {
+      "item": "blubbysmod:soul_time"
+    },
+    {
+      "item": "blubbysmod:soul_space"
+    }
+  ],
+  "page_number": 8,
+  "requirement": "blubbysmod:essence_infinity",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:soul_infinity"
+  }
+}
