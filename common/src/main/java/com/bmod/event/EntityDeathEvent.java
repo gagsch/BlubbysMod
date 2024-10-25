@@ -95,15 +95,35 @@ public class EntityDeathEvent {
                 }
             }
             else if (entity instanceof Warden) {
+                if (entity.level.getRandom().nextInt(5) == 1)
+                {
+                    entity.spawnAtLocation(ModItems.AWAKENED_CORE.get());
+                }
+
                 entity.spawnAtLocation(ModItems.WARDEN_TENDRIL.get());
             }
             else if (entity instanceof ElderGuardian) {
+                if (entity.level.getRandom().nextInt(10) == 1)
+                {
+                    entity.spawnAtLocation(ModItems.AWAKENED_CORE.get());
+                }
+
                 entity.spawnAtLocation(ModItems.GUARDIAN_CORE.get());
             }
             else if (entity instanceof WitherBoss) {
+                if (entity.level.getRandom().nextInt(3) == 1)
+                {
+                    entity.spawnAtLocation(ModItems.AWAKENED_CORE.get());
+                }
+
                 entity.spawnAtLocation(ModItems.WITHER_SPINE.get());
             }
             else if (entity instanceof EnderDragon) {
+                if (entity.level.getRandom().nextInt(2) == 1)
+                {
+                    entity.spawnAtLocation(ModItems.ETERNAL_CORE.get());
+                }
+
                 entity.spawnAtLocation(ModItems.DRAGON_HEART.get());
             }
             

@@ -84,5 +84,11 @@
     "sounds": [
       "blubbysmod:entity/leech/leech_death"
     ]
+  },
+
+  "spider_den_cave_noise": {
+    "sounds": [
+      "blubbysmod:spider_den_cave_noise"
+    ]
   }
 }

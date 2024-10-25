@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "blubbysmod:block/ebon_door_bottom",
+    "top": "blubbysmod:block/ebon_door_top"
+  }
+}

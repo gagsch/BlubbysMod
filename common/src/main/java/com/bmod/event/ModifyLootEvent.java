@@ -2,6 +2,7 @@ package com.bmod.event;
 
 import com.bmod.registry.item.ModItems;
 import dev.architectury.event.events.common.LootEvent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -9,20 +10,27 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
+import java.util.Set;
+
 public class ModifyLootEvent {
 
     public static void initialize() {
-        LootEvent.MODIFY_LOOT_TABLE.register((lootTables, id, context, builtin) -> { if (builtin) {
-            if (BuiltInLootTables.ABANDONED_MINESHAFT.equals(id) ||
-                    BuiltInLootTables.ANCIENT_CITY.equals(id) ||
-                    BuiltInLootTables.SIMPLE_DUNGEON.equals(id) ||
-                    BuiltInLootTables.STRONGHOLD_LIBRARY.equals(id) ||
-                    BuiltInLootTables.IGLOO_CHEST.equals(id) ||
-                    BuiltInLootTables.JUNGLE_TEMPLE.equals(id) ||
-                    BuiltInLootTables.DESERT_PYRAMID.equals(id) ||
-                    BuiltInLootTables.WOODLAND_MANSION.equals(id) ||
-                    BuiltInLootTables.RUINED_PORTAL.equals(id)) {
+        Set<ResourceLocation> ANCIENT_LOOT_TABLES = Set.of(
+                BuiltInLootTables.ABANDONED_MINESHAFT,
+                BuiltInLootTables.ANCIENT_CITY,
+                BuiltInLootTables.SIMPLE_DUNGEON,
+                BuiltInLootTables.STRONGHOLD_LIBRARY,
+                BuiltInLootTables.IGLOO_CHEST,
+                BuiltInLootTables.JUNGLE_TEMPLE,
+                BuiltInLootTables.DESERT_PYRAMID,
+                BuiltInLootTables.WOODLAND_MANSION,
+                BuiltInLootTables.RUINED_PORTAL
+        );
 
+        Set<ResourceLocation> DORMANT_CORE_LOOT_TABLES = Set.of(BuiltInLootTables.SHIPWRECK_TREASURE, BuiltInLootTables.BURIED_TREASURE);
+
+        LootEvent.MODIFY_LOOT_TABLE.register((lootTables, id, context, builtin) -> { if (builtin) {
+            if (ANCIENT_LOOT_TABLES.contains(id)) {
                 LootPool.Builder pagePool =
                         LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(2.0F, 3.0F))
@@ -38,11 +46,8 @@ public class ModifyLootEvent {
 
                 context.addPool(pagePool.build());
                 context.addPool(bookPool.build());
-
             }
-
-            if (BuiltInLootTables.JUNGLE_TEMPLE.equals(id))
-            {
+            else if (BuiltInLootTables.JUNGLE_TEMPLE.equals(id)) {
                 LootPool.Builder cursedDollPool =
                         LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(1.0F, 1.0F))
@@ -50,6 +55,24 @@ public class ModifyLootEvent {
                                         .when(LootItemRandomChanceCondition.randomChance(0.4f)));
 
                 context.addPool(cursedDollPool.build());
+            }
+            else if (BuiltInLootTables.END_CITY_TREASURE.equals(id)) {
+                LootPool.Builder corePool =
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0F, 1.0F))
+                                .add(LootItem.lootTableItem(ModItems.ETERNAL_CORE.get())
+                                        .when(LootItemRandomChanceCondition.randomChance(0.1f)));
+
+                context.addPool(corePool.build());
+            }
+            else if (DORMANT_CORE_LOOT_TABLES.contains(id)) {
+                LootPool.Builder corePool =
+                        LootPool.lootPool()
+                                .setRolls(UniformGenerator.between(1.0F, 1.0F))
+                                .add(LootItem.lootTableItem(ModItems.DORMANT_CORE.get())
+                                        .when(LootItemRandomChanceCondition.randomChance(0.1f)));
+
+                context.addPool(corePool.build());
             }
         }});
     }

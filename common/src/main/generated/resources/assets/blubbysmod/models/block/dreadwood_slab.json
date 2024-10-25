@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "blubbysmod:block/dreadwood_planks",
+    "side": "blubbysmod:block/dreadwood_planks",
+    "top": "blubbysmod:block/dreadwood_planks"
+  }
+}

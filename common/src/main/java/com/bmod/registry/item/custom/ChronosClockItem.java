@@ -1,5 +1,6 @@
 package com.bmod.registry.item.custom;
 
+import com.bmod.registry.item.ModCreativeTab;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -10,8 +11,11 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class ChronosClockItem extends ToolTipItem {
-    public ChronosClockItem(Properties properties) {
-        super(properties);
+    public ChronosClockItem() {
+        super(new Properties()
+                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .durability(-1)
+                .stacksTo(1));
     }
 
     @Override
@@ -23,7 +27,9 @@ public class ChronosClockItem extends ToolTipItem {
 
             assert serverLevel != null;
             serverLevel.setDayTime(serverLevel.getDayTime()+250);
+
+            return InteractionResultHolder.success(player.getItemInHand(hand));
         }
-        return super.use(level, player, hand);
+        return InteractionResultHolder.pass(player.getItemInHand(hand));
     }
 }

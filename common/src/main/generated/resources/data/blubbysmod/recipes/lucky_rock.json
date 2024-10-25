@@ -8,13 +8,13 @@
       "item": "blubbysmod:divine_alloy"
     }
   },
-  "page_number": 1,
+  "page_number": 0,
   "pattern": [
     " d ",
     "dEd",
     " d "
   ],
-  "requirement": "blubbysmod:essence_infinity",
+  "requirement": "blubbysmod:dormant_core",
   "result": {
     "count": 1,
     "item": "blubbysmod:lucky_rock"

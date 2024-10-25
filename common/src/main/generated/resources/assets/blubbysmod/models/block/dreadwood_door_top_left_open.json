@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "blubbysmod:block/dreadwood_door_bottom",
+    "top": "blubbysmod:block/dreadwood_door_top"
+  }
+}

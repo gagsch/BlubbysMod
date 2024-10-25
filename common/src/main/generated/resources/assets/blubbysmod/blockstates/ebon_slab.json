@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blubbysmod:block/ebon_slab"
+    },
+    "type=double": {
+      "model": "blubbysmod:block/ebon_planks"
+    },
+    "type=top": {
+      "model": "blubbysmod:block/ebon_slab_top"
+    }
+  }
+}

@@ -41,10 +41,10 @@ public class ModItems  {
             BubbleWandItem::new),
 
     CHRONOS_CLOCK = ITEMS.register("chronos_clock",
-            () -> new ChronosClockItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
+            ChronosClockItem::new),
+
+    CHRONOS_STOPWATCH = ITEMS.register("chronos_stopwatch",
+            ChronosStopwatchItem::new),
 
     CURSED_GEM = ITEMS.register("cursed_gem",
             CursedGemItem::new),
@@ -148,48 +148,6 @@ public class ModItems  {
                     .durability(-1)
                     .stacksTo(64))),
 
-    SOUL_INFUSED_RUBY = ITEMS.register("soul_infused_ruby",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    IRON_CORE = ITEMS.register("iron_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    GOLDEN_CORE = ITEMS.register("golden_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    DIAMOND_CORE = ITEMS.register("diamond_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    DIVINE_CORE = ITEMS.register("divine_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    NETHERITE_CORE = ITEMS.register("netherite_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    DREADIUM_CORE = ITEMS.register("dreadium_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
     VILE_BLOOD = ITEMS.register("vile_blood",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -201,6 +159,24 @@ public class ModItems  {
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
+
+    DORMANT_CORE = ITEMS.register("dormant_core",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1))),
+
+    AWAKENED_CORE = ITEMS.register("awakened_core",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1))),
+
+    ETERNAL_CORE = ITEMS.register("eternal_core",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1))),
 
     // Dreadium Stuff
     DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
@@ -271,7 +247,6 @@ public class ModItems  {
             ESSENCE_OVERWORLD = ItemUtils.essence("earth"),
             ESSENCE_ENERGY = ItemUtils.essence("energy"),
             ESSENCE_FLAMES = ItemUtils.essence("flames"),
-            ESSENCE_INFINITY = ItemUtils.essence("infinity"),
             ESSENCE_LIFE = ItemUtils.essence("life"),
             ESSENCE_LIGHT = ItemUtils.essence("light"), //
             ESSENCE_NIGHTMARES = ItemUtils.essence("nightmares"),
@@ -282,7 +257,7 @@ public class ModItems  {
             ESSENCE_STARS = ItemUtils.essence("stars"),
             ESSENCE_STONE = ItemUtils.essence("stone"),
             ESSENCE_VOID = ItemUtils.essence("void"),
-            ESSENCE_WIND = ItemUtils.essence("wind"), // Air Rocket - Infinite Rocket for Elytra, Essence Wind + 2 Rocket + Soul of Infinity
+            ESSENCE_WIND = ItemUtils.essence("wind"),
     // Souls
     SOUL_BALANCE = ItemUtils.soul("balance"),
             SOUL_ELEMENTS = ItemUtils.soul("elements"), //

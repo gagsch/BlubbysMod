@@ -4,10 +4,11 @@ import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.item.custom.BubbleWandItem;
+import com.bmod.util.WoodUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
 import static com.bmod.util.WoodUtils.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    private final Set<String> registeredItems = new HashSet<>();
+    public static final Set<String> registeredItems = new HashSet<>();
 
     private static final List<Class<?>> HANDHELD_CLASS = Arrays.asList(
             SwordItem.class,
@@ -39,7 +40,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         specialBlockItem(sapling(DREADWOOD));
+        specialBlockItem(door(DREADWOOD));
         specialBlockItem(sapling(EBON));
+        specialBlockItem(door(EBON));
+
         specialBlockItem(ModBlocks.GLEAM_SHROOM);
 
         simpleItem(ModItems.HOT_PEPPER_SEEDS);
@@ -60,15 +64,24 @@ public class ModItemModelProvider extends ItemModelProvider {
         for (Supplier<Item> item : ModItems.ITEMS)
         {
             String path = getPath(item.get());
-            if (!registeredItems.contains(path) && !(item.get() instanceof BlockItem)) {
-                if (HANDHELD_CLASS.stream().anyMatch(cls -> cls.isInstance(item.get())))
-                {
+            if (!registeredItems.contains(path)) {
+                if (HANDHELD_CLASS.stream().anyMatch(cls -> cls.isInstance(item.get()))) {
                     simpleHandheldItem(item);
-                } else
-                {
+                }
+                else if (item.get() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof DoorBlock || blockItem.getBlock() instanceof SaplingBlock)) {
+                    if (blockItem.getBlock() instanceof TrapDoorBlock) {
+                        blockItem(item, "_bottom");
+                    }
+                    else if (blockItem.getBlock() instanceof FenceBlock || blockItem.getBlock() instanceof ButtonBlock) {
+                        blockItem(item, "_inventory");
+                    }
+                    else {
+                        blockItem(item, "");
+                    }
+                }
+                else {
                     simpleItem(item);
                 }
-
             } else {
                 System.out.println("Item " + path + " is already registered.");
             }
@@ -100,13 +113,20 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(BlubbysMod.MOD_ID, "items/" + getPath(item.get())));
     }
 
-    public void specialBlockItem(Supplier<Block> block) {
+    public void blockItem(Supplier<Item> block, String suffix) {
+        String path = getPath(block.get());
+        registeredItems.add(path);
+
+        getBuilder(path).parent(getExistingFile(new ResourceLocation(BlubbysMod.MOD_ID, "block/" + path + suffix)));
+    }
+
+    public void specialBlockItem(Supplier<? extends Block> block) {
         String path = getPath(block.get().asItem());
         registeredItems.add(path);
 
-        withExistingParent(getPath(block.get().asItem()),
+        withExistingParent(path,
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(BlubbysMod.MOD_ID, "block/" + getPath(block.get().asItem())));
+                new ResourceLocation(BlubbysMod.MOD_ID, "block/" + path));
     }
 
     public void spawnEggItem(Supplier<Item> item) {

@@ -1,0 +1,17 @@
+{
+  "type": "blubbysmod:enrichment_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:chain"
+    },
+    {
+      "item": "minecraft:clock"
+    }
+  ],
+  "page_number": 4,
+  "requirement": "blubbysmod:soul_time",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:chronos_stopwatch"
+  }
+}

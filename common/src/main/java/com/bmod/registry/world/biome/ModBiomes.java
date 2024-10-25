@@ -1,6 +1,7 @@
 package com.bmod.registry.world.biome;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.ModSounds;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
@@ -58,6 +59,7 @@ public class ModBiomes {
                         .fogColor(0)
                         .skyColor(0)
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
+                        .ambientAdditionsSound(new AmbientAdditionsSettings(ModSounds.SPIDER_DEN_CAVE_NOISE.get(), .00003))
                         .backgroundMusic(music).build())
                 .mobSpawnSettings(mobBuilder.build())
                 .generationSettings(generationBuilder.build())

@@ -20,14 +20,8 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModBlockStateProvider extends BlockStateProvider {
-    ExistingFileHelper existingFileHelper;
-    DataGenerator dataGen;
-
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, BlubbysMod.MOD_ID, exFileHelper);
-
-        this.dataGen = gen;
-        this.existingFileHelper = exFileHelper;
     }
 
     @Override
@@ -63,6 +57,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get());
 
         simpleBlockItem(ModBlocks.SOUL_DIMENSIONS.get(), cubeAll(ModBlocks.SOUL_DIMENSIONS.get()));
+        ModItemModelProvider.registeredItems.add(getName(ModBlocks.SOUL_DIMENSIONS));
     }
 
     private void woodType(String wood)
@@ -74,12 +69,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(leaves(wood).get());
         blockWithItem(planks(wood).get());
         crossBlock(sapling(wood).get());
+        stairsBlock(stairs(wood).get(), blockLoc(planks(wood)));
+        slabBlock(slab(wood).get(), blockLoc(planks(wood)), blockLoc(planks(wood)));
+        fenceBlock(fence(wood).get(), blockLoc(planks(wood)));
+        fenceGateBlock(gate(wood).get(), blockLoc(planks(wood)));
+        doorBlockWithRenderType(door(wood).get(), blockLoc(door(wood), "bottom"), blockLoc(door(wood), "top"), "cutout");
+        trapdoorBlockWithRenderType(trapdoor(wood).get(), blockLoc(trapdoor(wood)), true, "cutout");
+        pressurePlateBlock(pressurePlate(wood).get(), blockLoc(planks(wood)));
+        buttonBlock(button(wood).get(), blockLoc(planks(wood)));
+
+        models().buttonInventory(getName(button(wood)) + "_inventory", blockLoc(planks(wood)));
+        models().fenceInventory(getName(fence(wood)) + "_inventory", blockLoc(planks(wood)));
     }
 
     private void blockWithItem(Block block)
     {
         simpleBlock(block, cubeAll(block));
         simpleBlockItem(block, cubeAll(block));
+        ModItemModelProvider.registeredItems.add(getName(block));
     }
 
     private void translucentBlockWithItem(Block block)
@@ -88,12 +95,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).renderType("translucent"));
         simpleBlockItem(block,
                 models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).renderType("translucent"));
+        ModItemModelProvider.registeredItems.add(getName(block));
     }
 
     private void bottomTopBlockWithItem(Block block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture)
     {
         simpleBlock(block, models().cubeBottomTop(getName(block), sideTexture, bottomTexture, topTexture));
         simpleBlockItem(block, models().cubeBottomTop(getName(block), sideTexture, bottomTexture, topTexture));
+        ModItemModelProvider.registeredItems.add(getName(block));
     }
 
     private void axisBlockWithItem(Block block, ResourceLocation sideTexture, ResourceLocation endTexture)
@@ -102,12 +111,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
             axisBlock(rotatedPillarBlock, sideTexture, endTexture);
 
         simpleBlockItem(block, models().withExistingParent(getName(block), "minecraft:block/cube_column"));
+        ModItemModelProvider.registeredItems.add(getName(block));
     }
 
     private void northFacingBlockWithItem(Supplier<Block> block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture, ResourceLocation frontTexture)
     {
         simpleBlock(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture).texture("particle", topTexture));
         simpleBlockItem(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture));
+        ModItemModelProvider.registeredItems.add(getName(block));
     }
 
     private void crossBlock(Block block) {

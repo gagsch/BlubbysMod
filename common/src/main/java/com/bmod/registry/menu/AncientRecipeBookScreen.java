@@ -42,8 +42,8 @@ public class AncientRecipeBookScreen extends Screen {
         int xPos = (this.width - textureWidth) / 2;
         int yPos = (this.height - textureHeight) / 2;
 
-        PageButton forwardButton = this.addRenderableWidget(new AncientPageButton(xPos + 116, yPos +135, true, (button) -> this.pageForward(), true));
-        PageButton backButton = this.addRenderableWidget(new AncientPageButton(xPos + 43, yPos + 135, false, (button) -> this.pageBack(), true));
+        PageButton forwardButton = this.addRenderableWidget(new AncientPageButton(xPos + 103, yPos + 158, true, (button) -> this.pageForward(), true));
+        PageButton backButton = this.addRenderableWidget(new AncientPageButton(xPos + 56, yPos + 158, false, (button) -> this.pageBack(), true));
         forwardButton.visible = true;
         backButton.visible = true;
     }
@@ -69,7 +69,7 @@ public class AncientRecipeBookScreen extends Screen {
         EnrichmentRecipe recipe = this.enrichmentRecipes.get(Math.min(currentPage, Math.min(this.enrichmentRecipes.size() - 1, this.pagesDiscovered)));
 
         // Requirement Item
-        Minecraft.getInstance().getItemRenderer().renderGuiItem(recipe.getRequired().getItems()[0], startX + 83, startY + 32);
+        Minecraft.getInstance().getItemRenderer().renderGuiItem(recipe.getRequired().getItems()[0], startX + 32, startY + 76);
 
         // 3x3 Crafting Items
         int maxWidth = 3;
@@ -91,8 +91,8 @@ public class AncientRecipeBookScreen extends Screen {
                     if (ingredient.getItems().length > 0) {
                         Minecraft.getInstance().getItemRenderer().renderGuiItem(
                                 ingredient.getItems()[0],
-                                startX + 65 + (x * 18),
-                                startY + 54 + (y * 18)
+                                startX + 54 + (x * 18),
+                                startY + 58 + (y * 18)
                         );
                     }
                 }
@@ -100,7 +100,7 @@ public class AncientRecipeBookScreen extends Screen {
         }
 
         // Crafted Item
-        Minecraft.getInstance().getItemRenderer().renderGuiItem(recipe.getResultItem(), startX + 83, startY + 128);
+        Minecraft.getInstance().getItemRenderer().renderGuiItem(recipe.getResultItem(), startX + 128, startY + 76);
     }
 
     private void pageBack() {

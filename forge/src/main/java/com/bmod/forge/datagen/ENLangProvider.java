@@ -37,6 +37,9 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + getIdFromItem(ModItems.CHRONOS_CLOCK) + ".tooltip",
                 "Skips time forward. Avoid skipping ahead to far!");
 
+        add("item.blubbysmod." + getIdFromItem(ModItems.CHRONOS_STOPWATCH) + ".tooltip",
+                "Marks your location on first use, then returns you to that spot on the second use.");
+
         add("item.blubbysmod." + getIdFromItem(ModItems.LUCKY_ROCK) + ".tooltip",
                 "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
 
@@ -83,7 +86,6 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.SOUL_DUST, "Soul Dust");
         addItem(ModItems.SOUL_ELEMENTS, "Soul of the Elements");
         addItem(ModItems.SOUL_FRAGMENT, "Soul Fragment");
-        addItem(ModItems.SOUL_INFUSED_RUBY, "Soul-Infused Ruby");
         addItem(ModItems.SOUL_SPACE, "Soul of the Cosmos");
 
         add("enchantment.blubbysmod.web_walker", "Web Walker");

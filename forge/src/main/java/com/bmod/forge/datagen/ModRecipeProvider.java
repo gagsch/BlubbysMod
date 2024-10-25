@@ -47,29 +47,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shovelBuilder(consumer, ModItems.DIVINE_SHOVEL.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         hoeBuilder(consumer, ModItems.DIVINE_HOE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
 
-        coreBuilder(consumer, ModItems.IRON_CORE.get(), Items.IRON_INGOT, "iron", "");
-        coreBuilder(consumer, ModItems.GOLDEN_CORE.get(), Items.GOLD_INGOT, "golden", "");
-        coreBuilder(consumer, ModItems.DIAMOND_CORE.get(), Items.DIAMOND, "diamond", "");
-        coreBuilder(consumer, ModItems.DIVINE_CORE.get(), ModItems.DIVINE_ALLOY.get(), "divine", BlubbysMod.MOD_ID);
-        coreBuilder(consumer, ModItems.NETHERITE_CORE.get(), Items.NETHERITE_INGOT, "netherite", "");
-
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.ESSENCE_INFINITY.get(), 2)
-                .key('D', Items.DIAMOND)
-                .key('q', Items.QUARTZ)
-                .key('s', ModItems.SOUL_DUST.get())
-                .pattern("sqs")
-                .pattern("qDq")
-                .pattern("sqs")
-                .requirement(ModItems.ESSENCE_INFINITY.get())
-                .save(consumer);
-
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.LUCKY_ROCK.get())
                 .key('d', ModItems.DIVINE_ALLOY.get())
                 .key('E', ModItems.ESSENCE_STONE.get())
                 .pattern(" d ")
                 .pattern("dEd")
                 .pattern(" d ")
-                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .requirement(ModItems.DORMANT_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.TOTEM_OF_DREAMS.get())
@@ -80,7 +64,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" a ")
                 .pattern("LtD")
                 .pattern(" a ")
-                .requirement(ModItems.ESSENCE_NIGHTMARES.get())
+                .requirement(ModItems.DORMANT_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.SHROOMITE_INGOT.get())
@@ -94,6 +78,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapeless(ModItems.CHRONOS_CLOCK.get())
+                .ingredient(Items.CLOCK)
+                .requirement(ModItems.SOUL_TIME.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapeless(ModItems.CHRONOS_STOPWATCH.get())
+                .ingredient(Items.CHAIN)
                 .ingredient(Items.CLOCK)
                 .requirement(ModItems.SOUL_TIME.get())
                 .save(consumer);
@@ -113,7 +103,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("w")
                 .pattern("R")
                 .pattern("w")
-                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 2)
@@ -122,7 +112,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" c ")
                 .pattern("cDc")
                 .pattern(" c ")
-                .requirement(ModItems.ESSENCE_INFINITY.get())
+                .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(), 1)
@@ -132,16 +122,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .ingredient(ModItems.SOUL_FRAGMENT.get())
                 .ingredient(ModItems.SOUL_TIME.get())
                 .ingredient(ModItems.SOUL_SPACE.get())
-                .requirement(ModItems.ESSENCE_INFINITY.get())
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(ModItems.DREADIUM_CORE.get(), 1)
-                .requires(ModItems.SHROOMITE_BOOTS.get())
-                .requires(ModItems.SHROOMITE_LEGGINGS.get())
-                .requires(ModItems.SHROOMITE_CHESTPLATE.get())
-                .requires(ModItems.SHROOMITE_HELMET.get())
-                .requires(ModItems.DREADIUM_INGOT.get())
-                .unlockedBy("has_unlock_requirement", has(ModItems.DREADIUM_INGOT.get()))
+                .requirement(ModItems.ETERNAL_CORE.get())
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
@@ -315,21 +296,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("gDg")
                 .pattern("b b")
                 .unlockedBy("has_diamond", has(Items.DIAMOND_BOOTS))
-                .save(consumer);
-    }
-
-    protected void coreBuilder(Consumer<FinishedRecipe> consumer, ItemLike core, Item unlockRequirement, String materialName, String ID) {
-        ShapelessRecipeBuilder.shapeless(core, 1)
-                .requires(ItemUtils.getItemFromId(materialName + "_boots", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_leggings", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_chestplate", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_helmet", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_sword", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_pickaxe", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_axe", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_shovel", ID))
-                .requires(ItemUtils.getItemFromId(materialName + "_hoe", ID))
-                .unlockedBy("has_unlock_requirement", has(unlockRequirement))
                 .save(consumer);
     }
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blubbysmod:block/dreadwood_slab"
+    },
+    "type=double": {
+      "model": "blubbysmod:block/dreadwood_planks"
+    },
+    "type=top": {
+      "model": "blubbysmod:block/dreadwood_slab_top"
+    }
+  }
+}

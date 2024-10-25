@@ -32,6 +32,8 @@ public class ModSounds {
     public static final Supplier<SoundEvent> LEECH_HURT = register("leech_hurt");
     public static final Supplier<SoundEvent> LEECH_DEATH = register("leech_death");
 
+    public static final Supplier<SoundEvent> SPIDER_DEN_CAVE_NOISE = register("spider_den_cave_noise");
+
     private static Supplier<SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(BlubbysMod.MOD_ID, name)));
     }

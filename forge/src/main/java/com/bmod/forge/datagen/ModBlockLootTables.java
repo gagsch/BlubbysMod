@@ -33,6 +33,11 @@ public class ModBlockLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
+        add(door(DREADWOOD).get(), createDoorTable(door(DREADWOOD).get()));
+        add(door(EBON).get(), createDoorTable(door(EBON).get()));
+        add(slab(DREADWOOD).get(), createSlabItemTable(slab(DREADWOOD).get()));
+        add(slab(EBON).get(), createSlabItemTable(slab(EBON).get()));
+
         dropOther(ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.DARK_SOIL.get());
         dropOther(ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.DARK_SOIL.get());
 
@@ -63,6 +68,10 @@ public class ModBlockLootTables extends BlockLoot {
         add(WoodUtils.leaves(EBON).get(), (block) ->
                 createLeavesDrops(block, WoodUtils.sapling(EBON).get(), ModItems.ROTTEN_APPLE.get(), 0.1F));
 
+        registeredBlockLoot.add(door(DREADWOOD).get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(slab(DREADWOOD).get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(door(EBON).get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(slab(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECROTIC_GRASS_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.WEB_STONE.get().builtInRegistryHolder().key().location().getPath());
