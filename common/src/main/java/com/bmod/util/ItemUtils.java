@@ -40,11 +40,20 @@ public class ItemUtils {
     }
 
     public static Supplier<Item> essence(String name) {
-        return ModItems.ITEMS.register("essence_"+name, () -> new Item(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1).stacksTo(64)));
+        return ModItems.ITEMS.register("essence_" + name,
+                () -> new Item(
+                        new Item.Properties()
+                                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                                .durability(-1)
+                                .stacksTo(64)));
     }
 
     public static Supplier<Item> soul(String name) {
-        return ModItems.ITEMS.register("soul_"+name, () -> new Item(new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(-1).stacksTo(1)));
+        return ModItems.ITEMS.register("soul_" + name,
+                () -> new Item(new Item.Properties()
+                                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                                .durability(-1)
+                                .stacksTo(1)));
     }
 
     public static Supplier<Item> sword(ModItemTier type, int damage, float attackSpeed) {

@@ -21,9 +21,6 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.BLOCK_REGISTRY);
 
     public static final Supplier<Block>
-    SOUL_DIMENSIONS = registerBlock("soul_dimensions", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ZOMBIE_HEAD).noOcclusion())),
-
     SLUDGE_BLOCK = registerBlock("sludge_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))),
 

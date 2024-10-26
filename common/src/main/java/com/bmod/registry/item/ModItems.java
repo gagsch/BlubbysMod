@@ -260,10 +260,10 @@ public class ModItems  {
             ESSENCE_WIND = ItemUtils.essence("wind"),
     // Souls
     SOUL_BALANCE = ItemUtils.soul("balance"),
+            SOUL_DIMENSIONS = ItemUtils.soul("dimensions"),
             SOUL_ELEMENTS = ItemUtils.soul("elements"), //
             SOUL_SPACE = ItemUtils.soul("space"),
             SOUL_TIME = ItemUtils.soul("time"),
-                // Chronos' Stopwatch - On right click, saves your position and then sends you back when clicked again,
             SOUL_INFINITY = ItemUtils.soul("infinity"),
 
     // Spawn Eggs

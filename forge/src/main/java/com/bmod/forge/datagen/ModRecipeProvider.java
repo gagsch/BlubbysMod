@@ -117,7 +117,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         EnrichmentRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(), 1)
                 .ingredient(ModItems.SOUL_BALANCE.get())
-                .ingredient(ModBlocks.SOUL_DIMENSIONS.get().asItem())
+                .ingredient(ModItems.SOUL_DIMENSIONS.get())
                 .ingredient(ModItems.SOUL_ELEMENTS.get())
                 .ingredient(ModItems.SOUL_FRAGMENT.get())
                 .ingredient(ModItems.SOUL_TIME.get())
@@ -550,7 +550,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.ESSENCE_ENERGY.get(),
                 ModItems.ESSENCE_VOID.get());
 
-        soulCrossBuilder(consumer, ModBlocks.SOUL_DIMENSIONS.get().asItem(),
+        soulCrossBuilder(consumer, ModItems.SOUL_DIMENSIONS.get(),
                 ModItems.ESSENCE_OVERWORLD.get(),
                 ModItems.ESSENCE_NETHER.get(),
                 ModItems.ESSENCE_END.get(),

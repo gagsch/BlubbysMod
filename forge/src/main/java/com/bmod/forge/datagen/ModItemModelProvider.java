@@ -56,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         voodooDoll(ModItems.VOODOO_DOLL);
 
+        registeredItems.add(getPath(ModItems.SOUL_DIMENSIONS.get()));
         registerUnsetItems();
     }
 
