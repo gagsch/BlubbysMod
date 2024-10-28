@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LeechRenderer extends MobRenderer<LeechEntity, LeechModel<LeechEntity>> {
     public LeechRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new LeechModel<>(pContext.bakeLayer(ModModelLayers.LEECH_LAYER)), 0.3f);
+        super(pContext, new LeechModel<>(pContext.bakeLayer(LeechModel.LAYER_LOCATION)), 0.3f);
     }
 
     @Override

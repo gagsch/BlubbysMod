@@ -28,12 +28,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels()
     {
         crossBlock(ModBlocks.GLEAM_SHROOM.get());
+        blockWithItem(ModBlocks.GLEAM_SHROOM_BLOCK.get());
         blockWithItem(ModBlocks.ROT_BLOCK.get());
         axisBlockWithItem(ModBlocks.FOSSILIZED_BONE_BLOCK.get(), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK), blockLoc(ModBlocks.FOSSILIZED_BONE_BLOCK, "top"));
         bottomTopBlockWithItem(ModBlocks.DARK_TURF_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.DARK_TURF_BLOCK, "top"), blockLoc(ModBlocks.DARK_TURF_BLOCK));
         bottomTopBlockWithItem(ModBlocks.NECROTIC_GRASS_BLOCK.get(), blockLoc(ModBlocks.DARK_SOIL), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK, "top"), blockLoc(ModBlocks.NECROTIC_GRASS_BLOCK));
         blockWithItem(ModBlocks.DARK_SOIL.get());
         blockWithItem(ModBlocks.DEEPERSLATE.get());
+        bottomTopBlockWithItem(ModBlocks.MYCELIUM_DEEPERSLATE.get(), blockLoc(ModBlocks.DEEPERSLATE), blockLoc(ModBlocks.MYCELIUM_DEEPERSLATE, "top"), blockLoc(ModBlocks.MYCELIUM_DEEPERSLATE));
         blockWithItem(ModBlocks.WEB_STONE.get());
         blockWithItem(ModBlocks.SILK_BLOCK.get());
         bottomTopBlockWithItem(ModBlocks.SLUDGE_BLOCK.get(), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK, "top"), blockLoc(ModBlocks.SLUDGE_BLOCK));

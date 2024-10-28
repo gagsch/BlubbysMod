@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "blubbysmod:block/soul_dimensions",
-		"particle": "blubbysmod:block/soul_dimensions"
+		"0": "blubbysmod:items/soul_dimensions",
+		"particle": "blubbysmod:items/soul_dimensions"
 	},
 	"elements": [
 		{

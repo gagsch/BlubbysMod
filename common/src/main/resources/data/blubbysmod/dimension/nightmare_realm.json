@@ -408,6 +408,53 @@
                             "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
+                                    "blubbysmod:gleaming_mushrooms"
+                                ]
+                            },
+                            "then_run": {
+                                "type": "minecraft:sequence",
+                                "sequence": [
+                                    {
+                                        "type": "minecraft:condition",
+                                        "if_true": {
+                                            "type": "minecraft:stone_depth",
+                                            "offset": 0,
+                                            "surface_type": "floor",
+                                            "add_surface_depth": false,
+                                            "secondary_depth_range": 0
+                                        },
+                                        "then_run": {
+                                            "type": "minecraft:block",
+                                            "result_state": {
+                                                "Name": "blubbysmod:mycelium_deeperslate"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "minecraft:block",
+                                        "result_state": {
+                                            "Name": "blubbysmod:deeperslate"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "minecraft:condition",
+                        "if_true": {
+                            "type": "minecraft:y_above",
+                            "anchor": {
+                                "absolute": -59
+                            },
+                            "surface_depth_multiplier": 0,
+                            "add_stone_depth": false
+                        },
+                        "then_run": {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                                "type": "minecraft:biome",
+                                "biome_is": [
                                     "blubbysmod:spider_den"
                                 ]
                             },
@@ -795,13 +842,22 @@
                     "biome": "blubbysmod:spider_den",
                     "parameters": {
                         "temperature": 0,
-                        "humidity": 0.5,
+                        "humidity": 0,
                         "continentalness": 0,
                         "erosion": 0,
-                        "weirdness": [
-                            0.7,
-                            2
-                        ],
+                        "weirdness": 1.2,
+                        "depth": 0.8,
+                        "offset": 0
+                    }
+                },
+                {
+                    "biome": "blubbysmod:gleaming_mushrooms",
+                    "parameters": {
+                        "temperature": 0,
+                        "humidity": 0,
+                        "continentalness": 0,
+                        "erosion": 0,
+                        "weirdness": -0.3,
                         "depth": 1.1,
                         "offset": 0
                     }

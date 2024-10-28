@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class SnowFlinxRenderer extends MobRenderer<SnowFlinxEntity, SnowFlinxModel<SnowFlinxEntity>> {
     public SnowFlinxRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SnowFlinxModel<>(pContext.bakeLayer(ModModelLayers.SNOW_FLINX_LAYER)), 0.5f);
+        super(pContext, new SnowFlinxModel<>(pContext.bakeLayer(SnowFlinxModel.LAYER_LOCATION)), 0.5f);
     }
 
     @Override

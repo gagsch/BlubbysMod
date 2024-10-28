@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 import static com.bmod.registry.item.custom.ToolTipItem.*;
 import static com.bmod.registry.item.custom.InventoryItem.*;
 
-public class ModItems  {
+public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ITEM_REGISTRY);
     
     public static final Supplier<Item> BLUBBY_COIN = ITEMS.register("blubby_coin",
@@ -131,6 +131,12 @@ public class ModItems  {
                     .stacksTo(64))),
 
     SOUL_DUST = ITEMS.register("soul_powder",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    FAIRY_DUST = ITEMS.register("fairy_dust",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -287,6 +293,12 @@ public class ModItems  {
 
     LEECH_SPAWN_EGG = ITEMS.register("leech_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.LEECH.get(), 0x3C1B22, 0x6B3640, new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    DARK_FAIRY_SPAWN_EGG = ITEMS.register("dark_fairy_spawn_egg",
+            () -> new SpawnEggItem(ModEntityTypes.DARK_FAIRY.get(), 0xA08989, 0xCC6767, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)));

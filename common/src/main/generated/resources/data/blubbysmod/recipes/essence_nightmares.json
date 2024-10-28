@@ -4,29 +4,23 @@
     "#": {
       "item": "blubbysmod:necrium_ingot"
     },
-    "D": {
-      "item": "blubbysmod:deeperslate"
+    "B": {
+      "item": "blubbysmod:vile_blood"
     },
-    "G": {
-      "item": "blubbysmod:gleam_shroom"
-    },
-    "I": {
-      "item": "blubbysmod:necrotic_grass_block"
+    "F": {
+      "item": "blubbysmod:fairy_dust"
     },
     "N": {
       "item": "blubbysmod:dreadium_ingot"
     },
     "S": {
-      "item": "blubbysmod:dark_soil"
-    },
-    "T": {
-      "item": "blubbysmod:dark_turf_block"
+      "item": "blubbysmod:gleam_shroom"
     }
   },
   "pattern": [
-    "TIG",
+    " B ",
     "NS#",
-    "DDD"
+    " F "
   ],
   "result": {
     "item": "blubbysmod:essence_nightmares"

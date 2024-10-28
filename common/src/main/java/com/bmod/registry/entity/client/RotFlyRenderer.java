@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class RotFlyRenderer extends MobRenderer<RotFlyEntity, RotFlyModel<RotFlyEntity>> {
     public RotFlyRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new RotFlyModel<>(pContext.bakeLayer(ModModelLayers.ROT_FLY_LAYER)), 0.3f);
+        super(pContext, new RotFlyModel<>(pContext.bakeLayer(RotFlyModel.LAYER_LOCATION)), 0.3f);
     }
 
     @Override

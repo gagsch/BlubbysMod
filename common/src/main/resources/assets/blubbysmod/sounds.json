@@ -86,9 +86,9 @@
     ]
   },
 
-  "spider_den_cave_noise": {
+  "blydim_cave_noise": {
     "sounds": [
-      "blubbysmod:spider_den_cave_noise"
+      "blubbysmod:blydim_cave_noise"
     ]
   }
 }

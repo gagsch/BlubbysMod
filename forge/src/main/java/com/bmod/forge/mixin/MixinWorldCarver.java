@@ -42,6 +42,7 @@ public class MixinWorldCarver<C extends CarverConfiguration> {
                         blockState.is(ModBlocks.DARK_TURF_BLOCK.get()) ||
                         blockState.is(ModBlocks.NECROTIC_GRASS_BLOCK.get()) ||
                         blockState.is(ModBlocks.DEEPERSLATE.get()) ||
+                        blockState.is(ModBlocks.MYCELIUM_DEEPERSLATE.get()) ||
                         blockState.is(ModBlocks.WEB_STONE.get()) ||
                         blockState.is(ModBlocks.SILK_BLOCK.get());
 

@@ -1,14 +1,24 @@
 package com.bmod.registry.world.feature;
 
+import com.bmod.BlubbysMod;
 import com.bmod.registry.ModTags;
+import com.bmod.registry.world.feature.custom.HugeGleamShroomFeature;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.level.biome.BiomeModifications;
+import dev.architectury.registry.registries.DeferredRegister;
+import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+
+import java.util.function.Supplier;
 
 public class ModFeatures {
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.FEATURE_REGISTRY);
+    public static final Supplier<Feature<NoneFeatureConfiguration>> HUGE_GLEAM_SHROOM_FEATURE = FEATURES.register("huge_gleam_shroom_feature", HugeGleamShroomFeature::new);
 
     public static void init()
     {
@@ -64,6 +74,13 @@ public class ModFeatures {
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.NECRIUM_ORE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOreFeatures.DEEPER_NECRIUM_ORE_PLACED);
                     mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModDecorationFeatures.COBWEB_PATCH_PLACED);
+                }
+            });
+
+            BiomeModifications.addProperties((ctx, mutable) -> {
+                if (ctx.hasTag(ModTags.IS_GLEAMING_MUSHROOMS)) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModTreeFeatures.HUGE_GLEAM_SHROOM_PLACED);
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationFeatures.GLEAM_SHROOM_PATCH_ABUNDANT_PLACED);
                 }
             });
 

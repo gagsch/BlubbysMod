@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_air": {
+    "has_fairy_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmod:dreadium_ingot"
+              "blubbysmod:fairy_dust"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_air",
+      "has_fairy_dust",
       "has_the_recipe"
     ]
   ],

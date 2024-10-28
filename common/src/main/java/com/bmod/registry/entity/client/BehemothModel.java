@@ -18,7 +18,7 @@ import net.minecraft.world.entity.Entity;
 
 
 public class BehemothModel<T extends Entity> extends HierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "behemoth"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "behemoth_layer"), "main");
 	private final ModelPart behemoth;
 	private final ModelPart body;
 	private final ModelPart torso;

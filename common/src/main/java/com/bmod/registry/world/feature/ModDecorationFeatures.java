@@ -27,25 +27,15 @@ public class ModDecorationFeatures {
     public static void initialize() {
         LifecycleEvent.SETUP.register(() -> {
             COBWEB_PATCH = FeatureUtils.register(BlubbysMod.MOD_ID + ":cobweb_patch", Feature.RANDOM_PATCH,
-                    new RandomPatchConfiguration(128, 16, 16, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                    new RandomPatchConfiguration(64, 8, 8, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.COBWEB)))));
 
             COBWEB_PATCH_PLACED = PlacementUtils.register(BlubbysMod.MOD_ID + ":cobweb_patch_placed", COBWEB_PATCH,
                     List.of(
-                            CountPlacement.of(96),
+                            CountPlacement.of(192),
                             InSquarePlacement.spread(),
                             PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
-                            BiomeFilter.biome(),
-                            BlockPredicateFilter.forPredicate(
-                                    BlockPredicate.anyOf(
-                                            BlockPredicate.hasSturdyFace(Direction.DOWN),
-                                            BlockPredicate.hasSturdyFace(Direction.UP),
-                                            BlockPredicate.hasSturdyFace(Direction.NORTH),
-                                            BlockPredicate.hasSturdyFace(Direction.SOUTH),
-                                            BlockPredicate.hasSturdyFace(Direction.EAST),
-                                            BlockPredicate.hasSturdyFace(Direction.WEST)
-                                    )
-                            )
+                            BiomeFilter.biome()
                     )
             );
         });

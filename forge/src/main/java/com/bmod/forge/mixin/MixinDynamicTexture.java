@@ -28,7 +28,7 @@ public class MixinDynamicTexture implements TextureAccess {
 
             for (int b = 0; b < 16; b++) {
                 for (int s = 0; s < 16; s++) {
-                    final int color = DimLightSystem.darken(img.getPixelRGBA(b, s), b, s);
+                    final int color = DimLightSystem.darken(img.getPixelRGBA(b, s), b);
                     img.setPixelRGBA(b, s, color);
                 }
             }

@@ -760,17 +760,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.ESSENCE_STARS.get().builtInRegistryHolder().key().location().getPath()));
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHTMARES.get(), 1)
-                .define('#', ModItems.NECRIUM_INGOT.get())
+                .define('B', ModItems.VILE_BLOOD.get())
                 .define('N', ModItems.DREADIUM_INGOT.get())
-                .define('D', ModBlocks.DEEPERSLATE.get().asItem())
-                .define('T', ModBlocks.DARK_TURF_BLOCK.get().asItem())
-                .define('I', ModBlocks.NECROTIC_GRASS_BLOCK.get().asItem())
-                .define('G', ModBlocks.GLEAM_SHROOM.get().asItem())
-                .define('S', ModBlocks.DARK_SOIL.get().asItem())
-                .pattern("TIG")
+                .define('#', ModItems.NECRIUM_INGOT.get())
+                .define('S', ModBlocks.GLEAM_SHROOM.get())
+                .define('F', ModItems.FAIRY_DUST.get())
+                .pattern(" B ")
                 .pattern("NS#")
-                .pattern("DDD")
-                .unlockedBy("has_air", has(ModItems.DREADIUM_INGOT.get()))
+                .pattern(" F ")
+                .unlockedBy("has_fairy_dust", has(ModItems.FAIRY_DUST.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_END.get(), 1)

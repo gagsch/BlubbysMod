@@ -4,13 +4,11 @@ import com.bmod.event.*;
 import com.bmod.event.client.RenderOverlayEvent;
 import com.bmod.packet.ModPackets;
 import com.bmod.registry.enchantment.ModEnchantments;
-import com.bmod.registry.entity.custom.LeechEntity;
+import com.bmod.registry.entity.custom.*;
 import com.bmod.registry.mob_effect.ModMobEffects;
+import com.bmod.registry.particle.ModParticles;
 import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.entity.client.*;
-import com.bmod.registry.entity.custom.BehemothEntity;
-import com.bmod.registry.entity.custom.RotFlyEntity;
-import com.bmod.registry.entity.custom.SnowFlinxEntity;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
@@ -60,8 +58,10 @@ public final class BlubbysMod {
         ModRecipeTypes.RECIPE_TYPES.register();
         ModBiomes.BIOMES.register();
         ModMobEffects.MOB_EFFECTS.register();
+        ModParticles.initialize();
         ModPackets.initialize();
 
+        ModFeatures.FEATURES.register();
         ModFeatures.init();
         ModEntityTypes.initSpawns();
 
@@ -69,6 +69,7 @@ public final class BlubbysMod {
         EntityAttributeRegistry.register(ModEntityTypes.BEHEMOTH, BehemothEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.LEECH, LeechEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.DARK_FAIRY, DarkFairyEntity::createAttributes);
 
         EnvExecutor.runInEnv(Env.CLIENT, () -> Client::initializeClient);
     }
@@ -86,15 +87,17 @@ public final class BlubbysMod {
 
             RenderOverlayEvent.initialize();
 
-            EntityModelLayerRegistry.register(ModModelLayers.ROT_FLY_LAYER, RotFlyModel::createBodyLayer);
-            EntityModelLayerRegistry.register(ModModelLayers.SNOW_FLINX_LAYER, SnowFlinxModel::createBodyLayer);
-            EntityModelLayerRegistry.register(ModModelLayers.BEHEMOTH_LAYER, BehemothModel::createBodyLayer);
-            EntityModelLayerRegistry.register(ModModelLayers.LEECH_LAYER, LeechModel::createBodyLayer);
+            EntityModelLayerRegistry.register(RotFlyModel.LAYER_LOCATION, RotFlyModel::createBodyLayer);
+            EntityModelLayerRegistry.register(SnowFlinxModel.LAYER_LOCATION, SnowFlinxModel::createBodyLayer);
+            EntityModelLayerRegistry.register(BehemothModel.LAYER_LOCATION, BehemothModel::createBodyLayer);
+            EntityModelLayerRegistry.register(LeechModel.LAYER_LOCATION, LeechModel::createBodyLayer);
+            EntityModelLayerRegistry.register(DarkFairyModel.LAYER_LOCATION, DarkFairyModel::createBodyLayer);
 
             EntityRendererRegistry.register(ModEntityTypes.ROT_FLY, RotFlyRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.BEHEMOTH, BehemothRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.LEECH, LeechRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.DARK_FAIRY, DarkFairyRenderer::new);
         }
     }
 }

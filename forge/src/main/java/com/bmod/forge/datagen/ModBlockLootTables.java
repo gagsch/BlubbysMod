@@ -41,6 +41,7 @@ public class ModBlockLootTables extends BlockLoot {
         dropOther(ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.DARK_SOIL.get());
         dropOther(ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.DARK_SOIL.get());
 
+        dropOther(ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.DEEPERSLATE.get());
         dropOther(ModBlocks.WEB_STONE.get(), ModBlocks.DEEPERSLATE.get());
         dropOther(ModBlocks.SILK_BLOCK.get(), Items.STRING);
 
@@ -74,6 +75,7 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(slab(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECROTIC_GRASS_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.MYCELIUM_DEEPERSLATE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.WEB_STONE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.SILK_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.RUBY_ORE.get().builtInRegistryHolder().key().location().getPath());

@@ -21,6 +21,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 
 public class BehemothEntity extends Monster {
@@ -55,6 +56,15 @@ public class BehemothEntity extends Monster {
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true)); // Targets players
         this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+    }
+
+    public static boolean spawn(EntityType<? extends Monster> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
+        if (levelAccessor instanceof Level level)
+        {
+            return level.getEntities(new BehemothEntity(entityType, level), new AABB(blockPos).inflate(12)).isEmpty();
+        }
+
+        return false;
     }
 
     @Override

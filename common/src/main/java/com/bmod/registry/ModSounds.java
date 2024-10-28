@@ -5,7 +5,6 @@ import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
 
@@ -32,7 +31,7 @@ public class ModSounds {
     public static final Supplier<SoundEvent> LEECH_HURT = register("leech_hurt");
     public static final Supplier<SoundEvent> LEECH_DEATH = register("leech_death");
 
-    public static final Supplier<SoundEvent> SPIDER_DEN_CAVE_NOISE = register("spider_den_cave_noise");
+    public static final Supplier<SoundEvent> BLYDIM_CAVE_NOISE = register("blydim_cave_noise");
 
     private static Supplier<SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(BlubbysMod.MOD_ID, name)));

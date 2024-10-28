@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LeechModel<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "leech"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "leech_layer"), "main");
 	private final ModelPart leech;
 	private final ModelPart body;
 	private final ModelPart back;

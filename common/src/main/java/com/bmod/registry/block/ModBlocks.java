@@ -4,9 +4,9 @@ import com.bmod.BlubbysMod;
 import com.bmod.registry.block.custom.*;
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.registry.item.ModItems;
+import com.bmod.registry.world.feature.ModTreeFeatures;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -32,16 +32,23 @@ public class ModBlocks {
             () -> new DarkSoilBlock(BlockBehaviour.Properties.copy(Blocks.DIRT))),
 
     GLEAM_SHROOM = registerBlock("gleam_shroom", true,
-            () -> new FlowerBlock(MobEffects.NIGHT_VISION, 200, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE)
+            () -> new MushroomBlock(BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE)
                     .instabreak()
                     .noCollission()
                     .noOcclusion()
-                    .lightLevel((light) -> 10)
-            )
+                    .lightLevel((light) -> 9), () -> ModTreeFeatures.HUGE_GLEAM_SHROOM)
+    ),
+
+    GLEAM_SHROOM_BLOCK = registerBlock("gleam_shroom_block", true,
+            () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
+                    .lightLevel((light) -> 9))
     ),
 
     DEEPERSLATE = registerBlock("deeperslate", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    MYCELIUM_DEEPERSLATE = registerBlock("mycelium_deeperslate", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()
+                    .lightLevel((light) -> 2))),
     WEB_STONE = registerBlock("web_stone", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
     SILK_BLOCK = registerBlock("silk_block", true,
@@ -76,6 +83,7 @@ public class ModBlocks {
     ENRICHMENT_TABLE = registerBlock("enrichment_table", true,
             () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
+    @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name, block);
 

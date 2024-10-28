@@ -2,8 +2,11 @@ package com.bmod.registry.entity.custom;
 
 import com.bmod.packet.S2CEntityRidingMessage;
 import com.bmod.registry.ModSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -14,8 +17,12 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -77,6 +84,17 @@ public class LeechEntity extends WaterAnimal implements Enemy {
         this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(1, new LeechSwimGoal(this, 1D));
         this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
+    }
+
+    public static boolean spawn(EntityType<? extends WaterAnimal> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
+        if (levelAccessor instanceof Level level && level.getEntities(new LeechEntity(entityType, level), new AABB(blockPos).inflate(6)).isEmpty())
+        {
+            int seaLevel = levelAccessor.getSeaLevel();
+            int underwaterLevel = seaLevel - 13;
+            return blockPos.getY() >= underwaterLevel && blockPos.getY() <= seaLevel && levelAccessor.getFluidState(blockPos.below()).is(FluidTags.WATER) && levelAccessor.getBlockState(blockPos.above()).is(Blocks.WATER);
+        }
+
+        return false;
     }
 
     @Override

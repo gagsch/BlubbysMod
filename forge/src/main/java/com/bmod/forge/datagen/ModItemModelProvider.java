@@ -53,6 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
         spawnEggItem(ModItems.LEECH_SPAWN_EGG);
+        spawnEggItem(ModItems.DARK_FAIRY_SPAWN_EGG);
 
         voodooDoll(ModItems.VOODOO_DOLL);
 
@@ -65,26 +66,28 @@ public class ModItemModelProvider extends ItemModelProvider {
         for (Supplier<Item> item : ModItems.ITEMS)
         {
             String path = getPath(item.get());
-            if (!registeredItems.contains(path)) {
-                if (HANDHELD_CLASS.stream().anyMatch(cls -> cls.isInstance(item.get()))) {
-                    simpleHandheldItem(item);
+
+            if (registeredItems.contains(path)) {
+                System.out.println("Item " + path + " is already registered.");
+                continue;
+            }
+
+            if (HANDHELD_CLASS.stream().anyMatch(cls -> cls.isInstance(item.get()))) {
+                simpleHandheldItem(item);
+            }
+            else if (item.get() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof DoorBlock || blockItem.getBlock() instanceof SaplingBlock)) {
+                if (blockItem.getBlock() instanceof TrapDoorBlock) {
+                    blockItem(item, "_bottom");
                 }
-                else if (item.get() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof DoorBlock || blockItem.getBlock() instanceof SaplingBlock)) {
-                    if (blockItem.getBlock() instanceof TrapDoorBlock) {
-                        blockItem(item, "_bottom");
-                    }
-                    else if (blockItem.getBlock() instanceof FenceBlock || blockItem.getBlock() instanceof ButtonBlock) {
-                        blockItem(item, "_inventory");
-                    }
-                    else {
-                        blockItem(item, "");
-                    }
+                else if (blockItem.getBlock() instanceof FenceBlock || blockItem.getBlock() instanceof ButtonBlock) {
+                    blockItem(item, "_inventory");
                 }
                 else {
-                    simpleItem(item);
+                    blockItem(item, "");
                 }
-            } else {
-                System.out.println("Item " + path + " is already registered.");
+            }
+            else {
+                simpleItem(item);
             }
         }
     }

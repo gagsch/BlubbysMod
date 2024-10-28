@@ -2,10 +2,7 @@ package com.bmod.registry.entity;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.ModTags;
-import com.bmod.registry.entity.custom.LeechEntity;
-import com.bmod.registry.entity.custom.RotFlyEntity;
-import com.bmod.registry.entity.custom.BehemothEntity;
-import com.bmod.registry.entity.custom.SnowFlinxEntity;
+import com.bmod.registry.entity.custom.*;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -34,20 +31,26 @@ public class ModEntityTypes {
     public static final Supplier<EntityType<SnowFlinxEntity>> SNOW_FLINX = ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 0.7f).build("snow_flinx"));
 
+    public static final Supplier<EntityType<DarkFairyEntity>> DARK_FAIRY = ENTITY_TYPES.register("dark_fairy", () -> EntityType.Builder.of(DarkFairyEntity::new, MobCategory.MONSTER)
+            .sized(0.4f, 0.4f).build("dark_fairy"));
+
     public static void initSpawns()
     {
-        SpawnPlacementsRegistry.register(ModEntityTypes.BEHEMOTH, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BehemothEntity::checkAnyLightMonsterSpawnRules);
+        SpawnPlacementsRegistry.register(ModEntityTypes.BEHEMOTH, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BehemothEntity::spawn);
         SpawnPlacementsRegistry.register(ModEntityTypes.ROT_FLY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, RotFlyEntity::spawn);
-        SpawnPlacementsRegistry.register(ModEntityTypes.LEECH, SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, LeechEntity::checkSurfaceWaterAnimalSpawnRules);
+        SpawnPlacementsRegistry.register(ModEntityTypes.DARK_FAIRY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, DarkFairyEntity::spawn);
+        SpawnPlacementsRegistry.register(ModEntityTypes.LEECH, SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, LeechEntity::spawn);
+        SpawnPlacementsRegistry.register(ModEntityTypes.SNOW_FLINX, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowFlinxEntity::checkMobSpawnRules);
 
         BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_NECROSIS_WEALD), (ctx, mutable) -> {
-                mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.BEHEMOTH.get(), 4, 1, 1));
-                mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.LEECH.get(), 10, 3, 6));
-                mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.ROT_FLY.get(), 7, 1, 2));
+            mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.BEHEMOTH.get(), 4, 1, 1));
+            mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.LEECH.get(), 10, 3, 6));
+            mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.ROT_FLY.get(), 7, 1, 2));
         });
 
-
-        SpawnPlacementsRegistry.register(ModEntityTypes.SNOW_FLINX, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowFlinxEntity::checkMobSpawnRules);
+        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) -> {
+            mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1));
+        });
 
         BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.HAS_IGLOO), (ctx, mutable2) ->
                 mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 70, 2, 4)));
