@@ -50,6 +50,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleHandheldItem(ModItems.BUBBLE_WAND);
 
         spawnEggItem(ModItems.ROT_FLY_SPAWN_EGG);
+        spawnEggItem(ModItems.SPORE_FLY_SPAWN_EGG);
         spawnEggItem(ModItems.BEHEMOTH_SPAWN_EGG);
         spawnEggItem(ModItems.SNOW_FLINX_SPAWN_EGG);
         spawnEggItem(ModItems.LEECH_SPAWN_EGG);

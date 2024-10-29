@@ -45,11 +45,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
-        northFacingBlockWithItem(ModBlocks.ENRICHMENT_TABLE,
-                blockLoc(ModBlocks.ENRICHMENT_TABLE, "bottom"),
-                blockLoc(ModBlocks.ENRICHMENT_TABLE, "top"),
-                blockLoc(ModBlocks.ENRICHMENT_TABLE, "side"),
-                blockLoc(ModBlocks.ENRICHMENT_TABLE, "front"));
 
         blockWithItem(ModBlocks.NECRIUM_ORE.get());
         blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());

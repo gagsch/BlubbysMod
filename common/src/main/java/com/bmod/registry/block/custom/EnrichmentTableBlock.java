@@ -10,10 +10,15 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 public class EnrichmentTableBlock extends Block {
@@ -35,5 +40,21 @@ public class EnrichmentTableBlock extends Block {
             player.awardStat(Stats.INTERACT_WITH_SMITHING_TABLE);
             return InteractionResult.CONSUME;
         }
+    }
+
+    @Override
+    public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+        return makeShape();
+    }
+
+    public VoxelShape makeShape(){
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0, 1, 0.375, 0.125), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0.875, 1, 0.375, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0, 0, 0.125, 0.375, 0.125), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0, 0.875, 0.125, 0.375, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.375, 0, 1, 0.625, 1), BooleanOp.OR);
+
+        return shape;
     }
 }

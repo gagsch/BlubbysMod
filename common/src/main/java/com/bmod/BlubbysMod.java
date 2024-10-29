@@ -66,6 +66,7 @@ public final class BlubbysMod {
         ModEntityTypes.initSpawns();
 
         EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.SPORE_FLY, SporeFlyEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.BEHEMOTH, BehemothEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.LEECH, LeechEntity::createAttributes);
@@ -88,12 +89,14 @@ public final class BlubbysMod {
             RenderOverlayEvent.initialize();
 
             EntityModelLayerRegistry.register(RotFlyModel.LAYER_LOCATION, RotFlyModel::createBodyLayer);
+            EntityModelLayerRegistry.register(SporeFlyModel.LAYER_LOCATION, SporeFlyModel::createBodyLayer);
             EntityModelLayerRegistry.register(SnowFlinxModel.LAYER_LOCATION, SnowFlinxModel::createBodyLayer);
             EntityModelLayerRegistry.register(BehemothModel.LAYER_LOCATION, BehemothModel::createBodyLayer);
             EntityModelLayerRegistry.register(LeechModel.LAYER_LOCATION, LeechModel::createBodyLayer);
             EntityModelLayerRegistry.register(DarkFairyModel.LAYER_LOCATION, DarkFairyModel::createBodyLayer);
 
             EntityRendererRegistry.register(ModEntityTypes.ROT_FLY, RotFlyRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.SPORE_FLY, SporeFlyRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.BEHEMOTH, BehemothRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.LEECH, LeechRenderer::new);

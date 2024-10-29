@@ -171,7 +171,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("rcr")
                 .pattern("psp")
                 .pattern("ppp")
-                .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
+                .unlockedBy("has_crafting_table", has(Items.CRAFTING_TABLE))
                 .save(consumer);
 
         UpgradeRecipeBuilder

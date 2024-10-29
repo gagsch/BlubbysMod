@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_smithing_table": {
+    "has_crafting_table": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:smithing_table"
+              "minecraft:crafting_table"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_smithing_table",
+      "has_crafting_table",
       "has_the_recipe"
     ]
   ],

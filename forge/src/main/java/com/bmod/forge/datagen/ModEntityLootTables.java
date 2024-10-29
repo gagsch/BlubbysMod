@@ -1,6 +1,7 @@
 package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
 import net.minecraft.data.loot.EntityLoot;
@@ -32,6 +33,13 @@ public class ModEntityLootTables extends EntityLoot {
                 .when(LootItemKilledByPlayerCondition.killedByPlayer())));
 
         add(ModEntityTypes.ROT_FLY.get(), LootTable.lootTable());
+
+        add(ModEntityTypes.SPORE_FLY.get(), LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1.0F))
+                .add(LootItem.lootTableItem(ModBlocks.GLEAM_SHROOM.get())
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                        .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
+                .when(LootItemKilledByPlayerCondition.killedByPlayer())));
 
         add(ModEntityTypes.SNOW_FLINX.get(), LootTable.lootTable().withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1.0F))

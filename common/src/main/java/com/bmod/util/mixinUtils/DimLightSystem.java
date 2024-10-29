@@ -35,12 +35,15 @@ public class DimLightSystem {
         final ClientLevel world = minecraft.level;
 
         if (world != null) {
-            enabled = !(!(world.dimension() == ModDimensions.BLYDIM_KEY) ||
-                    Objects.requireNonNull(minecraft.player).hasEffect(MobEffects.NIGHT_VISION) ||
-                    (minecraft.player.hasEffect(MobEffects.CONDUIT_POWER) && minecraft.player.getWaterVision() > 0) ||
-                    world.getSkyFlashTime() > 0);
-            if (!enabled)
+            boolean isInBlydim = world.dimension() == ModDimensions.BLYDIM_KEY;
+            boolean hasNightVision = Objects.requireNonNull(minecraft.player).hasEffect(MobEffects.NIGHT_VISION);
+            boolean hasConduitPowerWithWaterVision = minecraft.player.hasEffect(MobEffects.CONDUIT_POWER) && minecraft.player.getWaterVision() > 0;
+
+            enabled = isInBlydim || !hasNightVision || !hasConduitPowerWithWaterVision;
+
+            if (!enabled) {
                 return;
+            }
 
             for (int blockIndex = 0; blockIndex < 16; ++blockIndex) {
                 final float blockBase = (float) Math.max(0, (1 - Math.pow(1f - blockIndex / 15f, 4)) * LightTexture.getBrightness(world.dimensionType(), blockIndex) * (prevFlicker * 0.1F + 1.5F));

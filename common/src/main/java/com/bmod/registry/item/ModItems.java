@@ -279,6 +279,12 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
+    SPORE_FLY_SPAWN_EGG = ITEMS.register("spore_fly_spawn_egg",
+            () -> new SpawnEggItem(ModEntityTypes.SPORE_FLY.get(), 0x520F12, 0xB18C8C, new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
     BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.BEHEMOTH.get(), 0x442266, 0x040410, new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
