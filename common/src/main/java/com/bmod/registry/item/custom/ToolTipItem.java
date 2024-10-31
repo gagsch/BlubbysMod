@@ -38,23 +38,6 @@ public class ToolTipItem extends Item {
                 components.add(effect(MobEffects.FIRE_RESISTANCE, 0, 20));
                 components.add(effect(MobEffects.MOVEMENT_SPEED, 1, 20));
                 break;
-            case "cursed_gem":
-                CompoundTag tag = stack.getOrCreateTag();
-
-                String playerName = "Nobody";
-
-                if (level != null && tag.hasUUID(BlubbysMod.MOD_ID + ":player_link"))
-                {
-                    Player player = level.getPlayerByUUID(tag.getUUID(BlubbysMod.MOD_ID + ":player_link"));
-
-                    if (player!=null)
-                    {
-                        playerName = player.getName().getString();
-                    }
-                }
-
-                components.add(Component.literal("Linked to: " + playerName).withStyle(ChatFormatting.YELLOW));
-                break;
             case "ancient_recipe_book", "ancient_recipe_page":
                 components.add(Component.literal("Pages discovered: " + stack.getOrCreateTag().getInt(BlubbysMod.MOD_ID + ":pages")).withStyle(ChatFormatting.YELLOW));
                 break;

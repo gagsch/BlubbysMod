@@ -3,7 +3,7 @@ package com.bmod.registry.item.custom;
 import com.bmod.registry.item.ModCreativeTab;
 import net.minecraft.world.item.Item;
 
-public class CursedGemItem extends Item {
+public class CursedGemItem extends ToolTipItem {
     public CursedGemItem() {
         super(
                 new Properties()

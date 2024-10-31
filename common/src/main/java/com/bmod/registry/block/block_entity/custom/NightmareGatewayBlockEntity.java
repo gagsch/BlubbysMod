@@ -2,7 +2,6 @@ package com.bmod.registry.block.block_entity.custom;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.custom.NightmareGatewayBlock;
-import com.bmod.registry.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -11,8 +10,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,19 +22,6 @@ public class NightmareGatewayBlockEntity extends BlockEntity {
 
     public NightmareGatewayBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(), blockPos, blockState);
-    }
-
-    public void drops()
-    {
-        if (this.level instanceof ServerLevel serverLevel && this.level.getBlockState(this.getBlockPos()).getValue(NightmareGatewayBlock.POWERED))
-        {
-            this.level.setBlock(this.getBlockPos(), this.level.getBlockState(this.getBlockPos()).setValue(NightmareGatewayBlock.POWERED, false), 2);
-            this.level.addFreshEntity(new ItemEntity(serverLevel,
-                    this.getBlockPos().getX() + 0.5f,
-                    this.getBlockPos().above().getY(),
-                    this.getBlockPos().getZ() + 0.5f,
-                    new ItemStack(ModItems.CURSED_GEM.get())));
-        }
     }
 
     public BlockPos prepareSafeTeleport(ServerLevel level) {
@@ -55,15 +39,32 @@ public class NightmareGatewayBlockEntity extends BlockEntity {
                 }
             }
         }
+        if (level.getBlockState(pos.below()).is(ModBlocks.NIGHTMARE_GATEWAY.get()))
+        {
+            return pos.move(Direction.DOWN).immutable();
+        }
+
+        teleportPos[0] = pos.getX();
+        teleportPos[1] = pos.getY();
+        teleportPos[2] = pos.getZ();
+
+        BlockPos nearestPos = BlockPos.findClosestMatch(
+                new BlockPos(teleportPos[0], teleportPos[1], teleportPos[2]),
+                5, 5,
+                pos1 -> level.getBlockState(pos1).is(ModBlocks.NIGHTMARE_GATEWAY.get())
+        ).orElse(null);
+
+        if (nearestPos != null) {
+            teleportPos[0] = nearestPos.getX();
+            teleportPos[1] = nearestPos.getY();
+            teleportPos[2] = nearestPos.getZ();
+            return nearestPos;
+        }
 
         BlockState blockState = ModBlocks.NIGHTMARE_GATEWAY.get().defaultBlockState().setValue(NightmareGatewayBlock.POWERED, true);
 
         NightmareGatewayBlockEntity blockEntity = new NightmareGatewayBlockEntity(pos, blockState);
         blockEntity.teleportPos = new int[] {this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ()};
-
-        teleportPos[0] = pos.getX();
-        teleportPos[1] = pos.getY();
-        teleportPos[2] = pos.getZ();
 
         level.setBlockAndUpdate(pos, blockState);
         level.setBlockEntity(blockEntity);
@@ -79,7 +80,7 @@ public class NightmareGatewayBlockEntity extends BlockEntity {
 
     public void tick(Level level, BlockPos blockPos)
     {
-        this.blockState = this.level.getBlockState(blockPos).getValue(NightmareGatewayBlock.POWERED);
+        this.blockState = level.getBlockState(blockPos).getValue(NightmareGatewayBlock.POWERED);
         if (blockState && level.random.nextInt(5) == 0)
         {
             double offsetX = (level.random.nextDouble() - 0.5) * 2;

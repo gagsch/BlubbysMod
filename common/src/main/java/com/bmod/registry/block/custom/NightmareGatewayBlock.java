@@ -1,5 +1,6 @@
 package com.bmod.registry.block.custom;
 
+import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.block.block_entity.custom.NightmareGatewayBlockEntity;
 import com.bmod.registry.item.ModItems;
@@ -95,15 +96,14 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
             }
             else if (blockState.getValue(POWERED)) {
                 ServerLevel dim = serverLevel.getServer().getLevel(level.dimension() == ModDimensions.BLYDIM_KEY ? Level.OVERWORLD : ModDimensions.BLYDIM_KEY);
+                BlockPos pos = new BlockPos(newBlockEntity.teleportPos[0], newBlockEntity.teleportPos[1], newBlockEntity.teleportPos[2]);
 
-                if (Arrays.equals(newBlockEntity.teleportPos, new int[]{0, 0, 0})) {
-                    newBlockEntity.prepareSafeTeleport(dim);
+                if (!dim.getBlockState(pos).is(ModBlocks.NIGHTMARE_GATEWAY.get())) {
+                    pos = newBlockEntity.prepareSafeTeleport(dim);
                 }
 
                 serverPlayer.teleportTo(dim,
-                        newBlockEntity.teleportPos[0],
-                        newBlockEntity.teleportPos[1],
-                        newBlockEntity.teleportPos[2],
+                        pos.getX(), pos.getY(), pos.getZ(),
                         0, 0);
             }
         }
