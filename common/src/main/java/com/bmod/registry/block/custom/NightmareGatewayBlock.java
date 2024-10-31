@@ -1,6 +1,5 @@
 package com.bmod.registry.block.custom;
 
-import com.bmod.packet.S2CSyncNightmareGatewayMessage;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.block.block_entity.custom.NightmareGatewayBlockEntity;
 import com.bmod.registry.item.ModItems;
@@ -38,15 +37,24 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 
 public class NightmareGatewayBlock extends BaseEntityBlock {
+    public static final BooleanProperty POWERED = BooleanProperty.create("powered");
+
     public NightmareGatewayBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
-                .lightLevel((state) -> 9));
+                .lightLevel((state) -> state.getValue(POWERED) ? 10 : 0));
+
+        this.registerDefaultState(this.defaultBlockState().setValue(POWERED, false));
     }
 
     @Override
     @SuppressWarnings("deprecation")
     public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return makeShape();
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(POWERED);
     }
 
     @Override
@@ -78,25 +86,18 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
         }
 
         if (serverLevel.getBlockEntity(blockPos) instanceof NightmareGatewayBlockEntity newBlockEntity) {
-            if (!newBlockEntity.hasGem && stack.is(ModItems.CURSED_GEM.get())) {
+            if (!blockState.getValue(POWERED) && stack.is(ModItems.CURSED_GEM.get())) {
                 stack.shrink(1);
 
-                newBlockEntity.hasGem = true;
-                newBlockEntity.setChanged();
+                level.setBlock(blockPos, blockState.setValue(POWERED, true), 3);
 
                 level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS, 1, 1, true);
-
-                new S2CSyncNightmareGatewayMessage(newBlockEntity.getBlockPos(), newBlockEntity.hasGem).sendToLevel(serverLevel);
             }
-            else if (newBlockEntity.hasGem) {
-
+            else if (blockState.getValue(POWERED)) {
                 ServerLevel dim = serverLevel.getServer().getLevel(level.dimension() == ModDimensions.BLYDIM_KEY ? Level.OVERWORLD : ModDimensions.BLYDIM_KEY);
 
-                NightmareGatewayBlockEntity blockEntity = null;
-
                 if (Arrays.equals(newBlockEntity.teleportPos, new int[]{0, 0, 0})) {
-                    BlockPos safePos = newBlockEntity.prepareSafeTeleport(dim);
-                    blockEntity = (NightmareGatewayBlockEntity) serverLevel.getBlockEntity(safePos);
+                    newBlockEntity.prepareSafeTeleport(dim);
                 }
 
                 serverPlayer.teleportTo(dim,
@@ -104,11 +105,6 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
                         newBlockEntity.teleportPos[1],
                         newBlockEntity.teleportPos[2],
                         0, 0);
-
-                if (blockEntity != null)
-                {
-                    new S2CSyncNightmareGatewayMessage(blockEntity.getBlockPos(), blockEntity.hasGem).sendToLevel(dim);
-                }
             }
         }
 
@@ -123,15 +119,6 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
 
         return createTickerHelper(blockEntityType, ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(),
                 (clientLevel, position, state, blockEntity) -> blockEntity.tick(clientLevel, position));
-    }
-
-    @Override
-    @SuppressWarnings("deprecation")
-    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl) {
-        if (level instanceof ServerLevel serverLevel && serverLevel.getBlockEntity(blockPos) instanceof NightmareGatewayBlockEntity newBlockEntity) {
-            newBlockEntity.drops();
-        }
-        super.onRemove(blockState, level, blockPos, blockState2, bl);
     }
 
     @Nullable

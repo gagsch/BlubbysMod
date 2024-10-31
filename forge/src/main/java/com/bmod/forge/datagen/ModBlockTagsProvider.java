@@ -34,7 +34,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ModBlocks.DARK_SOIL.get(), ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get());
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get());
 
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get(), ModBlocks.FOSSILIZED_BONE_BLOCK.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get(), ModBlocks.FOSSILIZED_BONE_BLOCK.get(), ModBlocks.NIGHTMARE_GATEWAY.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ModBlocks.DARK_SOIL.get(), ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.NECROTIC_GRASS_BLOCK.get());
         tag(BlockTags.MINEABLE_WITH_HOE).add(leaves(DREADWOOD).get(), leaves(EBON).get());
     }

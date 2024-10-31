@@ -1,11 +1,13 @@
 package com.bmod.forge.datagen;
 import com.bmod.registry.block.ModBlocks;
+import com.bmod.registry.block.custom.NightmareGatewayBlock;
 import com.bmod.util.WoodUtils;
 import com.bmod.registry.item.ModItems;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -44,6 +47,17 @@ public class ModBlockLootTables extends BlockLoot {
         dropOther(ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.DEEPERSLATE.get());
         dropOther(ModBlocks.WEB_STONE.get(), ModBlocks.DEEPERSLATE.get());
         dropOther(ModBlocks.SILK_BLOCK.get(), Items.STRING);
+
+        add(ModBlocks.NIGHTMARE_GATEWAY.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ModBlocks.NIGHTMARE_GATEWAY.get())))
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ModItems.CURSED_GEM.get())
+                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.NIGHTMARE_GATEWAY.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                .hasProperty(NightmareGatewayBlock.POWERED, true))))));
 
         add(ModBlocks.RUBY_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.RUBY_ORE.get(), ModItems.RUBY.get()));
@@ -74,6 +88,7 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(door(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(slab(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECROTIC_GRASS_BLOCK.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.NIGHTMARE_GATEWAY.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.MYCELIUM_DEEPERSLATE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.WEB_STONE.get().builtInRegistryHolder().key().location().getPath());

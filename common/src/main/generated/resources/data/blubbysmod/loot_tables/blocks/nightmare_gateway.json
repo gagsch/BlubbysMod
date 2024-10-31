@@ -3,15 +3,29 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
           "name": "blubbysmod:nightmare_gateway"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "blubbysmod:nightmare_gateway",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "powered": "true"
+              }
+            }
+          ],
+          "name": "blubbysmod:cursed_gem"
         }
       ],
       "rolls": 1.0
