@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "g": {
+      "item": "minecraft:tinted_glass"
+    }
+  },
+  "pattern": [
+    "OOO",
+    "g g",
+    "OOO"
+  ],
+  "result": {
+    "item": "blubbysmod:nightmare_gateway"
+  }
+}

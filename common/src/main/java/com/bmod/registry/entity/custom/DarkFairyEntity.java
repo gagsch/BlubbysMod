@@ -2,8 +2,6 @@ package com.bmod.registry.entity.custom;
 
 import com.bmod.registry.particle.ModParticles;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -13,18 +11,12 @@ import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -90,22 +82,18 @@ public class DarkFairyEntity extends Monster implements FlyingAnimal {
                 );
             }
 
-            setupAnimationStates();
+            if(this.flyingAnimationTimeout <= 0) {
+                this.flyingAnimationTimeout = this.random.nextInt(40) + 80;
+                this.flyingAnimationState.start(this.tickCount);
+            } else {
+                --this.flyingAnimationTimeout;
+            }
         }
     }
 
     @Override
     protected @NotNull FlyingPathNavigation createNavigation(Level level) {
         return new FlyingPathNavigation(this, level);
-    }
-
-    private void setupAnimationStates() {
-        if(this.flyingAnimationTimeout <= 0) {
-            this.flyingAnimationTimeout = this.random.nextInt(40) + 80;
-            this.flyingAnimationState.start(this.tickCount);
-        } else {
-            --this.flyingAnimationTimeout;
-        }
     }
 
     @Override

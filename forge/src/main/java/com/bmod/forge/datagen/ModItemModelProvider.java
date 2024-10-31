@@ -56,8 +56,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         spawnEggItem(ModItems.LEECH_SPAWN_EGG);
         spawnEggItem(ModItems.DARK_FAIRY_SPAWN_EGG);
 
-        voodooDoll(ModItems.VOODOO_DOLL);
-
         registeredItems.add(getPath(ModItems.SOUL_DIMENSIONS.get()));
         registerUnsetItems();
     }
@@ -140,28 +138,5 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(getPath(item.get()),
                 mcLoc("item/template_spawn_egg"));
-    }
-
-    public void voodooDoll(Supplier<Item> item) {
-        String path = getPath(item.get());
-        registeredItems.add(path);
-
-        for (int textures = 0; textures <= 1; textures++) {
-            withExistingParent(getPath(item.get()) + "_" + textures,
-                    new ResourceLocation("item/generated")).texture("layer0",
-                    new ResourceLocation(BlubbysMod.MOD_ID, "items/" + getPath(item.get()) + "_" + textures));
-        }
-
-        getBuilder(path)
-                .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", new ResourceLocation(BlubbysMod.MOD_ID, "items/" + path + "_0"))
-                .override()
-                    .predicate(new ResourceLocation(BlubbysMod.MOD_ID,"pin"), 0)
-                    .model(new ModelFile.UncheckedModelFile(modLoc("item/" + path + "_0")))
-                    .end()
-                .override()
-                    .predicate(new ResourceLocation(BlubbysMod.MOD_ID,"pin"), 1)
-                    .model(new ModelFile.UncheckedModelFile(modLoc("item/" + path + "_1")))
-                    .end();
     }
 }

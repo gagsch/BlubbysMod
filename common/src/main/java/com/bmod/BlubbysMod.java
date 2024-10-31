@@ -3,12 +3,13 @@ package com.bmod;
 import com.bmod.event.*;
 import com.bmod.event.client.RenderOverlayEvent;
 import com.bmod.packet.ModPackets;
+import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
+import com.bmod.registry.entity.client.*;
 import com.bmod.registry.entity.custom.*;
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.particle.ModParticles;
 import com.bmod.registry.recipe.ModRecipeTypes;
-import com.bmod.registry.entity.client.*;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
@@ -22,16 +23,11 @@ import com.bmod.util.TickHandlerUtils;
 import com.bmod.util.WoodUtils;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
-import dev.architectury.registry.item.ItemPropertiesRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 
 public final class BlubbysMod {
     public static final String MOD_ID = "blubbysmod";
@@ -39,9 +35,9 @@ public final class BlubbysMod {
     public static void init() {
         TickHandlerUtils.initialize();
         BlockBreakEvent.initialize();
+        PlayerInteractEvent.initialize();
         EntityDeathEvent.initialize();
         CommandRegisterEvent.initialize();
-        PlayerTickEvent.initialize();
         ModifyLootEvent.initialize();
 
         ModMenus.MENUS.register();
@@ -51,6 +47,7 @@ public final class BlubbysMod {
 
         ModEntityTypes.ENTITY_TYPES.register();
         ModBlocks.BLOCKS.register();
+        ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register();
         ModItems.ITEMS.register();
         ModEnchantments.ENCHANTMENTS.register();
         ModSounds.SOUNDS.register();
@@ -77,15 +74,8 @@ public final class BlubbysMod {
 
     @Environment(EnvType.CLIENT)
     public static class Client {
+        @Environment(EnvType.CLIENT)
         public static void initializeClient() {
-            ItemPropertiesRegistry.registerGeneric(new ResourceLocation(MOD_ID, "pin"),
-                    (ItemStack stack, ClientLevel world, LivingEntity entity, int seed) -> {
-                        if (stack.hasTag() && stack.getTag().contains(MOD_ID + ":pin")) {
-                            return stack.getTag().getFloat(MOD_ID + ":pin");
-                        }
-                        return 0.0F;
-                    });
-
             RenderOverlayEvent.initialize();
 
             EntityModelLayerRegistry.register(RotFlyModel.LAYER_LOCATION, RotFlyModel::createBodyLayer);

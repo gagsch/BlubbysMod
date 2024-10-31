@@ -26,7 +26,7 @@ public class DimLightSystem {
         final float light = red * 0.2126f + green * 0.7152f + blue * 0.0722f;
         float adjustment = light > 0 ? Math.min(1, lTarget / light) : 0;
 
-        adjustment = (float) Math.pow(adjustment, 0.25);
+        adjustment = (float) Math.pow(adjustment, 0.2);
 
         return adjustment == 1f ? c : 0xFF000000 | Math.round(adjustment * red * 255) | (Math.round(adjustment * green * 255) << 8) | (Math.round(adjustment * blue * 255) << 16);
     }
@@ -39,7 +39,7 @@ public class DimLightSystem {
             boolean hasNightVision = Objects.requireNonNull(minecraft.player).hasEffect(MobEffects.NIGHT_VISION);
             boolean hasConduitPowerWithWaterVision = minecraft.player.hasEffect(MobEffects.CONDUIT_POWER) && minecraft.player.getWaterVision() > 0;
 
-            enabled = isInBlydim || !hasNightVision || !hasConduitPowerWithWaterVision;
+            enabled = isInBlydim && !hasNightVision && !hasConduitPowerWithWaterVision;
 
             if (!enabled) {
                 return;
@@ -53,7 +53,7 @@ public class DimLightSystem {
                 colors[1] = Math.min(blockBase * blockBase * 0.99F, 1.0F);
                 colors[2] = Math.min(blockBase * blockBase * blockBase * 0.99F, 1.0F);
 
-                final float f = minecraft.options.gamma().get().floatValue() * blockBase * 1.8f;
+                final float f = minecraft.options.gamma().get().floatValue() * blockBase * 2f;
                 for (int i = 0; i < 3; i++) {
                     float invColor = 1.0F - colors[i];
                     invColor = (float) (1.0F - Math.pow(invColor, 4));

@@ -5,6 +5,7 @@ import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.world.ModDimensions;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
+import dev.architectury.event.events.common.InteractionEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -26,32 +27,7 @@ public class EntityDeathEvent {
             }
 
             if (entity instanceof ServerPlayer player) {
-                if (player.level.dimension() == ModDimensions.BLYDIM_KEY)
-                {
-                    player.clearFire();
-                    player.setAirSupply(player.getMaxAirSupply());
-
-                    player.setHealth(player.getMaxHealth());
-
-                    for (ItemStack item : player.getInventory().items)
-                    {
-                        if (item.getItem() == ModItems.CURSED_GEM.get() || item.getItem() == ModItems.VOODOO_DOLL.get())
-                        {
-                            item.setTag(new CompoundTag());
-                        }
-                    }
-
-                    BlockPos respawnPos = player.getRespawnPosition() != null ? player.getRespawnPosition() : player.server.overworld().getSharedSpawnPos();
-
-                    player.teleportTo(player.level.getServer().getLevel(Level.OVERWORLD),
-                            respawnPos.getX(),
-                            respawnPos.getY(),
-                            respawnPos.getZ(),
-                            0,0);
-
-                    return EventResult.interruptFalse();
-                }
-                else if (player.getOffhandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get() || player.getMainHandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get()) {
+                if (player.getOffhandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get() || player.getMainHandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get()) {
                     if (player.getOffhandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get()) {
                         player.getOffhandItem().shrink(1);
                     } else {
@@ -78,18 +54,6 @@ public class EntityDeathEvent {
                     player.setAirSupply(player.getMaxAirSupply());
 
                     player.inventoryMenu.broadcastChanges();
-
-                    return EventResult.interruptFalse();
-                }
-                else if (player.hasEffect(ModMobEffects.CARDIAC_ARREST.get())) {
-                    player.removeEffect(ModMobEffects.CARDIAC_ARREST.get());
-                    player.setHealth(player.getMaxHealth());
-
-                    player.teleportTo(player.level.getServer().getLevel(ModDimensions.BLYDIM_KEY),
-                            player.position().x,
-                            player.position().y,
-                            player.position().z,
-                            0,0);
 
                     return EventResult.interruptFalse();
                 }

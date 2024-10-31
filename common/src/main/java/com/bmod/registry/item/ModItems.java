@@ -73,8 +73,8 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(1))),
 
-    VOODOO_DOLL = ITEMS.register("cursed_doll",
-            VoodooDollItem::new),
+    //VOODOO_DOLL = ITEMS.register("cursed_doll",
+    //        VoodooDollItem::new),
 
     WIND_ROCKET = ITEMS.register("wind_rocket",
             WindRocketItem::new),

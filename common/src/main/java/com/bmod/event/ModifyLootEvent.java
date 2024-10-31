@@ -47,6 +47,7 @@ public class ModifyLootEvent {
                 context.addPool(pagePool.build());
                 context.addPool(bookPool.build());
             }
+            /*
             else if (BuiltInLootTables.JUNGLE_TEMPLE.equals(id)) {
                 LootPool.Builder cursedDollPool =
                         LootPool.lootPool()
@@ -56,6 +57,7 @@ public class ModifyLootEvent {
 
                 context.addPool(cursedDollPool.build());
             }
+            */
             else if (BuiltInLootTables.END_CITY_TREASURE.equals(id)) {
                 LootPool.Builder corePool =
                         LootPool.lootPool()

@@ -14,7 +14,7 @@
     "rDr",
     " r "
   ],
-  "requirement": "blubbysmod:cursed_doll",
+  "requirement": "blubbysmod:awakened_core",
   "result": {
     "count": 1,
     "item": "blubbysmod:cursed_gem"

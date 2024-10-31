@@ -16,6 +16,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -94,7 +95,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" r ")
                 .pattern("rDr")
                 .pattern(" r ")
-                .requirement(ModItems.VOODOO_DOLL.get())
+                .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.WIND_ROCKET.get())
@@ -128,7 +129,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
                 .requires(Items.WATER_BUCKET)
                 .requires(ModItems.ESSENCE_SEA.get())
-                .unlockedBy("has_essence_sea", has(ModItems.ESSENCE_SEA.get()))
+                .unlockedBy("has_one_piece", has(ModItems.ESSENCE_SEA.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder
+                .shaped(ModBlocks.NIGHTMARE_GATEWAY.get(), 1)
+                .define('O', Blocks.OBSIDIAN)
+                .define('g', Blocks.TINTED_GLASS)
+                .pattern("OOO")
+                .pattern("g g")
+                .pattern("OOO")
+                .unlockedBy("has_obsidian", has(Blocks.OBSIDIAN))
                 .save(consumer);
 
         ShapedRecipeBuilder

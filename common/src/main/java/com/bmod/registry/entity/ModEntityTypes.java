@@ -41,7 +41,7 @@ public class ModEntityTypes {
     {
         SpawnPlacementsRegistry.register(ModEntityTypes.BEHEMOTH, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BehemothEntity::spawn);
         SpawnPlacementsRegistry.register(ModEntityTypes.ROT_FLY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, RotFlyEntity::spawn);
-        SpawnPlacementsRegistry.register(ModEntityTypes.SPORE_FLY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, RotFlyEntity::spawn);
+        SpawnPlacementsRegistry.register(ModEntityTypes.SPORE_FLY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, levelAccessor, mobSpawnType, blockPos, randomSource) -> SporeFlyEntity.spawn(entityType, levelAccessor, blockPos));
         SpawnPlacementsRegistry.register(ModEntityTypes.DARK_FAIRY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, DarkFairyEntity::spawn);
         SpawnPlacementsRegistry.register(ModEntityTypes.LEECH, SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, LeechEntity::spawn);
         SpawnPlacementsRegistry.register(ModEntityTypes.SNOW_FLINX, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowFlinxEntity::checkMobSpawnRules);
@@ -52,13 +52,7 @@ public class ModEntityTypes {
             mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.ROT_FLY.get(), 7, 1, 2));
         });
 
-        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) -> {
-            mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1));
-        });
-
-        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_GLEAMING_MUSHROOMS), (ctx, mutable) -> {
-            mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SPORE_FLY.get(), 7, 3, 4));
-        });
+        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) -> mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1)));
 
         BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.HAS_IGLOO), (ctx, mutable2) ->
                 mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 70, 2, 4)));

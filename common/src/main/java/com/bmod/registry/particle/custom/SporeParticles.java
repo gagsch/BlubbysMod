@@ -1,18 +1,21 @@
 package com.bmod.registry.particle.custom;
 
+import com.bmod.registry.block.ModBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class FairyDustParticles extends TextureSheetParticle {
-    protected FairyDustParticles(ClientLevel level, double xPos, double yPos, double zPos, SpriteSet spriteSet, double xd, double yd, double zd) {
+public class SporeParticles extends TextureSheetParticle {
+    protected SporeParticles(ClientLevel level, double xPos, double yPos, double zPos, SpriteSet spriteSet, double xd, double yd, double zd) {
         super(level, xPos, yPos, zPos, xd, yd, zd);
 
         this.friction = 0.8f;
+        this.gravity = 1f;
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
@@ -26,13 +29,17 @@ public class FairyDustParticles extends TextureSheetParticle {
     }
 
     @Override
-    public int getLightColor(float partialTick) {
-        return 0xF000F0;
-    }
-
-    @Override
     public void tick() {
         super.tick();
+
+        BlockPos blockPos = new BlockPos(xd, yd - 1, zd);
+
+        if (this.level.getBlockState(blockPos).is(ModBlocks.DEEPERSLATE.get()))
+        {
+            this.level.setBlock(blockPos, ModBlocks.MYCELIUM_DEEPERSLATE.get().defaultBlockState(), 3);
+        }
+
+        this.yd -= 0.02;
         fadeOut();
     }
 
@@ -56,7 +63,7 @@ public class FairyDustParticles extends TextureSheetParticle {
         @Nullable
         @Override
         public Particle createParticle(SimpleParticleType particleOptions, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            return new FairyDustParticles(level, x, y, z, this.sprites, dx, dy, dz);
+            return new SporeParticles(level, x, y, z, this.sprites, dx, dy, dz);
         }
     }
 }

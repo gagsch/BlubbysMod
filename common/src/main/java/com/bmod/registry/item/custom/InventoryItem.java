@@ -16,8 +16,6 @@ import org.jetbrains.annotations.NotNull;
 public class InventoryItem extends ToolTipItem {
     public enum inventoryItems {
         LUCKY_ROCK,
-        VOODOO_DOLL,
-        CURSED_GEM,
         ANCIENT_RECIPE_BOOK
     };
 
@@ -36,20 +34,6 @@ public class InventoryItem extends ToolTipItem {
             {
                 case LUCKY_ROCK:
                     serverPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK, 19, 4, false, false));
-                    break;
-                case VOODOO_DOLL:
-                    if (stack.getOrCreateTag().getInt(BlubbysMod.MOD_ID + ":pin") == 1)
-                    {
-                        serverPlayer.addEffect(new MobEffectInstance(ModMobEffects.HORRIFIED.get(), 19, 0, false, false));
-                    }
-                    break;
-                case CURSED_GEM:
-                    if (stack.getOrCreateTag().hasUUID(BlubbysMod.MOD_ID + ":player_link")) {
-                        Player player = level.getServer().getPlayerList().getPlayer(stack.getOrCreateTag().getUUID(BlubbysMod.MOD_ID + ":player_link"));
-
-                        if (player != null && player.hasEffect(ModMobEffects.HORRIFIED.get()))
-                            serverPlayer.addEffect(new MobEffectInstance(ModMobEffects.HORRIFIED.get(), 19, 0, false, false));
-                    }
                     break;
                 case ANCIENT_RECIPE_BOOK:
                     CompoundTag playerData = ((IEntityDataSaver) serverPlayer).blubbysmod$getPersistentData();

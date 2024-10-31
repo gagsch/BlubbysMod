@@ -2,6 +2,7 @@ package com.bmod.registry.world.biome;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.ModSounds;
+import com.bmod.registry.entity.ModEntityTypes;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
@@ -49,6 +50,8 @@ public class ModBiomes {
 
     public static Biome gleamingMushrooms() {
         MobSpawnSettings.Builder mobBuilder = new MobSpawnSettings.Builder();
+        MobSpawnSettings.SpawnerData sporeFlySpawnerData = new MobSpawnSettings.SpawnerData(ModEntityTypes.SPORE_FLY.get(), Weight.of(100), 2, 4);
+        mobBuilder.addSpawn(MobCategory.MONSTER, sporeFlySpawnerData);
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addSurfaceFreezing(biomeBuilder);

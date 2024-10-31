@@ -58,11 +58,8 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + getIdFromItem(ModItems.BUBBLE_WAND) + ".tooltip",
                 "Places bubble blocks.");
 
-        add("item.blubbysmod." + getIdFromItem(ModItems.VOODOO_DOLL) + ".tooltip",
-                "While the pin is pushed in, the Horrified effect is given. The Gateway to the Nightmare Realm");
-
         add("item.blubbysmod." + getIdFromItem(ModItems.CURSED_GEM) + ".tooltip",
-                "Use on a player who has a Cursed Doll, and you will be affected by its curse.");
+                "Used to activate the Nightmare Gateway.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.ANCIENT_RECIPE_BOOK) + ".tooltip",
                 "The Guide to the Enrichment Table.");
@@ -90,8 +87,7 @@ public class ENLangProvider extends LanguageProvider {
 
         add("enchantment.blubbysmod.web_walker", "Web Walker");
 
-        add("effect.blubbysmod.horrified", "Horrified");
-        add("effect.blubbysmod.cardiac_arrest", "Cardiac Arrest");
+        add("effect.blubbysmod.mycosis", "Mycosis");
 
         addEntity(ModEntityTypes.BEHEMOTH.get(), "Necrotic Behemoth");
 

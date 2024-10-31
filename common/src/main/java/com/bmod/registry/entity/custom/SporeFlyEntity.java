@@ -2,11 +2,13 @@ package com.bmod.registry.entity.custom;
 
 import com.bmod.registry.ModSounds;
 import com.bmod.registry.block.ModBlocks;
+import com.bmod.registry.mob_effect.ModMobEffects;
+import com.bmod.registry.particle.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -16,36 +18,32 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.UUID;
-
-public class SporeFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
+public class SporeFlyEntity extends Monster implements FlyingAnimal {
 
     public final AnimationState flyingAnimationState = new AnimationState();
     private int flyingAnimationTimeout = 0;
 
-    public SporeFlyEntity(EntityType<? extends Animal> type, Level world) {
+    public SporeFlyEntity(EntityType<? extends Monster> type, Level world) {
         super(type, world);
 
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.lookControl = new LookControl(this);
-        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, -1.0F);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Animal.createMobAttributes()
+        return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8D)
                 .add(Attributes.FOLLOW_RANGE, 24D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
@@ -55,8 +53,13 @@ public class SporeFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
                 .add(Attributes.FLYING_SPEED, 0.5f);
     }
 
-    public static boolean spawn(EntityType<? extends Mob> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
-        return true;
+    public static boolean spawn(EntityType<? extends Monster> entityType, LevelAccessor levelAccessor, BlockPos blockPos) {
+        if (levelAccessor instanceof Level level && level.isEmptyBlock(blockPos))
+        {
+            return level.getEntities(new SporeFlyEntity(entityType, level), new AABB(blockPos).inflate(12)).isEmpty();
+        }
+
+        return false;
     }
 
     @Override
@@ -65,8 +68,16 @@ public class SporeFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(ModBlocks.GLEAM_SHROOM.get()), false));
-        this.targetSelector.addGoal(0, (new HurtByTargetGoal(this)).setAlertOthers(new Class[0]));
-        this.targetSelector.addGoal(1, new ResetUniversalAngerTargetGoal<>(this, true));
+        this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity entity) {
+        if (entity instanceof LivingEntity livingEntity && livingEntity.level instanceof ServerLevel)
+        {
+            livingEntity.addEffect(new MobEffectInstance(ModMobEffects.MYCOSIS.get(), 80, 0, true, true));
+        }
+        return super.doHurtTarget(entity);
     }
 
     @Override
@@ -74,22 +85,33 @@ public class SporeFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         super.tick();
 
         if(this.level.isClientSide()) {
-            setupAnimationStates();
+            if (random.nextInt(30) == 0)
+            {
+                double offsetX = (this.level.random.nextDouble() - 0.5) * 2;
+                double offsetY = (this.level.random.nextDouble() - 0.5) * 2;
+                double offsetZ = (this.level.random.nextDouble() - 0.5) * 2;
+
+                this.level.addParticle(
+                        ModParticles.SPORE_PARTICLE.get(),
+                        this.position().x + offsetX,
+                        this.position().y + offsetY,
+                        this.position().z + offsetZ,
+                        0, 0, 0
+                );
+            }
+
+            if(this.flyingAnimationTimeout <= 0) {
+                this.flyingAnimationTimeout = this.random.nextInt(40) + 80;
+                this.flyingAnimationState.start(this.tickCount);
+            } else {
+                --this.flyingAnimationTimeout;
+            }
         }
     }
 
     @Override
     protected @NotNull FlyingPathNavigation createNavigation(Level level) {
         return new FlyingPathNavigation(this, level);
-    }
-
-    private void setupAnimationStates() {
-        if(this.flyingAnimationTimeout <= 0) {
-            this.flyingAnimationTimeout = this.random.nextInt(40) + 80;
-            this.flyingAnimationState.start(this.tickCount);
-        } else {
-            --this.flyingAnimationTimeout;
-        }
     }
 
     @Override
@@ -124,33 +146,5 @@ public class SporeFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
     @Override
     public boolean isFlying() {
         return true;
-    }
-
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return null;
-    }
-
-    @Override
-    public int getRemainingPersistentAngerTime() {
-        return 0;
-    }
-
-    @Override
-    public void setRemainingPersistentAngerTime(int i) { }
-
-    @Override
-    public UUID getPersistentAngerTarget() {
-        return null;
-    }
-
-    @Override
-    public void setPersistentAngerTarget(@org.jetbrains.annotations.Nullable UUID uuid) {
-
-    }
-
-    @Override
-    public void startPersistentAngerTimer() {
-
     }
 }

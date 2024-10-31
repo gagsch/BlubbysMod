@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_one_piece": {
+    "has_obsidian": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmod:essence_sea"
+              "minecraft:obsidian"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blubbysmod:bubble_wand"
+        "recipe": "blubbysmod:nightmare_gateway"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_one_piece",
+      "has_obsidian",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blubbysmod:bubble_wand"
+      "blubbysmod:nightmare_gateway"
     ]
   }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "blubbysmod:items/cursed_doll_0"
-  }
-}

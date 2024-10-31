@@ -20,8 +20,7 @@ public class ModBlocks {
     public static final Map<String, Supplier<Block>> BLOCK_HASH_MAP = new HashMap<>();
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.BLOCK_REGISTRY);
 
-    public static final Supplier<Block>
-    SLUDGE_BLOCK = registerBlock("sludge_block", true,
+    public static final Supplier<Block> SLUDGE_BLOCK = registerBlock("sludge_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))),
 
     NECROTIC_GRASS_BLOCK = registerBlock("necrotic_grass_block", true,
@@ -36,12 +35,12 @@ public class ModBlocks {
                     .instabreak()
                     .noCollission()
                     .noOcclusion()
-                    .lightLevel((light) -> 9), () -> ModTreeFeatures.HUGE_GLEAM_SHROOM)
+                    .lightLevel((light) -> 7), () -> ModTreeFeatures.HUGE_GLEAM_SHROOM)
     ),
 
     GLEAM_SHROOM_BLOCK = registerBlock("gleam_shroom_block", true,
             () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
-                    .lightLevel((light) -> 9))
+                    .lightLevel((light) -> 7))
     ),
 
     DEEPERSLATE = registerBlock("deeperslate", true,
@@ -81,7 +80,10 @@ public class ModBlocks {
             () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT))),
 
     ENRICHMENT_TABLE = registerBlock("enrichment_table", true,
-            () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+            () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))),
+
+    NIGHTMARE_GATEWAY = registerBlock("nightmare_gateway", true,
+            NightmareGatewayBlock::new);
 
     @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {
