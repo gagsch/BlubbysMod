@@ -1,0 +1,28 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "D": {
+      "item": "blubbysmod:essence_death"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "blubbysmod:vile_blood"
+    },
+    "l": {
+      "item": "minecraft:leather"
+    }
+  },
+  "page_number": 6,
+  "pattern": [
+    "III",
+    "lDl",
+    "lbl"
+  ],
+  "requirement": "blubbysmod:awakened_core",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:vampire_gloves"
+  }
+}

@@ -1,5 +1,6 @@
-package com.bmod.packet;
+package com.bmod.packet.S2C;
 
+import com.bmod.packet.ModPackets;
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.networking.simple.BaseS2CMessage;
 import dev.architectury.networking.simple.MessageType;

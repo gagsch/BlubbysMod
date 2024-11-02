@@ -20,7 +20,6 @@ import net.minecraft.world.item.SpawnEggItem;
 import java.util.function.Supplier;
 
 import static com.bmod.registry.item.custom.ToolTipItem.*;
-import static com.bmod.registry.item.custom.InventoryItem.*;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ITEM_REGISTRY);
@@ -49,11 +48,8 @@ public class ModItems {
     CURSED_GEM = ITEMS.register("cursed_gem",
             CursedGemItem::new),
 
-    ENDER_BUNDLE = ITEMS.register("ender_bundle",
-            () -> new EnderBundleItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
+    VOID_BUNDLE = ITEMS.register("ender_bundle",
+            VoidBundleItem::new),
 
     HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
             () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Properties()
@@ -62,19 +58,22 @@ public class ModItems {
                     .stacksTo(64))),
 
     LUCKY_ROCK = ITEMS.register("lucky_rock",
-            () -> new InventoryItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1), inventoryItems.LUCKY_ROCK)),
+            LuckyRockItem::new),
+
+    MYSTIC_EMBER = ITEMS.register("mystic_ember",
+            MysticEmberItem::new),
+
+    ETERNAL_SATCHEL = ITEMS.register("eternal_satchel",
+            EternalSatchelItem::new),
+
+    VAMPIRE_GLOVES = ITEMS.register("vampire_gloves",
+            VampireGlovesItem::new),
 
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(1))),
-
-    //VOODOO_DOLL = ITEMS.register("cursed_doll",
-    //        VoodooDollItem::new),
 
     WIND_ROCKET = ITEMS.register("wind_rocket",
             WindRocketItem::new),

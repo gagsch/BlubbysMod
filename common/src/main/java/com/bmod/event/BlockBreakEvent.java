@@ -3,6 +3,8 @@ package com.bmod.event;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.entity.custom.RotFlyEntity;
+import com.bmod.registry.item.ModItems;
+import com.bmod.util.ContainerUtils;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
 import net.minecraft.core.BlockPos;
@@ -36,7 +38,7 @@ public class BlockBreakEvent {
 
                 List<ItemStack> drops = state.getDrops(builder);
 
-                if (Objects.requireNonNull(state.getBlock().arch$registryName()).getPath().contains("ore") && player.hasEffect(MobEffects.LUCK) && !((EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, player.getMainHandItem()) > 0) || (player.isCreative())))
+                if (Objects.requireNonNull(state.getBlock().arch$registryName()).getPath().contains("ore") && ContainerUtils.playerAccessoriesHasItem(player, ModItems.LUCKY_ROCK.get()) && !((EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, player.getMainHandItem()) > 0) || (player.isCreative())))
                 {
                     for (ItemStack drop : drops) {
                         if (!(drop.getItem() instanceof BlockItem))

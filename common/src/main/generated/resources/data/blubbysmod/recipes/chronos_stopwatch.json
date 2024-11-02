@@ -1,14 +1,18 @@
 {
-  "type": "blubbysmod:enrichment_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:chain"
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "C": {
+      "item": "blubbysmod:chronos_clock"
     },
-    {
-      "item": "minecraft:clock"
+    "c": {
+      "item": "minecraft:chain"
     }
-  ],
+  },
   "page_number": 4,
+  "pattern": [
+    "c",
+    "C"
+  ],
   "requirement": "blubbysmod:soul_time",
   "result": {
     "count": 1,

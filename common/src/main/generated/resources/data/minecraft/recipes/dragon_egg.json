@@ -2,13 +2,13 @@
   "type": "blubbysmod:enrichment_shaped",
   "key": {
     "D": {
-      "item": "minecraft:dragon_egg"
+      "item": "blubbysmod:dragon_heart"
     },
     "c": {
       "item": "minecraft:end_crystal"
     }
   },
-  "page_number": 7,
+  "page_number": 9,
   "pattern": [
     " c ",
     "cDc",
@@ -16,7 +16,7 @@
   ],
   "requirement": "blubbysmod:awakened_core",
   "result": {
-    "count": 2,
+    "count": 1,
     "item": "minecraft:dragon_egg"
   }
 }

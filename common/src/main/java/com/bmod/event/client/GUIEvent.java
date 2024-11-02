@@ -1,25 +1,48 @@
 package com.bmod.event.client;
 
 import com.bmod.BlubbysMod;
+import com.bmod.packet.C2S.C2SOpenMenu;
 import com.bmod.registry.block.ModBlocks;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientGuiEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 
-public class RenderOverlayEvent {
-
+public class GUIEvent {
     private static final ResourceLocation IMG_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/block/bubble_block.png");
+    private static final ResourceLocation ACCESSORY_BUTTON_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/accessory_button.png");
+    public static final ImageButton button = new ImageButton(0, 0, 20, 18, 0, 0, 19, ACCESSORY_BUTTON_LOCATION, (button -> new C2SOpenMenu().sendToServer()));
 
     public static void initialize() {
+        ClientGuiEvent.INIT_POST.register((screen, access) -> {
+            if (screen instanceof InventoryScreen)
+            {
+                access.addRenderableWidget(button);
+            }
+        });
+
+        ClientGuiEvent.RENDER_POST.register((screen, poseStack, integer1, integer2, float1) -> {
+            if (screen instanceof InventoryScreen inventoryScreen)
+            {
+                button.x = screen.width / 2 + 46 + (inventoryScreen.getRecipeBookComponent().isVisible() ? 78 : 0);
+                button.y = screen.height / 2 - 22;
+            }
+        });
+
         ClientGuiEvent.RENDER_HUD.register((matrices, tickDelta) -> {
             Minecraft minecraft = Minecraft.getInstance();
             Window window = minecraft.getWindow();

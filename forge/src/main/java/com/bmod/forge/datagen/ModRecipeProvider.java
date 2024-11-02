@@ -83,10 +83,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requirement(ModItems.SOUL_TIME.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapeless(ModItems.CHRONOS_STOPWATCH.get())
-                .ingredient(Items.CHAIN)
-                .ingredient(Items.CLOCK)
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.CHRONOS_STOPWATCH.get())
+                .key('c', Items.CHAIN)
+                .key('C', ModItems.CHRONOS_CLOCK.get())
+                .pattern("c")
+                .pattern("C")
                 .requirement(ModItems.SOUL_TIME.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.MYSTIC_EMBER.get())
+                .key('F', ModItems.ESSENCE_FLAMES.get())
+                .key('N', ModItems.ESSENCE_NETHER.get())
+                .key('c', Items.CHARCOAL)
+                .pattern("ccc")
+                .pattern("FNF")
+                .pattern("ccc")
+                .requirement(ModItems.AWAKENED_CORE.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.VAMPIRE_GLOVES.get())
+                .key('D', ModItems.ESSENCE_DEATH.get())
+                .key('I', Items.IRON_INGOT)
+                .key('l', Items.LEATHER)
+                .key('b', ModItems.VILE_BLOOD.get())
+                .pattern("III")
+                .pattern("lDl")
+                .pattern("lbl")
+                .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.CURSED_GEM.get())
@@ -107,13 +130,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 2)
+        EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 1)
                 .key('c', Items.END_CRYSTAL)
-                .key('D', Items.DRAGON_EGG)
+                .key('D', ModItems.DRAGON_HEART.get())
                 .pattern(" c ")
                 .pattern("cDc")
                 .pattern(" c ")
                 .requirement(ModItems.AWAKENED_CORE.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.ETERNAL_SATCHEL.get(), 1)
+                .key('C', ModItems.ESSENCE_CONTINUITY.get())
+                .key('f', ModItems.FAIRY_DUST.get())
+                .key('v', ModItems.VILE_BLOOD.get())
+                .key('b', Items.BUNDLE)
+                .pattern(" f ")
+                .pattern("vCv")
+                .pattern(" b ")
+                .requirement(ModItems.ETERNAL_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(), 1)
@@ -188,9 +222,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         UpgradeRecipeBuilder
                 .smithing(Ingredient.of(Items.BUNDLE),
                         Ingredient.of(ModItems.ESSENCE_VOID.get()),
-                        ModItems.ENDER_BUNDLE.get())
+                        ModItems.VOID_BUNDLE.get())
                 .unlocks("has_essence_void", has(ModItems.ESSENCE_VOID.get()))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.ENDER_BUNDLE.get().builtInRegistryHolder().key().location().getPath()));
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.VOID_BUNDLE.get().builtInRegistryHolder().key().location().getPath()));
 
         ShapedRecipeBuilder
                 .shaped(ModItems.HEART_OF_THE_ABYSS.get())
@@ -689,7 +723,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("#SO")
                 .pattern("NBN")
                 .pattern("OS#")
-                .unlockedBy("has_air", has(Items.OBSIDIAN))
+                .unlockedBy("has_obsidian", has(Items.OBSIDIAN))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHT.get(), 1)

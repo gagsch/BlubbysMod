@@ -1,4 +1,4 @@
-package com.bmod.packet;
+package com.bmod.packet.S2C;
 
 import com.bmod.registry.menu.AncientRecipeBookScreen;
 import net.minecraft.client.Minecraft;

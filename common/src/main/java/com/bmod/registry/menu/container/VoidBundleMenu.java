@@ -3,6 +3,7 @@ package com.bmod.registry.menu.container;
 import com.bmod.registry.item.ModItems;
 import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
+import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,17 +14,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class EnderChestUpgradeMenu extends AbstractContainerMenu {
+public class VoidBundleMenu extends AbstractContainerMenu {
+    private final Container loot;
 
-    // New duplication methods may arise with this. Report them at owner@gagsch.xyz
-
-    private final SimpleContainer loot;
-
-    public EnderChestUpgradeMenu(int windowId, Inventory playerInventory, SimpleContainer loot) {
-        super(ModMenus.ENDER_CHEST_UPGRADE_MENU.get(), windowId);
+    public VoidBundleMenu(int windowId, Inventory playerInventory, Container loot) {
+        super(ModMenus.VOID_BUNDLE_MENU_TYPE.get(), windowId);
         this.loot = loot;
 
-        ContainerUtils.loadContainerFromPlayer(loot, playerInventory.player, "EnderChestUpgradeLoot");
+        ContainerUtils.loadContainerFromPlayer(loot, playerInventory.player, "void_bundle_contents");
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 9; j++) {
@@ -31,7 +29,7 @@ public class EnderChestUpgradeMenu extends AbstractContainerMenu {
                     this.addSlot(new Slot(playerInventory.player.getEnderChestInventory(), j + i * 9, 8 + j * 18, 18 + i * 18) {
                         @Override
                         public boolean mayPlace(ItemStack itemStack) {
-                            return !Objects.equals(itemStack.getItem(), ModItems.ENDER_BUNDLE.get());
+                            return !Objects.equals(itemStack.getItem(), ModItems.VOID_BUNDLE.get());
                         }
                     });
                 }
@@ -39,7 +37,7 @@ public class EnderChestUpgradeMenu extends AbstractContainerMenu {
                     this.addSlot(new Slot(loot, j + i * 9 - 27, 8 + j * 18, 18 + i * 18) {
                         @Override
                         public boolean mayPlace(ItemStack itemStack) {
-                            return !Objects.equals(itemStack.getItem(), ModItems.ENDER_BUNDLE.get());
+                            return !Objects.equals(itemStack.getItem(), ModItems.VOID_BUNDLE.get());
                         }
                     } );
                 }
@@ -57,7 +55,7 @@ public class EnderChestUpgradeMenu extends AbstractContainerMenu {
         }
     }
 
-    public EnderChestUpgradeMenu(int id, Inventory playerInventory) {
+    public VoidBundleMenu(int id, Inventory playerInventory) {
         this(id, playerInventory, new SimpleContainer(54));
     }
 
@@ -103,6 +101,6 @@ public class EnderChestUpgradeMenu extends AbstractContainerMenu {
     public void removed(@NotNull Player player) {
         super.removed(player);
 
-        ContainerUtils.saveContainerToPlayer(this.loot, player, "EnderChestUpgradeLoot");
+        ContainerUtils.saveContainerToPlayer(this.loot, player, "void_bundle_contents");
     }
 }

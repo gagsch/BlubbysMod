@@ -1,4 +1,4 @@
-package com.bmod.packet;
+package com.bmod.packet.S2C;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

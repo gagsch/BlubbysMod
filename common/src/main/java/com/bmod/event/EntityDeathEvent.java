@@ -1,22 +1,20 @@
 package com.bmod.event;
 
 import com.bmod.registry.item.ModItems;
-import com.bmod.registry.mob_effect.ModMobEffects;
-import com.bmod.registry.world.ModDimensions;
+import com.bmod.util.ContainerUtils;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
-import dev.architectury.event.events.common.InteractionEvent;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 
 public class EntityDeathEvent {
 
@@ -56,6 +54,21 @@ public class EntityDeathEvent {
                     player.inventoryMenu.broadcastChanges();
 
                     return EventResult.interruptFalse();
+                }
+                else {
+                    SimpleContainer container = new SimpleContainer(5);
+                    ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
+                    if (!container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.ETERNAL_SATCHEL.get())))
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            ItemEntity itemEntity = new ItemEntity(entity.getLevel(), entity.getX(), entity.getY(), entity.getZ(), container.getItem(i));
+                            entity.getLevel().addFreshEntity(itemEntity);
+                            container.setItem(i, ItemStack.EMPTY);
+                            container.setChanged();
+                        }
+                    }
+                    ContainerUtils.saveContainerToPlayer(container, player, "accessories");
                 }
             }
             else if (entity instanceof Warden) {

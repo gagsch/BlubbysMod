@@ -1,7 +1,7 @@
 package com.bmod;
 
 import com.bmod.event.*;
-import com.bmod.event.client.RenderOverlayEvent;
+import com.bmod.event.client.GUIEvent;
 import com.bmod.packet.ModPackets;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
@@ -37,6 +37,7 @@ public final class BlubbysMod {
         BlockBreakEvent.initialize();
         PlayerInteractEvent.initialize();
         EntityDeathEvent.initialize();
+        EntityHurtEvent.initialize();
         CommandRegisterEvent.initialize();
         ModifyLootEvent.initialize();
 
@@ -76,7 +77,7 @@ public final class BlubbysMod {
     public static class Client {
         @Environment(EnvType.CLIENT)
         public static void initializeClient() {
-            RenderOverlayEvent.initialize();
+            GUIEvent.initialize();
 
             EntityModelLayerRegistry.register(RotFlyModel.LAYER_LOCATION, RotFlyModel::createBodyLayer);
             EntityModelLayerRegistry.register(SporeFlyModel.LAYER_LOCATION, SporeFlyModel::createBodyLayer);

@@ -41,7 +41,16 @@ public class ENLangProvider extends LanguageProvider {
                 "Marks your location on first use, then returns you to that spot on the second use.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.LUCKY_ROCK) + ".tooltip",
-                "Increases ore drops by one. Not effective with Silk Touch or solid blocks.\nEffect applied while in inventory.");
+                "Increases ore drops by one. Not effective with Silk Touch.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.MYSTIC_EMBER) + ".tooltip",
+                "Deal fiery attacks while being immune to fire damage.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.ETERNAL_SATCHEL) + ".tooltip",
+                "You do not lose your accessories on death.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.VAMPIRE_GLOVES) + ".tooltip",
+                "Steals life from enemies.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.TOTEM_OF_DREAMS) + ".tooltip",
                 "Teleports you to your spawn point on death while retaining items and EXP.");
@@ -49,7 +58,7 @@ public class ENLangProvider extends LanguageProvider {
         add("item.blubbysmod." + getIdFromItem(ModItems.WIND_ROCKET) + ".tooltip",
                 "This rocket uses the air around you to propel you forward in flight.");
 
-        add("item.blubbysmod." + getIdFromItem(ModItems.ENDER_BUNDLE) + ".tooltip",
+        add("item.blubbysmod." + getIdFromItem(ModItems.VOID_BUNDLE) + ".tooltip",
                 "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.HOT_PEPPER) + ".tooltip",
@@ -71,7 +80,7 @@ public class ENLangProvider extends LanguageProvider {
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.BUBBLE_WAND, "Bubble Wand");
         addItem(ModItems.DIVINE_ALLOY, "Divine Alloy");
-        addItem(ModItems.ENDER_BUNDLE, "Void Bundle");
+        addItem(ModItems.VOID_BUNDLE, "Void Bundle");
         addItem(ModItems.ESSENCE_END, "Essence of the End");
         addItem(ModItems.ESSENCE_NETHER, "Essence of the Nether");
         addItem(ModItems.ESSENCE_NIGHT, "Essence of the Night");

@@ -29,6 +29,11 @@ public class ToolTipItem extends Item {
 
         components.add(component("item." + BlubbysMod.MOD_ID + "." + itemName + ".tooltip"));
 
+        if (stack.getItem() instanceof IAccessoryItem)
+        {
+            components.add(Component.literal("Accessory").withStyle(ChatFormatting.BLUE));
+        }
+
         switch (itemName)
         {
             case "lucky_rock":

@@ -1,6 +1,7 @@
 package com.bmod.registry.item.custom;
 
-import com.bmod.registry.menu.container.EnderChestUpgradeMenu;
+import com.bmod.registry.item.ModCreativeTab;
+import com.bmod.registry.menu.container.VoidBundleMenu;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,9 +16,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class EnderBundleItem extends ToolTipItem {
-    public EnderBundleItem(Properties properties) {
-        super(properties);
+public class VoidBundleItem extends ToolTipItem {
+    public VoidBundleItem() {
+        super(new Properties()
+                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .durability(-1)
+                .stacksTo(1));
     }
 
     @Override
@@ -26,8 +30,7 @@ public class EnderBundleItem extends ToolTipItem {
             MenuRegistry.openMenu(serverPlayer, new MenuProvider() {
                 @Override
                 public AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player playerEntity) {
-                    // return ModMenus.ENDER_CHEST_UPGRADE_MENU.get().create(id, playerInventory);
-                    return new EnderChestUpgradeMenu(id, playerInventory, new SimpleContainer(54));
+                    return new VoidBundleMenu(id, playerInventory, new SimpleContainer(54));
                 }
 
                 @Override

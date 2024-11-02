@@ -1,0 +1,28 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "C": {
+      "item": "blubbysmod:essence_continuity"
+    },
+    "b": {
+      "item": "minecraft:bundle"
+    },
+    "f": {
+      "item": "blubbysmod:fairy_dust"
+    },
+    "v": {
+      "item": "blubbysmod:vile_blood"
+    }
+  },
+  "page_number": 10,
+  "pattern": [
+    " f ",
+    "vCv",
+    " b "
+  ],
+  "requirement": "blubbysmod:eternal_core",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:eternal_satchel"
+  }
+}

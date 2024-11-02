@@ -1,0 +1,25 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "F": {
+      "item": "blubbysmod:essence_flames"
+    },
+    "N": {
+      "item": "blubbysmod:essence_nether"
+    },
+    "c": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "page_number": 5,
+  "pattern": [
+    "ccc",
+    "FNF",
+    "ccc"
+  ],
+  "requirement": "blubbysmod:awakened_core",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:mystic_ember"
+  }
+}
