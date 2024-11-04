@@ -1,0 +1,28 @@
+{
+  "type": "blubbysmod:enrichment_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "blubbysmod:ruby"
+    },
+    "f": {
+      "item": "blubbysmod:essence_flames"
+    },
+    "i": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "page_number": 6,
+  "pattern": [
+    "fRf",
+    "I I",
+    "iIi"
+  ],
+  "requirement": "blubbysmod:awakened_core",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:lava_ring"
+  }
+}

@@ -8,13 +8,13 @@
       "item": "minecraft:end_crystal"
     }
   },
-  "page_number": 9,
+  "page_number": 11,
   "pattern": [
     " c ",
     "cDc",
     " c "
   ],
-  "requirement": "blubbysmod:awakened_core",
+  "requirement": "blubbysmod:eternal_core",
   "result": {
     "count": 1,
     "item": "minecraft:dragon_egg"

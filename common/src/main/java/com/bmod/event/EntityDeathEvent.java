@@ -15,6 +15,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameRules;
 
 public class EntityDeathEvent {
 
@@ -55,7 +56,7 @@ public class EntityDeathEvent {
 
                     return EventResult.interruptFalse();
                 }
-                else {
+                else if (!player.getLevel().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
                     SimpleContainer container = new SimpleContainer(5);
                     ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
                     if (!container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.ETERNAL_SATCHEL.get())))

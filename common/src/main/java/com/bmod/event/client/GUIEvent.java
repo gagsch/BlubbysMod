@@ -6,20 +6,18 @@ import com.bmod.registry.block.ModBlocks;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientGuiEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
-import net.minecraft.client.gui.components.AbstractButton;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 
 public class GUIEvent {
@@ -29,17 +27,23 @@ public class GUIEvent {
 
     public static void initialize() {
         ClientGuiEvent.INIT_POST.register((screen, access) -> {
-            if (screen instanceof InventoryScreen)
+            if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen)
             {
                 access.addRenderableWidget(button);
+                button.visible = false;
             }
         });
 
         ClientGuiEvent.RENDER_POST.register((screen, poseStack, integer1, integer2, float1) -> {
-            if (screen instanceof InventoryScreen inventoryScreen)
-            {
+            if (screen instanceof InventoryScreen inventoryScreen) {
                 button.x = screen.width / 2 + 46 + (inventoryScreen.getRecipeBookComponent().isVisible() ? 78 : 0);
                 button.y = screen.height / 2 - 22;
+                button.visible = true;
+            }
+            else if (screen instanceof CreativeModeInventoryScreen creativeInventoryScreen) {
+                button.x = screen.width / 2 + 30;
+                button.y = screen.height / 2 - 50;
+                button.visible = creativeInventoryScreen.getSelectedTab() == CreativeModeTab.TAB_INVENTORY.getId();
             }
         });
 

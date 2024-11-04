@@ -44,7 +44,16 @@ public class ENLangProvider extends LanguageProvider {
                 "Increases ore drops by one. Not effective with Silk Touch.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.MYSTIC_EMBER) + ".tooltip",
-                "Deal fiery attacks while being immune to fire damage.");
+                "Attacked enemies are set ablaze.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.LAVA_RING) + ".tooltip",
+                "Makes you immune to fire.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.MYSTIC_MOLTEN_RING) + ".tooltip",
+                "Gives the effect of both the Mystic Ember and the Lava Ring.");
+
+        add("item.blubbysmod." + getIdFromItem(ModItems.DEMON_GLOVES) + ".tooltip",
+                "You have the power of the Mystic Ember, Lava Ring, and Vampire Gloves. Additionally, you regenerate faster on fire.");
 
         add("item.blubbysmod." + getIdFromItem(ModItems.ETERNAL_SATCHEL) + ".tooltip",
                 "You do not lose your accessories on death.");

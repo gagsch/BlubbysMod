@@ -5,11 +5,9 @@ import net.minecraft.world.item.Item;
 
 public class CursedGemItem extends ToolTipItem {
     public CursedGemItem() {
-        super(
-                new Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                        .durability(-1)
-                        .stacksTo(1)
-        );
+        super(new Properties()
+                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .durability(-1)
+                .stacksTo(1));
     }
 }

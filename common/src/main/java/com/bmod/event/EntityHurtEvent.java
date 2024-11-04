@@ -16,13 +16,13 @@ public class EntityHurtEvent {
                 SimpleContainer container = new SimpleContainer(5);
                 ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
 
-                if (container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.MYSTIC_EMBER.get())))
+                if (container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.MYSTIC_EMBER.get()) || itemStack.is(ModItems.MYSTIC_MOLTEN_RING.get()) || itemStack.is(ModItems.DEMON_GLOVES.get())))
                 {
                     entity.setSecondsOnFire(5);
                 }
-                if (container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.VAMPIRE_GLOVES.get())))
+                if (container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.VAMPIRE_GLOVES.get()) || itemStack.is(ModItems.DEMON_GLOVES.get())))
                 {
-                    player.heal(damage / 15);
+                    player.heal(damage / 12);
                 }
             }
             return EventResult.pass();

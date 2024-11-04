@@ -61,13 +61,22 @@ public class ModItems {
             LuckyRockItem::new),
 
     MYSTIC_EMBER = ITEMS.register("mystic_ember",
-            MysticEmberItem::new),
+            BaseAccessoryItem::new),
+
+    LAVA_RING = ITEMS.register("lava_ring",
+            LavaRingItem::new),
+
+    MYSTIC_MOLTEN_RING = ITEMS.register("mystic_molten_ring",
+            LavaRingItem::new),
 
     ETERNAL_SATCHEL = ITEMS.register("eternal_satchel",
-            EternalSatchelItem::new),
+            BaseAccessoryItem::new),
 
     VAMPIRE_GLOVES = ITEMS.register("vampire_gloves",
-            VampireGlovesItem::new),
+            BaseAccessoryItem::new),
+
+    DEMON_GLOVES = ITEMS.register("demon_gloves",
+            DemonGloveItem::new),
 
     TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Properties()

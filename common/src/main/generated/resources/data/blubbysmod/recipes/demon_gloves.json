@@ -1,0 +1,17 @@
+{
+  "type": "blubbysmod:enrichment_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:mystic_molten_ring"
+    },
+    {
+      "item": "blubbysmod:vampire_gloves"
+    }
+  ],
+  "page_number": 14,
+  "requirement": "blubbysmod:soul_infinity",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:demon_gloves"
+  }
+}

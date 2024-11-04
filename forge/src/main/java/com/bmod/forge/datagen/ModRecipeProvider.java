@@ -101,6 +101,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
+        EnrichmentRecipeBuilder.shapedRecipe(ModItems.LAVA_RING.get())
+                .key('R', ModItems.RUBY.get())
+                .key('I', Items.IRON_INGOT)
+                .key('f', ModItems.ESSENCE_FLAMES.get())
+                .key('i', Items.IRON_NUGGET)
+                .pattern("fRf")
+                .pattern("I I")
+                .pattern("iIi")
+                .requirement(ModItems.AWAKENED_CORE.get())
+                .save(consumer);
+
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.VAMPIRE_GLOVES.get())
                 .key('D', ModItems.ESSENCE_DEATH.get())
                 .key('I', Items.IRON_INGOT)
@@ -130,13 +141,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requirement(ModItems.AWAKENED_CORE.get())
                 .save(consumer);
 
+        EnrichmentRecipeBuilder.shapeless(ModItems.MYSTIC_MOLTEN_RING.get())
+                .ingredient(ModItems.LAVA_RING.get())
+                .ingredient(ModItems.MYSTIC_EMBER.get())
+                .requirement(ModItems.ETERNAL_CORE.get())
+                .save(consumer);
+
         EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 1)
                 .key('c', Items.END_CRYSTAL)
                 .key('D', ModItems.DRAGON_HEART.get())
                 .pattern(" c ")
                 .pattern("cDc")
                 .pattern(" c ")
-                .requirement(ModItems.AWAKENED_CORE.get())
+                .requirement(ModItems.ETERNAL_CORE.get())
                 .save(consumer);
 
         EnrichmentRecipeBuilder.shapedRecipe(ModItems.ETERNAL_SATCHEL.get(), 1)
@@ -158,6 +175,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .ingredient(ModItems.SOUL_TIME.get())
                 .ingredient(ModItems.SOUL_SPACE.get())
                 .requirement(ModItems.ETERNAL_CORE.get())
+                .save(consumer);
+
+        EnrichmentRecipeBuilder.shapeless(ModItems.DEMON_GLOVES.get())
+                .ingredient(ModItems.MYSTIC_MOLTEN_RING.get())
+                .ingredient(ModItems.VAMPIRE_GLOVES.get())
+                .requirement(ModItems.SOUL_INFINITY.get())
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
