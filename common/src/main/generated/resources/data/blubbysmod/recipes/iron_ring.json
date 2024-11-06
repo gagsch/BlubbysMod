@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "i": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "iIi",
+    "I I",
+    "iIi"
+  ],
+  "result": {
+    "item": "blubbysmod:iron_ring"
+  }
+}

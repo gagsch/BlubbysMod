@@ -1,19 +1,20 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "C": {
-      "item": "blubbysmod:chronos_clock"
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:time_gear"
     },
-    "c": {
+    {
       "item": "minecraft:chain"
+    },
+    {
+      "item": "blubbysmod:guardian_core"
     }
-  },
-  "page_number": 4,
-  "pattern": [
-    "c",
-    "C"
   ],
-  "requirement": "blubbysmod:soul_time",
+  "base": {
+    "item": "minecraft:clock"
+  },
+  "blueprint": "special",
   "result": {
     "count": 1,
     "item": "blubbysmod:chronos_stopwatch"

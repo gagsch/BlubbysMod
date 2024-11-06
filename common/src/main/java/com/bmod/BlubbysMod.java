@@ -9,12 +9,12 @@ import com.bmod.registry.entity.client.*;
 import com.bmod.registry.entity.custom.*;
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.particle.ModParticles;
-import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.ModSounds;
 import com.bmod.registry.menu.ModMenus;
+import com.bmod.registry.recipe.ModRecipeTypes;
 import com.bmod.registry.world.biome.ModBiomes;
 import com.bmod.registry.world.feature.ModFeatures;
 import com.bmod.registry.world.feature.tree_grower.DreadwoodTreeGrower;
@@ -28,6 +28,7 @@ import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.Minecraft;
 
 public final class BlubbysMod {
     public static final String MOD_ID = "blubbysmod";

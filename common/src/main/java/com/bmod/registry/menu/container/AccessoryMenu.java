@@ -2,6 +2,7 @@ package com.bmod.registry.menu.container;
 
 import com.bmod.registry.item.custom.IAccessoryItem;
 import com.bmod.util.ContainerUtils;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,6 +15,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class AccessoryMenu extends AbstractContainerMenu {
     private final Container accessoryMenu;
+
+    public AccessoryMenu(int i, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
+        this(i, inventory);
+    }
 
     public AccessoryMenu(int i, Inventory inventory) {
         this(i, inventory, new SimpleContainer(5));

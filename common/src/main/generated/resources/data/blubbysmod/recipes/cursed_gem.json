@@ -1,20 +1,17 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "D": {
-      "item": "blubbysmod:essence_death"
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:crying_obsidian"
     },
-    "r": {
-      "item": "blubbysmod:ruby"
+    {
+      "item": "blubbysmod:warden_tendril"
     }
-  },
-  "page_number": 8,
-  "pattern": [
-    " r ",
-    "rDr",
-    " r "
   ],
-  "requirement": "blubbysmod:awakened_core",
+  "base": {
+    "item": "blubbysmod:ruby"
+  },
+  "blueprint": "special",
   "result": {
     "count": 1,
     "item": "blubbysmod:cursed_gem"

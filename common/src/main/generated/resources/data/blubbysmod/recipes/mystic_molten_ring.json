@@ -1,17 +1,12 @@
 {
-  "type": "blubbysmod:enrichment_shapeless",
-  "ingredients": [
-    {
-      "item": "blubbysmod:lava_ring"
-    },
-    {
-      "item": "blubbysmod:mystic_ember"
-    }
-  ],
-  "page_number": 10,
-  "requirement": "blubbysmod:eternal_core",
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "blubbysmod:mystic_ember"
+  },
+  "base": {
+    "item": "blubbysmod:lava_ring"
+  },
   "result": {
-    "count": 1,
     "item": "blubbysmod:mystic_molten_ring"
   }
 }

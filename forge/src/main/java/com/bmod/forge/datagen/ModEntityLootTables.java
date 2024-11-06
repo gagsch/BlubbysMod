@@ -57,9 +57,6 @@ public class ModEntityLootTables extends EntityLoot {
 
         add(ModEntityTypes.DARK_FAIRY.get(), LootTable.lootTable().withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(ModItems.ESSENCE_DARKNESS.get())
-                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))
-                        .when(LootItemRandomChanceCondition.randomChance(0.1f)))
                 .add(LootItem.lootTableItem(ModItems.FAIRY_DUST.get())
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0f, 2.0f)))
                         .when(LootItemRandomChanceCondition.randomChance(0.75f)))));

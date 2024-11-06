@@ -1,12 +1,17 @@
 {
-  "type": "blubbysmod:enrichment_shapeless",
-  "ingredients": [
+  "type": "blubbysmod:workshop",
+  "additional": [
     {
-      "item": "minecraft:clock"
+      "item": "blubbysmod:time_gear"
+    },
+    {
+      "item": "blubbysmod:guardian_core"
     }
   ],
-  "page_number": 3,
-  "requirement": "blubbysmod:soul_time",
+  "base": {
+    "item": "minecraft:clock"
+  },
+  "blueprint": "special",
   "result": {
     "count": 1,
     "item": "blubbysmod:chronos_clock"

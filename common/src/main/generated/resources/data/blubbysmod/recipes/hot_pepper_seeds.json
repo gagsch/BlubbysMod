@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "F": {
-      "item": "blubbysmod:essence_flames"
+      "item": "minecraft:fire_charge"
     },
     "s": {
       "item": "minecraft:wheat_seeds"

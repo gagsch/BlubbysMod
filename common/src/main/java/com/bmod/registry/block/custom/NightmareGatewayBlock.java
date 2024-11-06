@@ -35,8 +35,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
-
 public class NightmareGatewayBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
 
@@ -98,6 +96,7 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
                 ServerLevel dim = serverLevel.getServer().getLevel(level.dimension() == ModDimensions.BLYDIM_KEY ? Level.OVERWORLD : ModDimensions.BLYDIM_KEY);
                 BlockPos pos = new BlockPos(newBlockEntity.teleportPos[0], newBlockEntity.teleportPos[1], newBlockEntity.teleportPos[2]);
 
+                assert dim != null;
                 if (!dim.getBlockState(pos).is(ModBlocks.NIGHTMARE_GATEWAY.get())) {
                     pos = newBlockEntity.prepareSafeTeleport(dim);
                 }

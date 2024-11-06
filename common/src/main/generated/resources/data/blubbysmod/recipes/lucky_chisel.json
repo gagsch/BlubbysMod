@@ -1,0 +1,19 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:lucky_rock"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:hasty_chisel"
+  },
+  "blueprint": "upgrade",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:lucky_chisel"
+  }
+}

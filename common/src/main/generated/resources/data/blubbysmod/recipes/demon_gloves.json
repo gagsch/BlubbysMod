@@ -1,15 +1,20 @@
 {
-  "type": "blubbysmod:enrichment_shapeless",
-  "ingredients": [
+  "type": "blubbysmod:workshop",
+  "additional": [
     {
       "item": "blubbysmod:mystic_molten_ring"
     },
     {
-      "item": "blubbysmod:vampire_gloves"
+      "item": "blubbysmod:vile_blood"
+    },
+    {
+      "item": "blubbysmod:necrium_ingot"
     }
   ],
-  "page_number": 14,
-  "requirement": "blubbysmod:soul_infinity",
+  "base": {
+    "item": "blubbysmod:vampire_gloves"
+  },
+  "blueprint": "upgrade",
   "result": {
     "count": 1,
     "item": "blubbysmod:demon_gloves"

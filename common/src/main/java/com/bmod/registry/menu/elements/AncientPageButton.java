@@ -1,6 +1,6 @@
 package com.bmod.registry.menu.elements;
 
-import com.bmod.registry.menu.AncientRecipeBookScreen;
+import com.bmod.registry.menu.AncientGuideScreen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;
@@ -22,7 +22,7 @@ public class AncientPageButton extends PageButton {
     public void renderButton(PoseStack poseStack, int i, int j, float f) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, AncientRecipeBookScreen.ANCIENT_BOOK_LOCATION);
+        RenderSystem.setShaderTexture(0, AncientGuideScreen.ANCIENT_BOOK_LOCATION);
         int k = 0;
         int l = 192;
         if (this.isHoveredOrFocused()) {

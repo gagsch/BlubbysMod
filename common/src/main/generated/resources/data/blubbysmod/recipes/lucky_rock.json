@@ -1,20 +1,17 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "E": {
-      "item": "blubbysmod:essence_stone"
-    },
-    "d": {
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
       "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "minecraft:emerald"
     }
-  },
-  "page_number": 0,
-  "pattern": [
-    " d ",
-    "dEd",
-    " d "
   ],
-  "requirement": "blubbysmod:dormant_core",
+  "base": {
+    "item": "minecraft:cobblestone"
+  },
+  "blueprint": "accessory",
   "result": {
     "count": 1,
     "item": "blubbysmod:lucky_rock"

@@ -25,8 +25,10 @@ public class ModBlocks {
 
     NECROTIC_GRASS_BLOCK = registerBlock("necrotic_grass_block", true,
             () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK))),
+
     DARK_TURF_BLOCK = registerBlock("dark_turf_block", true,
             () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK))),
+
     DARK_SOIL = registerBlock("dark_soil", true,
             () -> new DarkSoilBlock(BlockBehaviour.Properties.copy(Blocks.DIRT))),
 
@@ -45,31 +47,38 @@ public class ModBlocks {
 
     DEEPERSLATE = registerBlock("deeperslate", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+
     MYCELIUM_DEEPERSLATE = registerBlock("mycelium_deeperslate", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops()
                     .lightLevel((light) -> 2))),
+
     WEB_STONE = registerBlock("web_stone", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+
     SILK_BLOCK = registerBlock("silk_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).sound(SoundType.HONEY_BLOCK).requiresCorrectToolForDrops())),
 
     RUBY_ORE = registerBlock("ruby_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops())),
+
     DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
 
     DREADIUM_ORE = registerBlock("dreadium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+
     DEEPERSLATE_DREADIUM_ORE = registerBlock("deeperslate_dreadium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
 
     NECRIUM_ORE = registerBlock("necrium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+
     DEEPERSLATE_NECRIUM_ORE = registerBlock("deeperslate_necrium_ore", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
 
     FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block", true,
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).requiresCorrectToolForDrops())),
+
     ROT_BLOCK = registerBlock("rot_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD))),
 
@@ -79,8 +88,8 @@ public class ModBlocks {
     HOT_PEPPER_CROP = registerBlock("hot_pepper", false,
             () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT))),
 
-    ENRICHMENT_TABLE = registerBlock("enrichment_table", true,
-            () -> new EnrichmentTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))),
+    WORKSHOP = registerBlock("workshop", true,
+            () -> new WorkshopBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))),
 
     NIGHTMARE_GATEWAY = registerBlock("nightmare_gateway", true,
             NightmareGatewayBlock::new);

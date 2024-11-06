@@ -30,11 +30,19 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
-    ANCIENT_RECIPE_PAGE = ITEMS.register("ancient_recipe_page",
-            AncientRecipePageItem::new),
+    ANCIENT_GUIDE_BOOK = ITEMS.register("ancient_guide_book", AncientGuideBookItem::new),
 
-    ANCIENT_RECIPE_BOOK = ITEMS.register("ancient_recipe_book",
-            AncientRecipeBookItem::new),
+    BLUEPRINT = ITEMS.register("blueprint", BlueprintItem::new),
+
+    HANDLE = ITEMS.register("handle",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
+    IRON_RING = ITEMS.register("iron_ring", BaseAccessoryItem::new),
+
+    LEATHER_GLOVES = ITEMS.register("leather_gloves", BaseAccessoryItem::new),
 
     BUBBLE_WAND = ITEMS.register("bubble_wand",
             BubbleWandItem::new),
@@ -57,8 +65,24 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
+    TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
+            () -> new ToolTipItem(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(1))),
+
+    WIND_ROCKET = ITEMS.register("wind_rocket",
+            WindRocketItem::new),
+
+    // Accessories
     LUCKY_ROCK = ITEMS.register("lucky_rock",
-            LuckyRockItem::new),
+            BaseAccessoryItem::new),
+
+    HASTY_CHISEL = ITEMS.register("hasty_chisel",
+            HastyChiselItem::new),
+
+    LUCKY_CHISEL = ITEMS.register("lucky_chisel",
+            LuckyChiselItem::new),
 
     MYSTIC_EMBER = ITEMS.register("mystic_ember",
             BaseAccessoryItem::new),
@@ -77,15 +101,6 @@ public class ModItems {
 
     DEMON_GLOVES = ITEMS.register("demon_gloves",
             DemonGloveItem::new),
-
-    TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
-            () -> new ToolTipItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
-
-    WIND_ROCKET = ITEMS.register("wind_rocket",
-            WindRocketItem::new),
 
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",
@@ -174,24 +189,6 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
-    DORMANT_CORE = ITEMS.register("dormant_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
-
-    AWAKENED_CORE = ITEMS.register("awakened_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
-
-    ETERNAL_CORE = ITEMS.register("eternal_core",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(1))),
-
     // Dreadium Stuff
     DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
             () -> new Item(new Properties()
@@ -251,34 +248,12 @@ public class ModItems {
             SHROOMITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.LEGS),
             SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET),
 
-    // Essences
-    ESSENCE_CHANGE = ItemUtils.essence("change"),
-            ESSENCE_CONTINUITY = ItemUtils.essence("continuity"),
-            ESSENCE_DARKNESS = ItemUtils.essence("darkness"),
-            ESSENCE_DAY = ItemUtils.essence("day"),
-            ESSENCE_DEATH = ItemUtils.essence("death"),
-            ESSENCE_END = ItemUtils.essence("end"),
-            ESSENCE_OVERWORLD = ItemUtils.essence("earth"),
-            ESSENCE_ENERGY = ItemUtils.essence("energy"),
-            ESSENCE_FLAMES = ItemUtils.essence("flames"),
-            ESSENCE_LIFE = ItemUtils.essence("life"),
-            ESSENCE_LIGHT = ItemUtils.essence("light"), //
-            ESSENCE_NIGHTMARES = ItemUtils.essence("nightmares"),
-            ESSENCE_NETHER = ItemUtils.essence("nether"),
-            ESSENCE_NIGHT = ItemUtils.essence("night"),
-            ESSENCE_PLANETS = ItemUtils.essence("planets"),
-            ESSENCE_SEA = ItemUtils.essence("sea"),
-            ESSENCE_STARS = ItemUtils.essence("stars"),
-            ESSENCE_STONE = ItemUtils.essence("stone"),
-            ESSENCE_VOID = ItemUtils.essence("void"),
-            ESSENCE_WIND = ItemUtils.essence("wind"),
     // Souls
-    SOUL_BALANCE = ItemUtils.soul("balance"),
-            SOUL_DIMENSIONS = ItemUtils.soul("dimensions"),
-            SOUL_ELEMENTS = ItemUtils.soul("elements"), //
-            SOUL_SPACE = ItemUtils.soul("space"),
-            SOUL_TIME = ItemUtils.soul("time"),
-            SOUL_INFINITY = ItemUtils.soul("infinity"),
+    TIME_GEAR = ITEMS.register("time_gear",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",

@@ -1,20 +1,17 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "D": {
-      "item": "blubbysmod:dragon_heart"
-    },
-    "c": {
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
       "item": "minecraft:end_crystal"
+    },
+    {
+      "item": "minecraft:shulker_shell"
     }
-  },
-  "page_number": 11,
-  "pattern": [
-    " c ",
-    "cDc",
-    " c "
   ],
-  "requirement": "blubbysmod:eternal_core",
+  "base": {
+    "item": "blubbysmod:dragon_heart"
+  },
+  "blueprint": "create",
   "result": {
     "count": 1,
     "item": "minecraft:dragon_egg"

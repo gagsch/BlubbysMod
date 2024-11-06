@@ -10,7 +10,7 @@
   "contact": {
     "homepage": ""
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/blubbysmod/icon.png",
   "environment": "*",
   "entrypoints": {

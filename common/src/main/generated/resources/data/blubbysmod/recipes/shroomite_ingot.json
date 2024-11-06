@@ -1,23 +1,17 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "D": {
-      "item": "blubbysmod:dreadium_ingot"
-    },
-    "b": {
-      "item": "blubbysmod:vile_blood"
-    },
-    "g": {
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
       "item": "blubbysmod:gleam_shroom"
+    },
+    {
+      "item": "blubbysmod:vile_blood"
     }
-  },
-  "page_number": 2,
-  "pattern": [
-    "bgb",
-    "gDg",
-    "bgb"
   ],
-  "requirement": "blubbysmod:essence_continuity",
+  "base": {
+    "item": "blubbysmod:dreadium_ingot"
+  },
+  "blueprint": "upgrade",
   "result": {
     "count": 1,
     "item": "blubbysmod:shroomite_ingot"

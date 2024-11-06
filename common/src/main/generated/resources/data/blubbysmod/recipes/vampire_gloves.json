@@ -1,26 +1,20 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "D": {
-      "item": "blubbysmod:essence_death"
-    },
-    "I": {
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
       "item": "minecraft:iron_ingot"
     },
-    "b": {
+    {
       "item": "blubbysmod:vile_blood"
     },
-    "l": {
-      "item": "minecraft:leather"
+    {
+      "item": "blubbysmod:wither_spine"
     }
-  },
-  "page_number": 7,
-  "pattern": [
-    "III",
-    "lDl",
-    "lbl"
   ],
-  "requirement": "blubbysmod:awakened_core",
+  "base": {
+    "item": "blubbysmod:leather_gloves"
+  },
+  "blueprint": "upgrade",
   "result": {
     "count": 1,
     "item": "blubbysmod:vampire_gloves"

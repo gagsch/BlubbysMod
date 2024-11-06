@@ -8,23 +8,6 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "chance": 0.1,
-              "condition": "minecraft:random_chance"
-            }
-          ],
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "blubbysmod:essence_darkness"
-        },
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
               "chance": 0.75,
               "condition": "minecraft:random_chance"
             }

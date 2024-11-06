@@ -3,6 +3,7 @@ package com.bmod.registry.menu.container;
 import com.bmod.registry.item.ModItems;
 import com.bmod.util.ContainerUtils;
 import com.bmod.registry.menu.ModMenus;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -57,6 +58,10 @@ public class VoidBundleMenu extends AbstractContainerMenu {
 
     public VoidBundleMenu(int id, Inventory playerInventory) {
         this(id, playerInventory, new SimpleContainer(54));
+    }
+
+    public VoidBundleMenu(int id, Inventory playerInventory, FriendlyByteBuf friendlyByteBuf) {
+        this(id, playerInventory);
     }
 
 

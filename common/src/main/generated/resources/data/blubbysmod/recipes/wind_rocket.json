@@ -1,20 +1,20 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "R": {
-      "item": "minecraft:firework_rocket"
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:phantom_membrane"
     },
-    "w": {
-      "item": "blubbysmod:essence_wind"
+    {
+      "item": "blubbysmod:warden_tendril"
+    },
+    {
+      "item": "blubbysmod:wither_spine"
     }
-  },
-  "page_number": 9,
-  "pattern": [
-    "w",
-    "R",
-    "w"
   ],
-  "requirement": "blubbysmod:awakened_core",
+  "base": {
+    "item": "minecraft:firework_rocket"
+  },
+  "blueprint": "special",
   "result": {
     "count": 1,
     "item": "blubbysmod:wind_rocket"

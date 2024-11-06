@@ -34,18 +34,9 @@ public class ToolTipItem extends Item {
             components.add(Component.literal("Accessory").withStyle(ChatFormatting.BLUE));
         }
 
-        switch (itemName)
-        {
-            case "lucky_rock":
-                components.add(effect(MobEffects.LUCK, 4, 0));
-                break;
-            case "hot_pepper":
-                components.add(effect(MobEffects.FIRE_RESISTANCE, 0, 20));
-                components.add(effect(MobEffects.MOVEMENT_SPEED, 1, 20));
-                break;
-            case "ancient_recipe_book", "ancient_recipe_page":
-                components.add(Component.literal("Pages discovered: " + stack.getOrCreateTag().getInt(BlubbysMod.MOD_ID + ":pages")).withStyle(ChatFormatting.YELLOW));
-                break;
+        if (itemName.equals("hot_pepper")) {
+            components.add(effect(MobEffects.FIRE_RESISTANCE, 0, 20));
+            components.add(effect(MobEffects.MOVEMENT_SPEED, 1, 20));
         }
 
         super.appendHoverText(stack,level,components,flag);

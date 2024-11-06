@@ -1,7 +1,7 @@
 package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
-import com.bmod.forge.datagen.enrichment_recipe.EnrichmentRecipeBuilder;
+import com.bmod.forge.datagen.workshop_recipe.WorkshopRecipeBuilder;
 import com.bmod.registry.ModTags;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.tier.ModItemTier;
@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 
 import static com.bmod.util.WoodUtils.*;
+import static com.bmod.registry.item.custom.BlueprintItem.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(DataGenerator generator) {
@@ -33,9 +34,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
-        buildAllSouls(consumer);
-        buildAllEssences(consumer);
-
         woodTypeBuilder(consumer, DREADWOOD);
         woodTypeBuilder(consumer, EBON);
 
@@ -48,149 +46,132 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shovelBuilder(consumer, ModItems.DIVINE_SHOVEL.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         hoeBuilder(consumer, ModItems.DIVINE_HOE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.LUCKY_ROCK.get())
-                .key('d', ModItems.DIVINE_ALLOY.get())
-                .key('E', ModItems.ESSENCE_STONE.get())
-                .pattern(" d ")
-                .pattern("dEd")
-                .pattern(" d ")
-                .requirement(ModItems.DORMANT_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.HASTY_CHISEL.get())
+                .blueprint(ACCESSORY)
+                .base(ModItems.HANDLE.get())
+                .addition(Items.IRON_INGOT)
+                .addition(Items.IRON_INGOT)
+                .addition(Items.IRON_NUGGET)
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.TOTEM_OF_DREAMS.get())
-                .key('L', ModItems.ESSENCE_LIFE.get())
-                .key('D', ModItems.ESSENCE_DEATH.get())
-                .key('a', ModItems.DIVINE_ALLOY.get())
-                .key('t', Items.TOTEM_OF_UNDYING)
-                .pattern(" a ")
-                .pattern("LtD")
-                .pattern(" a ")
-                .requirement(ModItems.DORMANT_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.TOTEM_OF_DREAMS.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(Items.TOTEM_OF_UNDYING)
+                .addition(ModItems.DIVINE_ALLOY.get())
+                .addition(ModItems.DREADIUM_INGOT.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.SHROOMITE_INGOT.get())
-                .key('D', ModItems.DREADIUM_INGOT.get())
-                .key('g', ModBlocks.GLEAM_SHROOM.get().asItem())
-                .key('b', ModItems.VILE_BLOOD.get())
-                .pattern("bgb")
-                .pattern("gDg")
-                .pattern("bgb")
-                .requirement(ModItems.ESSENCE_CONTINUITY.get())
+        WorkshopRecipeBuilder.recipe(ModItems.LUCKY_ROCK.get())
+                .blueprint(ACCESSORY)
+                .base(Items.COBBLESTONE)
+                .addition(ModItems.DIVINE_ALLOY.get())
+                .addition(Items.EMERALD)
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapeless(ModItems.CHRONOS_CLOCK.get())
-                .ingredient(Items.CLOCK)
-                .requirement(ModItems.SOUL_TIME.get())
+        WorkshopRecipeBuilder.recipe(ModItems.SHROOMITE_INGOT.get())
+                .blueprint(UPGRADE)
+                .base(ModItems.DREADIUM_INGOT.get())
+                .addition(ModBlocks.GLEAM_SHROOM.get().asItem())
+                .addition(ModItems.VILE_BLOOD.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.CHRONOS_STOPWATCH.get())
-                .key('c', Items.CHAIN)
-                .key('C', ModItems.CHRONOS_CLOCK.get())
-                .pattern("c")
-                .pattern("C")
-                .requirement(ModItems.SOUL_TIME.get())
+        WorkshopRecipeBuilder.recipe(ModItems.MYSTIC_EMBER.get())
+                .blueprint(ACCESSORY)
+                .base(Items.FIRE_CHARGE)
+                .addition(Items.NETHERITE_SCRAP)
+                .addition(Items.CHARCOAL)
+                .addition(Items.CHARCOAL)
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.MYSTIC_EMBER.get())
-                .key('F', ModItems.ESSENCE_FLAMES.get())
-                .key('N', ModItems.ESSENCE_NETHER.get())
-                .key('c', Items.CHARCOAL)
-                .pattern("ccc")
-                .pattern("FNF")
-                .pattern("ccc")
-                .requirement(ModItems.AWAKENED_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.LAVA_RING.get())
+                .blueprint(ACCESSORY)
+                .base(ModItems.IRON_RING.get())
+                .addition(Items.LAVA_BUCKET)
+                .addition(ModItems.RUBY.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.LAVA_RING.get())
-                .key('R', ModItems.RUBY.get())
-                .key('I', Items.IRON_INGOT)
-                .key('f', ModItems.ESSENCE_FLAMES.get())
-                .key('i', Items.IRON_NUGGET)
-                .pattern("fRf")
-                .pattern("I I")
-                .pattern("iIi")
-                .requirement(ModItems.AWAKENED_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.CURSED_GEM.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(ModItems.RUBY.get())
+                .addition(Items.CRYING_OBSIDIAN)
+                .addition(ModItems.WARDEN_TENDRIL.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.VAMPIRE_GLOVES.get())
-                .key('D', ModItems.ESSENCE_DEATH.get())
-                .key('I', Items.IRON_INGOT)
-                .key('l', Items.LEATHER)
-                .key('b', ModItems.VILE_BLOOD.get())
-                .pattern("III")
-                .pattern("lDl")
-                .pattern("lbl")
-                .requirement(ModItems.AWAKENED_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.VAMPIRE_GLOVES.get())
+                .blueprint(UPGRADE)
+                .base(ModItems.LEATHER_GLOVES.get())
+                .addition(Items.IRON_INGOT)
+                .addition(ModItems.VILE_BLOOD.get())
+                .addition(ModItems.WITHER_SPINE.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.CURSED_GEM.get())
-                .key('D', ModItems.ESSENCE_DEATH.get())
-                .key('r', ModItems.RUBY.get())
-                .pattern(" r ")
-                .pattern("rDr")
-                .pattern(" r ")
-                .requirement(ModItems.AWAKENED_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.WIND_ROCKET.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(Items.FIREWORK_ROCKET)
+                .addition(Items.PHANTOM_MEMBRANE)
+                .addition(ModItems.WARDEN_TENDRIL.get())
+                .addition(ModItems.WITHER_SPINE.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.WIND_ROCKET.get())
-                .key('w', ModItems.ESSENCE_WIND.get())
-                .key('R', Items.FIREWORK_ROCKET)
-                .pattern("w")
-                .pattern("R")
-                .pattern("w")
-                .requirement(ModItems.AWAKENED_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.LUCKY_CHISEL.get())
+                .blueprint(UPGRADE)
+                .base(ModItems.HASTY_CHISEL.get())
+                .addition(ModItems.LUCKY_ROCK.get())
+                .addition(Items.NETHERITE_INGOT)
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapeless(ModItems.MYSTIC_MOLTEN_RING.get())
-                .ingredient(ModItems.LAVA_RING.get())
-                .ingredient(ModItems.MYSTIC_EMBER.get())
-                .requirement(ModItems.ETERNAL_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.ETERNAL_SATCHEL.get())
+                .blueprint(ACCESSORY)
+                .base(Items.BUNDLE)
+                .addition(ModItems.WITHER_SPINE.get())
+                .addition(ModItems.FAIRY_DUST.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(Items.DRAGON_EGG, 1)
-                .key('c', Items.END_CRYSTAL)
-                .key('D', ModItems.DRAGON_HEART.get())
-                .pattern(" c ")
-                .pattern("cDc")
-                .pattern(" c ")
-                .requirement(ModItems.ETERNAL_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.CHRONOS_CLOCK.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(Items.CLOCK)
+                .addition(ModItems.TIME_GEAR.get())
+                .addition(ModItems.GUARDIAN_CORE.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapedRecipe(ModItems.ETERNAL_SATCHEL.get(), 1)
-                .key('C', ModItems.ESSENCE_CONTINUITY.get())
-                .key('f', ModItems.FAIRY_DUST.get())
-                .key('v', ModItems.VILE_BLOOD.get())
-                .key('b', Items.BUNDLE)
-                .pattern(" f ")
-                .pattern("vCv")
-                .pattern(" b ")
-                .requirement(ModItems.ETERNAL_CORE.get())
+        WorkshopRecipeBuilder.recipe(Items.DRAGON_EGG)
+                .blueprint(CREATE)
+                .base(ModItems.DRAGON_HEART.get())
+                .addition(Items.END_CRYSTAL)
+                .addition(Items.SHULKER_SHELL)
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapeless(ModItems.SOUL_INFINITY.get(), 1)
-                .ingredient(ModItems.SOUL_BALANCE.get())
-                .ingredient(ModItems.SOUL_DIMENSIONS.get())
-                .ingredient(ModItems.SOUL_ELEMENTS.get())
-                .ingredient(ModItems.SOUL_FRAGMENT.get())
-                .ingredient(ModItems.SOUL_TIME.get())
-                .ingredient(ModItems.SOUL_SPACE.get())
-                .requirement(ModItems.ETERNAL_CORE.get())
+        WorkshopRecipeBuilder.recipe(ModItems.CHRONOS_STOPWATCH.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(Items.CLOCK)
+                .addition(ModItems.TIME_GEAR.get())
+                .addition(Items.CHAIN)
+                .addition(ModItems.GUARDIAN_CORE.get())
                 .save(consumer);
 
-        EnrichmentRecipeBuilder.shapeless(ModItems.DEMON_GLOVES.get())
-                .ingredient(ModItems.MYSTIC_MOLTEN_RING.get())
-                .ingredient(ModItems.VAMPIRE_GLOVES.get())
-                .requirement(ModItems.SOUL_INFINITY.get())
+        WorkshopRecipeBuilder.recipe(ModItems.DEMON_GLOVES.get())
+                .blueprint(UPGRADE)
+                .base(ModItems.VAMPIRE_GLOVES.get())
+                .addition(ModItems.MYSTIC_MOLTEN_RING.get())
+                .addition(ModItems.VILE_BLOOD.get())
+                .addition(ModItems.NECRIUM_INGOT.get())
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BUBBLE_WAND.get().asItem())
-                .requires(Items.WATER_BUCKET)
-                .requires(ModItems.ESSENCE_SEA.get())
-                .unlockedBy("has_one_piece", has(ModItems.ESSENCE_SEA.get()))
+        WorkshopRecipeBuilder.recipe(ModItems.BUBBLE_WAND.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(ModItems.HANDLE.get())
+                .addition(Items.WATER_BUCKET)
+                .addition(ModItems.HEART_OF_THE_ABYSS.get())
                 .save(consumer);
 
-        ShapedRecipeBuilder
-                .shaped(ModBlocks.NIGHTMARE_GATEWAY.get(), 1)
+        UpgradeRecipeBuilder
+                .smithing(Ingredient.of(ModItems.LAVA_RING.get()),
+                        Ingredient.of(ModItems.MYSTIC_EMBER.get()),
+                        ModItems.MYSTIC_MOLTEN_RING.get())
+                .unlocks("has_lava_ring", has(ModItems.LAVA_RING.get()))
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ItemUtils.getIdFromItem(ModItems.MYSTIC_MOLTEN_RING.get())));
+
+        ShapedRecipeBuilder.shaped(ModBlocks.NIGHTMARE_GATEWAY.get(), 1)
                 .define('O', Blocks.OBSIDIAN)
                 .define('g', Blocks.TINTED_GLASS)
                 .pattern("OOO")
@@ -199,14 +180,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_obsidian", has(Blocks.OBSIDIAN))
                 .save(consumer);
 
-        ShapedRecipeBuilder
-                .shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
+        ShapedRecipeBuilder.shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
                 .define('s', Items.WHEAT_SEEDS)
-                .define('F', ModItems.ESSENCE_FLAMES.get())
+                .define('F', Items.FIRE_CHARGE)
                 .pattern(" s ")
                 .pattern("sFs")
                 .pattern(" s ")
-                .unlockedBy("has_flames", has(ModItems.ESSENCE_FLAMES.get()))
+                .unlockedBy("has_flames", has(Items.FIRE_CHARGE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.IRON_RING.get())
+                .define('i', Items.IRON_NUGGET)
+                .define('I', Items.IRON_INGOT)
+                .pattern("iIi")
+                .pattern("I I")
+                .pattern("iIi")
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(ModItems.LEATHER_GLOVES.get(), 4)
+                .requires(Items.LEATHER, 4)
+                .requires(ModItems.LEATHER_SCRAP.get(), 4)
+                .unlockedBy("has_leather", has(Items.LEATHER))
                 .save(consumer);
 
         SimpleCookingRecipeBuilder
@@ -230,24 +225,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_leather_scrap", has(ModItems.LEATHER_SCRAP.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(ModItems.HANDLE.get(),1)
+                .requires(Items.STICK)
+                .requires(Items.SLIME_BALL)
+                .unlockedBy("has_stick", has(Items.STICK))
+                .save(consumer);
+
         ShapedRecipeBuilder
-                .shaped(ModBlocks.ENRICHMENT_TABLE.get().asItem())
-                .define('s', Items.SMITHING_TABLE)
+                .shaped(ModBlocks.WORKSHOP.get().asItem())
+                .define('S', Items.SMITHING_TABLE)
                 .define('p', ItemTags.PLANKS)
-                .define('c', Items.CRAFTING_TABLE)
                 .define('r', ModItems.RUBY.get())
-                .pattern("rcr")
-                .pattern("psp")
-                .pattern("ppp")
-                .unlockedBy("has_crafting_table", has(Items.CRAFTING_TABLE))
+                .pattern("rSr")
+                .pattern("p p")
+                .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
                 .save(consumer);
 
         UpgradeRecipeBuilder
                 .smithing(Ingredient.of(Items.BUNDLE),
-                        Ingredient.of(ModItems.ESSENCE_VOID.get()),
+                        Ingredient.of(Items.ENDER_CHEST),
                         ModItems.VOID_BUNDLE.get())
-                .unlocks("has_essence_void", has(ModItems.ESSENCE_VOID.get()))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.VOID_BUNDLE.get().builtInRegistryHolder().key().location().getPath()));
+                .unlocks("has_bundle", has(Items.BUNDLE))
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ItemUtils.getIdFromItem(ModItems.VOID_BUNDLE.get())));
 
         ShapedRecipeBuilder
                 .shaped(ModItems.HEART_OF_THE_ABYSS.get())
@@ -590,278 +589,5 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LL")
                 .unlockedBy("has_stripped_log", has(strippedLog))
                 .save(consumer);
-    }
-
-    protected void buildAllSouls(Consumer<FinishedRecipe> consumer) {
-
-        soulCrossBuilder(consumer, ModItems.SOUL_ELEMENTS.get(),
-                ModItems.ESSENCE_SEA.get(),
-                ModItems.ESSENCE_FLAMES.get(),
-                ModItems.ESSENCE_WIND.get(),
-                ModItems.ESSENCE_STONE.get());
-
-        soulCrossBuilder(consumer, ModItems.SOUL_BALANCE.get(),
-                ModItems.ESSENCE_LIFE.get(),
-                ModItems.ESSENCE_DEATH.get(),
-                ModItems.ESSENCE_LIGHT.get(),
-                ModItems.ESSENCE_DARKNESS.get());
-
-        soulCrossBuilder(consumer, ModItems.SOUL_TIME.get(),
-                ModItems.ESSENCE_CONTINUITY.get(),
-                ModItems.ESSENCE_CHANGE.get(),
-                ModItems.ESSENCE_NIGHT.get(),
-                ModItems.ESSENCE_DAY.get());
-
-        soulCrossBuilder(consumer, ModItems.SOUL_SPACE.get(),
-                ModItems.ESSENCE_PLANETS.get(),
-                ModItems.ESSENCE_STARS.get(),
-                ModItems.ESSENCE_ENERGY.get(),
-                ModItems.ESSENCE_VOID.get());
-
-        soulCrossBuilder(consumer, ModItems.SOUL_DIMENSIONS.get(),
-                ModItems.ESSENCE_OVERWORLD.get(),
-                ModItems.ESSENCE_NETHER.get(),
-                ModItems.ESSENCE_END.get(),
-                ModItems.ESSENCE_NIGHTMARES.get());
-    }
-
-    protected void buildAllEssences(Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder
-                .shaped(ModItems.ESSENCE_CHANGE.get(), 1)
-                .define('E', Items.ENDER_PEARL)
-                .define('C', Items.END_CRYSTAL)
-                .define('O', Items.CRYING_OBSIDIAN)
-                .pattern("OEO")
-                .pattern("ECE")
-                .pattern("OEO")
-                .unlockedBy("has_air", has(Items.ENDER_PEARL))
-                .save(consumer);
-
-        ShapedRecipeBuilder
-                .shaped(ModItems.ESSENCE_CONTINUITY.get(), 1)
-                .define('E', Items.ENDER_EYE)
-                .define('C', Items.REINFORCED_DEEPSLATE)
-                .define('O', Items.OBSIDIAN)
-                .pattern("OEO")
-                .pattern("ECE")
-                .pattern("OEO")
-                .unlockedBy("has_air", has(Items.ENDER_PEARL))
-                .save(consumer);
-
-        ShapedRecipeBuilder
-            .shaped(ModItems.ESSENCE_DARKNESS.get(), 1)
-            .define('#', Items.SCULK)
-            .define('E', Items.ENDER_EYE)
-            .define('Z', Items.ECHO_SHARD)
-            .pattern(" # ")
-            .pattern("EZE")
-            .pattern(" # ")
-                .unlockedBy("has_air", has(Items.ECHO_SHARD))
-                .save(consumer);
-
-        ShapedRecipeBuilder
-                .shaped(ModItems.ESSENCE_DAY.get(), 1)
-                .define('s', Items.SUNFLOWER)
-                .define('d', ModItems.DIVINE_ALLOY.get())
-                .pattern(" d ")
-                .pattern("dsd")
-                .pattern(" d ")
-                .unlockedBy("has_air", has(ModItems.DIVINE_ALLOY.get()))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(ModItems.ESSENCE_DEATH.get(), 1)
-                .requires(ModItems.SOUL_DUST.get())
-                .requires(Items.WITHER_ROSE)
-                .requires(ModItems.SOUL_DUST.get())
-                .requires(Items.WITHER_SKELETON_SKULL)
-                .requires(Items.GHAST_TEAR)
-                .requires(Items.ROTTEN_FLESH)
-                .requires(ModItems.SOUL_DUST.get())
-                .requires(Items.BONE)
-                .requires(ModItems.SOUL_DUST.get())
-                .unlockedBy("has_bone", has(Items.BONE))
-                .save(consumer);
-
-        ShapedRecipeBuilder
-                .shaped(ModItems.ESSENCE_OVERWORLD.get(), 1)
-                .define('B', ModItems.ESSENCE_SEA.get())
-                .define('W', ModItems.ESSENCE_PLANETS.get())
-                .define('H', ModItems.ESSENCE_LIFE.get())
-                .define('w', ModItems.WARDEN_TENDRIL.get())
-                .define('g', ModItems.GUARDIAN_CORE.get())
-                .pattern(" w ")
-                .pattern("BWH")
-                .pattern(" g ")
-                .unlockedBy("has_air", has(ModItems.ESSENCE_PLANETS.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_ENERGY.get(), 1)
-                .define('#', Items.REDSTONE)
-                .define('P', Items.PRISMARINE_CRYSTALS)
-                .define('A', Items.AMETHYST_SHARD)
-                .define('L', Items.LIGHTNING_ROD)
-                .pattern("#P#")
-                .pattern("ALA")
-                .pattern("#P#")
-                .unlockedBy("has_air", has(Items.AMETHYST_SHARD))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_FLAMES.get(), 1)
-                .define('/', Items.BLAZE_ROD)
-                .define('N', Items.NETHERITE_SCRAP)
-                .define('F', Items.FIRE_CHARGE)
-                .define('L', Items.LAVA_BUCKET)
-                .pattern("/N/")
-                .pattern("FLF")
-                .pattern("/N/")
-                .unlockedBy("has_air", has(Items.NETHERITE_SCRAP))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_LIFE.get(), 1)
-                .define('e', Items.GOLDEN_APPLE)
-                .define('t', Items.TOTEM_OF_UNDYING)
-                .define('s', Items.OAK_SAPLING)
-                .pattern(" e ")
-                .pattern("tst")
-                .pattern(" e ")
-                .unlockedBy("has_air", has(Items.TOTEM_OF_UNDYING))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_LIGHT.get(), 1)
-                .define('/', Items.BLAZE_ROD)
-                .define('B', Items.BLAZE_POWDER)
-                .define('S', Items.SEA_LANTERN)
-                .pattern(" / ")
-                .pattern("BSB")
-                .pattern(" / ")
-                .unlockedBy("has_air", has(Items.BLAZE_ROD))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NETHER.get(), 1)
-                .define('#', Items.CRYING_OBSIDIAN)
-                .define('S', Items.SOUL_SAND)
-                .define('O', Items.OBSIDIAN)
-                .define('N', Items.NETHERRACK)
-                .define('B', ModItems.ESSENCE_FLAMES.get())
-                .pattern("#SO")
-                .pattern("NBN")
-                .pattern("OS#")
-                .unlockedBy("has_obsidian", has(Items.OBSIDIAN))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHT.get(), 1)
-                .define('p', Items.PHANTOM_MEMBRANE)
-                .define('n', ModItems.DREADIUM_INGOT.get())
-                .pattern(" p ")
-                .pattern("pnp")
-                .pattern(" p ")
-                .unlockedBy("has_air", has(ModItems.DREADIUM_INGOT.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_SEA.get(), 1)
-                .define('#', Items.WATER_BUCKET)
-                .define('T', Items.TRIDENT)
-                .define('N', Items.NAUTILUS_SHELL)
-                .define('H', ModItems.HEART_OF_THE_ABYSS.get())
-                .define('S', Items.SCUTE)
-                .define('i', Items.IRON_INGOT)
-                .define('g', Items.GOLD_INGOT)
-                .pattern("#TN")
-                .pattern("HSi")
-                .pattern("gig")
-                .unlockedBy("has_air", has(ModItems.HEART_OF_THE_ABYSS.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_STONE.get(), 1)
-                .define('#', Items.COAL)
-                .define('c', Items.COPPER_INGOT)
-                .define('i', Items.IRON_INGOT)
-                .define('D', Items.DIAMOND)
-                .define('S', Items.STONE)
-                .define('R', Items.REDSTONE)
-                .define('E', Items.EMERALD)
-                .define('g', Items.GOLD_INGOT)
-                .define('L', Items.LAPIS_LAZULI)
-                .pattern("#ci")
-                .pattern("DSR")
-                .pattern("EgL")
-                .unlockedBy("has_air", has(Items.DIAMOND))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_WIND.get(), 1)
-                .define('#', ModItems.SOUL_DUST.get())
-                .define('p', Items.PHANTOM_MEMBRANE)
-                .define('f', Items.FEATHER)
-                .pattern(" p ")
-                .pattern("f#f")
-                .pattern(" p ")
-                .unlockedBy("has_air", has(ModItems.SOUL_DUST.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_VOID.get(), 1)
-                .define('#', Items.CRYING_OBSIDIAN)
-                .define('S', Items.SHULKER_SHELL)
-                .define('E', Items.ENDER_EYE)
-                .define('G', Items.GLASS_BOTTLE)
-                .pattern("#S#")
-                .pattern("EGE")
-                .pattern("#S#")
-                .unlockedBy("has_air", has(Items.CRYING_OBSIDIAN))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_PLANETS.get(), 1)
-                .define('E', ModItems.ESSENCE_STONE.get())
-                .define('C', Items.COBBLESTONE)
-                .define('N', Items.NETHERITE_SCRAP)
-                .pattern("NCN")
-                .pattern("CEC")
-                .pattern("NCN")
-                .unlockedBy("has_air", has(ModItems.ESSENCE_STONE.get()))
-                .save(consumer);
-
-        UpgradeRecipeBuilder
-                .smithing(
-                        Ingredient.of(Items.NETHER_STAR),
-                        Ingredient.of(ModItems.ESSENCE_LIGHT.get()),
-                        ModItems.ESSENCE_STARS.get())
-                .unlocks("has_air", has(ModItems.ESSENCE_LIGHT.get()))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ModItems.ESSENCE_STARS.get().builtInRegistryHolder().key().location().getPath()));
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_NIGHTMARES.get(), 1)
-                .define('B', ModItems.VILE_BLOOD.get())
-                .define('N', ModItems.DREADIUM_INGOT.get())
-                .define('#', ModItems.NECRIUM_INGOT.get())
-                .define('S', ModBlocks.GLEAM_SHROOM.get())
-                .define('F', ModItems.FAIRY_DUST.get())
-                .pattern(" B ")
-                .pattern("NS#")
-                .pattern(" F ")
-                .unlockedBy("has_fairy_dust", has(ModItems.FAIRY_DUST.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModItems.ESSENCE_END.get(), 1)
-                .define('E', Items.DRAGON_EGG)
-                .define('C', Items.END_CRYSTAL)
-                .define('S', Items.END_STONE)
-                .pattern("CSC")
-                .pattern("SES")
-                .pattern("CSC")
-                .unlockedBy("has_air", has(Items.DRAGON_EGG))
-                .save(consumer);
-    }
-
-    protected void soulCrossBuilder(Consumer<FinishedRecipe> consumer, ItemLike output, ItemLike item1, ItemLike item2, ItemLike item3, ItemLike item4) {
-        ShapedRecipeBuilder
-            .shaped(output, 1)
-            .define('S', Ingredient.of(ModItems.SOUL_FRAGMENT.get()))
-            .define('1', item1)
-            .define('2', item2)
-            .define('3', item3)
-            .define('4', item4)
-            .pattern(" 3 ")
-            .pattern("1S2")
-            .pattern(" 4 ")
-            .unlockedBy("has_soul_fragment", has(ModItems.SOUL_FRAGMENT.get()))
-            .save(consumer);
     }
 }

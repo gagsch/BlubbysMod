@@ -25,12 +25,12 @@ public class NightmareGatewayBlockEntity extends BlockEntity {
     }
 
     public BlockPos prepareSafeTeleport(ServerLevel level) {
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(this.getBlockPos().getX(), 200, this.getBlockPos().getZ());
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(this.getBlockPos().getX(), 160, this.getBlockPos().getZ());
 
         while (!level.getBlockState(pos.below()).isSolidRender(level, pos.below())) {
             pos.move(Direction.DOWN);
 
-            if (pos.getY() < 40 && !level.isWaterAt(pos.below(2)) || level.getBlockState(pos.below(2)).is(BlockTags.LEAVES)) {
+            if (pos.getY() < -64 && !level.isWaterAt(pos.below(2)) || level.getBlockState(pos.below(2)).is(BlockTags.LEAVES)) {
                 pos.move(Direction.UP, 160).move(Direction.EAST);
             }
             else if (level.isWaterAt(pos.below(2))) {

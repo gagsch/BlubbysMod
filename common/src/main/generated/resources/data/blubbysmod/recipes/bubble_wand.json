@@ -1,14 +1,19 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
+  "type": "blubbysmod:workshop",
+  "additional": [
     {
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "blubbysmod:essence_sea"
+      "item": "blubbysmod:heart_of_the_abyss"
     }
   ],
+  "base": {
+    "item": "blubbysmod:handle"
+  },
+  "blueprint": "special",
   "result": {
+    "count": 1,
     "item": "blubbysmod:bubble_wand"
   }
 }

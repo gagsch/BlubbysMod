@@ -6,10 +6,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import org.jetbrains.annotations.NotNull;
 
-public class LavaRingItem extends BaseAccessoryItem implements IAccessoryItem {
+public class LavaRingItem extends BaseAccessoryItem {
     @Override
     public void accessoryTick(@NotNull ServerLevel level, @NotNull ServerPlayer player) {
-        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 30));
+        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false));
         player.clearFire();
     }
 }

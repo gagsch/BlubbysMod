@@ -1,8 +1,6 @@
 package com.bmod.registry.menu;
 
-import com.bmod.BlubbysMod;
 import com.bmod.registry.menu.container.AccessoryMenu;
-import com.bmod.registry.menu.container.EnrichmentTableMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;
@@ -12,7 +10,6 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.HopperMenu;
 
 @Environment(EnvType.CLIENT)
 public class AccessoryScreen extends AbstractContainerScreen<AccessoryMenu> {

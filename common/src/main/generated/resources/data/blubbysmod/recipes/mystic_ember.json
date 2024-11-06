@@ -1,23 +1,20 @@
 {
-  "type": "blubbysmod:enrichment_shaped",
-  "key": {
-    "F": {
-      "item": "blubbysmod:essence_flames"
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:netherite_scrap"
     },
-    "N": {
-      "item": "blubbysmod:essence_nether"
+    {
+      "item": "minecraft:charcoal"
     },
-    "c": {
+    {
       "item": "minecraft:charcoal"
     }
-  },
-  "page_number": 5,
-  "pattern": [
-    "ccc",
-    "FNF",
-    "ccc"
   ],
-  "requirement": "blubbysmod:awakened_core",
+  "base": {
+    "item": "minecraft:fire_charge"
+  },
+  "blueprint": "accessory",
   "result": {
     "count": 1,
     "item": "blubbysmod:mystic_ember"

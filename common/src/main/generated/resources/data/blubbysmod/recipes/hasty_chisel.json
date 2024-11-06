@@ -1,0 +1,22 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:handle"
+  },
+  "blueprint": "accessory",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:hasty_chisel"
+  }
+}

@@ -4,11 +4,10 @@ import com.bmod.BlubbysMod;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.entity.client.NightmareGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
-import com.bmod.registry.menu.EnrichmentTableScreen;
+import com.bmod.registry.menu.WorkshopScreen;
 import com.bmod.registry.menu.VoidBundleScreen;
 import dev.architectury.platform.forge.EventBuses;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.gui.screens.inventory.HopperScreen;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,8 +21,8 @@ import static com.bmod.registry.menu.ModMenus.*;
 @Mod(BlubbysMod.MOD_ID)
 public final class BlubbysModForge {
 
-    public BlubbysModForge() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public BlubbysModForge(FMLJavaModLoadingContext modLoadingContext) {
+        IEventBus modEventBus = modLoadingContext.getModEventBus();
         EventBuses.registerModEventBus(BlubbysMod.MOD_ID, modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::setup);
@@ -37,7 +36,7 @@ public final class BlubbysModForge {
         });
 
         MenuScreens.register(VOID_BUNDLE_MENU_TYPE.get(), VoidBundleScreen::new);
-        MenuScreens.register(ENRICHMENT_TABLE_MENU.get(), EnrichmentTableScreen::new);
+        MenuScreens.register(WORKSHOP_MENU.get(), WorkshopScreen::new);
         MenuScreens.register(ACCESSORY_MENU.get(), AccessoryScreen::new);
     }
 

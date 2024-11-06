@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:smithing_table"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "r": {
+      "item": "blubbysmod:ruby"
+    }
+  },
+  "pattern": [
+    "rSr",
+    "p p"
+  ],
+  "result": {
+    "item": "blubbysmod:workshop"
+  }
+}

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_essence_void": {
+    "has_bundle": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmod:essence_void"
+              "minecraft:bundle"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_essence_void",
+      "has_bundle",
       "has_the_recipe"
     ]
   ],

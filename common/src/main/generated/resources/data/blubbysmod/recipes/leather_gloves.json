@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "blubbysmod:leather_scrap"
+    },
+    {
+      "item": "blubbysmod:leather_scrap"
+    },
+    {
+      "item": "blubbysmod:leather_scrap"
+    },
+    {
+      "item": "blubbysmod:leather_scrap"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "blubbysmod:leather_gloves"
+  }
+}
