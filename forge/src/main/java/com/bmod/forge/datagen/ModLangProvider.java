@@ -51,10 +51,11 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.HOT_PEPPER, "Used to make Flamin' Hot Cheetos™");
         addTooltip(ModItems.BUBBLE_WAND, "Places bubble blocks, which can be passed through by solids but not by liquids.");
         addTooltip(ModItems.CURSED_GEM, "Used to activate the Nightmare Gateway.");
-        addTooltip(ModItems.ANCIENT_GUIDE_BOOK, "The Guide to Blubby's Mod.");
+        addTooltip(ModItems.ANCIENT_GUIDE_BOOK, "The Guide to Blubby's Mod");
         addTooltip(ModItems.IRON_RING, "Maybe something could be made out of this.");
         addTooltip(ModItems.LEATHER_GLOVES, "Maybe something could be made out of this.");
 
+        addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.VOID_BUNDLE, "Void Bundle");

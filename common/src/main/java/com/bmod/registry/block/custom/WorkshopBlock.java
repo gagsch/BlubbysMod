@@ -49,11 +49,11 @@ public class WorkshopBlock extends Block {
 
     public VoxelShape makeShape(){
         VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0, 1, 0.375, 0.125), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0.875, 1, 0.375, 1), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0, 0, 0, 0.125, 0.375, 0.125), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0, 0, 0.875, 0.125, 0.375, 1), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0, 0.375, 0, 1, 0.625, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0, 1, 0.625, 0.125), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.875, 0, 0.875, 1, 0.625, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0, 0.875, 0.125, 0.625, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0, 0, 0.125, 0.625, 0.125), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.625, 0, 1, 0.875, 1), BooleanOp.OR);
 
         return shape;
     }

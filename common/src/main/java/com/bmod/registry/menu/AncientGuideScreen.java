@@ -9,7 +9,9 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FormattedCharSequence;
 
 import java.util.List;
 
@@ -64,44 +66,14 @@ public class AncientGuideScreen extends Screen {
         int lineHeight = 10;
         int y = textY;
 
-        String[] words = pageText.split(" ");
-        StringBuilder lineBuilder = new StringBuilder();
+        List<FormattedCharSequence> lines = font.split(FormattedText.of(pageText), maxWidth);
 
-        for (String word : words) {
-            String[] wordsBroken = word.split("\n");
-
-            for (int i = 0; i < wordsBroken.length; i++)
-            {
-                if (i != wordsBroken.length - 1 || wordsBroken[i].equalsIgnoreCase("\n")) {
-                    font.draw(poseStack, wordsBroken[i], textX, y, 0x57532E);
-                    lineBuilder.setLength(0);
-                    y += lineHeight;
-                }
-                else if (wordsBroken.length != 1 && i == wordsBroken.length - 1) {
-                    lineBuilder.append(wordsBroken[i]);
-                }
-            }
-            if (wordsBroken.length > 1 || word.equalsIgnoreCase("\n")) {
-                continue;
-            }
-
-            if (font.width(lineBuilder + " " + word) > maxWidth) {
-                font.draw(poseStack, lineBuilder.toString(), textX, y, 0x57532E);
-                lineBuilder.setLength(0);
-                y += lineHeight;
-            }
-
-            if (!lineBuilder.isEmpty()) {
-                lineBuilder.append(" ");
-            }
-
-            lineBuilder.append(word);
-        }
-
-        if (!lineBuilder.isEmpty()) {
-            font.draw(poseStack, lineBuilder.toString(), textX, y, 0x57532E);
+        for (FormattedCharSequence line : lines) {
+            font.draw(poseStack, line, textX, y, 0x57532E);
+            y += lineHeight;
         }
     }
+
 
     private void pageBack() {
         if (currentPage > 0)
