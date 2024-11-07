@@ -2,18 +2,18 @@
   "type": "blubbysmod:workshop",
   "additional": [
     {
-      "item": "minecraft:end_crystal"
+      "item": "blubbysmod:guardian_core"
     },
     {
-      "item": "minecraft:shulker_shell"
+      "item": "blubbysmod:divine_alloy"
     }
   ],
   "base": {
-    "item": "blubbysmod:dragon_heart"
+    "item": "minecraft:gold_block"
   },
   "blueprint": "resource",
   "result": {
     "count": 1,
-    "item": "minecraft:dragon_egg"
+    "item": "blubbysmod:time_gear"
   }
 }

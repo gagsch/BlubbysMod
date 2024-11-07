@@ -28,10 +28,11 @@ public class ModifyLootEvent {
 
         LootEvent.MODIFY_LOOT_TABLE.register((lootTables, id, context, builtin) -> { if (builtin) {
             if (BLUEPRINT_LOOT_TABLES.contains(id)) {
-                context.addPool(createBlueprintLootPool(CREATE).build());
                 context.addPool(createBlueprintLootPool(ACCESSORY).build());
                 context.addPool(createBlueprintLootPool(SPECIAL_ITEM).build());
+                context.addPool(createBlueprintLootPool(RESOURCE).build());
                 context.addPool(createBlueprintLootPool(UPGRADE).build());
+                context.addPool(createBlueprintLootPool(UTILITY).build());
             }
         }});
     }

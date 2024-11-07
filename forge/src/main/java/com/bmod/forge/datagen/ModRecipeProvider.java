@@ -54,6 +54,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addition(Items.IRON_NUGGET)
                 .save(consumer);
 
+        WorkshopRecipeBuilder.recipe(ModItems.TIME_GEAR.get())
+                .blueprint(RESOURCE)
+                .base(Items.GOLD_BLOCK)
+                .addition(ModItems.GUARDIAN_CORE.get())
+                .addition(ModItems.DIVINE_ALLOY.get())
+                .save(consumer);
+
         WorkshopRecipeBuilder.recipe(ModItems.TOTEM_OF_DREAMS.get())
                 .blueprint(SPECIAL_ITEM)
                 .base(Items.TOTEM_OF_UNDYING)
@@ -98,7 +105,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         WorkshopRecipeBuilder.recipe(ModItems.VAMPIRE_GLOVES.get())
-                .blueprint(UPGRADE)
+                .blueprint(ACCESSORY)
                 .base(ModItems.LEATHER_GLOVES.get())
                 .addition(Items.IRON_INGOT)
                 .addition(ModItems.VILE_BLOOD.get())
@@ -114,7 +121,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         WorkshopRecipeBuilder.recipe(ModItems.LUCKY_CHISEL.get())
-                .blueprint(UPGRADE)
+                .blueprint(ACCESSORY)
                 .base(ModItems.HASTY_CHISEL.get())
                 .addition(ModItems.LUCKY_ROCK.get())
                 .addition(Items.NETHERITE_INGOT)
@@ -135,7 +142,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         WorkshopRecipeBuilder.recipe(Items.DRAGON_EGG)
-                .blueprint(CREATE)
+                .blueprint(RESOURCE)
                 .base(ModItems.DRAGON_HEART.get())
                 .addition(Items.END_CRYSTAL)
                 .addition(Items.SHULKER_SHELL)
@@ -150,7 +157,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         WorkshopRecipeBuilder.recipe(ModItems.DEMON_GLOVES.get())
-                .blueprint(UPGRADE)
+                .blueprint(ACCESSORY)
                 .base(ModItems.VAMPIRE_GLOVES.get())
                 .addition(ModItems.MYSTIC_MOLTEN_RING.get())
                 .addition(ModItems.VILE_BLOOD.get())

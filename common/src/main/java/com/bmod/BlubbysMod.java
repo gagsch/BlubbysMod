@@ -37,6 +37,7 @@ public final class BlubbysMod {
         TickHandlerUtils.initialize();
         BlockBreakEvent.initialize();
         PlayerInteractEvent.initialize();
+        PlayerJoinEvent.initialize();
         EntityDeathEvent.initialize();
         EntityHurtEvent.initialize();
         CommandRegisterEvent.initialize();

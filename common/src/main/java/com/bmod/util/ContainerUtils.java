@@ -1,20 +1,25 @@
 package com.bmod.util;
 
-import com.bmod.registry.item.ModItems;
-import com.bmod.util.mixinUtils.IEntityDataSaver;
+import com.bmod.util.worlddata.ModData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+
+import java.util.Objects;
 
 public class ContainerUtils {
 
     public static void saveContainerToPlayer(Container container, Player player, String key) {
-        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmod$getPersistentData();
+        if (!(player instanceof ServerPlayer serverPlayer))
+            return;
+
+        ModData modData = ModData.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
 
         ListTag itemList = new ListTag();
 
@@ -28,13 +33,18 @@ public class ContainerUtils {
             }
         }
 
-        playerData.put(key, itemList);
+        CompoundTag compoundTag = new CompoundTag();
+        compoundTag.put("items", itemList);
+
+        modData.putTag(serverPlayer.getUUID(), key, compoundTag);
     }
 
     public static void loadContainerFromPlayer(Container container, Player player, String key) {
-        CompoundTag playerData = ((IEntityDataSaver)player).blubbysmod$getPersistentData();
+        if (!(player instanceof ServerPlayer serverPlayer))
+            return;
 
-        ListTag itemList = playerData.getList(key, Tag.TAG_COMPOUND);
+        ModData modData = ModData.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
+        ListTag itemList = modData.getPlayerTags(serverPlayer.getUUID()).getCompound(key).getList("items", 10);
 
         for (int i = 0; i < itemList.size(); i++) {
             CompoundTag itemTag = itemList.getCompound(i);

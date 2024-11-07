@@ -1,6 +1,7 @@
 package com.bmod.registry.menu.container;
 
 import com.bmod.registry.block.ModBlocks;
+import com.bmod.registry.item.ModItems;
 import com.bmod.registry.menu.ModMenus;
 import com.bmod.registry.recipe.WorkshopRecipe;
 import net.minecraft.network.FriendlyByteBuf;
@@ -66,7 +67,13 @@ public class WorkshopMenu extends AbstractContainerMenu {
             }
         });
 
-        for(j = 0; j < 5; ++j) {
+        this.addSlot(new Slot(craftSlots, 0, 44, 18) {
+            @Override
+            public boolean mayPlace(ItemStack itemStack) {
+                return itemStack.is(ModItems.BLUEPRINT.get());
+            }
+        });
+        for(j = 1; j < 5; ++j) {
             this.addSlot(new Slot(craftSlots, j, 44 + j * 18, 18));
         }
 
@@ -127,19 +134,18 @@ public class WorkshopMenu extends AbstractContainerMenu {
             ItemStack stackInSlot = slot.getItem();
             itemStack = stackInSlot.copy();
 
-            int craftSlotsContainerSize = this.craftSlots.getContainerSize();
-            int inventoryStartIndex = craftSlotsContainerSize + 1;
-            int inventoryEndIndex = inventoryStartIndex + 36;
+            int craftSlotsContainerSize = this.craftSlots.getContainerSize() + 1;
+            int inventoryEndIndex = craftSlotsContainerSize + 36;
 
             if (index == craftSlotsContainerSize) {
-                if (!this.moveItemStackTo(stackInSlot, inventoryStartIndex, inventoryEndIndex, true)) {
+                if (!this.moveItemStackTo(stackInSlot, craftSlotsContainerSize, inventoryEndIndex, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 WorkshopMenu.this.onTake(stackInSlot);
 
             } else if (index < craftSlotsContainerSize) {
-                if (!this.moveItemStackTo(stackInSlot, inventoryStartIndex, inventoryEndIndex, true)) {
+                if (!this.moveItemStackTo(stackInSlot, craftSlotsContainerSize, inventoryEndIndex, true)) {
                     return ItemStack.EMPTY;
                 }
             } else {

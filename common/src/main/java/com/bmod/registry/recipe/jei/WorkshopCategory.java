@@ -55,10 +55,10 @@ public class WorkshopCategory implements IRecipeCategory<WorkshopRecipe> {
     public void setRecipe(@NotNull IRecipeLayoutBuilder builder, @NotNull WorkshopRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.OUTPUT, 66, 32).addItemStack(recipe.getResultItem());
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 48, 2).addIngredients(recipe.getBase());
+        builder.addSlot(RecipeIngredientRole.INPUT, 48, 2).addIngredients(recipe.base());
 
         ItemStack stack = new ItemStack(ModItems.BLUEPRINT.get());
-        stack.getOrCreateTag().putString("blueprint", recipe.getBlueprint());
+        stack.getOrCreateTag().putString("blueprint", recipe.blueprint());
         builder.addSlot(RecipeIngredientRole.CATALYST, 30, 2).addItemStack(stack);
 
         for(int i = 0; i < 3; i++) {

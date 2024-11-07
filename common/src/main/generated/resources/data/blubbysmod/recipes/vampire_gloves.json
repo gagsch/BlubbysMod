@@ -14,7 +14,7 @@
   "base": {
     "item": "blubbysmod:leather_gloves"
   },
-  "blueprint": "upgrade",
+  "blueprint": "accessory",
   "result": {
     "count": 1,
     "item": "blubbysmod:vampire_gloves"

@@ -49,9 +49,9 @@ public abstract class MixinLivingEntity {
 
             for (int i = 0; i < container.getContainerSize(); i++)
             {
-                if (container.getItem(i).getItem() instanceof IAccessoryItem charmItem)
+                if (container.getItem(i).getItem() instanceof IAccessoryItem accessoryItem)
                 {
-                    charmItem.accessoryTick(player.getLevel(), player);
+                    accessoryItem.accessoryTick(player.getLevel(), player);
                 }
             }
         }

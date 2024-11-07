@@ -13,6 +13,8 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.*;
+
 import static com.bmod.registry.menu.container.WorkshopMenu.*;
 
 public class WorkshopRecipe implements Recipe<SimpleContainer> {
@@ -33,13 +35,34 @@ public class WorkshopRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer container, Level level) {
-        if (level.isClientSide() || !container.getItem(BLUEPRINT_SLOT).getOrCreateTag().getString("blueprint").equals(this.blueprint) || !this.base.test(container.getItem(BASE_SLOT))) {
+        if (level.isClientSide() || (!container.getItem(BLUEPRINT_SLOT).getOrCreateTag().getString("blueprint").equals(this.blueprint) && !container.getItem(BLUEPRINT_SLOT).getOrCreateTag().getString("blueprint").isEmpty()) || !this.base.test(container.getItem(BASE_SLOT))) {
             return false;
         }
 
-        return this.additions.get(0).test(container.getItem(PRIMARY_ADDITION_SLOT)) &&
-                this.additions.get(1).test(container.getItem(SECONDARY_ADDITION_SLOT)) &&
-                this.additions.get(2).test(container.getItem(TERNARY_ADDITION_SLOT));
+        List<ItemStack> containerItems = new ArrayList<>();
+        for (int i = 2; i <= 4; i++) {
+            containerItems.add(container.getItem(i));
+        }
+
+        for (Ingredient requiredIngredient : additions) {
+            boolean foundMatch = false;
+
+            Iterator<ItemStack> iterator = containerItems.iterator();
+            while (iterator.hasNext()) {
+                ItemStack item = iterator.next();
+                if (requiredIngredient.test(item)) {
+                    foundMatch = true;
+                    iterator.remove();
+                    break;
+                }
+            }
+            if (!foundMatch) {
+                return false;
+            }
+        }
+
+        // All required additions were matched in the container slots
+        return true;
     }
 
     @Override
@@ -57,11 +80,11 @@ public class WorkshopRecipe implements Recipe<SimpleContainer> {
         return this.output.copy();
     }
 
-    public @NotNull Ingredient getBase() {
+    public @NotNull Ingredient base() {
         return this.base;
     }
 
-    public @NotNull String getBlueprint() {
+    public @NotNull String blueprint() {
         return this.blueprint;
     }
 
