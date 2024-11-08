@@ -59,8 +59,8 @@ public class ContainerUtils {
         if (!(player instanceof ServerPlayer serverPlayer))
             return;
 
-        BaseAccessoryItem.clearAttributes(serverPlayer);
         saveContainerToPlayer(container, player, "accessories");
+        BaseAccessoryItem.clearAttributes(serverPlayer);
     }
 
     public static boolean playerAccessoriesHasItem(Player player, Item item)

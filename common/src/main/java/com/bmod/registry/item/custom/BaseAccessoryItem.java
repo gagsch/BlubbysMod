@@ -1,6 +1,7 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.util.ContainerUtils;
+import com.bmod.util.ItemUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -18,8 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 public class BaseAccessoryItem extends ToolTipItem implements IAccessoryItem {
-    private static final UUID ACCESSORY_UUID = new UUID(789, 1337);
-
     public BaseAccessoryItem() {
         super(DEFAULT_ACCESSORY_PROPERTIES);
     }
@@ -29,23 +29,23 @@ public class BaseAccessoryItem extends ToolTipItem implements IAccessoryItem {
 
     }
 
-    public static void setAttribute(ServerPlayer player, Attribute attribute, double value, AttributeModifier.Operation operation)
+    public void setAttribute(ServerPlayer player, Attribute attribute, double value, AttributeModifier.Operation operation)
     {
+        UUID uuid = new UUID(this.hashCode(), 1);
+
         AttributeInstance attributeInstance = player.getAttribute(attribute);
 
         if (attributeInstance != null) {
-            AttributeModifier existingModifier = attributeInstance.getModifier(ACCESSORY_UUID);
+            AttributeModifier existingModifier = attributeInstance.getModifier(uuid);
 
             if (existingModifier != null) {
                 if (existingModifier.getAmount() == value && existingModifier.getOperation() == operation) {
                     return;
-                } else {
-                    attributeInstance.removeModifier(existingModifier);
                 }
             }
 
-            AttributeModifier newModifier = new AttributeModifier(ACCESSORY_UUID, "accessory", value, operation);
-            attributeInstance.addPermanentModifier(newModifier);
+            AttributeModifier newModifier = new AttributeModifier(uuid, "accessory", value, operation);
+            attributeInstance.addTransientModifier(newModifier);
         }
     }
 
@@ -56,7 +56,7 @@ public class BaseAccessoryItem extends ToolTipItem implements IAccessoryItem {
 
             if (attributeInstance != null) {
                 attributeInstance.getModifiers().stream()
-                        .filter(modifier -> "accessory".equals(modifier.getName()))
+                        .filter(modifier -> modifier.getName().contains("accessory"))
                         .forEach(attributeInstance::removeModifier);
             }
         }

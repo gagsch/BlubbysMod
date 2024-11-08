@@ -10,6 +10,6 @@ public class LuckyChiselItem extends BaseAccessoryItem {
     @Override
     public void accessoryTick(ServerLevel level, ServerPlayer player) {
         setAttribute(player, Attributes.LUCK, 10, AttributeModifier.Operation.ADDITION);
-        setAttribute(player, ModAttributes.DIGGING_SPEED.get(), 1.5, AttributeModifier.Operation.ADDITION);
+        setAttribute(player, ModAttributes.DIGGING_SPEED.get(), 0.66, AttributeModifier.Operation.ADDITION);
     }
 }

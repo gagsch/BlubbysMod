@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = Player.class, remap = false)
+@Mixin(value = Player.class)
 public class MixinPlayer {
-    @Inject(method = "getDigSpeed", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getDigSpeed", at = @At("RETURN"), cancellable = true, remap = false)
     public void getDigSpeed(BlockState arg, BlockPos pos, CallbackInfoReturnable<Float> cir) {
         if ((Object) this instanceof Player player) {
             float baseSpeed = cir.getReturnValue();
