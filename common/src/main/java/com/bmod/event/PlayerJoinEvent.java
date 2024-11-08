@@ -1,7 +1,7 @@
 package com.bmod.event;
 
 import com.bmod.registry.item.ModItems;
-import com.bmod.util.worlddata.ModData;
+import com.bmod.util.worldData.ModData;
 import dev.architectury.event.events.common.PlayerEvent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;

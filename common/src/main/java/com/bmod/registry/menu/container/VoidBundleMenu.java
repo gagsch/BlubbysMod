@@ -16,9 +16,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class VoidBundleMenu extends AbstractContainerMenu {
-    private final Container loot;
+    private final SimpleContainer loot;
 
-    public VoidBundleMenu(int windowId, Inventory playerInventory, Container loot) {
+    public VoidBundleMenu(int windowId, Inventory playerInventory, SimpleContainer loot) {
         super(ModMenus.VOID_BUNDLE_MENU_TYPE.get(), windowId);
         this.loot = loot;
 
@@ -58,10 +58,6 @@ public class VoidBundleMenu extends AbstractContainerMenu {
 
     public VoidBundleMenu(int id, Inventory playerInventory) {
         this(id, playerInventory, new SimpleContainer(54));
-    }
-
-    public VoidBundleMenu(int id, Inventory playerInventory, FriendlyByteBuf friendlyByteBuf) {
-        this(id, playerInventory);
     }
 
 

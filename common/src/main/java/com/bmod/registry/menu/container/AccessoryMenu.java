@@ -16,10 +16,6 @@ import org.jetbrains.annotations.NotNull;
 public class AccessoryMenu extends AbstractContainerMenu {
     private final Container accessoryMenu;
 
-    public AccessoryMenu(int i, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
-        this(i, inventory);
-    }
-
     public AccessoryMenu(int i, Inventory inventory) {
         this(i, inventory, new SimpleContainer(5));
     }
@@ -86,6 +82,6 @@ public class AccessoryMenu extends AbstractContainerMenu {
     public void removed(Player player) {
         super.removed(player);
         this.accessoryMenu.stopOpen(player);
-        ContainerUtils.saveContainerToPlayer(this.accessoryMenu, player, "accessories");
+        ContainerUtils.saveAccessoriesToPlayer(this.accessoryMenu, player);
     }
 }

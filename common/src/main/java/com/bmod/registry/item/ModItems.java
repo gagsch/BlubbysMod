@@ -102,6 +102,12 @@ public class ModItems {
     DEMON_GLOVES = ITEMS.register("demon_gloves",
             DemonGloveItem::new),
 
+    BAND_OF_REGENERATION = ITEMS.register("band_of_regeneration",
+            BandOfRegenerationItem::new),
+
+    HEART_NECKLACE = ITEMS.register("heart_necklace",
+            HeartNecklaceItem::new),
+
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",
             () -> new HotPepperItem(new Properties()

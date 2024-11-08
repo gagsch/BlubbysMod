@@ -1,4 +1,4 @@
-package com.bmod.util.worlddata;
+package com.bmod.util.worldData;
 
 import com.bmod.BlubbysMod;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class ModData extends SavedData {
 
-    private static final String DATA_NAME = BlubbysMod.MOD_ID + ":data";
+    private static final String DATA_NAME = BlubbysMod.MOD_ID + "data";
     private final Map<UUID, CompoundTag> playerTags = new HashMap<>();
 
     public ModData() {}

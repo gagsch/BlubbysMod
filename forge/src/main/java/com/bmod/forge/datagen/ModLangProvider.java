@@ -54,6 +54,8 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.ANCIENT_GUIDE_BOOK, "The Guide to Blubby's Mod");
         addTooltip(ModItems.IRON_RING, "Maybe something could be made out of this.");
         addTooltip(ModItems.LEATHER_GLOVES, "Maybe something could be made out of this.");
+        addTooltip(ModItems.HEART_NECKLACE, "Increases max health by 1 heart.");
+        addTooltip(ModItems.BAND_OF_REGENERATION, "Increases health regeneration.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");

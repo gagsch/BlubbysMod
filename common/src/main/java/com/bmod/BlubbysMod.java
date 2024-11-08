@@ -3,6 +3,7 @@ package com.bmod;
 import com.bmod.event.*;
 import com.bmod.event.client.GUIEvent;
 import com.bmod.packet.ModPackets;
+import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.entity.client.*;
@@ -28,7 +29,6 @@ import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.Minecraft;
 
 public final class BlubbysMod {
     public static final String MOD_ID = "blubbysmod";

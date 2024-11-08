@@ -69,7 +69,7 @@ public class EntityDeathEvent {
                             container.setChanged();
                         }
                     }
-                    ContainerUtils.saveContainerToPlayer(container, player, "accessories");
+                    ContainerUtils.saveAccessoriesToPlayer(container, player);
                 }
             }
             else if (entity instanceof Warden) {

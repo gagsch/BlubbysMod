@@ -31,10 +31,6 @@ public class WorkshopMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     private final Player player;
 
-    public WorkshopMenu(int windowId, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
-        this(windowId, inventory);
-    }
-
     public WorkshopMenu(int windowId, Inventory inventory) {
         this(windowId, inventory, ContainerLevelAccess.NULL);
     }

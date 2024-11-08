@@ -1,6 +1,7 @@
 package com.bmod.forge;
 
 import com.bmod.BlubbysMod;
+import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.entity.client.NightmareGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
@@ -26,6 +27,8 @@ public final class BlubbysModForge {
         EventBuses.registerModEventBus(BlubbysMod.MOD_ID, modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::setup);
+
+        ModAttributes.ATTRIBUTES.register();
 
         BlubbysMod.init();
     }

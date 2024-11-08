@@ -1,6 +1,7 @@
 package com.bmod.util;
 
-import com.bmod.util.worlddata.ModData;
+import com.bmod.registry.item.custom.BaseAccessoryItem;
+import com.bmod.util.worldData.ModData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -52,6 +53,14 @@ public class ContainerUtils {
             ItemStack stack = ItemStack.of(itemTag);
             container.setItem(slot, stack);
         }
+    }
+
+    public static void saveAccessoriesToPlayer(Container container, Player player) {
+        if (!(player instanceof ServerPlayer serverPlayer))
+            return;
+
+        BaseAccessoryItem.clearAttributes(serverPlayer);
+        saveContainerToPlayer(container, player, "accessories");
     }
 
     public static boolean playerAccessoriesHasItem(Player player, Item item)

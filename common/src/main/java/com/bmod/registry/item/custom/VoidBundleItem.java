@@ -1,8 +1,12 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.registry.item.ModCreativeTab;
+import com.bmod.registry.menu.ModMenus;
 import com.bmod.registry.menu.container.VoidBundleMenu;
+import dev.architectury.registry.menu.ExtendedMenuProvider;
 import dev.architectury.registry.menu.MenuRegistry;
+import io.netty.buffer.Unpooled;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -26,19 +30,18 @@ public class VoidBundleItem extends ToolTipItem {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
-        if (!player.level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-            MenuRegistry.openMenu(serverPlayer, new MenuProvider() {
-                @Override
-                public AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player playerEntity) {
-                    return new VoidBundleMenu(id, playerInventory, new SimpleContainer(54));
-                }
+        player.openMenu(new MenuProvider() {
+            @Override
+            public AbstractContainerMenu createMenu(int id, @NotNull Inventory playerInventory, @NotNull Player playerEntity) {
+                return new VoidBundleMenu(id, playerInventory, new SimpleContainer(54));
+            }
 
-                @Override
-                public @NotNull Component getDisplayName() {
-                    return serverPlayer.getDisplayName();
-                }
-            });
-        }
+            @Override
+            public @NotNull Component getDisplayName() {
+                return player.getDisplayName();
+            }
+        });
+
         return super.use(level, player, hand);
     }
 }
