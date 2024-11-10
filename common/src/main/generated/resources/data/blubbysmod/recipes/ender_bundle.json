@@ -1,12 +1,22 @@
 {
-  "type": "minecraft:smithing",
-  "addition": {
-    "item": "minecraft:ender_chest"
-  },
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:ender_chest"
+    },
+    {
+      "item": "blubbysmod:dragon_heart"
+    },
+    {
+      "item": "minecraft:shulker_shell"
+    }
+  ],
   "base": {
     "item": "minecraft:bundle"
   },
+  "blueprint": "special",
   "result": {
+    "count": 1,
     "item": "blubbysmod:ender_bundle"
   }
 }

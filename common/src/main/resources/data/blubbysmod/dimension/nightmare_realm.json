@@ -845,8 +845,8 @@
                         "humidity": 0,
                         "continentalness": 0,
                         "erosion": 0,
-                        "weirdness": 1.2,
-                        "depth": 0.8,
+                        "weirdness": 0.5,
+                        "depth": 1,
                         "offset": 0
                     }
                 },
@@ -858,7 +858,7 @@
                         "continentalness": 0,
                         "erosion": 0,
                         "weirdness": -0.3,
-                        "depth": 1.1,
+                        "depth": 1,
                         "offset": 0
                     }
                 }

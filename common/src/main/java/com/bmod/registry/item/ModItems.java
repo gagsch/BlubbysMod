@@ -40,10 +40,6 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
-    IRON_RING = ITEMS.register("iron_ring", BaseAccessoryItem::new),
-
-    LEATHER_GLOVES = ITEMS.register("leather_gloves", BaseAccessoryItem::new),
-
     BUBBLE_WAND = ITEMS.register("bubble_wand",
             BubbleWandItem::new),
 
@@ -75,6 +71,12 @@ public class ModItems {
             WindRocketItem::new),
 
     // Accessories
+    IRON_RING = ITEMS.register("iron_ring", BaseAccessoryItem::new),
+
+    LEATHER_GLOVES = ITEMS.register("leather_gloves", BaseAccessoryItem::new),
+
+    CHAIN_NECKLACE = ITEMS.register("chain_necklace", BaseAccessoryItem::new),
+
     LUCKY_ROCK = ITEMS.register("lucky_rock",
             BaseAccessoryItem::new),
 
@@ -107,6 +109,9 @@ public class ModItems {
 
     HEART_NECKLACE = ITEMS.register("heart_necklace",
             HeartNecklaceItem::new),
+
+    DRAGON_HEART_NECKLACE = ITEMS.register("dragon_heart_necklace",
+            DragonHeartNecklaceItem::new),
 
     // Food
     HOT_PEPPER = ITEMS.register("hot_pepper",

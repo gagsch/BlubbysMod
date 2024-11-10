@@ -2,13 +2,10 @@
   "type": "blubbysmod:workshop",
   "additional": [
     {
-      "item": "minecraft:lava_bucket"
-    },
-    {
-      "item": "minecraft:netherite_scrap"
-    },
-    {
       "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:fairy_dust"
     }
   ],
   "base": {
@@ -17,6 +14,6 @@
   "blueprint": "accessory",
   "result": {
     "count": 1,
-    "item": "blubbysmod:lava_ring"
+    "item": "blubbysmod:band_of_regeneration"
   }
 }

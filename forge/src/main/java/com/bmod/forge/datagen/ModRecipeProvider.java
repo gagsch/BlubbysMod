@@ -20,7 +20,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Consumer;
 
 import static com.bmod.util.WoodUtils.*;
@@ -61,6 +63,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addition(ModItems.DIVINE_ALLOY.get())
                 .save(consumer);
 
+        WorkshopRecipeBuilder.recipe(ModItems.VOID_BUNDLE.get())
+                .blueprint(SPECIAL_ITEM)
+                .base(Items.BUNDLE)
+                .addition(Items.ENDER_CHEST)
+                .addition(ModItems.DRAGON_HEART.get())
+                .addition(Items.SHULKER_SHELL)
+                .save(consumer);
+
         WorkshopRecipeBuilder.recipe(ModItems.TOTEM_OF_DREAMS.get())
                 .blueprint(SPECIAL_ITEM)
                 .base(Items.TOTEM_OF_UNDYING)
@@ -94,7 +104,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .blueprint(ACCESSORY)
                 .base(ModItems.IRON_RING.get())
                 .addition(Items.LAVA_BUCKET)
+                .addition(Items.NETHERITE_SCRAP)
                 .addition(ModItems.RUBY.get())
+                .save(consumer);
+
+        WorkshopRecipeBuilder.recipe(ModItems.BAND_OF_REGENERATION.get())
+                .blueprint(ACCESSORY)
+                .base(ModItems.IRON_RING.get())
+                .addition(ModItems.RUBY.get())
+                .addition(ModItems.FAIRY_DUST.get())
+                .save(consumer);
+
+        WorkshopRecipeBuilder.recipe(ModItems.HEART_NECKLACE.get())
+                .blueprint(ACCESSORY)
+                .base(ModItems.CHAIN_NECKLACE.get())
+                .addition(ModItems.RUBY.get())
+                .addition(ModItems.VILE_BLOOD.get())
+                .save(consumer);
+
+        WorkshopRecipeBuilder.recipe(ModItems.DRAGON_HEART_NECKLACE.get())
+                .blueprint(ACCESSORY)
+                .base(ModItems.HEART_NECKLACE.get())
+                .addition(ModItems.DRAGON_HEART.get())
+                .addition(ModItems.DREADIUM_CHUNK.get())
+                .addition(ModItems.SHROOMITE_INGOT.get())
                 .save(consumer);
 
         WorkshopRecipeBuilder.recipe(ModItems.CURSED_GEM.get())
@@ -211,6 +244,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_leather", has(Items.LEATHER))
                 .save(consumer);
 
+        ShapedRecipeBuilder
+                .shaped(ModItems.CHAIN_NECKLACE.get())
+                .define('c', Items.CHAIN)
+                .define('i', Items.IRON_NUGGET)
+                .pattern("cic")
+                .pattern("c c")
+                .pattern(" c ")
+                .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
+                .save(consumer);
+
         SimpleCookingRecipeBuilder
                 .smoking(Ingredient.of(Items.ROTTEN_FLESH),
                         ModItems.LEATHER_SCRAP.get(),
@@ -247,13 +290,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("p p")
                 .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
                 .save(consumer);
-
-        UpgradeRecipeBuilder
-                .smithing(Ingredient.of(Items.BUNDLE),
-                        Ingredient.of(Items.ENDER_CHEST),
-                        ModItems.VOID_BUNDLE.get())
-                .unlocks("has_bundle", has(Items.BUNDLE))
-                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ItemUtils.getIdFromItem(ModItems.VOID_BUNDLE.get())));
 
         ShapedRecipeBuilder
                 .shaped(ModItems.HEART_OF_THE_ABYSS.get())
@@ -434,9 +470,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected void upgradeToolsBuilder(Consumer<FinishedRecipe> consumer, Tier inputItemTier, ModItemTier outputItemTier, ItemLike upgradeItem) {
-        if (upgradeItem == null)
-        {
-            upgradeItem = Arrays.stream(outputItemTier.getRepairIngredient().getItems()).toList().get(0).getItem();
+        if (upgradeItem == null) {
+            List<ItemStack> list = new ArrayList<>();
+            Collections.addAll(list, outputItemTier.getRepairIngredient().getItems());
+            upgradeItem = list.get(0).getItem();
         }
 
         Ingredient inputSword;
@@ -512,7 +549,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void upgradeArmorTypeBuilder(Consumer<FinishedRecipe> consumer, ArmorMaterial inputArmorMaterial, ArmorMaterial outputArmorMaterial, ItemLike upgradeItem) {
         if (upgradeItem == null)
         {
-            upgradeItem = Arrays.stream(outputArmorMaterial.getRepairIngredient().getItems()).toList().get(0).getItem();
+            List<ItemStack> list = new ArrayList<>();
+            Collections.addAll(list, outputArmorMaterial.getRepairIngredient().getItems());
+            upgradeItem = list.get(0).getItem();
         }
 
         Ingredient inputHelmet;

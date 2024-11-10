@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bundle": {
+    "has_smithing_table": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:bundle"
+              "minecraft:smithing_table"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blubbysmod:ender_bundle"
+        "recipe": "blubbysmod:chain_necklace"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bundle",
+      "has_smithing_table",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blubbysmod:ender_bundle"
+      "blubbysmod:chain_necklace"
     ]
   }
 }

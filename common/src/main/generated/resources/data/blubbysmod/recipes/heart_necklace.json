@@ -1,0 +1,19 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:vile_blood"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:chain_necklace"
+  },
+  "blueprint": "accessory",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:heart_necklace"
+  }
+}

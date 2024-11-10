@@ -1,0 +1,22 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:dragon_heart"
+    },
+    {
+      "item": "blubbysmod:dreadium_chunk"
+    },
+    {
+      "item": "blubbysmod:shroomite_ingot"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:heart_necklace"
+  },
+  "blueprint": "accessory",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:dragon_heart_necklace"
+  }
+}
