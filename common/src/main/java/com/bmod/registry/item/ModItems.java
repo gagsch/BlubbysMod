@@ -200,6 +200,12 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
+    TIME_GEAR = ITEMS.register("time_gear",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+
     // Dreadium Stuff
     DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
             () -> new Item(new Properties()
@@ -258,13 +264,6 @@ public class ModItems {
             SHROOMITE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.CHEST),
             SHROOMITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.LEGS),
             SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET),
-
-    // Souls
-    TIME_GEAR = ITEMS.register("time_gear",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",

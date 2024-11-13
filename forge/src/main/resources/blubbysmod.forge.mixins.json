@@ -13,7 +13,8 @@
     "MixinDynamicTexture",
     "MixinGameRenderer",
     "MixinLightTexture",
-    "MixinVillagerProfessionLayer"
+    "MixinVillagerProfessionLayer",
+    "PlayerRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

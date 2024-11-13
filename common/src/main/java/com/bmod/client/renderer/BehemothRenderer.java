@@ -1,6 +1,7 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.renderer;
 
 import com.bmod.BlubbysMod;
+import com.bmod.client.model.BehemothModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.bmod.registry.entity.custom.BehemothEntity;
 import net.minecraft.client.renderer.MultiBufferSource;

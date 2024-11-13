@@ -1,20 +1,14 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.renderer;
 
 import com.bmod.BlubbysMod;
+import com.bmod.client.model.DarkFairyModel;
 import com.bmod.registry.entity.custom.DarkFairyEntity;
-import com.bmod.registry.entity.custom.LeechEntity;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class DarkFairyRenderer extends MobRenderer<DarkFairyEntity, DarkFairyModel<DarkFairyEntity>> {
     public DarkFairyRenderer(EntityRendererProvider.Context pContext) {

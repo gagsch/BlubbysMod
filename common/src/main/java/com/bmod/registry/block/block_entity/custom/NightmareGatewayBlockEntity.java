@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 
 public class NightmareGatewayBlockEntity extends BlockEntity {
-    public boolean blockState = false;
+    public boolean powered = false;
     public int[] teleportPos = {0, 0, 0};
 
     public NightmareGatewayBlockEntity(BlockPos blockPos, BlockState blockState) {
@@ -80,8 +80,13 @@ public class NightmareGatewayBlockEntity extends BlockEntity {
 
     public void tick(Level level, BlockPos blockPos)
     {
-        this.blockState = level.getBlockState(blockPos).getValue(NightmareGatewayBlock.POWERED);
-        if (blockState && level.random.nextInt(5) == 0)
+        BlockState blockState = level.getBlockState(blockPos);
+        if (!(blockState.getBlock() instanceof NightmareGatewayBlock))
+        {
+            return;
+        }
+        this.powered = blockState.getValue(NightmareGatewayBlock.POWERED);
+        if (this.powered && level.random.nextInt(5) == 0)
         {
             double offsetX = (level.random.nextDouble() - 0.5) * 2;
             double offsetY = (level.random.nextDouble() - 0.5) * 2;

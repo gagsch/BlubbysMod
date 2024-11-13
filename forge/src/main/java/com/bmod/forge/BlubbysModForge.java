@@ -3,7 +3,7 @@ package com.bmod.forge;
 import com.bmod.BlubbysMod;
 import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
-import com.bmod.registry.entity.client.NightmareGatewayBlockEntityRenderer;
+import com.bmod.client.renderer.NightmareGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
 import com.bmod.registry.menu.WorkshopScreen;
 import com.bmod.registry.menu.VoidBundleScreen;

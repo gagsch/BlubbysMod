@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "blubbysmod:jumbo_gleam_shroom",
+      "weight": 20
+    },
+    {
+      "structure": "blubbysmod:jumbo_gleam_shroom_house",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1571726559,
+    "spacing": 8,
+    "separation": 1
+  }
+}

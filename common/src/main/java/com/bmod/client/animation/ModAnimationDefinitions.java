@@ -1,4 +1,4 @@
-package com.bmod.registry.entity.animations;
+package com.bmod.client.animation;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;

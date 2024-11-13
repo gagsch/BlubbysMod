@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "blubbysmod:dreadwood_house",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 584379812,
+    "spacing": 100,
+    "separation": 1
+  }
+}

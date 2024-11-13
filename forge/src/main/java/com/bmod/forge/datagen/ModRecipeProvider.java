@@ -12,7 +12,6 @@ import com.bmod.util.ItemUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -220,15 +219,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_obsidian", has(Blocks.OBSIDIAN))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.HOT_PEPPER_SEEDS.get(), 4)
-                .define('s', Items.WHEAT_SEEDS)
-                .define('F', Items.FIRE_CHARGE)
-                .pattern(" s ")
-                .pattern("sFs")
-                .pattern(" s ")
-                .unlockedBy("has_flames", has(Items.FIRE_CHARGE))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(ModItems.IRON_RING.get())
                 .define('i', Items.IRON_NUGGET)
                 .define('I', Items.IRON_INGOT)
@@ -284,9 +274,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder
                 .shaped(ModBlocks.WORKSHOP.get().asItem())
                 .define('S', Items.SMITHING_TABLE)
-                .define('p', ItemTags.PLANKS)
+                .define('p', Items.STICK)
                 .define('r', ModItems.RUBY.get())
                 .pattern("rSr")
+                .pattern("p p")
                 .pattern("p p")
                 .unlockedBy("has_smithing_table", has(Items.SMITHING_TABLE))
                 .save(consumer);

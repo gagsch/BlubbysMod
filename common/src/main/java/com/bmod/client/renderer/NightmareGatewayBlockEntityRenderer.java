@@ -1,7 +1,6 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.renderer;
 
 import com.bmod.registry.block.block_entity.custom.NightmareGatewayBlockEntity;
-import com.bmod.registry.block.custom.NightmareGatewayBlock;
 import com.bmod.registry.item.ModItems;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
@@ -26,7 +25,7 @@ public class NightmareGatewayBlockEntityRenderer implements BlockEntityRenderer<
 
     @Override
     public void render(NightmareGatewayBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        if (!blockEntity.blockState)
+        if (!blockEntity.powered)
             return;
 
         Player player = Minecraft.getInstance().player;

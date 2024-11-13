@@ -2,7 +2,7 @@ package com.bmod.fabric.client;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
-import com.bmod.registry.entity.client.NightmareGatewayBlockEntityRenderer;
+import com.bmod.client.renderer.NightmareGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
 import com.bmod.registry.menu.WorkshopScreen;
 import com.bmod.registry.menu.VoidBundleScreen;

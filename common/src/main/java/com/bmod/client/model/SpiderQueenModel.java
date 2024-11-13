@@ -1,6 +1,5 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.model;
 
-import com.bmod.BlubbysMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

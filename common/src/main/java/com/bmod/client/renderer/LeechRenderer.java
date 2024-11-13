@@ -1,8 +1,8 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.renderer;
 
 import com.bmod.BlubbysMod;
+import com.bmod.client.model.LeechModel;
 import com.bmod.registry.entity.custom.LeechEntity;
-import com.bmod.registry.entity.custom.RotFlyEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

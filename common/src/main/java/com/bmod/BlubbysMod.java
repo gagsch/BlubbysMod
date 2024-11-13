@@ -1,12 +1,16 @@
 package com.bmod;
 
+import com.bmod.client.model.DivineHelmetModel;
+import com.bmod.client.renderer.DivineHelmetRenderer;
+import com.bmod.client.model.ShroomiteHelmetModel;
+import com.bmod.client.renderer.ShroomiteHelmetRenderer;
+import com.bmod.client.model.*;
+import com.bmod.client.renderer.*;
 import com.bmod.event.*;
 import com.bmod.event.client.GUIEvent;
 import com.bmod.packet.ModPackets;
-import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
-import com.bmod.registry.entity.client.*;
 import com.bmod.registry.entity.custom.*;
 import com.bmod.registry.mob_effect.ModMobEffects;
 import com.bmod.registry.particle.ModParticles;
@@ -87,6 +91,8 @@ public final class BlubbysMod {
             EntityModelLayerRegistry.register(BehemothModel.LAYER_LOCATION, BehemothModel::createBodyLayer);
             EntityModelLayerRegistry.register(LeechModel.LAYER_LOCATION, LeechModel::createBodyLayer);
             EntityModelLayerRegistry.register(DarkFairyModel.LAYER_LOCATION, DarkFairyModel::createBodyLayer);
+            EntityModelLayerRegistry.register(ShroomiteHelmetRenderer.LAYER_LOCATION, ShroomiteHelmetModel::createBodyLayer);
+            EntityModelLayerRegistry.register(DivineHelmetRenderer.LAYER_LOCATION, DivineHelmetModel::createBodyLayer);
 
             EntityRendererRegistry.register(ModEntityTypes.ROT_FLY, RotFlyRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.SPORE_FLY, SporeFlyRenderer::new);

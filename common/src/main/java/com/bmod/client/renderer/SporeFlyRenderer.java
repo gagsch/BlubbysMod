@@ -1,7 +1,7 @@
- package com.bmod.registry.entity.client;
+ package com.bmod.client.renderer;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.entity.custom.RotFlyEntity;
+import com.bmod.client.model.SporeFlyModel;
 import com.bmod.registry.entity.custom.SporeFlyEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;

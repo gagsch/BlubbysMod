@@ -13,7 +13,8 @@
   "client": [
     "MixinDynamicTexture",
     "MixinGameRenderer",
-    "MixinLightTexture"
+    "MixinLightTexture",
+    "PlayerRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

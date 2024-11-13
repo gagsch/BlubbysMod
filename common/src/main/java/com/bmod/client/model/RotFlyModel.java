@@ -1,11 +1,10 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.model;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.entity.animations.ModAnimationDefinitions;
-import com.bmod.registry.entity.custom.RotFlyEntity;
-import com.bmod.registry.entity.custom.SporeFlyEntity;
+import com.bmod.client.animation.ModAnimationDefinitions;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.bmod.registry.entity.custom.RotFlyEntity;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,8 +13,8 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-public class SporeFlyModel<T extends Entity> extends HierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "spore_fly_layer"), "main");
+public class RotFlyModel<T extends Entity> extends HierarchicalModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "rot_fly_layer"), "main");
 	private final ModelPart rot_fly;
 	private final ModelPart body;
 	private final ModelPart mouth;
@@ -23,7 +22,7 @@ public class SporeFlyModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart wing1;
 	private final ModelPart wing2;
 
-	public SporeFlyModel(ModelPart root) {
+	public RotFlyModel(ModelPart root) {
 		this.rot_fly = root.getChild("rot_fly");
 		this.body = rot_fly.getChild("body");
 		this.mouth = body.getChild("mouth");
@@ -61,7 +60,7 @@ public class SporeFlyModel<T extends Entity> extends HierarchicalModel<T> {
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 
-		this.animate(((SporeFlyEntity) entity).flyingAnimationState, ModAnimationDefinitions.ROT_FLY_FLYING, ageInTicks, 1f);
+		this.animate(((RotFlyEntity) entity).flyingAnimationState, ModAnimationDefinitions.ROT_FLY_FLYING, ageInTicks, 1f);
 	}
 
 	@Override

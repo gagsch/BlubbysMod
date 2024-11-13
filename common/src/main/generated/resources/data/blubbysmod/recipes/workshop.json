@@ -5,7 +5,7 @@
       "item": "minecraft:smithing_table"
     },
     "p": {
-      "tag": "minecraft:planks"
+      "item": "minecraft:stick"
     },
     "r": {
       "item": "blubbysmod:ruby"
@@ -13,6 +13,7 @@
   },
   "pattern": [
     "rSr",
+    "p p",
     "p p"
   ],
   "result": {

@@ -1,0 +1,15 @@
+{
+  "name": "blubbysmod:jumbo_shroom/house",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "blubbysmod:jumbo_gleam_shroom_house",
+        "processors": "blubbysmod:keep_70"
+      }
+    }
+  ]
+}

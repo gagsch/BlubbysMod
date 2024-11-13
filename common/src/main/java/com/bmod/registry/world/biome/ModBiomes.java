@@ -32,8 +32,8 @@ public class ModBiomes {
 
     public static Biome spiderDen() {
         MobSpawnSettings.Builder mobBuilder = new MobSpawnSettings.Builder();
-        MobSpawnSettings.SpawnerData caveSpiderSpawnerData = new MobSpawnSettings.SpawnerData(EntityType.CAVE_SPIDER, Weight.of(50), 4, 4);
-        MobSpawnSettings.SpawnerData spiderSpawnerData = new MobSpawnSettings.SpawnerData(EntityType.SPIDER, Weight.of(50), 4, 4);
+        MobSpawnSettings.SpawnerData caveSpiderSpawnerData = new MobSpawnSettings.SpawnerData(EntityType.CAVE_SPIDER, Weight.of(50), 2, 6);
+        MobSpawnSettings.SpawnerData spiderSpawnerData = new MobSpawnSettings.SpawnerData(EntityType.SPIDER, Weight.of(50), 2, 6);
         mobBuilder.addSpawn(MobCategory.MONSTER, caveSpiderSpawnerData);
         mobBuilder.addSpawn(MobCategory.MONSTER, spiderSpawnerData);
 

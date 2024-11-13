@@ -1,7 +1,7 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.model;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.entity.animations.ModAnimationDefinitions;
+import com.bmod.client.animation.ModAnimationDefinitions;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;

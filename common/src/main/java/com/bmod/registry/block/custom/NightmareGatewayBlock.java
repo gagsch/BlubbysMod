@@ -81,6 +81,10 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
             if (stack.is(ModItems.CURSED_GEM.get())) {
                 level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS, 1, 1, true);
             }
+            else if (blockState.getValue(POWERED))
+            {
+                level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.PORTAL_TRIGGER, SoundSource.BLOCKS, 1, 1, true);
+            }
             return InteractionResult.sidedSuccess(true);
         }
 

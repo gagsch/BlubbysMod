@@ -1,6 +1,7 @@
-package com.bmod.registry.entity.client;
+package com.bmod.client.renderer;
 
 import com.bmod.BlubbysMod;
+import com.bmod.client.model.SnowFlinxModel;
 import com.bmod.registry.entity.custom.SnowFlinxEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;

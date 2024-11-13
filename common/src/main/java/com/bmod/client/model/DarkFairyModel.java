@@ -1,12 +1,11 @@
-package com.bmod.registry.entity.client;// Made with Blockbench 4.11.1
+package com.bmod.client.model;// Made with Blockbench 4.11.1
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.entity.animations.ModAnimationDefinitions;
+import com.bmod.client.animation.ModAnimationDefinitions;
 import com.bmod.registry.entity.custom.DarkFairyEntity;
-import com.bmod.registry.entity.custom.RotFlyEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;
@@ -14,7 +13,6 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
