@@ -7,8 +7,6 @@ import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,12 +20,7 @@ public abstract class PlayerRendererMixin extends LivingEntityRenderer<AbstractC
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onInit(EntityRendererProvider.Context context, boolean bl, CallbackInfo ci) {
-        this.addLayer(new ShroomiteHelmetRenderer<>(this, context.getModelSet()));
-        this.addLayer(new DivineHelmetRenderer<>(this, context.getModelSet()));
-    }
-
-    @Override
-    public @NotNull ResourceLocation getTextureLocation(AbstractClientPlayer entity) {
-        return entity.getSkinTextureLocation();
+        addLayer(new ShroomiteHelmetRenderer<>(this, context.getModelSet()));
+        addLayer(new DivineHelmetRenderer<>(this, context.getModelSet()));
     }
 }
