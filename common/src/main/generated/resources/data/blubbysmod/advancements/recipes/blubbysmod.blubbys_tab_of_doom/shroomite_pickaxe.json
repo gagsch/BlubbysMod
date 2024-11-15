@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ingot": {
+    "has_shroomite_pickaxe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmod:dreadium_ingot"
+              "blubbysmod:shroomite_ingot"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_ingot",
+      "has_shroomite_pickaxe",
       "has_the_recipe"
     ]
   ],

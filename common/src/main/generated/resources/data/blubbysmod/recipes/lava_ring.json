@@ -2,10 +2,7 @@
   "type": "blubbysmod:workshop",
   "additional": [
     {
-      "item": "minecraft:lava_bucket"
-    },
-    {
-      "item": "minecraft:netherite_scrap"
+      "item": "blubbysmod:volcanic_ingot"
     },
     {
       "item": "blubbysmod:ruby"

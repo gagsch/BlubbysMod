@@ -8,10 +8,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +26,8 @@ public class EntityDeathEvent {
             if (entity.getLevel().isClientSide){
                 return EventResult.pass();
             }
+
+            RandomSource random = entity.getLevel().getRandom();
 
             if (entity instanceof ServerPlayer player) {
                 if (player.getOffhandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get() || player.getMainHandItem().getItem() == ModItems.TOTEM_OF_DREAMS.get()) {
@@ -84,8 +88,13 @@ public class EntityDeathEvent {
             else if (entity instanceof EnderDragon) {
                 entity.spawnAtLocation(ModItems.DRAGON_HEART.get());
             }
-            
-            
+            else if (entity instanceof Blaze) {
+                if (random.nextInt(0, 75) == 0)
+                {
+                    entity.spawnAtLocation(ModItems.MOLTEN_SLAG.get());
+                }
+            }
+
             return EventResult.pass();
         });
     }

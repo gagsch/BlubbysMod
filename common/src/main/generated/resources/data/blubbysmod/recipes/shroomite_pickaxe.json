@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "blubbysmod:dreadium_ingot"
+    "item": "blubbysmod:shroomite_ingot"
   },
   "base": {
     "item": "minecraft:netherite_pickaxe"

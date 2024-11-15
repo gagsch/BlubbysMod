@@ -2,7 +2,7 @@ package com.bmod.registry.entity.custom;
 
 import com.bmod.registry.ModSounds;
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.mob_effect.ModMobEffects;
+import com.bmod.registry.mob_effect.ModEffects;
 import com.bmod.registry.particle.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.animal.FlyingAnimal;
@@ -68,14 +69,15 @@ public class SporeFlyEntity extends Monster implements FlyingAnimal {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(ModBlocks.GLEAM_SHROOM.get()), false));
-        this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[]{RotFlyEntity.class}));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
     public boolean doHurtTarget(Entity entity) {
         if (entity instanceof LivingEntity livingEntity && livingEntity.level instanceof ServerLevel)
         {
-            livingEntity.addEffect(new MobEffectInstance(ModMobEffects.MYCOSIS.get(), 80, 0, true, true));
+            livingEntity.addEffect(new MobEffectInstance(ModEffects.MYCOSIS.get(), 80, 0, true, true));
         }
         return super.doHurtTarget(entity);
     }

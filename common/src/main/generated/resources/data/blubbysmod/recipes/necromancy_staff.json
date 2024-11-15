@@ -1,0 +1,19 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:necrium_ingot"
+    },
+    {
+      "item": "blubbysmod:necrium_ingot"
+    }
+  ],
+  "base": {
+    "item": "minecraft:skeleton_skull"
+  },
+  "blueprint": "gear",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:necromancy_staff"
+  }
+}

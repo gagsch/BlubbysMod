@@ -1,15 +1,19 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:leather"
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "L": {
+            "item": "blubbysmod:leather_scrap"
         },
-        {
+        "s": {
             "item": "minecraft:string"
         }
+    },
+    "pattern": [
+        "sLs",
+        "L L",
+        "LLL"
     ],
     "result": {
-        "item": "minecraft:bundle",
-        "count": 1
+        "item": "minecraft:bundle"
     }
 }

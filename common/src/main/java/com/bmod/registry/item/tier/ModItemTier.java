@@ -9,8 +9,15 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements Tier {
-    DIVINE("divine", 5, 2777, 10.0F, 6.0F, 25, () -> Ingredient.of(ModItems.DIVINE_ALLOY.get())),
-    SHROOMITE("shroomite", 7, 5000, 20f, 9.0F, 40, () -> Ingredient.of(ModItems.SHROOMITE_INGOT.get()));
+    DIVINE("divine", 4, 1777, 9.0f, 3.5f, 25, () -> {
+        return Ingredient.of(ModItems.DIVINE_ALLOY.get());
+    }),
+    SHROOMITE("shroomite", 6, 3666, 15.0f, 6.0f, 16, () -> {
+        return Ingredient.of(ModItems.SHROOMITE_INGOT.get());
+    }),
+    VOLCANIC("volcanic", 6, 2435, 12.5f, 12.0f, 10, () -> {
+        return Ingredient.of(ModItems.VOLCANIC_INGOT.get());
+    });
 
     private final String name;
     private final Supplier<Ingredient> repairIngredient;

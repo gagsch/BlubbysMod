@@ -1,0 +1,22 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "blubbysmod:molten_slag"
+    },
+    {
+      "item": "minecraft:magma_cream"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:dreadium_ingot"
+  },
+  "blueprint": "upgrade",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:volcanic_ingot"
+  }
+}

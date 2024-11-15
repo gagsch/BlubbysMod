@@ -1,7 +1,7 @@
 package com.bmod.util;
 
 import com.bmod.registry.item.custom.BaseAccessoryItem;
-import com.bmod.util.worldData.ModData;
+import com.bmod.util.world_util.DataUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +20,7 @@ public class ContainerUtils {
         if (!(player instanceof ServerPlayer serverPlayer))
             return;
 
-        ModData modData = ModData.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
+        DataUtils modData = DataUtils.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
 
         ListTag itemList = new ListTag();
 
@@ -44,7 +44,7 @@ public class ContainerUtils {
         if (!(player instanceof ServerPlayer serverPlayer))
             return;
 
-        ModData modData = ModData.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
+        DataUtils modData = DataUtils.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(serverPlayer.getServer()).getLevel(Level.OVERWORLD)));
         ListTag itemList = modData.getPlayerTags(serverPlayer.getUUID()).getCompound(key).getList("items", 10);
 
         for (int i = 0; i < itemList.size(); i++) {

@@ -1,7 +1,7 @@
 package com.bmod.mixin;
 
-import com.bmod.util.mixinUtils.LightmapAccess;
-import com.bmod.util.mixinUtils.TextureAccess;
+import com.bmod.util.mixin_util.LightmapAccess;
+import com.bmod.util.mixin_util.TextureAccess;
 import net.minecraft.client.renderer.LightTexture;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

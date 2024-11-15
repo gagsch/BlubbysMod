@@ -16,7 +16,7 @@ public class BlueprintItem extends Item {
     public static final String SPECIAL_ITEM = "special";
     public static final String RESOURCE = "resource";
     public static final String UPGRADE = "upgrade";
-    public static final String UTILITY = "utility";
+    public static final String GEAR = "gear";
 
     public BlueprintItem() {
         super(new Properties()
@@ -33,7 +33,7 @@ public class BlueprintItem extends Item {
             case ACCESSORY -> "Accessory";
             case SPECIAL_ITEM -> "Special Item";
             case RESOURCE -> "Resource";
-            case UTILITY -> "Utility";
+            case GEAR -> "Weapons and Tools";
             case UPGRADE -> "Upgrade";
             default -> "Blank";
         };

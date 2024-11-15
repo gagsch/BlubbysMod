@@ -12,7 +12,7 @@ import com.bmod.packet.ModPackets;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.entity.custom.*;
-import com.bmod.registry.mob_effect.ModMobEffects;
+import com.bmod.registry.mob_effect.ModEffects;
 import com.bmod.registry.particle.ModParticles;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.entity.ModEntityTypes;
@@ -61,7 +61,7 @@ public final class BlubbysMod {
         ModRecipeTypes.RECIPE_SERIALIZERS.register();
         ModRecipeTypes.RECIPE_TYPES.register();
         ModBiomes.BIOMES.register();
-        ModMobEffects.MOB_EFFECTS.register();
+        ModEffects.MOB_EFFECTS.register();
         ModParticles.initialize();
         ModPackets.initialize();
 

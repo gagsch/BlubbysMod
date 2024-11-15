@@ -58,6 +58,7 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.HEART_NECKLACE, "Increases max health by 1 heart.");
         addTooltip(ModItems.DRAGON_HEART_NECKLACE, "Increases max health by 3 hearts.");
         addTooltip(ModItems.BAND_OF_REGENERATION, "Increases health regeneration.");
+        addTooltip(ModItems.NECROMANCY_STAFF, "Summons 3 friendly zombies to aid you in battle for 30 seconds.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
@@ -66,12 +67,12 @@ public class ModLangProvider extends LanguageProvider {
         addItem(ModItems.HOT_PEPPER_SEEDS, "Fiery Hot Pepper Seeds");
         addItem(ModItems.HOT_PEPPER, "Fiery Hot Pepper");
 
-
         addBlock(ModBlocks.WORKSHOP, "Artisan's Workshop");
 
         add("enchantment.blubbysmod.web_walker", "Web Walker");
 
         add("effect.blubbysmod.mycosis", "Mycosis");
+        add("effect.blubbysmod.timer", "Life Timer");
 
         addEntity(ModEntityTypes.BEHEMOTH.get(), "Necrotic Behemoth");
 

@@ -12,9 +12,11 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 
 import java.util.function.Supplier;
@@ -24,7 +26,8 @@ import static com.bmod.registry.item.custom.ToolTipItem.*;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ITEM_REGISTRY);
     
-    public static final Supplier<Item> BLUBBY_COIN = ITEMS.register("blubby_coin",
+    public static final Supplier<Item>
+    BLUBBY_COIN = ITEMS.register("blubby_coin",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
@@ -206,33 +209,18 @@ public class ModItems {
                     .durability(-1)
                     .stacksTo(64))),
 
-    // Dreadium Stuff
-    DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-    DREADIUM_INGOT = ITEMS.register("dreadium_ingot",
+    MOLTEN_SLAG = ITEMS.register("molten_slag",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
 
-    // Dreadium Branches
-    SHROOMITE_INGOT = ITEMS.register("shroomite_ingot",
-            () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                    .durability(-1)
-                    .stacksTo(64))),
-
-    // Divine Stuff
+    // Chunks and Ingots
     DIVINE_ALLOY = ITEMS.register("divine_alloy",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
-
-    // Necrium Stuff
     NECRIUM_CHUNK = ITEMS.register("necrium_chunk",
             () -> new Item(new Properties()
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
@@ -243,27 +231,60 @@ public class ModItems {
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64))),
+    DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+    DREADIUM_INGOT = ITEMS.register("dreadium_ingot",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+    SHROOMITE_INGOT = ITEMS.register("shroomite_ingot",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64))),
+    VOLCANIC_INGOT = ITEMS.register("volcanic_ingot",
+            () -> new Item(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64)) {
+                @Override
+                public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
+                    target.setSecondsOnFire(3);
+                    return super.hurtEnemy(itemStack, target, attacker);
+                }
+            }),
+
+    // Weapons
+    DIVINE_SWORD = ItemUtils.sword(ModItemTier.DIVINE, 3, 0f),
+    SHROOMITE_SWORD = ItemUtils.sword(ModItemTier.SHROOMITE, 7, -0.4f),
+    VOLCANIC_SWORD = ITEMS.register("volcanic_sword", () -> new VolcanicSwordItem(6, 0)),
+    VOLCANIC_MACE = ITEMS.register("volcanic_mace", () -> new VolcanicSwordItem(-7, -0.8f)),
+    NECROMANCY_STAFF = ITEMS.register("necromancy_staff", NecromancyStaffItem::new),
+
+    // Tools
+    DIVINE_PICKAXE = ItemUtils.pickaxe(ModItemTier.DIVINE, -1, 0),
+    SHROOMITE_PICKAXE = ItemUtils.pickaxe(ModItemTier.SHROOMITE, -1, 0),
+    DIVINE_AXE = ItemUtils.axe(ModItemTier.DIVINE, 5, 0f),
+    SHROOMITE_AXE = ItemUtils.axe(ModItemTier.SHROOMITE, 13, -0.2f),
+    DIVINE_SHOVEL = ItemUtils.shovel(ModItemTier.DIVINE, 0, 0),
+    SHROOMITE_SHOVEL = ItemUtils.shovel(ModItemTier.SHROOMITE, 0, 0),
+    DIVINE_HOE = ItemUtils.hoe(ModItemTier.DIVINE, -5, 0),
+    SHROOMITE_HOE = ItemUtils.hoe(ModItemTier.SHROOMITE, -9, 0),
 
     // Armor
-    DIVINE_SWORD = ItemUtils.sword(ModItemTier.DIVINE, 3, 0f),
-            DIVINE_PICKAXE = ItemUtils.pickaxe(ModItemTier.DIVINE, -1, 0),
-            DIVINE_AXE = ItemUtils.axe(ModItemTier.DIVINE, 5, 0f),
-            DIVINE_SHOVEL = ItemUtils.shovel(ModItemTier.DIVINE, 0, 0),
-            DIVINE_HOE = ItemUtils.hoe(ModItemTier.DIVINE, -5, 0),
-            DIVINE_HELMET = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.HEAD),
-            DIVINE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.CHEST),
-            DIVINE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.LEGS),
-            DIVINE_BOOTS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.FEET),
+    DIVINE_HELMET = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.HEAD),
+    SHROOMITE_HELMET = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.HEAD),
+    DIVINE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.CHEST),
+    SHROOMITE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.CHEST),
+    DIVINE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.LEGS),
+    SHROOMITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.LEGS),
+    DIVINE_BOOTS = ItemUtils.armor(ModArmorMaterial.DIVINE, EquipmentSlot.FEET),
+    SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET),
 
-    SHROOMITE_SWORD = ItemUtils.sword(ModItemTier.SHROOMITE, 6, -0.4f),
-            SHROOMITE_PICKAXE = ItemUtils.pickaxe(ModItemTier.SHROOMITE, -1, 0),
-            SHROOMITE_AXE = ItemUtils.axe(ModItemTier.SHROOMITE, 13, -0.2f),
-            SHROOMITE_SHOVEL = ItemUtils.shovel(ModItemTier.SHROOMITE, 0, 0),
-            SHROOMITE_HOE = ItemUtils.hoe(ModItemTier.SHROOMITE, -9, 0),
-            SHROOMITE_HELMET = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.HEAD),
-            SHROOMITE_CHESTPLATE = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.CHEST),
-            SHROOMITE_LEGGINGS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.LEGS),
-            SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET),
 
     // Spawn Eggs
     ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",

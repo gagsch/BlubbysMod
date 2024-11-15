@@ -40,6 +40,12 @@ public class ModifyLootEvent {
             BuiltInLootTables.VILLAGE_SAVANNA_HOUSE
     );
 
+    private static final Set<ResourceLocation> MOLTEN_SLAG_LOOT_TABLES = Set.of(
+            BuiltInLootTables.BASTION_TREASURE,
+            BuiltInLootTables.RUINED_PORTAL,
+            BuiltInLootTables.NETHER_BRIDGE
+    );
+
     public static void initialize() {
         LootEvent.MODIFY_LOOT_TABLE.register((lootTables, id, context, builtin) -> { if (builtin) {
             if (BLUEPRINT_LOOT_TABLES.contains(id)) {
@@ -47,22 +53,26 @@ public class ModifyLootEvent {
                 context.addPool(createBlueprintLootPool(SPECIAL_ITEM).build());
                 context.addPool(createBlueprintLootPool(RESOURCE).build());
                 context.addPool(createBlueprintLootPool(UPGRADE).build());
-                context.addPool(createBlueprintLootPool(UTILITY).build());
+                context.addPool(createBlueprintLootPool(GEAR).build());
+            }
+
+            if (CURSED_GEM_LOOT_TABLES.contains(id)) {
+                context.addPool(createBasicLootPool(ModItems.CURSED_GEM.get(), 0.075f, 1, 1, 1, 1).build());
             }
 
             if (HOT_PEPPER_LOOT_TABLES.contains(id)) {
                 context.addPool(createBasicLootPool(ModItems.HOT_PEPPER_SEEDS.get(), 0.2f, 1, 3, 1, 2).build());
             }
 
-            if (CURSED_GEM_LOOT_TABLES.contains(id)) {
-                context.addPool(createBasicLootPool(ModItems.CURSED_GEM.get(), 0.075f, 1, 1, 1, 1).build());
+            if (MOLTEN_SLAG_LOOT_TABLES.contains(id)) {
+                context.addPool(createBasicLootPool(ModItems.MOLTEN_SLAG.get(), 0.075f, 1, 1, 2, 3).build());
             }
         }});
     }
 
     public static LootPool.Builder createBlueprintLootPool(String tagKey) {
         return LootPool.lootPool()
-                .setRolls(UniformGenerator.between(1.0F, 3.0F))
+                .setRolls(UniformGenerator.between(1.0F, 2.0F))
                 .add(LootItem.lootTableItem(ModItems.BLUEPRINT.get())
                         .apply(() -> {
                             CompoundTag tag = new CompoundTag();
@@ -70,8 +80,8 @@ public class ModifyLootEvent {
 
                             return SetNbtFunction.setTag(tag).build();
                         })
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1f, 3f)))
-                        .when(LootItemRandomChanceCondition.randomChance(0.1f))
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1f, 2f)))
+                        .when(LootItemRandomChanceCondition.randomChance(0.075f))
                 );
     }
 

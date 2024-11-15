@@ -1,0 +1,19 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:molten_slag"
+    }
+  ],
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "blueprint": "gear",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:volcanic_sword"
+  }
+}

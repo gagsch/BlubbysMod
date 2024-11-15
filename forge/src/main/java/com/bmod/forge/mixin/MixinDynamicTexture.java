@@ -1,9 +1,9 @@
 package com.bmod.forge.mixin;
 
-import static com.bmod.util.mixinUtils.DimLightSystem.enabled;
+import static com.bmod.util.mixin_util.DimLightSystem.enabled;
 
-import com.bmod.util.mixinUtils.DimLightSystem;
-import com.bmod.util.mixinUtils.TextureAccess;
+import com.bmod.util.mixin_util.DimLightSystem;
+import com.bmod.util.mixin_util.TextureAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;

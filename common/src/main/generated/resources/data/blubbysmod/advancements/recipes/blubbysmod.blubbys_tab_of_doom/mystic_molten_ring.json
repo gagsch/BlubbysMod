@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lava_ring": {
+    "has_mystic_molten_ring": {
       "conditions": {
         "items": [
           {
             "items": [
-              "blubbysmod:lava_ring"
+              "blubbysmod:mystic_ember"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_lava_ring",
+      "has_mystic_molten_ring",
       "has_the_recipe"
     ]
   ],

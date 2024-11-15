@@ -1,4 +1,4 @@
-package com.bmod.util.mixinUtils;
+package com.bmod.util.mixin_util;
 
 import com.bmod.registry.world.ModDimensions;
 

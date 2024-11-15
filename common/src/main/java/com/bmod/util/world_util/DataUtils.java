@@ -1,4 +1,4 @@
-package com.bmod.util.worldData;
+package com.bmod.util.world_util;
 
 import com.bmod.BlubbysMod;
 import net.minecraft.nbt.CompoundTag;
@@ -10,15 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ModData extends SavedData {
+public class DataUtils extends SavedData {
 
     private static final String DATA_NAME = BlubbysMod.MOD_ID + "data";
     private final Map<UUID, CompoundTag> playerTags = new HashMap<>();
 
-    public ModData() {}
+    public DataUtils() {}
 
-    public static ModData load(CompoundTag nbt) {
-        ModData data = new ModData();
+    public static DataUtils load(CompoundTag nbt) {
+        DataUtils data = new DataUtils();
 
         for (String key : nbt.getAllKeys()) {
             CompoundTag tag = nbt.getCompound(key);
@@ -56,10 +56,10 @@ public class ModData extends SavedData {
         this.setDirty();
     }
 
-    public static ModData getCustomWorldData(ServerLevel level) {
+    public static DataUtils getCustomWorldData(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
-                ModData::load,
-                ModData::new,
+                DataUtils::load,
+                DataUtils::new,
                 DATA_NAME
         );
     }
