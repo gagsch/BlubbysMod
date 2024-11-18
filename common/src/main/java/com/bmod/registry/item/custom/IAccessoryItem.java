@@ -7,9 +7,10 @@ import net.minecraft.world.item.Item.Properties;
 
 public interface IAccessoryItem {
     Properties DEFAULT_ACCESSORY_PROPERTIES = new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                .durability(-1)
-                .stacksTo(1);
+            .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+            .durability(-1)
+            .stacksTo(1)
+            .fireResistant();
 
     void accessoryTick(ServerLevel level, ServerPlayer player);
 }

@@ -24,6 +24,7 @@ public final class BlubbysModFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(sapling(EBON).get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(trapdoor(EBON).get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NIGHTMARE_GATEWAY.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BUBBLE_BLOCK.get(), RenderType.translucent());
 
         BlockEntityRenderers.register(ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(), NightmareGatewayBlockEntityRenderer::new);
 

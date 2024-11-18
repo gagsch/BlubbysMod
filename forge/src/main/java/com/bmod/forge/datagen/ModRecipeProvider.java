@@ -58,6 +58,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .addition(Items.IRON_NUGGET)
                 .save(consumer);
 
+        WorkshopRecipeBuilder.recipe(ModItems.REAVER_FANG.get())
+                .blueprint(GEAR)
+                .base(ModItems.HANDLE.get())
+                .addition(ModItems.BEHEMOTH_TOOTH.get())
+                .addition(ModItems.NECRIUM_INGOT.get())
+                .addition(ModItems.SOUL_FRAGMENT.get())
+                .save(consumer);
+
         WorkshopRecipeBuilder.recipe(ModItems.VOLCANIC_SWORD.get())
                 .blueprint(GEAR)
                 .base(Items.NETHERITE_SWORD)

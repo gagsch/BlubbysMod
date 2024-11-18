@@ -5,12 +5,12 @@ import com.bmod.registry.item.tier.ModItemTier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
 
 public class VolcanicSwordItem extends SwordItem {
     public VolcanicSwordItem(int damage, float speed) {
         this(new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
-                        .durability(ModItemTier.VOLCANIC.getUses()),
+                        .durability(ModItemTier.VOLCANIC.getUses())
+                        .fireResistant(),
                 damage, speed);
     }
 

@@ -1,0 +1,22 @@
+{
+  "type": "blubbysmod:workshop",
+  "additional": [
+    {
+      "item": "blubbysmod:behemoth_tooth"
+    },
+    {
+      "item": "blubbysmod:necrium_ingot"
+    },
+    {
+      "item": "blubbysmod:soul_fragment"
+    }
+  ],
+  "base": {
+    "item": "blubbysmod:handle"
+  },
+  "blueprint": "gear",
+  "result": {
+    "count": 1,
+    "item": "blubbysmod:reaver_fang"
+  }
+}

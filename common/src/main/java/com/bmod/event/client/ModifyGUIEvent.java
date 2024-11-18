@@ -20,7 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 
-public class GUIEvent {
+public class ModifyGUIEvent {
     private static final ResourceLocation IMG_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/block/bubble_block.png");
     private static final ResourceLocation ACCESSORY_BUTTON_LOCATION = new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/accessory_button.png");
     public static final ImageButton button = new ImageButton(0, 0, 20, 18, 0, 0, 19, ACCESSORY_BUTTON_LOCATION, (button -> new C2SOpenMenu().sendToServer()));
