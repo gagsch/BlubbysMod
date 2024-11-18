@@ -27,7 +27,7 @@ public class ModEntityLootTables extends EntityLoot {
     protected void addTables() {
         add(ModEntityTypes.BEHEMOTH.get(), LootTable.lootTable().withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(ModItems.VILE_BLOOD.get())
+                .add(LootItem.lootTableItem(ModItems.BEHEMOTH_TOOTH.get())
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
                         .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))
                 .when(LootItemKilledByPlayerCondition.killedByPlayer())));

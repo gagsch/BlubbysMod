@@ -17,6 +17,9 @@ public enum ModItemTier implements Tier {
     }),
     VOLCANIC("volcanic", 6, 2435, 12.5f, 12.0f, 10, () -> {
         return Ingredient.of(ModItems.VOLCANIC_INGOT.get());
+    }),
+    REAVER("reaver", 1, 1337, 70.0f, 0.0f, 1, () -> {
+        return Ingredient.EMPTY;
     });
 
     private final String name;

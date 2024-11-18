@@ -59,6 +59,8 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.DRAGON_HEART_NECKLACE, "Increases max health by 3 hearts.");
         addTooltip(ModItems.BAND_OF_REGENERATION, "Increases health regeneration.");
         addTooltip(ModItems.NECROMANCY_STAFF, "Summons 3 friendly zombies to aid you in battle for 30 seconds.");
+        addTooltip(ModItems.NECROMANCY_101, "Necromancy Staff summons 2 more zombies, each lasting 15 seconds longer.");
+        addTooltip(ModItems.REAVER_FANG, "Inflicts damage equal to 3% of the enemy's maximum health.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");

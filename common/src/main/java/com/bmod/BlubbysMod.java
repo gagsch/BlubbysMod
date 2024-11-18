@@ -7,7 +7,7 @@ import com.bmod.client.renderer.ShroomiteHelmetRenderer;
 import com.bmod.client.model.*;
 import com.bmod.client.renderer.*;
 import com.bmod.event.*;
-import com.bmod.event.client.GUIEvent;
+import com.bmod.event.client.ModifyGUIEvent;
 import com.bmod.packet.ModPackets;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
@@ -29,10 +29,15 @@ import com.bmod.util.WoodUtils;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
+import dev.architectury.registry.level.entity.trade.TradeRegistry;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.MerchantOffer;
 
 public final class BlubbysMod {
     public static final String MOD_ID = "blubbysmod";
@@ -69,6 +74,11 @@ public final class BlubbysMod {
         ModFeatures.init();
         ModEntityTypes.initSpawns();
 
+        TradeRegistry.registerVillagerTrade(VillagerProfession.LIBRARIAN, 2, (entity, randomSource) -> {
+            int tradeAmount = randomSource.nextInt(14, 28);
+            return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.NECROMANCY_101.get()), 0, 5, 1, 0f, 1);
+        });
+
         EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.SPORE_FLY, SporeFlyEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.BEHEMOTH, BehemothEntity::createAttributes);
@@ -83,7 +93,7 @@ public final class BlubbysMod {
     public static class Client {
         @Environment(EnvType.CLIENT)
         public static void initializeClient() {
-            GUIEvent.initialize();
+            ModifyGUIEvent.initialize();
 
             EntityModelLayerRegistry.register(RotFlyModel.LAYER_LOCATION, RotFlyModel::createBodyLayer);
             EntityModelLayerRegistry.register(SporeFlyModel.LAYER_LOCATION, SporeFlyModel::createBodyLayer);

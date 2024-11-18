@@ -11,9 +11,11 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,13 +32,25 @@ public abstract class MixinLivingEntity {
     @Shadow
     private Optional<BlockPos> lastClimbablePos;
 
+    @Shadow
+    public abstract float getMaxHealth();
+
     @ModifyVariable(method = "hurt", at = @At("HEAD"), index = 2, argsOnly = true)
     private float modifyDamage(float damage, DamageSource damageSource) {
         if (damageSource.getEntity() instanceof Player player) {
-            if (player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.VOLCANIC_MACE.get()) {
-                damage *= 1f + (player.fallDistance / 20);
+            Item item = player.getItemInHand(player.getUsedItemHand()).getItem();
+
+            if (item == ModItems.VOLCANIC_MACE.get()) {
+                Vec3 speed = player.getDeltaMovement();
+                float fallBase = (player.fallDistance + 1) / 10 + 1;
+
+                damage *= (float) (1 + ((speed.length() / 7) * fallBase));
                 player.resetFallDistance();
             }
+            else if (item == ModItems.REAVER_FANG.get()) {
+                damage += this.getMaxHealth() * 0.03f;
+            }
+
         }
         return damage;
     }
@@ -44,9 +58,9 @@ public abstract class MixinLivingEntity {
     @Inject(method = "rideableUnderWater", at = @At("RETURN"), cancellable = true)
     public void rideableUnderWater(CallbackInfoReturnable<Boolean> cir)
     {
-        LivingEntity livingEntity = (LivingEntity) (Object) this;
+        Object livingEntity = this;
 
-        if (livingEntity instanceof Player player) {
+        if (livingEntity instanceof Player) {
             cir.setReturnValue(true);
         }
     }
@@ -54,7 +68,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo ci)
     {
-        LivingEntity livingEntity = (LivingEntity) (Object) this;
+        Object livingEntity = this;
 
         if (livingEntity instanceof ServerPlayer player)
         {
@@ -74,7 +88,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "onClimbable", at = @At("TAIL"), cancellable = true)
     public void onClimbable(CallbackInfoReturnable<Boolean> cir)
     {
-        LivingEntity livingEntity = (LivingEntity) (Object) this;
+        Object livingEntity = this;
 
         if (livingEntity instanceof Player player)
         {

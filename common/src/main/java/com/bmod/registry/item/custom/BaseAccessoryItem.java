@@ -1,7 +1,6 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.util.ContainerUtils;
-import com.bmod.util.ItemUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -69,7 +68,7 @@ public class BaseAccessoryItem extends ToolTipItem implements IAccessoryItem {
             SimpleContainer container = new SimpleContainer(5);
             ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
 
-            if (!ContainerUtils.playerAccessoriesHasItem(player, itemStack.getItem()))
+            if (!ContainerUtils.playerHasAccessory(player, itemStack.getItem()))
             {
                 for (int i = 0; i < container.getContainerSize(); i++) {
                     if (container.getItem(i).isEmpty()) {

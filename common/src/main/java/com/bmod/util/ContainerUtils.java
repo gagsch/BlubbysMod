@@ -63,7 +63,7 @@ public class ContainerUtils {
         BaseAccessoryItem.clearAttributes(serverPlayer);
     }
 
-    public static boolean playerAccessoriesHasItem(Player player, Item item)
+    public static boolean playerHasAccessory(Player player, Item item)
     {
         SimpleContainer container = new SimpleContainer(5);
         ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
