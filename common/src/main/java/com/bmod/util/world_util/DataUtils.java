@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class DataUtils extends SavedData {
 
-    private static final String DATA_NAME = BlubbysMod.MOD_ID + "data";
+    private static final String DATA_ID = BlubbysMod.MOD_ID + "data";
     private final Map<UUID, CompoundTag> playerTags = new HashMap<>();
 
     public DataUtils() {}
@@ -60,7 +60,7 @@ public class DataUtils extends SavedData {
         return level.getDataStorage().computeIfAbsent(
                 DataUtils::load,
                 DataUtils::new,
-                DATA_NAME
+                DATA_ID
         );
     }
 }

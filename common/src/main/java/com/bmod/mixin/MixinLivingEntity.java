@@ -2,7 +2,7 @@ package com.bmod.mixin;
 
 import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.item.ModItems;
-import com.bmod.registry.item.custom.IAccessoryItem;
+import com.bmod.registry.item.custom.AccessoryItem;
 import com.bmod.util.ContainerUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -28,7 +28,6 @@ import java.util.Optional;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity {
-
     @Shadow
     private Optional<BlockPos> lastClimbablePos;
 
@@ -58,9 +57,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "rideableUnderWater", at = @At("RETURN"), cancellable = true)
     public void rideableUnderWater(CallbackInfoReturnable<Boolean> cir)
     {
-        Object livingEntity = this;
-
-        if (livingEntity instanceof Player) {
+        if ((Object) this instanceof Player) {
             cir.setReturnValue(true);
         }
     }
@@ -68,18 +65,19 @@ public abstract class MixinLivingEntity {
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo ci)
     {
-        Object livingEntity = this;
-
-        if (livingEntity instanceof ServerPlayer player)
+        if ((Object) this instanceof Player player)
         {
             SimpleContainer container = new SimpleContainer(5);
             ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
 
-            for (int i = 0; i < container.getContainerSize(); i++)
-            {
-                if (container.getItem(i).getItem() instanceof IAccessoryItem accessoryItem)
-                {
-                    accessoryItem.accessoryTick(player.getLevel(), player);
+            for (int i = 0; i < container.getContainerSize(); i++) {
+                if (container.getItem(i).getItem() instanceof AccessoryItem accessoryItem) {
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        accessoryItem.serverAccessoryTick(serverPlayer.getLevel(), serverPlayer);
+                    }
+                    else {
+                        accessoryItem.localAccessoryTick(player.getLevel(), player);
+                    }
                 }
             }
         }
@@ -88,9 +86,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "onClimbable", at = @At("TAIL"), cancellable = true)
     public void onClimbable(CallbackInfoReturnable<Boolean> cir)
     {
-        Object livingEntity = this;
-
-        if (livingEntity instanceof Player player)
+        if ((Object) this instanceof Player player)
         {
             if (player.getFeetBlockState().is(Blocks.COBWEB))
             {

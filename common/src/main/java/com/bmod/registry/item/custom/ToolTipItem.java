@@ -2,9 +2,7 @@ package com.bmod.registry.item.custom;
 
 import com.bmod.BlubbysMod;
 import com.bmod.util.ItemUtils;
-import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
-import net.fabricmc.api.EnvType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -19,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class ToolTipItem extends Item {
 
         makeTooltip(level, components, itemId);
 
-        if (stack.getItem() instanceof IAccessoryItem)
+        if (stack.getItem() instanceof AccessoryItem)
         {
             components.add(Component.literal("Accessory").withStyle(ChatFormatting.BLUE));
         }

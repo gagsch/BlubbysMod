@@ -3,7 +3,7 @@ package com.bmod.mixin;
 import static com.bmod.util.mixin_util.DimLightSystem.enabled;
 
 import com.bmod.util.mixin_util.DimLightSystem;
-import com.bmod.util.mixin_util.TextureAccess;
+import com.bmod.util.mixin_util.ITextureAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.mojang.blaze3d.platform.NativeImage;
 
 @Mixin(net.minecraft.client.renderer.texture.DynamicTexture.class)
-public class MixinDynamicTexture implements TextureAccess {
+public class MixinDynamicTexture implements ITextureAccess {
     @Shadow
     private NativeImage pixels;
 

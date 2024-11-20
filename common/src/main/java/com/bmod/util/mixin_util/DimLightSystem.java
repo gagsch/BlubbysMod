@@ -31,7 +31,7 @@ public class DimLightSystem {
         return adjustment == 1f ? c : 0xFF000000 | Math.round(adjustment * red * 255) | (Math.round(adjustment * green * 255) << 8) | (Math.round(adjustment * blue * 255) << 16);
     }
 
-    public static void updateLuminance(Minecraft minecraft, float prevFlicker) {
+    public static void update(Minecraft minecraft, float prevFlicker) {
         final ClientLevel world = minecraft.level;
 
         if (world != null) {

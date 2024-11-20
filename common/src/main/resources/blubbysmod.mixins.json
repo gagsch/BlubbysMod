@@ -4,6 +4,7 @@
   "package": "com.bmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MixinEntity",
     "MixinLivingEntity",
     "MixinPlayer",
     "MixinVillagerProfessionLayer",

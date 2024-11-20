@@ -8,6 +8,7 @@ import com.bmod.util.ContainerUtils;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -37,8 +38,11 @@ public class BlockBreakEvent {
 
                 List<ItemStack> drops = state.getDrops(builder);
 
+                SimpleContainer container = new SimpleContainer(5);
+                ContainerUtils.loadContainerFromPlayer(container, player, "accessories");
+
                 if (Objects.requireNonNull(state.getBlock().arch$registryName()).getPath().contains("ore") &&
-                        (ContainerUtils.playerHasAccessory(player, ModItems.LUCKY_ROCK.get()) || ContainerUtils.playerHasAccessory(player, ModItems.LUCKY_CHISEL.get())) &&
+                        (container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.LUCKY_ROCK.get())) || container.hasAnyMatching((itemStack) -> itemStack.is(ModItems.LUCKY_CHISEL.get()))) &&
                         !((EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, player.getMainHandItem()) > 0) || (player.isCreative())))
                 {
                     for (ItemStack drop : drops) {

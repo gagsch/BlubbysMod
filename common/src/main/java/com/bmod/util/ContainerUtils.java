@@ -1,6 +1,6 @@
 package com.bmod.util;
 
-import com.bmod.registry.item.custom.BaseAccessoryItem;
+import com.bmod.registry.item.custom.AccessoryItem;
 import com.bmod.util.world_util.DataUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -60,7 +60,7 @@ public class ContainerUtils {
             return;
 
         saveContainerToPlayer(container, player, "accessories");
-        BaseAccessoryItem.clearAttributes(serverPlayer);
+        AccessoryItem.clearAttributes(serverPlayer);
     }
 
     public static boolean playerHasAccessory(Player player, Item item)

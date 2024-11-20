@@ -2,7 +2,7 @@ package com.bmod.forge.mixin;
 
 import com.bmod.registry.world.ModDimensions;
 import com.bmod.util.mixin_util.DimLightSystem;
-import com.bmod.util.mixin_util.LightmapAccess;
+import com.bmod.util.mixin_util.ILightmapAccess;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
@@ -31,11 +31,11 @@ public class MixinGameRenderer {
 
     @Inject(method = "renderLevel", at = @At(value = "HEAD"))
     private void onRenderLevel(float tickDelta, long nanos, PoseStack matrixStack, CallbackInfo ci) {
-        final LightmapAccess lightmap = (LightmapAccess) lightTexture;
+        final ILightmapAccess lightmap = (ILightmapAccess) lightTexture;
 
         if (lightmap.blubbysmod$isDirty()) {
             minecraft.getProfiler().push("lightTex");
-            DimLightSystem.updateLuminance(minecraft, lightmap.blubbysmod$prevFlicker());
+            DimLightSystem.update(minecraft, lightmap.blubbysmod$prevFlicker());
             minecraft.getProfiler().pop();
         }
     }

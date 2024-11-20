@@ -1,6 +1,6 @@
 package com.bmod.util.mixin_util;
 
-public interface LightmapAccess {
+public interface ILightmapAccess {
     boolean blubbysmod$isDirty();
 
     float blubbysmod$prevFlicker();

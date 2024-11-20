@@ -8,10 +8,8 @@ import com.bmod.registry.item.tier.ModArmorMaterial;
 import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.util.ItemUtils;
 import dev.architectury.registry.registries.DeferredRegister;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,7 +17,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -56,22 +53,23 @@ public class ModItems {
     public static final Supplier<Item> WIND_ROCKET = ITEMS.register("wind_rocket", WindRocketItem::new);
 
     // Accessories
-    public static final Supplier<Item> IRON_RING = ITEMS.register("iron_ring", BaseAccessoryItem::new);
-    public static final Supplier<Item> LEATHER_GLOVES = ITEMS.register("leather_gloves", BaseAccessoryItem::new);
-    public static final Supplier<Item> CHAIN_NECKLACE = ITEMS.register("chain_necklace", BaseAccessoryItem::new);
-    public static final Supplier<Item> LUCKY_ROCK = ITEMS.register("lucky_rock", BaseAccessoryItem::new);
+    public static final Supplier<Item> IRON_RING = ITEMS.register("iron_ring", AccessoryItem::new);
+    public static final Supplier<Item> LEATHER_GLOVES = ITEMS.register("leather_gloves", AccessoryItem::new);
+    public static final Supplier<Item> CHAIN_NECKLACE = ITEMS.register("chain_necklace", AccessoryItem::new);
+    public static final Supplier<Item> LUCKY_ROCK = ITEMS.register("lucky_rock", AccessoryItem::new);
     public static final Supplier<Item> HASTY_CHISEL = ITEMS.register("hasty_chisel", HastyChiselItem::new);
     public static final Supplier<Item> LUCKY_CHISEL = ITEMS.register("lucky_chisel", LuckyChiselItem::new);
-    public static final Supplier<Item> MYSTIC_EMBER = ITEMS.register("mystic_ember", BaseAccessoryItem::new);
+    public static final Supplier<Item> MYSTIC_EMBER = ITEMS.register("mystic_ember", AccessoryItem::new);
     public static final Supplier<Item> LAVA_RING = ITEMS.register("lava_ring", LavaRingItem::new);
     public static final Supplier<Item> MYSTIC_MOLTEN_RING = ITEMS.register("mystic_molten_ring", LavaRingItem::new);
-    public static final Supplier<Item> ETERNAL_SATCHEL = ITEMS.register("eternal_satchel", BaseAccessoryItem::new);
-    public static final Supplier<Item> VAMPIRE_GLOVES = ITEMS.register("vampire_gloves", BaseAccessoryItem::new);
+    public static final Supplier<Item> ETERNAL_SATCHEL = ITEMS.register("eternal_satchel", AccessoryItem::new);
+    public static final Supplier<Item> VAMPIRE_GLOVES = ITEMS.register("vampire_gloves", AccessoryItem::new);
     public static final Supplier<Item> DEMON_GLOVES = ITEMS.register("demon_gloves", DemonGloveItem::new);
     public static final Supplier<Item> BAND_OF_REGENERATION = ITEMS.register("band_of_regeneration", BandOfRegenerationItem::new);
     public static final Supplier<Item> HEART_NECKLACE = ITEMS.register("heart_necklace", HeartNecklaceItem::new);
     public static final Supplier<Item> DRAGON_HEART_NECKLACE = ITEMS.register("dragon_heart_necklace", DragonHeartNecklaceItem::new);
-    public static final Supplier<Item> NECROMANCY_101 = ITEMS.register("necromancy_101", BaseAccessoryItem::new);
+    public static final Supplier<Item> NECROMANCY_101 = ITEMS.register("necromancy_101", AccessoryItem::new);
+    public static final Supplier<Item> GRAVITY_BOOTS = ITEMS.register("gravity_boots", GravityBootsItem::new);
 
     // Food
     public static final Supplier<Item> HOT_PEPPER = ITEMS.register("hot_pepper",

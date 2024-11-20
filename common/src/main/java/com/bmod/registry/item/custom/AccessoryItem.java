@@ -1,6 +1,9 @@
 package com.bmod.registry.item.custom;
 
+import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.util.ContainerUtils;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,15 +20,20 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class BaseAccessoryItem extends ToolTipItem implements IAccessoryItem {
-    public BaseAccessoryItem() {
+public class AccessoryItem extends ToolTipItem {
+    public static Properties DEFAULT_ACCESSORY_PROPERTIES = new Properties()
+            .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+            .durability(-1)
+            .stacksTo(1)
+            .fireResistant();
+
+    public AccessoryItem() {
         super(DEFAULT_ACCESSORY_PROPERTIES);
     }
 
-    @Override
-    public void accessoryTick(ServerLevel level, ServerPlayer player) {
+    public void serverAccessoryTick(ServerLevel level, ServerPlayer player) { }
 
-    }
+    public void localAccessoryTick(Level level, Player player) { }
 
     public void setAttribute(ServerPlayer player, Attribute attribute, double value, AttributeModifier.Operation operation)
     {

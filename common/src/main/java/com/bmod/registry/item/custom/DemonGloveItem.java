@@ -7,12 +7,12 @@ public class DemonGloveItem extends LavaRingItem {
     public int tick = 0;
 
     @Override
-    public void accessoryTick(ServerLevel level, ServerPlayer player) {
+    public void serverAccessoryTick(ServerLevel level, ServerPlayer player) {
         tick++;
         if(player.isOnFire() && tick >= 40) {
             tick = 0;
             player.heal(1);
         }
-        super.accessoryTick(level, player);
+        super.serverAccessoryTick(level, player);
     }
 }

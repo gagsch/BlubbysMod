@@ -5,9 +5,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
-public class LavaRingItem extends BaseAccessoryItem {
+public class LavaRingItem extends AccessoryItem {
     @Override
-    public void accessoryTick(ServerLevel level, ServerPlayer player) {
+    public void serverAccessoryTick(ServerLevel level, ServerPlayer player) {
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false));
     }
 }

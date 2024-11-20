@@ -1,8 +1,7 @@
 package com.bmod.registry.menu.container;
 
-import com.bmod.registry.item.custom.IAccessoryItem;
+import com.bmod.registry.item.custom.AccessoryItem;
 import com.bmod.util.ContainerUtils;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -34,7 +33,7 @@ public class AccessoryMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(accessoryMenu, k, 44 + k * 18, 20) {
                 @Override
                 public boolean mayPlace(ItemStack itemStack) {
-                    return itemStack.getItem() instanceof IAccessoryItem && accessoryMenu.countItem(itemStack.getItem()) == 0;
+                    return itemStack.getItem() instanceof AccessoryItem && accessoryMenu.countItem(itemStack.getItem()) == 0;
                 }
             });
         }

@@ -1,7 +1,7 @@
 package com.bmod.mixin;
 
-import com.bmod.util.mixin_util.LightmapAccess;
-import com.bmod.util.mixin_util.TextureAccess;
+import com.bmod.util.mixin_util.ILightmapAccess;
+import com.bmod.util.mixin_util.ITextureAccess;
 import net.minecraft.client.renderer.LightTexture;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 
 @Mixin(LightTexture.class)
-public class MixinLightTexture implements LightmapAccess {
+public class MixinLightTexture implements ILightmapAccess {
     @Final
     @Shadow
     private DynamicTexture lightTexture;
@@ -27,7 +27,7 @@ public class MixinLightTexture implements LightmapAccess {
 
     @Inject(method = "<init>*", at = @At(value = "RETURN"))
     private void afterInit(GameRenderer gameRenderer, Minecraft minecraftClient, CallbackInfo ci) {
-        ((TextureAccess) lightTexture).blubbysmod$enableUploadHook();
+        ((ITextureAccess) lightTexture).blubbysmod$enableUploadHook();
     }
 
     @Override
