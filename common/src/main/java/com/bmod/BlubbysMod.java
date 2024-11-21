@@ -8,6 +8,7 @@ import com.bmod.client.model.*;
 import com.bmod.client.renderer.*;
 import com.bmod.event.*;
 import com.bmod.event.client.ModifyGUIEvent;
+import com.bmod.event.commands.CommandRegisterEvent;
 import com.bmod.packet.ModPackets;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
 import com.bmod.registry.enchantment.ModEnchantments;
@@ -77,6 +78,11 @@ public final class BlubbysMod {
         TradeRegistry.registerVillagerTrade(VillagerProfession.LIBRARIAN, 2, (entity, randomSource) -> {
             int tradeAmount = randomSource.nextInt(14, 28);
             return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.NECROMANCY_101.get()), 0, 5, 1, 0f, 1);
+        });
+
+        TradeRegistry.registerVillagerTrade(VillagerProfession.FISHERMAN, 4, (entity, randomSource) -> {
+            int tradeAmount = randomSource.nextInt(30, 40);
+            return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.GOLDEN_SCALE.get()), 0, 1, 1, 0f, 1);
         });
 
         EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);

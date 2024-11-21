@@ -91,8 +91,8 @@ public class ModBlocks {
     WORKSHOP = registerBlock("workshop", true,
             () -> new WorkshopBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))),
 
-    NIGHTMARE_GATEWAY = registerBlock("nightmare_gateway", true,
-            NightmareGatewayBlock::new);
+    DIMENSION_GATEWAY = registerBlock("dimension_gateway", true,
+            DimensionGatewayBlock::new);
 
     @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {

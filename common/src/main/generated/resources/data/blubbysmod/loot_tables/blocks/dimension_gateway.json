@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "blubbysmod:nightmare_gateway"
+          "name": "blubbysmod:dimension_gateway"
         }
       ],
       "rolls": 1.0
@@ -18,7 +18,7 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "blubbysmod:nightmare_gateway",
+              "block": "blubbysmod:dimension_gateway",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "powered": "true"

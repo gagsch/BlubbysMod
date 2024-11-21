@@ -245,7 +245,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         smallSmithingBuilder(consumer, ModItems.LAVA_RING.get(), ModItems.MYSTIC_EMBER.get(), ModItems.MYSTIC_MOLTEN_RING.get());
 
-        ShapedRecipeBuilder.shaped(ModBlocks.NIGHTMARE_GATEWAY.get(), 1)
+        ShapedRecipeBuilder.shaped(ModBlocks.DIMENSION_GATEWAY.get(), 1)
                 .define('O', Blocks.OBSIDIAN)
                 .define('g', Blocks.TINTED_GLASS)
                 .pattern("OOO")

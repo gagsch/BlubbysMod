@@ -2,7 +2,7 @@ package com.bmod.registry.block.custom;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
-import com.bmod.registry.block.block_entity.custom.NightmareGatewayBlockEntity;
+import com.bmod.registry.block.block_entity.custom.DimensionGatewayBlockEntity;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.world.ModDimensions;
 import net.minecraft.core.BlockPos;
@@ -35,10 +35,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class NightmareGatewayBlock extends BaseEntityBlock {
+public class DimensionGatewayBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
 
-    public NightmareGatewayBlock() {
+    public DimensionGatewayBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
                 .lightLevel((state) -> state.getValue(POWERED) ? 10 : 0));
 
@@ -88,7 +88,7 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
             return InteractionResult.sidedSuccess(true);
         }
 
-        if (serverLevel.getBlockEntity(blockPos) instanceof NightmareGatewayBlockEntity newBlockEntity) {
+        if (serverLevel.getBlockEntity(blockPos) instanceof DimensionGatewayBlockEntity newBlockEntity) {
             if (!blockState.getValue(POWERED) && stack.is(ModItems.CURSED_GEM.get())) {
                 stack.shrink(1);
 
@@ -101,7 +101,7 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
                 BlockPos pos = new BlockPos(newBlockEntity.teleportPos[0], newBlockEntity.teleportPos[1], newBlockEntity.teleportPos[2]);
 
                 assert dim != null;
-                if (!dim.getBlockState(pos).is(ModBlocks.NIGHTMARE_GATEWAY.get())) {
+                if (!dim.getBlockState(pos).is(ModBlocks.DIMENSION_GATEWAY.get())) {
                     pos = newBlockEntity.prepareSafeTeleport(dim);
                 }
 
@@ -120,13 +120,13 @@ public class NightmareGatewayBlock extends BaseEntityBlock {
         if (!level.isClientSide())
             return null;
 
-        return createTickerHelper(blockEntityType, ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(),
+        return createTickerHelper(blockEntityType, ModBlockEntityTypes.DIMENSION_GATEWAY_ENTITY_TYPE.get(),
                 (clientLevel, position, state, blockEntity) -> blockEntity.tick(clientLevel, position));
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new NightmareGatewayBlockEntity(blockPos, blockState);
+        return new DimensionGatewayBlockEntity(blockPos, blockState);
     }
 }

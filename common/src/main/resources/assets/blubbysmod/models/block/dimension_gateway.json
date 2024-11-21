@@ -3,7 +3,7 @@
 	"render_type": "minecraft:translucent",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "blubbysmod:block/nightmare_gateway",
+		"0": "blubbysmod:block/dimension_gateway",
 		"particle": "minecraft:block/obsidian"
 	},
 	"elements": [

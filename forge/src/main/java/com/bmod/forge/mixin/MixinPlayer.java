@@ -21,11 +21,7 @@ public class MixinPlayer {
             AttributeInstance attributeInstance = player.getAttribute(ModAttributes.DIGGING_SPEED.get());
             if (attributeInstance != null) {
                 double attributeValue = attributeInstance.getValue();
-                System.out.println("Attribute value: " + attributeValue);
                 baseSpeed *= (float) attributeValue;
-                System.out.println("Adjusted baseSpeed: " + baseSpeed);
-            } else {
-                System.out.println("Attribute not found for player");
             }
 
             cir.setReturnValue(baseSpeed);
@@ -36,6 +32,6 @@ public class MixinPlayer {
     private static void createAttributes(CallbackInfoReturnable<AttributeSupplier.Builder> cir)
     {
         AttributeSupplier.Builder builder = cir.getReturnValue();
-        cir.setReturnValue(builder.add(ModAttributes.DIGGING_SPEED.get()));
+        cir.setReturnValue(builder.add(ModAttributes.DIGGING_SPEED.get()).add(ModAttributes.SWIMMING_SPEED.get()));
     }
 }

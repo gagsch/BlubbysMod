@@ -45,13 +45,21 @@ public class AccessoryItem extends ToolTipItem {
             AttributeModifier existingModifier = attributeInstance.getModifier(uuid);
 
             if (existingModifier != null) {
-                if (existingModifier.getAmount() == value && existingModifier.getOperation() == operation) {
-                    return;
-                }
+                return;
             }
 
             AttributeModifier newModifier = new AttributeModifier(uuid, "accessory", value, operation);
             attributeInstance.addTransientModifier(newModifier);
+        }
+    }
+
+    public void clearAttribute(ServerPlayer player, Attribute attribute)
+    {
+        UUID uuid = new UUID(this.hashCode(), 1);
+        AttributeInstance attributeInstance = player.getAttribute(attribute);
+
+        if (attributeInstance != null) {
+            attributeInstance.removeModifier(uuid);
         }
     }
 

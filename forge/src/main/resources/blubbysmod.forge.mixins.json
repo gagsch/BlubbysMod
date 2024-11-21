@@ -4,7 +4,6 @@
   "package": "com.bmod.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinEntity",
     "MixinLivingEntity",
     "MixinPlayer",
     "MixinWebBlock",

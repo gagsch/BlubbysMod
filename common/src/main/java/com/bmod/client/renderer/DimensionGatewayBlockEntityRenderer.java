@@ -1,6 +1,6 @@
 package com.bmod.client.renderer;
 
-import com.bmod.registry.block.block_entity.custom.NightmareGatewayBlockEntity;
+import com.bmod.registry.block.block_entity.custom.DimensionGatewayBlockEntity;
 import com.bmod.registry.item.ModItems;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
@@ -15,16 +15,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
-public class NightmareGatewayBlockEntityRenderer implements BlockEntityRenderer<NightmareGatewayBlockEntity> {
+public class DimensionGatewayBlockEntityRenderer implements BlockEntityRenderer<DimensionGatewayBlockEntity> {
     private final ItemRenderer itemRenderer;
     private final long startTime = System.currentTimeMillis();
 
-    public NightmareGatewayBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public DimensionGatewayBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         this.itemRenderer = context.getItemRenderer();
     }
 
     @Override
-    public void render(NightmareGatewayBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+    public void render(DimensionGatewayBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         if (!blockEntity.powered)
             return;
 

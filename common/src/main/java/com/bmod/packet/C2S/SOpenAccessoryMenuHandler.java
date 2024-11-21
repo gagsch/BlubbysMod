@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.jetbrains.annotations.NotNull;
 
-public class SOpenAccessoryMenu {
+public class SOpenAccessoryMenuHandler {
     public static void handle(ServerPlayer player) {
         MenuRegistry.openMenu(player, new MenuProvider() {
             @Override
