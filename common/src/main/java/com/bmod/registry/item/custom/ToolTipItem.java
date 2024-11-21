@@ -48,7 +48,7 @@ public class ToolTipItem extends Item {
     public static void makeTooltip(Level level, List<Component> components, String itemId) {
         Component tooltip = ToolTipItem.component("item." + BlubbysMod.MOD_ID + "." + itemId + ".tooltip");
 
-        if (level.isClientSide() && Platform.isFabric() && !Platform.isModLoaded("tooltipfix")) {
+        if (level != null && level.isClientSide() && Platform.isFabric() && !Platform.isModLoaded("tooltipfix")) {
             Font font = Minecraft.getInstance().font;
 
             List<FormattedCharSequence> lines = font.split(FormattedText.of(tooltip.getString()), 170);

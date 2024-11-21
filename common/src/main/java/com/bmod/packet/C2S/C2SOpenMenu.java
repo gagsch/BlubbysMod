@@ -27,6 +27,6 @@ public class C2SOpenMenu extends BaseC2SMessage {
     public void handle(NetworkManager.PacketContext context) {
         ServerPlayer player = context.getPlayer().getServer().getPlayerList().getPlayer(context.getPlayer().getUUID());
 
-        context.queue(() -> SOpenAccessoryMenu.handle(player));
+        context.queue(() -> SOpenAccessoryMenuHandler.handle(player));
     }
 }

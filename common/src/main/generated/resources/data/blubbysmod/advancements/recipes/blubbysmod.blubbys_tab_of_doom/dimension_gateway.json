@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blubbysmod:nightmare_gateway"
+        "recipe": "blubbysmod:dimension_gateway"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "blubbysmod:nightmare_gateway"
+      "blubbysmod:dimension_gateway"
     ]
   }
 }

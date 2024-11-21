@@ -15,6 +15,7 @@ import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.monster.ElderGuardian;
+import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
@@ -89,9 +90,13 @@ public class EntityDeathEvent {
                 entity.spawnAtLocation(ModItems.DRAGON_HEART.get());
             }
             else if (entity instanceof Blaze) {
-                if (random.nextInt(0, 75) == 0)
-                {
+                if (random.nextInt(0, 75) == 0) {
                     entity.spawnAtLocation(ModItems.MOLTEN_SLAG.get());
+                }
+            }
+            else if (entity instanceof Shulker) {
+                if (random.nextInt(0, 120) == 0) {
+                    entity.spawnAtLocation(ModItems.GRAVITY_BOOTS.get());
                 }
             }
 

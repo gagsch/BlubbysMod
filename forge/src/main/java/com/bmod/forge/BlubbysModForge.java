@@ -3,7 +3,7 @@ package com.bmod.forge;
 import com.bmod.BlubbysMod;
 import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
-import com.bmod.client.renderer.NightmareGatewayBlockEntityRenderer;
+import com.bmod.client.renderer.DimensionGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
 import com.bmod.registry.menu.WorkshopScreen;
 import com.bmod.registry.menu.VoidBundleScreen;
@@ -35,7 +35,7 @@ public final class BlubbysModForge {
 
     private void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            BlockEntityRenderers.register(ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(), NightmareGatewayBlockEntityRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntityTypes.DIMENSION_GATEWAY_ENTITY_TYPE.get(), DimensionGatewayBlockEntityRenderer::new);
         });
 
         MenuScreens.register(VOID_BUNDLE_MENU_TYPE.get(), VoidBundleScreen::new);

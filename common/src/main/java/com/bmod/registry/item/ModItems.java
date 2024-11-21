@@ -70,6 +70,8 @@ public class ModItems {
     public static final Supplier<Item> DRAGON_HEART_NECKLACE = ITEMS.register("dragon_heart_necklace", DragonHeartNecklaceItem::new);
     public static final Supplier<Item> NECROMANCY_101 = ITEMS.register("necromancy_101", AccessoryItem::new);
     public static final Supplier<Item> GRAVITY_BOOTS = ITEMS.register("gravity_boots", GravityBootsItem::new);
+    public static final Supplier<Item> SILVER_SCALE = ITEMS.register("silver_scale", SilverScaleItem::new);
+    public static final Supplier<Item> GOLDEN_SCALE = ITEMS.register("golden_scale", GoldenScaleItem::new);
 
     // Food
     public static final Supplier<Item> HOT_PEPPER = ITEMS.register("hot_pepper",

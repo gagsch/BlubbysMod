@@ -1,5 +1,6 @@
 package com.bmod.forge.mixin;
 
+import com.bmod.registry.attribute.ModAttributes;
 import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.item.custom.AccessoryItem;
@@ -10,6 +11,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +22,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -36,14 +39,17 @@ public abstract class MixinLivingEntity {
 
     @ModifyVariable(method = "hurt", at = @At("HEAD"), index = 2, argsOnly = true)
     private float modifyDamage(float damage, DamageSource damageSource) {
-        if (damageSource.getEntity() instanceof Player player) {
+        if (damageSource.getEntity() instanceof ServerPlayer player) {
             Item item = player.getItemInHand(player.getUsedItemHand()).getItem();
 
             if (item == ModItems.VOLCANIC_MACE.get()) {
                 Vec3 speed = player.getDeltaMovement();
-                float fallBase = (player.fallDistance + 1) / 10 + 1;
 
-                damage *= (float) (1 + ((speed.length() / 7) * fallBase));
+                double speedAbs = Math.abs(speed.x) + Math.abs(speed.y) + Math.abs(speed.z);
+                double mult = Math.max(Math.pow(speedAbs * 2, 1.3f), 1);
+
+                damage *= mult;
+
                 player.resetFallDistance();
             }
             else if (item == ModItems.REAVER_FANG.get()) {
@@ -52,6 +58,26 @@ public abstract class MixinLivingEntity {
 
         }
         return damage;
+    }
+
+    @ModifyArg(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;moveRelative(FLnet/minecraft/world/phys/Vec3;)V", ordinal = 0))
+    public float travel(float g) {
+        LivingEntity livingEntity = (LivingEntity) (Object) this;
+
+        if (livingEntity instanceof Player)
+        {
+            AttributeInstance swimSpeed = livingEntity.getAttribute(ModAttributes.SWIMMING_SPEED.get());
+            if (swimSpeed == null) {
+                return g;
+            }
+            else {
+                if (swimSpeed.getBaseValue() != g) {
+                    swimSpeed.setBaseValue(g);
+                }
+                return (float) swimSpeed.getValue();
+            }
+        }
+        return g;
     }
 
     @Inject(method = "rideableUnderWater", at = @At("RETURN"), cancellable = true)
@@ -79,6 +105,15 @@ public abstract class MixinLivingEntity {
                         accessoryItem.localAccessoryTick(player.getLevel(), player);
                     }
                 }
+            }
+        }
+    }
+
+    @Inject(method = "canBreatheUnderwater", at = @At("RETURN"), cancellable = true)
+    public void canBreatheUnderwater(CallbackInfoReturnable<Boolean> cir) {
+        if ((Object) this instanceof Player player) {
+            if (ContainerUtils.playerHasAccessory(player, ModItems.SILVER_SCALE.get(), ModItems.GOLDEN_SCALE.get())) {
+                cir.setReturnValue(true);
             }
         }
     }

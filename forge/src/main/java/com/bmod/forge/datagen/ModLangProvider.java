@@ -34,7 +34,7 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addTooltip(ModItems.CHRONOS_CLOCK, "Skips time forward. Avoid skipping ahead too far!");
+        addTooltip(ModItems.CHRONOS_CLOCK, "Fast-forwards time when the use button is held down.");
         addTooltip(ModItems.CHRONOS_STOPWATCH, "Marks your location on first use, then returns you to that spot on the second use.");
         addTooltip(ModItems.LUCKY_ROCK, "Increases ore drops by one. Not effective with Silk Touch.");
         addTooltip(ModItems.HASTY_CHISEL, "You dig much faster.");
@@ -50,7 +50,7 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.VOID_BUNDLE, "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.");
         addTooltip(ModItems.HOT_PEPPER, "Used to make Flamin' Hot Cheetos™");
         addTooltip(ModItems.BUBBLE_WAND, "Places bubble blocks, which can be passed through by solids but not by liquids.");
-        addTooltip(ModItems.CURSED_GEM, "Used to activate the Nightmare Gateway.");
+        addTooltip(ModItems.CURSED_GEM, "Used to activate the Dimensional Gateway.");
         addTooltip(ModItems.ANCIENT_GUIDE_BOOK, "The Guide to Blubby's Mod");
         addTooltip(ModItems.IRON_RING, "Maybe something could be made out of this.");
         addTooltip(ModItems.LEATHER_GLOVES, "Maybe something could be made out of this.");
@@ -61,6 +61,9 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.NECROMANCY_STAFF, "Summons 3 friendly zombies to aid you in battle for 30 seconds.");
         addTooltip(ModItems.NECROMANCY_101, "Necromancy Staff summons 2 more zombies, each lasting 15 seconds longer.");
         addTooltip(ModItems.REAVER_FANG, "Inflicts damage equal to 3% of the enemy's maximum health.");
+        addTooltip(ModItems.GRAVITY_BOOTS, "Reduced gravity when standing, increased gravity when crouching. You no longer take fall damage.");
+        addTooltip(ModItems.SILVER_SCALE, "You swim faster and you no longer lose your breath underwater.");
+        addTooltip(ModItems.GOLDEN_SCALE, "The faster version of the Silver Scale.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
@@ -70,6 +73,7 @@ public class ModLangProvider extends LanguageProvider {
         addItem(ModItems.HOT_PEPPER, "Fiery Hot Pepper");
 
         addBlock(ModBlocks.WORKSHOP, "Artisan's Workshop");
+        addBlock(ModBlocks.DIMENSION_GATEWAY, "Dimensional Gateway");
 
         add("enchantment.blubbysmod.web_walker", "Web Walker");
 

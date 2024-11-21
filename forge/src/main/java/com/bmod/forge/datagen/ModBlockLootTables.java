@@ -1,6 +1,6 @@
 package com.bmod.forge.datagen;
 import com.bmod.registry.block.ModBlocks;
-import com.bmod.registry.block.custom.NightmareGatewayBlock;
+import com.bmod.registry.block.custom.DimensionGatewayBlock;
 import com.bmod.util.WoodUtils;
 import com.bmod.registry.item.ModItems;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -48,16 +48,16 @@ public class ModBlockLootTables extends BlockLoot {
         dropOther(ModBlocks.WEB_STONE.get(), ModBlocks.DEEPERSLATE.get());
         dropOther(ModBlocks.SILK_BLOCK.get(), Items.STRING);
 
-        add(ModBlocks.NIGHTMARE_GATEWAY.get(), LootTable.lootTable()
+        add(ModBlocks.DIMENSION_GATEWAY.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .add(LootItem.lootTableItem(ModBlocks.NIGHTMARE_GATEWAY.get())))
+                        .add(LootItem.lootTableItem(ModBlocks.DIMENSION_GATEWAY.get())))
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ModItems.CURSED_GEM.get())
-                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.NIGHTMARE_GATEWAY.get())
+                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.DIMENSION_GATEWAY.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties()
-                                                .hasProperty(NightmareGatewayBlock.POWERED, true))))));
+                                                .hasProperty(DimensionGatewayBlock.POWERED, true))))));
 
         add(ModBlocks.RUBY_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.RUBY_ORE.get(), ModItems.RUBY.get()));
@@ -88,7 +88,7 @@ public class ModBlockLootTables extends BlockLoot {
         registeredBlockLoot.add(door(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(slab(EBON).get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.NECROTIC_GRASS_BLOCK.get().builtInRegistryHolder().key().location().getPath());
-        registeredBlockLoot.add(ModBlocks.NIGHTMARE_GATEWAY.get().builtInRegistryHolder().key().location().getPath());
+        registeredBlockLoot.add(ModBlocks.DIMENSION_GATEWAY.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.DARK_TURF_BLOCK.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.MYCELIUM_DEEPERSLATE.get().builtInRegistryHolder().key().location().getPath());
         registeredBlockLoot.add(ModBlocks.WEB_STONE.get().builtInRegistryHolder().key().location().getPath());

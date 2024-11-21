@@ -39,7 +39,7 @@ public class AncientGuideScreen extends Screen {
             Page.of(""), // Filler Page, needed or the first page won't show
 
             Page.of("""
-                    HELLO WORLD
+                    Hello, World!
                     
                     Welcome to the world of Blubby's Mod. \
                     Blubby's Mod is a mod that adds a lot of HIGH \
@@ -47,11 +47,11 @@ public class AncientGuideScreen extends Screen {
                     you will learn the simple knowledge needed to \
                     use this mod properly.
                     """)
-                    .addImage(new Image(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/blubbys_mod.png"),
-                            40, 30, 108, 64, (button) -> Util.getPlatform().openUri("https://gagsch.xyz/")).setDownSound(SoundEvents.UI_BUTTON_CLICK)),
+                    .addImage(new Image("blubbys_mod", 40, 30, 108, 64,
+                            (button) -> Util.getPlatform().openUri("https://gagsch.xyz/")).setDownSound(SoundEvents.UI_BUTTON_CLICK)),
 
             Page.of("""
-                    ACCESSORIES
+                    Accessories
 
                     The accessories button can be found in \
                     the inventory, on click, it opens a 5 slot \
@@ -59,32 +59,42 @@ public class AncientGuideScreen extends Screen {
                     Accessories are items that give special buffs \
                     while inside the Accessories Container.
                     """)
-                    .addImage(new Image(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/accessory_example.png"),
-                            45, 40, 96, 58))
-                    .addImage(new Image(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/accessory_button_example.png"),
-                            80, 115, 24, 24, (button -> new C2SOpenMenu().sendToServer())).setDownSound(SoundEvents.UI_BUTTON_CLICK)),
+                    .addImage(new Image("accessory_example", 45, 40, 96, 58))
+                    .addImage(new Image("accessory_button_example", 80, 115, 24, 24,
+                            (button -> new C2SOpenMenu().sendToServer())).setDownSound(SoundEvents.UI_BUTTON_CLICK)),
 
             Page.of("""
-                    ARTISAN'S WORKSHOP
+                    Artisan's Workshop
 
                     The Artisan's Workshop is a special Crafting \
                     Table used to craft gear or useful items. \
                     Usually accessories, special items, and gear. \
                     To see all the recipes use JEI.
                     """)
-                    .addImage(new Image(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/artisans_table_example.png"),
-                            43, 40, 100, 110)),
+                    .addImage(new Image("artisans_table_example", 43, 40, 100, 110)),
 
             Page.of("""
-                    NIGHTMARE REALM
+                    The Cimmerian
 
-                    The Nightmare Realm is a dimension that is \
-                    filled common fears. Access the Dimension \
-                    by placing a Nightmare Gateway and socketing \
-                    a Cursed Gem.
+                    The Cimmerian was once a world filled with life, \
+                    now corrupted by darkness and taken by nightmares. \
+                    Getting into this dimension is simple. First, \
+                    make a Dimensional Gateway and find a Cursed \
+                    Gem. Then socket the Cursed Gem into the Gateway
                     """)
-                    .addImage(new Image(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/nightmare_gateway_example.png"),
-                    55, 40, 69, 43)));
+                    .addImage(new Image("dimension_gateway_example", 55, 40, 69, 43)),
+
+            Page.of("""
+                    Surviving Cimmerian
+                    
+                    To survive the Cimmerian, it is highly \
+                    recommended to come prepared. Make sure you \
+                    have the following:
+                    
+                    Enchanted diamond gear or better, night vision \
+                    potions, torches, and food. Preparation \
+                    is key for survival in the Cimmerian!
+                    """).addImage(new Image("necrotic_behemoth", 47, 40, 82, 102)));
 
     public AncientGuideScreen() {
         super(Component.literal("Ancient Guide"));
@@ -209,6 +219,14 @@ public class AncientGuideScreen extends Screen {
 
         public Image(ResourceLocation location, int x, int y, int xScale, int yScale) {
             this(location, x, y, xScale, yScale, (button -> {}));
+        }
+
+        public Image(String location, int x, int y, int xScale, int yScale) {
+            this(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/" + location + ".png"), x, y, xScale, yScale, (button -> {}));
+        }
+
+        public Image(String location, int x, int y, int xScale, int yScale, OnPress onPress) {
+            this(new ResourceLocation(BlubbysMod.MOD_ID, "textures/gui/guide/" + location + ".png"), x, y, xScale, yScale, onPress);
         }
 
         @Override

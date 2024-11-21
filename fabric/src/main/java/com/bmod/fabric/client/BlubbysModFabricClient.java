@@ -2,7 +2,7 @@ package com.bmod.fabric.client;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.block_entity.ModBlockEntityTypes;
-import com.bmod.client.renderer.NightmareGatewayBlockEntityRenderer;
+import com.bmod.client.renderer.DimensionGatewayBlockEntityRenderer;
 import com.bmod.registry.menu.AccessoryScreen;
 import com.bmod.registry.menu.WorkshopScreen;
 import com.bmod.registry.menu.VoidBundleScreen;
@@ -23,10 +23,10 @@ public final class BlubbysModFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(sapling(DREADWOOD).get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(sapling(EBON).get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(trapdoor(EBON).get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NIGHTMARE_GATEWAY.get(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIMENSION_GATEWAY.get(), RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BUBBLE_BLOCK.get(), RenderType.translucent());
 
-        BlockEntityRenderers.register(ModBlockEntityTypes.NIGHTMARE_GATEWAY_ENTITY_TYPE.get(), NightmareGatewayBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.DIMENSION_GATEWAY_ENTITY_TYPE.get(), DimensionGatewayBlockEntityRenderer::new);
 
         MenuScreens.register(VOID_BUNDLE_MENU_TYPE.get(), VoidBundleScreen::new);
         MenuScreens.register(WORKSHOP_MENU.get(), WorkshopScreen::new);
