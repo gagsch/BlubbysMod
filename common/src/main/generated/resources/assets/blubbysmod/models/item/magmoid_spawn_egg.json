@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blubbysmod:items/magmoid_spawn_egg"
+  }
+}

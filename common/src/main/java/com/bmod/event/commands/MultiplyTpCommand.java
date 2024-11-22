@@ -13,10 +13,10 @@ public class MultiplyTpCommand {
     public static LiteralArgumentBuilder<CommandSourceStack> build()
     {
         return Commands.literal("multp")
-                .then(Commands.argument("entity", EntityArgument.entity())
-                        .then(Commands.argument("factor", DoubleArgumentType.doubleArg())))
-                .requires((commandSourceStack) -> commandSourceStack.hasPermission(2))
-                .executes(MultiplyTpCommand::runExecuteTeleport);
+                .then(Commands.argument("player", EntityArgument.player())
+                        .then(Commands.argument("factor", DoubleArgumentType.doubleArg())
+                                .executes(MultiplyTpCommand::runExecuteTeleport)))
+                .requires((commandSourceStack) -> commandSourceStack.hasPermission(2));
     }
 
     private static int runExecuteTeleport(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {

@@ -11,6 +11,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
@@ -37,9 +38,13 @@ public class ModEntityTypes {
     public static final Supplier<EntityType<DarkFairyEntity>> DARK_FAIRY = ENTITY_TYPES.register("dark_fairy", () -> EntityType.Builder.of(DarkFairyEntity::new, MobCategory.MONSTER)
             .sized(0.4f, 0.4f).build("dark_fairy"));
 
+    public static final Supplier<EntityType<MagmoidEntity>> MAGMOID = ENTITY_TYPES.register("magmoid", () -> EntityType.Builder.of(MagmoidEntity::new, MobCategory.MONSTER)
+            .sized(2.0f, 2.4f).fireImmune().build("magmoid"));
+
     public static void initSpawns()
     {
         SpawnPlacementsRegistry.register(ModEntityTypes.BEHEMOTH, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BehemothEntity::spawn);
+        SpawnPlacementsRegistry.register(ModEntityTypes.MAGMOID, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MagmoidEntity::checkMobSpawnRules);
         SpawnPlacementsRegistry.register(ModEntityTypes.ROT_FLY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, RotFlyEntity::spawn);
         SpawnPlacementsRegistry.register(ModEntityTypes.SPORE_FLY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, levelAccessor, mobSpawnType, blockPos, randomSource) -> SporeFlyEntity.spawn(entityType, levelAccessor, blockPos));
         SpawnPlacementsRegistry.register(ModEntityTypes.DARK_FAIRY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, DarkFairyEntity::spawn);
@@ -55,6 +60,9 @@ public class ModEntityTypes {
         BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) -> mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1)));
 
         BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.HAS_IGLOO), (ctx, mutable2) ->
-                mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 70, 2, 4)));
+                mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 60, 2, 4)));
+
+        BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.IS_NETHER), (ctx, mutable2) ->
+                mutable2.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.MAGMOID.get(), 20, 1, 2)));
     }
 }

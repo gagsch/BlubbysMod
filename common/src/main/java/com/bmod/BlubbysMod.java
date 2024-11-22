@@ -91,6 +91,7 @@ public final class BlubbysMod {
         EntityAttributeRegistry.register(ModEntityTypes.SNOW_FLINX, SnowFlinxEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.LEECH, LeechEntity::createAttributes);
         EntityAttributeRegistry.register(ModEntityTypes.DARK_FAIRY, DarkFairyEntity::createAttributes);
+        EntityAttributeRegistry.register(ModEntityTypes.MAGMOID, MagmoidEntity::createAttributes);
 
         EnvExecutor.runInEnv(Env.CLIENT, () -> Client::initializeClient);
     }
@@ -107,6 +108,8 @@ public final class BlubbysMod {
             EntityModelLayerRegistry.register(BehemothModel.LAYER_LOCATION, BehemothModel::createBodyLayer);
             EntityModelLayerRegistry.register(LeechModel.LAYER_LOCATION, LeechModel::createBodyLayer);
             EntityModelLayerRegistry.register(DarkFairyModel.LAYER_LOCATION, DarkFairyModel::createBodyLayer);
+            EntityModelLayerRegistry.register(MagmoidModel.LAYER_LOCATION, MagmoidModel::createBodyLayer);
+
             EntityModelLayerRegistry.register(ShroomiteHelmetRenderer.LAYER_LOCATION, ShroomiteHelmetModel::createBodyLayer);
             EntityModelLayerRegistry.register(DivineHelmetRenderer.LAYER_LOCATION, DivineHelmetModel::createBodyLayer);
 
@@ -116,6 +119,7 @@ public final class BlubbysMod {
             EntityRendererRegistry.register(ModEntityTypes.BEHEMOTH, BehemothRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.LEECH, LeechRenderer::new);
             EntityRendererRegistry.register(ModEntityTypes.DARK_FAIRY, DarkFairyRenderer::new);
+            EntityRendererRegistry.register(ModEntityTypes.MAGMOID, MagmoidRenderer::new);
         }
     }
 }

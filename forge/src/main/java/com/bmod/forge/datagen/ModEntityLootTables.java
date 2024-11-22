@@ -60,6 +60,11 @@ public class ModEntityLootTables extends EntityLoot {
                 .add(LootItem.lootTableItem(ModItems.FAIRY_DUST.get())
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0f, 2.0f)))
                         .when(LootItemRandomChanceCondition.randomChance(0.75f)))));
+
+        add(ModEntityTypes.MAGMOID.get(), LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(2.0F))
+                .add(LootItem.lootTableItem(ModItems.MOLTEN_SLAG.get())
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0f, 10.0f))))));
     }
 
     @NotNull

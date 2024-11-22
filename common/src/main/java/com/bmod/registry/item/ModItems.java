@@ -287,4 +287,9 @@ public class ModItems {
                     .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
                     .durability(-1)
                     .stacksTo(64)));
+    public static final Supplier<Item> MAGMOID_SPAWN_EGG = ITEMS.register("magmoid_spawn_egg",
+            () -> new SpawnEggItem(ModEntityTypes.MAGMOID.get(), 0xFFFFFF, 0xFFFFFF, new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .durability(-1)
+                    .stacksTo(64)));
 }

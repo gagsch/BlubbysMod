@@ -20,7 +20,6 @@
     ]
   },
 
-
   "rot_fly_buzz": {
     "sounds": [
       "blubbysmod:entity/rot_fly/rot_fly_buzz_1",
@@ -33,17 +32,18 @@
     ]
   },
 
-
   "behemoth_growl": {
     "sounds": [
       "blubbysmod:entity/behemoth/behemoth_growl"
     ]
   },
+
   "behemoth_hurt": {
     "sounds": [
       "blubbysmod:entity/behemoth/behemoth_hurt"
     ]
   },
+
   "behemoth_death": {
     "sounds": [
       "blubbysmod:entity/behemoth/behemoth_death"
@@ -57,11 +57,13 @@
       "blubbysmod:entity/snow_flinx/snow_flinx_speak"
     ]
   },
+
   "snow_flinx_hurt": {
     "sounds": [
       "blubbysmod:entity/snow_flinx/snow_flinx_hurt"
     ]
   },
+
   "snow_flinx_death": {
     "sounds": [
       "blubbysmod:entity/snow_flinx/snow_flinx_death"
@@ -74,17 +76,50 @@
       "blubbysmod:entity/leech/leech_ambient_2"
     ]
   },
+
   "leech_hurt": {
     "sounds": [
       "blubbysmod:entity/leech/leech_hurt_1",
       "blubbysmod:entity/leech/leech_hurt_2"
     ]
   },
+
   "leech_death": {
     "sounds": [
       "blubbysmod:entity/leech/leech_death"
     ]
   },
+
+  "magmoid_curious": {
+    "sounds": [
+      "blubbysmod:entity/magmoid/magmoid_curious"
+    ]
+  },
+
+  "magmoid_combat": {
+    "sounds": [
+      "blubbysmod:entity/magmoid/magmoid_combat"
+    ]
+  },
+
+  "magmoid_hurt": {
+    "sounds": [
+      "blubbysmod:entity/magmoid/magmoid_hurt"
+    ]
+  },
+
+  "magmoid_death": {
+    "sounds": [
+      "blubbysmod:entity/magmoid/magmoid_death"
+    ]
+  },
+
+  "weird_synth": {
+    "sounds": [
+      "blubbysmod:item/synth/weird_synth"
+    ]
+  },
+
 
   "blydim_cave_noise": {
     "sounds": [

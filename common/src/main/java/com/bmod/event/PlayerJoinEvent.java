@@ -15,11 +15,9 @@ public class PlayerJoinEvent {
     public static void initialize()
     {
         PlayerEvent.PLAYER_JOIN.register((player) -> {
-            DataUtils modData = DataUtils.getCustomWorldData(Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getLevel(Level.OVERWORLD)));
 
-            if (!modData.getPlayerTags(player.getUUID()).contains("hasJoined"))
+            if (player.getInventory().isEmpty())
             {
-                modData.putBoolean(player.getUUID(), "hasJoined", true);
                 player.addItem(new ItemStack(ModItems.ANCIENT_GUIDE_BOOK.get()));
             }
 
