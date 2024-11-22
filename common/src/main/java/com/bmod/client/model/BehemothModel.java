@@ -100,7 +100,6 @@ public class BehemothModel<T extends Entity> extends HierarchicalModel<T> {
 		this.animateWalk(limbSwing, limbSwingAmount);
 
 		this.animate(((BehemothEntity) entity).attackAnimationState, ModAnimationDefinitions.BEHEMOTH_ATTACK, ageInTicks, 1f);
-		this.animate(((BehemothEntity) entity).groundHitAnimationState, ModAnimationDefinitions.BEHEMOTH_GROUND_HIT, ageInTicks, .2f);
 	}
 
 	private void animateWalk(float pLimbSwing, float pLimbSwingAmount) {

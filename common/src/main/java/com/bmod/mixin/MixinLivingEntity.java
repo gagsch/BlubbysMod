@@ -5,7 +5,6 @@ import com.bmod.registry.enchantment.ModEnchantments;
 import com.bmod.registry.item.ModItems;
 import com.bmod.registry.item.custom.AccessoryItem;
 import com.bmod.util.ContainerUtils;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
@@ -110,7 +109,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "canBreatheUnderwater", at = @At("RETURN"), cancellable = true)
     public void canBreatheUnderwater(CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
-            if (ContainerUtils.playerHasAccessory(player, ModItems.SILVER_SCALE.get(), ModItems.GOLDEN_SCALE.get())) {
+            if (ContainerUtils.playerHasAccessory(player, ModItems.OXYGEN_TANK.get())) {
                 cir.setReturnValue(true);
             }
         }

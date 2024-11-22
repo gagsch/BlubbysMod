@@ -21,25 +21,25 @@ public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.ENTITY_TYPE_REGISTRY);
 
     public static final Supplier<EntityType<RotFlyEntity>> ROT_FLY = ENTITY_TYPES.register("rot_fly", () -> EntityType.Builder.of(RotFlyEntity::new, MobCategory.CREATURE)
-                    .sized(0.6f, 0.8f).build("rot_fly"));
+            .sized(0.6f, 0.8f).clientTrackingRange(8).build("rot_fly"));
 
     public static final Supplier<EntityType<SporeFlyEntity>> SPORE_FLY = ENTITY_TYPES.register("spore_fly", () -> EntityType.Builder.of(SporeFlyEntity::new, MobCategory.CREATURE)
-            .sized(0.6f, 0.8f).build("spore_fly"));
+            .sized(0.6f, 0.8f).clientTrackingRange(8).build("spore_fly"));
 
     public static final Supplier<EntityType<BehemothEntity>> BEHEMOTH = ENTITY_TYPES.register("behemoth", () -> EntityType.Builder.of(BehemothEntity::new, MobCategory.MONSTER)
-                    .sized(1.8f, 3.2f).build("behemoth"));
+            .sized(1.8f, 3.2f).clientTrackingRange(8).build("behemoth"));
 
     public static final Supplier<EntityType<LeechEntity>> LEECH = ENTITY_TYPES.register("leech", () -> EntityType.Builder.of(LeechEntity::new, MobCategory.MONSTER)
-            .sized(0.9f, 0.9f).build("leech"));
+            .sized(0.9f, 0.9f).clientTrackingRange(8).build("leech"));
 
     public static final Supplier<EntityType<SnowFlinxEntity>> SNOW_FLINX = ENTITY_TYPES.register("snow_flinx", () -> EntityType.Builder.of(SnowFlinxEntity::new, MobCategory.CREATURE)
-                    .sized(0.6f, 0.7f).build("snow_flinx"));
+            .sized(0.6f, 0.7f).clientTrackingRange(8).build("snow_flinx"));
 
     public static final Supplier<EntityType<DarkFairyEntity>> DARK_FAIRY = ENTITY_TYPES.register("dark_fairy", () -> EntityType.Builder.of(DarkFairyEntity::new, MobCategory.MONSTER)
-            .sized(0.4f, 0.4f).build("dark_fairy"));
+            .sized(0.4f, 0.4f).clientTrackingRange(10).build("dark_fairy"));
 
     public static final Supplier<EntityType<MagmoidEntity>> MAGMOID = ENTITY_TYPES.register("magmoid", () -> EntityType.Builder.of(MagmoidEntity::new, MobCategory.MONSTER)
-            .sized(2.0f, 2.4f).fireImmune().build("magmoid"));
+            .sized(1.4F, 2.6F).clientTrackingRange(10).build("magmoid"));
 
     public static void initSpawns()
     {

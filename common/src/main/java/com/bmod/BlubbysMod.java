@@ -81,8 +81,13 @@ public final class BlubbysMod {
         });
 
         TradeRegistry.registerVillagerTrade(VillagerProfession.FISHERMAN, 4, (entity, randomSource) -> {
+            int tradeAmount = randomSource.nextInt(15, 20);
+            return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.OXYGEN_TANK.get()), 0, 3, 1, 0f, 1);
+        });
+
+        TradeRegistry.registerVillagerTrade(VillagerProfession.FISHERMAN, 4, (entity, randomSource) -> {
             int tradeAmount = randomSource.nextInt(30, 40);
-            return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.GOLDEN_SCALE.get()), 0, 1, 1, 0f, 1);
+            return new MerchantOffer(new ItemStack(Items.EMERALD, tradeAmount), ItemStack.EMPTY, new ItemStack(ModItems.FLIPPER.get()), 0, 1, 1, 0f, 1);
         });
 
         EntityAttributeRegistry.register(ModEntityTypes.ROT_FLY, RotFlyEntity::createAttributes);

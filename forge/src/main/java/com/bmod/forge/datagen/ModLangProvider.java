@@ -62,8 +62,8 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.NECROMANCY_101, "Necromancy Staff summons 2 more zombies, each lasting 15 seconds longer.");
         addTooltip(ModItems.REAVER_FANG, "Inflicts damage equal to 3% of the enemy's maximum health.");
         addTooltip(ModItems.GRAVITY_BOOTS, "Reduced gravity when standing, increased gravity when crouching. You no longer take fall damage.");
-        addTooltip(ModItems.SILVER_SCALE, "You swim faster and you no longer lose your breath underwater.");
-        addTooltip(ModItems.GOLDEN_SCALE, "The faster version of the Silver Scale.");
+        addTooltip(ModItems.FLIPPER, "You swim much faster.");
+        addTooltip(ModItems.OXYGEN_TANK, "You can breathe underwater.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");

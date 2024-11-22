@@ -30,8 +30,6 @@ public class BehemothEntity extends Monster {
             SynchedEntityData.defineId(BehemothEntity.class, EntityDataSerializers.BOOLEAN);
 
     public final AnimationState attackAnimationState = new AnimationState();
-    public final AnimationState groundHitAnimationState = new AnimationState();
-    public int groundHitAnimationTimeout = 0;
 
     public BehemothEntity(EntityType<? extends Monster> type, Level world) {
         super(type, world);
@@ -70,28 +68,6 @@ public class BehemothEntity extends Monster {
     }
 
     @Override
-    public void tick() {
-        super.tick();
-
-        if(this.level.isClientSide()) {
-            setupAnimationStates();
-        }
-    }
-
-    private void setupAnimationStates() {
-        if(this.isAttacking() && groundHitAnimationTimeout <= 0) {
-            groundHitAnimationTimeout = 55;
-            groundHitAnimationState.start(this.tickCount);
-        } else {
-            --this.groundHitAnimationTimeout;
-        }
-
-        if(!this.isAttacking()) {
-            groundHitAnimationState.stop();
-        }
-    }
-
-    @Override
     protected @NotNull PathNavigation createNavigation(@NotNull Level level) {
         return new GroundPathNavigation(this, level);
     }
@@ -109,20 +85,6 @@ public class BehemothEntity extends Monster {
         } else {
             super.handleEntityEvent(pId);
         }
-    }
-
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    }
-
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
-    }
-
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ATTACKING, false);
     }
 
     @Override

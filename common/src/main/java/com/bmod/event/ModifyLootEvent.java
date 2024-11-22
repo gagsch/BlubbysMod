@@ -46,7 +46,7 @@ public class ModifyLootEvent {
             BuiltInLootTables.NETHER_BRIDGE
     );
 
-    private static final Set<ResourceLocation> SILVER_SCALE_LOOT_TABLES = Set.of(
+    private static final Set<ResourceLocation> FLIPPER_LOOT_TABLES = Set.of(
             BuiltInLootTables.SHIPWRECK_TREASURE,
             BuiltInLootTables.BURIED_TREASURE
     );
@@ -77,8 +77,8 @@ public class ModifyLootEvent {
                 context.addPool(createBasicLootPool(ModItems.MOLTEN_SLAG.get(), 0.075f, 1, 1, 2, 3).build());
             }
 
-            if (SILVER_SCALE_LOOT_TABLES.contains(id)) {
-                context.addPool(createBasicLootPool(ModItems.SILVER_SCALE.get(), 0.25f, 1, 2, 1, 1).build());
+            if (FLIPPER_LOOT_TABLES.contains(id)) {
+                context.addPool(createBasicLootPool(ModItems.FLIPPER.get(), 0.25f, 1, 2, 1, 1).build());
             }
 
             if (GRAVITY_BOOTS_LOOT_TABLES.contains(id)) {

@@ -96,7 +96,7 @@ public class MagmoidModel<T extends Entity> extends HierarchicalModel<T> {
 		this.animateWalk(limbSwing, limbSwingAmount);
 
 		this.animate(((MagmoidEntity) entity).attackAnimationState, ModAnimationDefinitions.MAGMOID_NORMAL_HIT, ageInTicks, 1f);
-		this.animate(((MagmoidEntity) entity).groundHitAnimationState, ModAnimationDefinitions.MAGMOID_GROUND_HIT, ageInTicks, .2f);
+		this.animate(((MagmoidEntity) entity).groundHitAnimationState, ModAnimationDefinitions.MAGMOID_GROUND_HIT, ageInTicks, 1.5f);
 	}
 
 	private void animateWalk(float pLimbSwing, float pLimbSwingAmount) {

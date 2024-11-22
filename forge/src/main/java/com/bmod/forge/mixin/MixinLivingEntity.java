@@ -112,7 +112,7 @@ public abstract class MixinLivingEntity {
     @Inject(method = "canBreatheUnderwater", at = @At("RETURN"), cancellable = true)
     public void canBreatheUnderwater(CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
-            if (ContainerUtils.playerHasAccessory(player, ModItems.SILVER_SCALE.get(), ModItems.GOLDEN_SCALE.get())) {
+            if (ContainerUtils.playerHasAccessory(player, ModItems.OXYGEN_TANK.get())) {
                 cir.setReturnValue(true);
             }
         }
