@@ -35,6 +35,7 @@ public class ModSounds {
     public static final Supplier<SoundEvent> MAGMOID_COMBAT = register("magmoid_combat");
     public static final Supplier<SoundEvent> MAGMOID_HURT = register("magmoid_hurt");
     public static final Supplier<SoundEvent> MAGMOID_DEATH = register("magmoid_death");
+    public static final Supplier<SoundEvent> MAGMOID_ATTACK = register("magmoid_attack");
 
     public static final Supplier<SoundEvent> BLYDIM_CAVE_NOISE = register("blydim_cave_noise");
 

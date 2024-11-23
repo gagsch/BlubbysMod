@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.player.Player;
@@ -27,14 +28,20 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class MagmoidEntity extends Monster {
     public final AnimationState attackAnimationState = new AnimationState();
     public final AnimationState groundHitAnimationState = new AnimationState();
 
     private Vec3 pos;
-    private int lastGroundHitTick = 0;
+    private int lastGroundHitTick = -31;
+    private final Supplier<List<Entity>> nearbyEntities = () -> this.level.getEntities(this, this.getBoundingBox().inflate(4))
+            .stream()
+            .filter((entity) -> friendly(entity))
+            .toList();
 
     public MagmoidEntity(EntityType<? extends Monster> type, Level world) {
         super(type, world);
@@ -64,9 +71,9 @@ public class MagmoidEntity extends Monster {
 
     public boolean isEntityStationary(@Nullable LivingEntity livingEntity) {
         if (livingEntity == null) {
-            return false;
-        } else if (livingEntity instanceof Monster) {
-            return false;
+            return true;
+        } else if (friendly(livingEntity)) {
+            return true;
         }
 
         TickHandlerUtils.startCountdown(3, () -> {
@@ -83,18 +90,30 @@ public class MagmoidEntity extends Monster {
         if (this.tickCount % 10 == 0 && this.getTarget() != null && isEntityStationary(this.getTarget())) {
             this.setTarget(null);
         }
-        if (this.getTarget() != null && this.tickCount % 40 == 0 && this.level.random.nextInt(6) == 0) {
-            List<Entity> nearbyEntities = this.level.getEntities(this, this.getBoundingBox().inflate(4));
-            if (!nearbyEntities.isEmpty()) {
-                this.playSound(ModSounds.MAGMOID_COMBAT.get());
-                this.lastGroundHitTick = this.tickCount;
-                this.level.broadcastEntityEvent(this, (byte) 33);
-                TickHandlerUtils.startCountdown(30, () -> {
-                    damageEntities(nearbyEntities);
-                    this.playSound(SoundEvents.GENERIC_EXPLODE);
-                });
+        if (!this.level.isClientSide()) {
+            if (this.tickCount % 40 == 0 && this.level.random.nextInt(6) == 0) {
+                List<Entity> entities = nearbyEntities.get();
+
+                if (!entities.isEmpty())
+                {
+                    this.playSound(ModSounds.MAGMOID_ATTACK.get());
+                    this.lastGroundHitTick = this.tickCount;
+                    this.level.broadcastEntityEvent(this, (byte) 33);
+                }
+            }
+            if (this.lastGroundHitTick + 15 == this.tickCount)
+            {
+                List<Entity> entities = nearbyEntities.get();
+
+                damageEntities(entities);
+                this.playSound(SoundEvents.GENERIC_EXPLODE);
             }
         }
+    }
+
+    public boolean friendly(Entity entity)
+    {
+        return entity instanceof Blaze || entity instanceof MagmoidEntity || (entity instanceof LivingEntity livingEntity && livingEntity.isDeadOrDying()) || (entity instanceof Player player && player.isCreative());
     }
 
     public void damageEntities(List<Entity> entities) {
@@ -107,12 +126,13 @@ public class MagmoidEntity extends Monster {
 
     @Override
     public boolean canAttack(LivingEntity livingEntity) {
-        return this.lastGroundHitTick + 25 < this.tickCount;
+        return this.lastGroundHitTick + 20 < this.tickCount;
     }
 
     @Override
     public boolean doHurtTarget(@NotNull Entity pEntity) {
         this.level.broadcastEntityEvent(this, (byte) 4);
+        this.playSound(ModSounds.MAGMOID_ATTACK.get());
         pEntity.setSecondsOnFire(4);
         return super.doHurtTarget(pEntity);
     }

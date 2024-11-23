@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    },
+    {
+      "item": "blubbysmod:divine_alloy"
+    }
+  ],
+  "result": {
+    "item": "blubbysmod:divine_block"
+  }
+}

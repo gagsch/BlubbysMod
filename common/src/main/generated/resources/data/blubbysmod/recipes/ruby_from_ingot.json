@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    },
+    {
+      "item": "blubbysmod:ruby"
+    }
+  ],
+  "result": {
+    "item": "blubbysmod:ruby_block"
+  }
+}

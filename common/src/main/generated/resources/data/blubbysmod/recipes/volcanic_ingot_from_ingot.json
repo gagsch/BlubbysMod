@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    },
+    {
+      "item": "blubbysmod:volcanic_ingot"
+    }
+  ],
+  "result": {
+    "item": "blubbysmod:volcanic_block"
+  }
+}

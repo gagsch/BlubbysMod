@@ -10,6 +10,11 @@
     "blubbysmod:mycelium_deeperslate",
     "blubbysmod:web_stone",
     "blubbysmod:fossilized_bone_block",
-    "blubbysmod:dimension_gateway"
+    "blubbysmod:dimension_gateway",
+    "blubbysmod:dreadium_block",
+    "blubbysmod:ruby_block",
+    "blubbysmod:shroomite_block",
+    "blubbysmod:divine_block",
+    "blubbysmod:volcanic_block"
   ]
 }

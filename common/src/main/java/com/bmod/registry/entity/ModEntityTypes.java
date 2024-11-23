@@ -39,7 +39,7 @@ public class ModEntityTypes {
             .sized(0.4f, 0.4f).clientTrackingRange(10).build("dark_fairy"));
 
     public static final Supplier<EntityType<MagmoidEntity>> MAGMOID = ENTITY_TYPES.register("magmoid", () -> EntityType.Builder.of(MagmoidEntity::new, MobCategory.MONSTER)
-            .sized(1.4F, 2.6F).clientTrackingRange(10).build("magmoid"));
+            .sized(1.4F, 2.6F).fireImmune().clientTrackingRange(10).build("magmoid"));
 
     public static void initSpawns()
     {
@@ -63,6 +63,6 @@ public class ModEntityTypes {
                 mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 60, 2, 4)));
 
         BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.IS_NETHER), (ctx, mutable2) ->
-                mutable2.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.MAGMOID.get(), 20, 1, 2)));
+                mutable2.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.MAGMOID.get(), 7, 2, 3)));
     }
 }

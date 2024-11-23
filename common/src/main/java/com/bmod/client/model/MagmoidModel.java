@@ -18,6 +18,7 @@ import net.minecraft.world.entity.Entity;
 
 public class MagmoidModel<T extends Entity> extends HierarchicalModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlubbysMod.MOD_ID, "magmoid_layer"), "main");
+
 	private final ModelPart magmoid;
 	private final ModelPart body;
 	private final ModelPart upper_torso;

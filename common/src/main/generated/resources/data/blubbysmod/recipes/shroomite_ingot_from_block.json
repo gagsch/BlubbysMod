@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blubbysmod:shroomite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "blubbysmod:shroomite_ingot"
+  }
+}

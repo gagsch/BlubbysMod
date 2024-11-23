@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biomes;
 import org.jetbrains.annotations.NotNull;
 
 public class MagmoidRenderer extends MobRenderer<MagmoidEntity, MagmoidModel<MagmoidEntity>> {
@@ -20,7 +21,11 @@ public class MagmoidRenderer extends MobRenderer<MagmoidEntity, MagmoidModel<Mag
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull MagmoidEntity pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull MagmoidEntity entity) {
+        if (entity.level.getBiome(entity.blockPosition()).is(Biomes.SOUL_SAND_VALLEY))
+        {
+            return new ResourceLocation(BlubbysMod.MOD_ID, "textures/entity/magmoid_blue.png");
+        }
         return new ResourceLocation(BlubbysMod.MOD_ID, "textures/entity/magmoid.png");
     }
 

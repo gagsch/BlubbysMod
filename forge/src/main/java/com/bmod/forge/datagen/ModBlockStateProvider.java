@@ -52,6 +52,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPSLATE_RUBY_ORE.get());
         blockWithItem(ModBlocks.DREADIUM_ORE.get());
         blockWithItem(ModBlocks.DEEPERSLATE_DREADIUM_ORE.get());
+
+        blockWithItem(ModBlocks.DREADIUM_BLOCK.get());
+        blockWithItem(ModBlocks.RUBY_BLOCK.get());
+        blockWithItem(ModBlocks.SHROOMITE_BLOCK.get());
+        blockWithItem(ModBlocks.DIVINE_BLOCK.get());
+        blockWithItem(ModBlocks.VOLCANIC_BLOCK.get());
     }
 
     private void woodType(String wood)

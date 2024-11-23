@@ -69,7 +69,6 @@ public final class BlubbysMod {
         ModBiomes.BIOMES.register();
         ModEffects.MOB_EFFECTS.register();
         ModParticles.initialize();
-        ModPackets.initialize();
 
         ModFeatures.FEATURES.register();
         ModFeatures.init();

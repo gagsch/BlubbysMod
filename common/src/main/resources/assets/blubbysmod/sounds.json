@@ -114,12 +114,18 @@
     ]
   },
 
+  "magmoid_attack": {
+    "sounds": [
+      "blubbysmod:entity/magmoid/magmoid_attack_1",
+      "blubbysmod:entity/magmoid/magmoid_attack_2"
+    ]
+  },
+
   "weird_synth": {
     "sounds": [
       "blubbysmod:item/synth/weird_synth"
     ]
   },
-
 
   "blydim_cave_noise": {
     "sounds": [

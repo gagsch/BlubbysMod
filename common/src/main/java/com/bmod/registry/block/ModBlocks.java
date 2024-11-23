@@ -21,78 +21,91 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BlubbysMod.MOD_ID, Registry.BLOCK_REGISTRY);
 
     public static final Supplier<Block> SLUDGE_BLOCK = registerBlock("sludge_block", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))),
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)));
 
-    NECROTIC_GRASS_BLOCK = registerBlock("necrotic_grass_block", true,
-            () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK))),
+    public static final Supplier<Block> NECROTIC_GRASS_BLOCK = registerBlock("necrotic_grass_block", true,
+            () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
 
-    DARK_TURF_BLOCK = registerBlock("dark_turf_block", true,
-            () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK))),
+    public static final Supplier<Block> DARK_TURF_BLOCK = registerBlock("dark_turf_block", true,
+            () -> new DarkGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
 
-    DARK_SOIL = registerBlock("dark_soil", true,
-            () -> new DarkSoilBlock(BlockBehaviour.Properties.copy(Blocks.DIRT))),
+    public static final Supplier<Block> DARK_SOIL = registerBlock("dark_soil", true,
+            () -> new DarkSoilBlock(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
-    GLEAM_SHROOM = registerBlock("gleam_shroom", true,
+    public static final Supplier<Block> GLEAM_SHROOM = registerBlock("gleam_shroom", true,
             () -> new MushroomBlock(BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE)
                     .instabreak()
                     .noCollission()
                     .noOcclusion()
-                    .lightLevel((light) -> 7), () -> ModTreeFeatures.HUGE_GLEAM_SHROOM)
-    ),
+                    .lightLevel((light) -> 7), () -> ModTreeFeatures.HUGE_GLEAM_SHROOM));
 
-    GLEAM_SHROOM_BLOCK = registerBlock("gleam_shroom_block", true,
+    public static final Supplier<Block> GLEAM_SHROOM_BLOCK = registerBlock("gleam_shroom_block", true,
             () -> new HugeMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM_BLOCK)
-                    .lightLevel((light) -> 7))
-    ),
+                    .lightLevel((light) -> 7)));
 
-    DEEPERSLATE = registerBlock("deeperslate", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> DEEPERSLATE = registerBlock("deeperslate", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()));
 
-    MYCELIUM_DEEPERSLATE = registerBlock("mycelium_deeperslate", true,
+    public static final Supplier<Block> MYCELIUM_DEEPERSLATE = registerBlock("mycelium_deeperslate", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops()
-                    .lightLevel((light) -> 2))),
+                    .lightLevel((light) -> 2)));
 
-    WEB_STONE = registerBlock("web_stone", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> WEB_STONE = registerBlock("web_stone", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()));
 
-    SILK_BLOCK = registerBlock("silk_block", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).sound(SoundType.HONEY_BLOCK).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> SILK_BLOCK = registerBlock("silk_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).sound(SoundType.HONEY_BLOCK).requiresCorrectToolForDrops()));
 
-    RUBY_ORE = registerBlock("ruby_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> RUBY_ORE = registerBlock("ruby_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
 
-    DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops()));
 
-    DREADIUM_ORE = registerBlock("dreadium_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> DREADIUM_ORE = registerBlock("dreadium_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops()));
 
-    DEEPERSLATE_DREADIUM_ORE = registerBlock("deeperslate_dreadium_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> DEEPERSLATE_DREADIUM_ORE = registerBlock("deeperslate_dreadium_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()));
 
-    NECRIUM_ORE = registerBlock("necrium_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> NECRIUM_ORE = registerBlock("necrium_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).requiresCorrectToolForDrops()));
 
-    DEEPERSLATE_NECRIUM_ORE = registerBlock("deeperslate_necrium_ore", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> DEEPERSLATE_NECRIUM_ORE = registerBlock("deeperslate_necrium_ore", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).requiresCorrectToolForDrops()));
 
-    FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block", true,
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).requiresCorrectToolForDrops())),
+    public static final Supplier<Block> FOSSILIZED_BONE_BLOCK = registerBlock("fossilized_bone_block", true,
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).requiresCorrectToolForDrops()));
 
-    ROT_BLOCK = registerBlock("rot_block", true,
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD))),
+    public static final Supplier<Block> ROT_BLOCK = registerBlock("rot_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD)));
 
-    BUBBLE_BLOCK = registerBlock("bubble_block", false,
-            () -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).noCollission().strength(0.1f).sound(SoundType.WET_GRASS))),
+    public static final Supplier<Block> BUBBLE_BLOCK = registerBlock("bubble_block", false,
+            () -> new BubbleBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).noCollission().strength(0.1f).sound(SoundType.WET_GRASS)));
 
-    HOT_PEPPER_CROP = registerBlock("hot_pepper", false,
-            () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT))),
+    public static final Supplier<Block> HOT_PEPPER_CROP = registerBlock("hot_pepper", false,
+            () -> new HotPepperCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
-    WORKSHOP = registerBlock("workshop", true,
-            () -> new WorkshopBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))),
+    public static final Supplier<Block> WORKSHOP = registerBlock("workshop", true,
+            () -> new WorkshopBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
-    DIMENSION_GATEWAY = registerBlock("dimension_gateway", true,
+    public static final Supplier<Block> DIMENSION_GATEWAY = registerBlock("dimension_gateway", true,
             DimensionGatewayBlock::new);
+
+    public static final Supplier<Block> DREADIUM_BLOCK = registerBlock("dreadium_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final Supplier<Block> RUBY_BLOCK = registerBlock("ruby_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final Supplier<Block> SHROOMITE_BLOCK = registerBlock("shroomite_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final Supplier<Block> DIVINE_BLOCK = registerBlock("divine_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final Supplier<Block> VOLCANIC_BLOCK = registerBlock("volcanic_block", true,
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).lightLevel((light) -> 4)));
 
     @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {

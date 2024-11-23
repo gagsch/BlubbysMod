@@ -29,12 +29,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_SLABS).add(slab(DREADWOOD).get(), slab(EBON).get());
         tag(BlockTags.WOODEN_STAIRS).add(stairs(DREADWOOD).get(), stairs(EBON).get());
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(pressurePlate(DREADWOOD).get(), pressurePlate(EBON).get());
-
         tag(BlockTags.DIRT).add(ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get());
         tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ModBlocks.DARK_SOIL.get(), ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.NECROTIC_GRASS_BLOCK.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get());
-        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get());
+        tag(BlockTags.BEACON_BASE_BLOCKS).add(ModBlocks.DREADIUM_BLOCK.get(), ModBlocks.RUBY_BLOCK.get(), ModBlocks.SHROOMITE_BLOCK.get(), ModBlocks.DIVINE_BLOCK.get(), ModBlocks.VOLCANIC_BLOCK.get());
 
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get(), ModBlocks.FOSSILIZED_BONE_BLOCK.get(), ModBlocks.DIMENSION_GATEWAY.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get());
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DREADIUM_BLOCK.get(), ModBlocks.RUBY_BLOCK.get(), ModBlocks.SHROOMITE_BLOCK.get(), ModBlocks.DIVINE_BLOCK.get(), ModBlocks.VOLCANIC_BLOCK.get());
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.DREADIUM_ORE.get(), ModBlocks.DEEPERSLATE_DREADIUM_ORE.get(), ModBlocks.NECRIUM_ORE.get(), ModBlocks.DEEPERSLATE_NECRIUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.DEEPERSLATE.get(), ModBlocks.MYCELIUM_DEEPERSLATE.get(), ModBlocks.WEB_STONE.get(), ModBlocks.FOSSILIZED_BONE_BLOCK.get(), ModBlocks.DIMENSION_GATEWAY.get(), ModBlocks.DREADIUM_BLOCK.get(), ModBlocks.RUBY_BLOCK.get(), ModBlocks.SHROOMITE_BLOCK.get(), ModBlocks.DIVINE_BLOCK.get(), ModBlocks.VOLCANIC_BLOCK.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ModBlocks.DARK_SOIL.get(), ModBlocks.DARK_TURF_BLOCK.get(), ModBlocks.NECROTIC_GRASS_BLOCK.get());
         tag(BlockTags.MINEABLE_WITH_HOE).add(leaves(DREADWOOD).get(), leaves(EBON).get());
     }

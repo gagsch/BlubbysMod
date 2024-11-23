@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -49,6 +50,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         axeBuilder(consumer, ModItems.DIVINE_AXE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         shovelBuilder(consumer, ModItems.DIVINE_SHOVEL.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
         hoeBuilder(consumer, ModItems.DIVINE_HOE.get(), ModItems.DIVINE_ALLOY.get(), Items.BLAZE_ROD);
+
+        ingotBlockBuilder(consumer, ModItems.DREADIUM_INGOT.get(), ModBlocks.DREADIUM_BLOCK.get());
+        ingotBlockBuilder(consumer, ModItems.RUBY.get(), ModBlocks.RUBY_BLOCK.get());
+        ingotBlockBuilder(consumer, ModItems.SHROOMITE_INGOT.get(), ModBlocks.SHROOMITE_BLOCK.get());
+        ingotBlockBuilder(consumer, ModItems.DIVINE_ALLOY.get(), ModBlocks.DIVINE_BLOCK.get());
+        ingotBlockBuilder(consumer, ModItems.VOLCANIC_INGOT.get(), ModBlocks.VOLCANIC_BLOCK.get());
 
         WorkshopRecipeBuilder.recipe(ModItems.HASTY_CHISEL.get())
                 .blueprint(ACCESSORY)
@@ -471,6 +478,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("h")
                 .unlockedBy("has_main_material", has(mainMaterial))
                 .save(consumer);
+    }
+
+    protected void ingotBlockBuilder(Consumer<FinishedRecipe> consumer, Item ingot, Block ingotBlock) {
+        ShapelessRecipeBuilder.shapeless(ingotBlock, 1)
+                .requires(ingot, 9)
+                .unlockedBy("has_ingot", has(ingot))
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ItemUtils.getIdFromItem(ingot) + "_from_ingot"));
+
+        ShapelessRecipeBuilder.shapeless(ingot, 9)
+                .requires(ingotBlock, 1)
+                .unlockedBy("has_ingot", has(ingot))
+                .save(consumer, new ResourceLocation(BlubbysMod.MOD_ID, ItemUtils.getIdFromItem(ingot) + "_from_block"));
     }
 
     protected void hoeBuilder(Consumer<FinishedRecipe> consumer, ItemLike hoe, ItemLike mainMaterial, ItemLike handleMaterial) {
