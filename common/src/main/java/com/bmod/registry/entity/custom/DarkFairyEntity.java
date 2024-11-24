@@ -60,7 +60,7 @@ public class DarkFairyEntity extends Monster implements FlyingAnimal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[0]));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 

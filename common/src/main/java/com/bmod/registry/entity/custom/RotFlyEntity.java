@@ -61,7 +61,7 @@ public class RotFlyEntity extends Animal implements NeutralMob, FlyingAnimal {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(Items.ROTTEN_FLESH), false));
-        this.targetSelector.addGoal(0, (new HurtByTargetGoal(this)).setAlertOthers(new Class[0]));
+        this.targetSelector.addGoal(0, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(1, new ResetUniversalAngerTargetGoal<>(this, true));
     }
 

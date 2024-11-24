@@ -69,7 +69,7 @@ public class SporeFlyEntity extends Monster implements FlyingAnimal {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomFlyingGoal(this, 1D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.399999976158142, true));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(ModBlocks.GLEAM_SHROOM.get()), false));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[]{RotFlyEntity.class}));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(RotFlyEntity.class));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 

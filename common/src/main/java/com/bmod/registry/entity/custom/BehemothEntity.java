@@ -54,7 +54,7 @@ public class BehemothEntity extends Monster {
         this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 1.0D, true) );
         this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[0]));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 

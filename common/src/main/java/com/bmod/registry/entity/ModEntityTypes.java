@@ -3,15 +3,18 @@ package com.bmod.registry.entity;
 import com.bmod.BlubbysMod;
 import com.bmod.registry.ModTags;
 import com.bmod.registry.entity.custom.*;
+import dev.architectury.hooks.level.biome.BiomeProperties;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Ghast;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
@@ -57,12 +60,13 @@ public class ModEntityTypes {
             mutable.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.ROT_FLY.get(), 7, 1, 2));
         });
 
-        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) -> mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1)));
+        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.IS_WEEPING_FOREST), (ctx, mutable) ->
+                mutable.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.DARK_FAIRY.get(), 1, 1, 1)));
 
         BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.HAS_IGLOO), (ctx, mutable2) ->
                 mutable2.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.SNOW_FLINX.get(), 60, 2, 4)));
 
-        BiomeModifications.addProperties(mutable2 -> mutable2.hasTag(BiomeTags.IS_NETHER), (ctx, mutable2) ->
-                mutable2.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.MAGMOID.get(), 7, 2, 3)));
+        BiomeModifications.addProperties(mutable -> mutable.hasTag(ModTags.MAGMOID_SPAWNABLE), (ctx, mutable2) ->
+                mutable2.getSpawnProperties().addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.MAGMOID.get(), 45, 1, 3)));
     }
 }

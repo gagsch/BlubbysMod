@@ -20,6 +20,7 @@ public class ModTags {
     public static TagKey<Biome> IS_SPIDER_DEN;
     public static TagKey<Biome> IS_GLEAMING_MUSHROOMS;
     public static TagKey<Biome> IS_BLYDIM_BIOME;
+    public static TagKey<Biome> MAGMOID_SPAWNABLE;
 
     public static void initialize()
     {
@@ -35,5 +36,6 @@ public class ModTags {
         IS_SPIDER_DEN = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "is_spider_den"));
         IS_GLEAMING_MUSHROOMS = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "is_gleaming_mushrooms"));
         IS_BLYDIM_BIOME = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "is_blydim_biome"));
+        MAGMOID_SPAWNABLE = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BlubbysMod.MOD_ID, "magmoid_spawnable"));
     }
 }
