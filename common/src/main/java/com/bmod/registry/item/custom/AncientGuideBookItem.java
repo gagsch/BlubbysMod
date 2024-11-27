@@ -1,7 +1,7 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.registry.item.ModCreativeTab;
-import com.bmod.registry.menu.AncientGuideScreen;
+import com.bmod.registry.screen.AncientGuideScreen;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class AncientGuideBookItem extends ToolTipItem {
     public AncientGuideBookItem() {
         super(new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(-1)
                 .stacksTo(1));
     }

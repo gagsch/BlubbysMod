@@ -92,13 +92,11 @@ public class DimensionGatewayBlockEntity extends BlockEntity {
             double offsetY = (level.random.nextDouble() - 0.5) * 2;
             double offsetZ = (level.random.nextDouble() - 0.5) * 2;
 
-            level.addParticle(
-                    ParticleTypes.PORTAL,
+            level.addParticle(ParticleTypes.PORTAL,
                     this.getBlockPos().getX() + 0.5f + offsetX,
                     this.getBlockPos().getY() + 0.5f + offsetY,
                     this.getBlockPos().getZ() + 0.5f + offsetZ,
-                    0, 0, 0
-            );
+                    0, 0, 0);
 
             if (level.random.nextInt(40) == 0)
             {

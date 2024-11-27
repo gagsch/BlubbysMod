@@ -2,8 +2,6 @@ package com.bmod.registry.item.custom;
 
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.util.ContainerUtils;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,7 +20,7 @@ import java.util.UUID;
 
 public class AccessoryItem extends ToolTipItem {
     public static Properties DEFAULT_ACCESSORY_PROPERTIES = new Properties()
-            .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+            .tab(ModCreativeTab.BLUBBYS_MOD)
             .durability(-1)
             .stacksTo(1)
             .fireResistant();

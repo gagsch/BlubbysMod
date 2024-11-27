@@ -8,7 +8,10 @@
             "item": "minecraft:blaze_powder"
         },
         {
-            "item": "blubbysmod:necrium_ingot"
+            "item": "blubbysmod:molten_slag"
+        },
+        {
+            "item": "blubbysmod:vile_blood"
         }
     ],
     "result": {

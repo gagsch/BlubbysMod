@@ -43,6 +43,7 @@
   "block.blubbysmod.mycelium_deeperslate": "Mycelium Deeperslate",
   "block.blubbysmod.necrium_ore": "Necrium Ore",
   "block.blubbysmod.necrotic_grass_block": "Necrotic Grass Block",
+  "block.blubbysmod.pixel_block": "Pixel Block",
   "block.blubbysmod.rot_block": "Rot Block",
   "block.blubbysmod.ruby_block": "Ruby Block",
   "block.blubbysmod.ruby_ore": "Ruby Ore",
@@ -53,6 +54,7 @@
   "block.blubbysmod.stripped_dreadwood_wood": "Stripped Dreadwood Wood",
   "block.blubbysmod.stripped_ebon_log": "Stripped Ebon Log",
   "block.blubbysmod.stripped_ebon_wood": "Stripped Ebon Wood",
+  "block.blubbysmod.underwater_redstone_wire": "Underwater Redstone Wire",
   "block.blubbysmod.volcanic_block": "Volcanic Block",
   "block.blubbysmod.web_stone": "Web Stone",
   "block.blubbysmod.workshop": "Artisan's Workshop",
@@ -106,6 +108,8 @@
   "item.blubbysmod.ender_bundle.tooltip": "Opens your Ender Chest with 3 extra rows, doubling the Ender Chest capacity.",
   "item.blubbysmod.eternal_satchel": "Eternal Satchel",
   "item.blubbysmod.eternal_satchel.tooltip": "You do not lose your accessories on death.",
+  "item.blubbysmod.eyedropper": "Eyedropper",
+  "item.blubbysmod.eyedropper.tooltip": "Crouch and use on a Pixel to pick the color. Use on a Pixel without crouching to set the color to the picked color.",
   "item.blubbysmod.fairy_dust": "Fairy Dust",
   "item.blubbysmod.flipper": "Flipper",
   "item.blubbysmod.flipper.tooltip": "You swim much faster.",
@@ -169,6 +173,7 @@
   "item.blubbysmod.time_gear": "Time Gear",
   "item.blubbysmod.totem_of_dreaming": "Totem of Dreaming",
   "item.blubbysmod.totem_of_dreaming.tooltip": "Teleports you to your spawn point on death while retaining items and EXP.",
+  "item.blubbysmod.underwater_redstone": "Underwater Redstone",
   "item.blubbysmod.vampire_gloves": "Vampire Gloves",
   "item.blubbysmod.vampire_gloves.tooltip": "Steals life from enemies.",
   "item.blubbysmod.vile_blood": "Vile Blood",
@@ -179,5 +184,5 @@
   "item.blubbysmod.wind_rocket": "Wind Rocket",
   "item.blubbysmod.wind_rocket.tooltip": "This rocket uses the air around you to propel you forward in flight.",
   "item.blubbysmod.wither_spine": "Wither Spine",
-  "itemGroup.blubbysmod.blubbys_tab_of_doom": "Blubby's Mod"
+  "itemGroup.blubbysmod.blubbys_mod": "Blubby's Mod"
 }

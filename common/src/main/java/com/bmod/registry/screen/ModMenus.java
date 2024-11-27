@@ -1,9 +1,9 @@
-package com.bmod.registry.menu;
+package com.bmod.registry.screen;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.menu.container.AccessoryMenu;
-import com.bmod.registry.menu.container.VoidBundleMenu;
-import com.bmod.registry.menu.container.WorkshopMenu;
+import com.bmod.registry.screen.menu.AccessoryMenu;
+import com.bmod.registry.screen.menu.VoidBundleMenu;
+import com.bmod.registry.screen.menu.WorkshopMenu;
 import dev.architectury.registry.menu.MenuRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;

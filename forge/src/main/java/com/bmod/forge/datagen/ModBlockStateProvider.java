@@ -16,6 +16,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -45,6 +46,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
+        pixelBlockWithItem(ModBlocks.PIXEL_BLOCK.get());
 
         blockWithItem(ModBlocks.NECRIUM_ORE.get());
         blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());
@@ -89,12 +91,40 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModItemModelProvider.registeredItems.add(getName(block));
     }
 
+    private void pixelBlockWithItem(Block block) {
+        simpleBlock(block, models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).element()
+                .from(0, 0, 0)
+                .to(16, 16, 16)
+                .allFaces((direction, faceBuilder) -> {
+                    faceBuilder.uvs(0, 0, 16, 16)
+                            .texture("#all")
+                            .tintindex(0)
+                            .cullface(direction)
+                            .end();
+                })
+                .end());
+        simpleBlockItem(block, models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).element()
+                .from(0, 0, 0)
+                .to(16, 16, 16)
+                .allFaces((direction, faceBuilder) -> {
+                    faceBuilder.uvs(0, 0, 16, 16)
+                            .texture("#all")
+                            .tintindex(0)
+                            .cullface(direction)
+                            .end();
+                })
+                .end());
+        ModItemModelProvider.registeredItems.add(getName(block));
+    }
+
     private void translucentBlockWithItem(Block block)
     {
         simpleBlock(block,
-                models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).renderType("translucent"));
+                models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(),
+                        blockTexture(block)).renderType("translucent"));
         simpleBlockItem(block,
-                models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), blockTexture(block)).renderType("translucent"));
+                models().cubeAll(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(),
+                        blockTexture(block)).renderType("translucent"));
         ModItemModelProvider.registeredItems.add(getName(block));
     }
 

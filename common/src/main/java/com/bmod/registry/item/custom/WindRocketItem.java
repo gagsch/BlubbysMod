@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public class WindRocketItem extends ToolTipItem {
     public WindRocketItem() {
         super(new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(-1)
                 .stacksTo(1));
     }

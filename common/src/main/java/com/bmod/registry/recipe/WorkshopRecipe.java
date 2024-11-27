@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-import static com.bmod.registry.menu.container.WorkshopMenu.*;
+import static com.bmod.registry.screen.menu.WorkshopMenu.*;
 
 public class WorkshopRecipe implements Recipe<SimpleContainer> {
     public final ItemStack output;

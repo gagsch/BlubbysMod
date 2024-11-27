@@ -29,8 +29,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             PickaxeItem.class,
             AxeItem.class,
             ShovelItem.class,
-            HoeItem.class,
-            BubbleWandItem.class
+            HoeItem.class
     );
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -43,9 +42,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         specialBlockItem(door(DREADWOOD));
         specialBlockItem(sapling(EBON));
         specialBlockItem(door(EBON));
-
         specialBlockItem(ModBlocks.GLEAM_SHROOM);
 
+        simpleItem(ModItems.UNDERWATER_REDSTONE);
         simpleItem(ModItems.HOT_PEPPER_SEEDS);
         simpleHandheldItem(ModItems.BUBBLE_WAND);
 

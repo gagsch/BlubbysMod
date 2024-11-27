@@ -1,7 +1,7 @@
-package com.bmod.registry.menu;
+package com.bmod.registry.screen;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.menu.container.VoidBundleMenu;
+import com.bmod.registry.screen.menu.VoidBundleMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

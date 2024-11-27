@@ -1,6 +1,6 @@
 package com.bmod.packet.C2S;
 
-import com.bmod.registry.menu.container.AccessoryMenu;
+import com.bmod.registry.screen.menu.AccessoryMenu;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;

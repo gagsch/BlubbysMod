@@ -107,13 +107,19 @@ public class ModBlocks {
     public static final Supplier<Block> VOLCANIC_BLOCK = registerBlock("volcanic_block", true,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).lightLevel((light) -> 4)));
 
+    public static final Supplier<Block> UNDERWATER_REDSTONE_WIRE = registerBlock("underwater_redstone_wire", false,
+            UnderwaterRedStoneWireBlock::new);
+
+    public static final Supplier<Block> PIXEL_BLOCK = registerBlock("pixel_block", true,
+            PixelBlock::new);
+
     @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name, block);
 
         BLOCK_HASH_MAP.put(name, (Supplier<Block>) toReturn);
 
-        if(createItem) ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)));
+        if(createItem) ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties().tab(ModCreativeTab.BLUBBYS_MOD)));
         return toReturn;
     }
 }

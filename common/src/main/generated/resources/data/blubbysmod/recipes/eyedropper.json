@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": {
+      "item": "blubbysmod:pixel_block"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " g ",
+    "gPg",
+    "gg "
+  ],
+  "result": {
+    "item": "blubbysmod:eyedropper"
+  }
+}

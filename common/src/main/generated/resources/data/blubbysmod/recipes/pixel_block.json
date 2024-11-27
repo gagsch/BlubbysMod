@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_dye"
+    },
+    "G": {
+      "item": "minecraft:green_dye"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "t": {
+      "item": "minecraft:tinted_glass"
+    }
+  },
+  "pattern": [
+    "ttt",
+    "RGB",
+    "ttt"
+  ],
+  "result": {
+    "count": 6,
+    "item": "blubbysmod:pixel_block"
+  }
+}

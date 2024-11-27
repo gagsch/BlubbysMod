@@ -1,0 +1,7 @@
+{
+    "parent": "blubbysmod:block/underwater_redstone_dust_side",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "line": "blubbysmod:block/underwater_redstone_dust_line0"
+    }
+}

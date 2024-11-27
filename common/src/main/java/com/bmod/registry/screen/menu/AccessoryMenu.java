@@ -1,4 +1,4 @@
-package com.bmod.registry.menu.container;
+package com.bmod.registry.screen.menu;
 
 import com.bmod.registry.item.custom.AccessoryItem;
 import com.bmod.util.ContainerUtils;

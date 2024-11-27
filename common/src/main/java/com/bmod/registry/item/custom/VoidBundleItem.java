@@ -1,14 +1,8 @@
 package com.bmod.registry.item.custom;
 
 import com.bmod.registry.item.ModCreativeTab;
-import com.bmod.registry.menu.ModMenus;
-import com.bmod.registry.menu.container.VoidBundleMenu;
-import dev.architectury.registry.menu.ExtendedMenuProvider;
-import dev.architectury.registry.menu.MenuRegistry;
-import io.netty.buffer.Unpooled;
-import net.minecraft.network.FriendlyByteBuf;
+import com.bmod.registry.screen.menu.VoidBundleMenu;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.MenuProvider;
@@ -23,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 public class VoidBundleItem extends ToolTipItem {
     public VoidBundleItem() {
         super(new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(-1)
                 .stacksTo(1));
     }

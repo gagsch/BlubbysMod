@@ -8,7 +8,7 @@ import net.minecraft.world.item.SwordItem;
 
 public class VolcanicSwordItem extends SwordItem {
     public VolcanicSwordItem(int damage, float speed) {
-        this(new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+        this(new Properties().tab(ModCreativeTab.BLUBBYS_MOD)
                         .durability(ModItemTier.VOLCANIC.getUses())
                         .fireResistant(),
                 damage, speed);

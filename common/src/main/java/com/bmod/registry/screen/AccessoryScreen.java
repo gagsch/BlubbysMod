@@ -1,6 +1,6 @@
-package com.bmod.registry.menu;
+package com.bmod.registry.screen;
 
-import com.bmod.registry.menu.container.AccessoryMenu;
+import com.bmod.registry.screen.menu.AccessoryMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;

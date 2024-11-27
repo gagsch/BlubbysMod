@@ -15,7 +15,7 @@ public class ChronosClockItem extends ToolTipItem {
 
     public ChronosClockItem() {
         super(new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(-1)
                 .stacksTo(1));
     }

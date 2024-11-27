@@ -1,10 +1,9 @@
-package com.bmod.registry.menu.container;
+package com.bmod.registry.screen.menu;
 
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.item.ModItems;
-import com.bmod.registry.menu.ModMenus;
+import com.bmod.registry.screen.ModMenus;
 import com.bmod.registry.recipe.WorkshopRecipe;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;

@@ -20,7 +20,7 @@ public class BlueprintItem extends Item {
 
     public BlueprintItem() {
         super(new Properties()
-                .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                .tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(-1)
                 .stacksTo(64));
     }

@@ -43,6 +43,7 @@
   "block.blubbysmod.mycelium_deeperslate": "ǝʇɐןsɹǝpǝǝᗡ ɯuıןǝɔʎM",
   "block.blubbysmod.necrium_ore": "ǝɹO ɯuıɹɔǝN",
   "block.blubbysmod.necrotic_grass_block": "ʞɔoןᗺ ssɐɹ⅁ ɔıʇoɹɔǝN",
+  "block.blubbysmod.pixel_block": "ʞɔoןᗺ ןǝxıԀ",
   "block.blubbysmod.rot_block": "ʞɔoןᗺ ʇoᴚ",
   "block.blubbysmod.ruby_block": "ʞɔoןᗺ ʎbuᴚ",
   "block.blubbysmod.ruby_ore": "ǝɹO ʎbuᴚ",
@@ -53,6 +54,7 @@
   "block.blubbysmod.stripped_dreadwood_wood": "dooW dooʍdɐǝɹᗡ dǝppıɹʇS",
   "block.blubbysmod.stripped_ebon_log": "qoꞀ nobƎ dǝppıɹʇS",
   "block.blubbysmod.stripped_ebon_wood": "dooW nobƎ dǝppıɹʇS",
+  "block.blubbysmod.underwater_redstone_wire": "ǝɹıW ǝnoʇsdǝᴚ ɹǝʇɐʍɹǝdn∩",
   "block.blubbysmod.volcanic_block": "ʞɔoןᗺ ɔınɐɔןoΛ",
   "block.blubbysmod.web_stone": "ǝnoʇS bǝW",
   "block.blubbysmod.workshop": "doɥsʞɹoM s,uɐsıʇɹⱯ",
@@ -106,6 +108,8 @@
   "item.blubbysmod.ender_bundle.tooltip": "˙ʎʇıɔɐdɐɔ ʇsǝɥƆ ɹǝpuƎ ǝɥʇ buıןqnop 'sʍoɹ ɐɹʇxǝ Ɛ ɥʇıʍ ʇsǝɥƆ ɹǝpuƎ ɹnoʎ suǝdO",
   "item.blubbysmod.eternal_satchel": "ןǝɥɔʇɐS ןɐnɹǝʇƎ",
   "item.blubbysmod.eternal_satchel.tooltip": "˙ɥʇɐǝp uo sǝıɹossǝɔɔɐ ɹnoʎ ǝsoן ʇou op noʎ",
+  "item.blubbysmod.eyedropper": "ɹǝppoɹdǝʎƎ",
+  "item.blubbysmod.eyedropper.tooltip": "˙ɹoןoɔ pǝʞɔıd ǝɥʇ oʇ ɹoןoɔ ǝɥʇ ʇǝs oʇ buıɥɔnoɹɔ ʇnoɥʇıʍ ןǝxıԀ ɐ uo ǝs∩ ˙ɹoןoɔ ǝɥʇ ʞɔıd oʇ ןǝxıԀ ɐ uo ǝsn puɐ ɥɔnoɹƆ",
   "item.blubbysmod.fairy_dust": "ʇsuᗡ ʎɹıɐℲ",
   "item.blubbysmod.flipper": "ɹǝppıןℲ",
   "item.blubbysmod.flipper.tooltip": "˙ɹǝʇsɐɟ ɥɔnɯ ɯıʍs noʎ",
@@ -169,6 +173,7 @@
   "item.blubbysmod.time_gear": "ɹɐǝ⅁ ǝɯı⟘",
   "item.blubbysmod.totem_of_dreaming": "qnıɯɐǝɹᗡ ɟo ɯǝʇo⟘",
   "item.blubbysmod.totem_of_dreaming.tooltip": "˙ԀXƎ puɐ sɯǝʇı buıuıɐʇǝɹ ǝןıɥʍ ɥʇɐǝp uo ʇuıod uʍɐds ɹnoʎ oʇ noʎ sʇɹodǝןǝ⟘",
+  "item.blubbysmod.underwater_redstone": "ǝuoʇspǝᴚ ɹǝʇɐʍɹǝpu∩",
   "item.blubbysmod.vampire_gloves": "sǝʌoן⅁ ǝɹıpɯɐΛ",
   "item.blubbysmod.vampire_gloves.tooltip": "˙sǝıɯǝuǝ ɯoɹɟ ǝɟıן sןɐǝʇS",
   "item.blubbysmod.vile_blood": "dooןᗺ ǝןıΛ",
@@ -179,5 +184,5 @@
   "item.blubbysmod.wind_rocket": "ʇǝʞɔoᴚ dnıW",
   "item.blubbysmod.wind_rocket.tooltip": "˙ʇɥbıןɟ uı pɹɐʍɹoɟ noʎ ןǝdoɹd oʇ noʎ punoɹɐ ɹıɐ ǝɥʇ sǝsn ʇǝʞɔoɹ sıɥ⟘",
   "item.blubbysmod.wither_spine": "ǝnıpS ɹǝɥʇıW",
-  "itemGroup.blubbysmod.blubbys_tab_of_doom": "poW s,ʎqqnןᗺ"
+  "itemGroup.blubbysmod.blubbys_mod": "poW s,ʎqqnןᗺ"
 }

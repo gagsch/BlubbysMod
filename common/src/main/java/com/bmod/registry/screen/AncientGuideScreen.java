@@ -1,4 +1,4 @@
-package com.bmod.registry.menu;
+package com.bmod.registry.screen;
 
 import com.bmod.BlubbysMod;
 import com.bmod.packet.C2S.C2SOpenMenu;
@@ -130,7 +130,7 @@ public class AncientGuideScreen extends Screen {
         RenderSystem.setShaderTexture(0, ANCIENT_BOOK_RIGHT_LOCATION);
         blit(poseStack, xPos - 73, yPos, 0, 0, textureWidth, textureHeight);
 
-        drawCurrentPage(poseStack, (this.width - textureWidth) / 2 - 37, yPos + 25, PAGES.get(currentPage));
+        drawCurrentPage(poseStack, xPos - 37, yPos + 25, PAGES.get(currentPage));
 
         super.render(poseStack, mouseX, mouseY, delta);
     }
@@ -185,12 +185,6 @@ public class AncientGuideScreen extends Screen {
         public Page addImage(Image image)
         {
             this.images.add(image);
-            return this;
-        }
-
-        public Page onRender(Consumer<Page> consumer)
-        {
-            this.render = consumer;
             return this;
         }
     }

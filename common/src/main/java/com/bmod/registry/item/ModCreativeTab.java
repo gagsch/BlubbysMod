@@ -7,9 +7,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class ModCreativeTab {
-    public static final CreativeModeTab BLUBBYS_TAB_OF_DOOM = CreativeTabRegistry.create(
+    public static final CreativeModeTab BLUBBYS_MOD = CreativeTabRegistry.create(
             new ResourceLocation(BlubbysMod.MOD_ID,
-            "blubbys_tab_of_doom"),
+            "blubbys_mod"),
             () -> new ItemStack(ModItems.ANCIENT_GUIDE_BOOK.get())
     );
 }

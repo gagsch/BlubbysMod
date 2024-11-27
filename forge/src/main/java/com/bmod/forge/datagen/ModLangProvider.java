@@ -64,12 +64,14 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.GRAVITY_BOOTS, "Reduced gravity when standing, increased gravity when crouching. You no longer take fall damage.");
         addTooltip(ModItems.FLIPPER, "You swim much faster.");
         addTooltip(ModItems.OXYGEN_TANK, "You can breathe underwater.");
+        addTooltip(ModItems.EYEDROPPER, "Crouch and use on a Pixel to pick the color. Use on a Pixel without crouching to set the color to the picked color.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
         addItem(ModItems.BLUBBY_COIN, "Penny");
         addItem(ModItems.VOID_BUNDLE, "Void Bundle");
         addItem(ModItems.HOT_PEPPER_SEEDS, "Fiery Hot Pepper Seeds");
+        addItem(ModItems.UNDERWATER_REDSTONE, "Underwater Redstone");
         addItem(ModItems.HOT_PEPPER, "Fiery Hot Pepper");
 
         addBlock(ModBlocks.WORKSHOP, "Artisan's Workshop");
@@ -82,7 +84,7 @@ public class ModLangProvider extends LanguageProvider {
 
         addEntity(ModEntityTypes.BEHEMOTH.get(), "Necrotic Behemoth");
 
-        add("itemGroup.blubbysmod.blubbys_tab_of_doom", "Blubby's Mod");
+        add("itemGroup.blubbysmod.blubbys_mod", "Blubby's Mod");
 
         addRemainingItems();
         addRemainingBlocks();

@@ -1,6 +1,6 @@
 package com.bmod.registry.block.custom;
 
-import com.bmod.registry.menu.container.WorkshopMenu;
+import com.bmod.registry.screen.menu.WorkshopMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;

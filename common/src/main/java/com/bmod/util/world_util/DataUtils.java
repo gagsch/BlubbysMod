@@ -51,11 +51,6 @@ public class DataUtils extends SavedData {
         this.setDirty();
     }
 
-    public void putBoolean(UUID player, String key, boolean value) {
-        playerTags.computeIfAbsent(player, k -> new CompoundTag()).putBoolean(key, value);
-        this.setDirty();
-    }
-
     public static DataUtils getCustomWorldData(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
                 DataUtils::load,

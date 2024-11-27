@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class NecromancyStaffItem extends ToolTipItem {
     public NecromancyStaffItem() {
-        super(new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+        super(new Properties().tab(ModCreativeTab.BLUBBYS_MOD)
                 .durability(25)
                 .fireResistant());
     }

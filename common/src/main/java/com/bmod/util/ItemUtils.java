@@ -4,7 +4,6 @@ import com.bmod.BlubbysMod;
 import com.bmod.registry.item.ModCreativeTab;
 import com.bmod.registry.item.tier.ModItemTier;
 import com.bmod.registry.item.ModItems;
-import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -42,7 +41,7 @@ public class ItemUtils {
     public static Supplier<Item> sword(ModItemTier type, int damage, float attackSpeed) {
         return ModItems.ITEMS.register(type.getName() + "_sword",
                 () -> new SwordItem(type, damage, attackSpeed - 2.4F, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .stacksTo(1)
                         .durability(type.getUses())
                         .fireResistant()));
@@ -51,7 +50,7 @@ public class ItemUtils {
     public static Supplier<Item> pickaxe(ModItemTier type, int damage, float attackSpeed) {
         return ModItems.ITEMS.register(type.getName() + "_pickaxe",
                 () -> new PickaxeItem(type, damage, attackSpeed - 2.8F, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .stacksTo(1)
                         .durability(type.getUses())
                         .fireResistant()));
@@ -60,7 +59,7 @@ public class ItemUtils {
     public static Supplier<Item> axe(ModItemTier type, int damage, float attackSpeed) {
         return ModItems.ITEMS.register(type.getName() + "_axe",
                 () -> new AxeItem(type, damage, attackSpeed - 3.2f, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .stacksTo(1)
                         .durability(type.getUses())
                         .fireResistant()));
@@ -69,7 +68,7 @@ public class ItemUtils {
     public static Supplier<Item> shovel(ModItemTier type, int damage, float attackSpeed) {
         return ModItems.ITEMS.register(type.getName() + "_shovel",
                 () -> new ShovelItem(type, damage, attackSpeed - 3.0F, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .stacksTo(1)
                         .durability(type.getUses())
                         .fireResistant()));
@@ -78,7 +77,7 @@ public class ItemUtils {
     public static Supplier<Item> hoe(ModItemTier type, int damage, float attackSpeed) {
         return ModItems.ITEMS.register(type.getName() + "_hoe",
                 () -> new HoeItem(type, damage, attackSpeed - 3.0F, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .stacksTo(1)
                         .durability(type.getUses())
                         .fireResistant()));
@@ -94,7 +93,7 @@ public class ItemUtils {
 
         return ModItems.ITEMS.register(type.getName() + slotName,
                 () -> new ArmorItem(type, slot, new Item.Properties()
-                        .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                        .tab(ModCreativeTab.BLUBBYS_MOD)
                         .durability(type.getDurabilityForSlot(slot))
                         .fireResistant()));
     }

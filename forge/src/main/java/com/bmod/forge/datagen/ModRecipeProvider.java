@@ -309,6 +309,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_leather_scrap", has(ModItems.LEATHER_SCRAP.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(ModItems.UNDERWATER_REDSTONE.get())
+                .define('r', Items.REDSTONE)
+                .define('A', Items.AMETHYST_SHARD)
+                .pattern("rrr")
+                .pattern("rAr")
+                .pattern("rrr")
+                .unlockedBy("has_redstone", has(Items.REDSTONE))
+                .save(consumer);
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.PIXEL_BLOCK.get(), 6)
+                .define('t', Items.TINTED_GLASS)
+                .define('R', Items.RED_DYE)
+                .define('G', Items.GREEN_DYE)
+                .define('B', Items.BLUE_DYE)
+                .pattern("ttt")
+                .pattern("RGB")
+                .pattern("ttt")
+                .unlockedBy("has_amethyst", has(Items.AMETHYST_SHARD))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.EYEDROPPER.get())
+                .define('g', Items.GLASS)
+                .define('P', ModBlocks.PIXEL_BLOCK.get())
+                .pattern(" g ")
+                .pattern("gPg")
+                .pattern("gg ")
+                .unlockedBy("has_pixel", has(ModBlocks.PIXEL_BLOCK.get()))
+                .save(consumer);
+
         ShapelessRecipeBuilder.shapeless(ModItems.HANDLE.get(),1)
                 .requires(Items.STICK)
                 .requires(Items.SLIME_BALL)

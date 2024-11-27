@@ -1,7 +1,7 @@
 package com.bmod.registry.recipe.jei;
 
 import com.bmod.BlubbysMod;
-import com.bmod.registry.menu.WorkshopScreen;
+import com.bmod.registry.screen.WorkshopScreen;
 import com.bmod.registry.recipe.WorkshopRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;

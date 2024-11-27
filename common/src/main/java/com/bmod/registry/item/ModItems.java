@@ -28,29 +28,39 @@ public class ModItems {
     
     public static final Supplier<Item> BLUBBY_COIN = ITEMS.register("blubby_coin",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> ANCIENT_GUIDE_BOOK = ITEMS.register("ancient_guide_book", AncientGuideBookItem::new);
 
     // Special Items
     public static final Supplier<Item> BUBBLE_WAND = ITEMS.register("bubble_wand", BubbleWandItem::new);
+    public static final Supplier<Item> UNDERWATER_REDSTONE = ITEMS.register("underwater_redstone",
+            () -> new ItemNameBlockItem(ModBlocks.UNDERWATER_REDSTONE_WIRE.get(), new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
+                    .durability(-1)
+                    .stacksTo(64)));
     public static final Supplier<Item> CHRONOS_CLOCK = ITEMS.register("chronos_clock", ChronosClockItem::new);
     public static final Supplier<Item> CHRONOS_STOPWATCH = ITEMS.register("chronos_stopwatch", ChronosStopwatchItem::new);
     public static final Supplier<Item> CURSED_GEM = ITEMS.register("cursed_gem", CursedGemItem::new);
     public static final Supplier<Item> VOID_BUNDLE = ITEMS.register("ender_bundle", VoidBundleItem::new);
     public static final Supplier<Item> HOT_PEPPER_SEEDS = ITEMS.register("hot_pepper_seeds",
             () -> new ItemNameBlockItem(ModBlocks.HOT_PEPPER_CROP.get(), new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> TOTEM_OF_DREAMS = ITEMS.register("totem_of_dreaming",
             () -> new ToolTipItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(1)));
     public static final Supplier<Item> WIND_ROCKET = ITEMS.register("wind_rocket", WindRocketItem::new);
+    public static final Supplier<Item> EYEDROPPER = ITEMS.register("eyedropper",
+            () -> new ToolTipItem(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
+                    .durability(-1)
+                    .stacksTo(1)));
 
     // Accessories
     public static final Supplier<Item> IRON_RING = ITEMS.register("iron_ring", AccessoryItem::new);
@@ -76,12 +86,12 @@ public class ModItems {
     // Food
     public static final Supplier<Item> HOT_PEPPER = ITEMS.register("hot_pepper",
             () -> new HotPepperItem(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> ROTTEN_APPLE = ITEMS.register("rotten_apple",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .food(new FoodProperties.Builder()
@@ -95,121 +105,121 @@ public class ModItems {
     // Materials
     public static final Supplier<Item> WARDEN_TENDRIL = ITEMS.register("warden_tendril",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> GUARDIAN_CORE = ITEMS.register("guardian_core",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> WITHER_SPINE = ITEMS.register("wither_spine",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> DRAGON_HEART = ITEMS.register("dragon_heart",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> HEART_OF_THE_ABYSS = ITEMS.register("heart_of_the_abyss",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> SOUL_DUST = ITEMS.register("soul_powder",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> FAIRY_DUST = ITEMS.register("fairy_dust",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> SOUL_FRAGMENT = ITEMS.register("soul_fragment",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> VILE_BLOOD = ITEMS.register("vile_blood",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> TIME_GEAR = ITEMS.register("time_gear",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> MOLTEN_SLAG = ITEMS.register("molten_slag",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> BEHEMOTH_TOOTH = ITEMS.register("behemoth_tooth",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
 
     // Chunks and Ingots
     public static final Supplier<Item> DIVINE_ALLOY = ITEMS.register("divine_alloy",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> NECRIUM_CHUNK = ITEMS.register("necrium_chunk",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> NECRIUM_INGOT = ITEMS.register("necrium_ingot",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item>  DREADIUM_CHUNK = ITEMS.register("dreadium_chunk",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> DREADIUM_INGOT = ITEMS.register("dreadium_ingot",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> SHROOMITE_INGOT = ITEMS.register("shroomite_ingot",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()));
     public static final Supplier<Item> VOLCANIC_INGOT = ITEMS.register("volcanic_ingot",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)
                     .fireResistant()) {
@@ -222,7 +232,7 @@ public class ModItems {
     public static final Supplier<Item> BLUEPRINT = ITEMS.register("blueprint", BlueprintItem::new);
     public static final Supplier<Item> HANDLE = ITEMS.register("handle",
             () -> new Item(new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
 
@@ -249,7 +259,7 @@ public class ModItems {
     public static final Supplier<Item> VOLCANIC_MACE = ITEMS.register("volcanic_mace", () -> new VolcanicSwordItem(-7, -0.8f));
     public static final Supplier<Item> NECROMANCY_STAFF = ITEMS.register("necromancy_staff", NecromancyStaffItem::new);
     public static final Supplier<Item> REAVER_FANG = ITEMS.register("reaver_fang",
-            () -> new SwordItem(ModItemTier.REAVER, 0, 2.0f, new Properties().tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM).durability(1337)) {
+            () -> new SwordItem(ModItemTier.REAVER, 0, 2.0f, new Properties().tab(ModCreativeTab.BLUBBYS_MOD).durability(1337)) {
                 @Override
                 public void appendHoverText(ItemStack itemStack, Level level, List<Component> components, TooltipFlag tooltipFlag) {
                     ToolTipItem.makeTooltip(level, components, "reaver_fang");
@@ -259,37 +269,37 @@ public class ModItems {
     // Spawn Eggs
     public static final Supplier<Item> ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.ROT_FLY.get(), 0x382946, 0xA41717, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> SPORE_FLY_SPAWN_EGG = ITEMS.register("spore_fly_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.SPORE_FLY.get(), 0x520F12, 0xB18C8C, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> BEHEMOTH_SPAWN_EGG = ITEMS.register("behemoth_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.BEHEMOTH.get(), 0x442266, 0x040410, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> SNOW_FLINX_SPAWN_EGG = ITEMS.register("snow_flinx_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.SNOW_FLINX.get(), 0xDDEEEE, 0xFAD2AC, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> LEECH_SPAWN_EGG = ITEMS.register("leech_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.LEECH.get(), 0x3C1B22, 0x6B3640, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> DARK_FAIRY_SPAWN_EGG = ITEMS.register("dark_fairy_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.DARK_FAIRY.get(), 0xA08989, 0xCC6767, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
     public static final Supplier<Item> MAGMOID_SPAWN_EGG = ITEMS.register("magmoid_spawn_egg",
             () -> new SpawnEggItem(ModEntityTypes.MAGMOID.get(), 0xFFFFFF, 0xFFFFFF, new Properties()
-                    .tab(ModCreativeTab.BLUBBYS_TAB_OF_DOOM)
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(64)));
 }
