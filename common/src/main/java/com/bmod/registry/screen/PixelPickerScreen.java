@@ -30,9 +30,7 @@ public class PixelPickerScreen extends Screen {
         this.greenEdit = createColorEditBox(this.width / 2 - 15, "G", pixel.getColor()[1]);
         this.blueEdit = createColorEditBox(this.width / 2 + 25, "B", pixel.getColor()[2]);
 
-        this.exitButton = new Button(this.width / 2 - 40, 70, 80, 20, Component.literal("Save"), (button) -> {
-            this.onDone();
-        });
+        this.exitButton = new Button(this.width / 2 - 40, 70, 80, 20, Component.literal("Save"), (button) -> this.onDone());
 
         this.addWidget(redEdit);
         this.addWidget(greenEdit);
@@ -61,15 +59,15 @@ public class PixelPickerScreen extends Screen {
     }
 
     private EditBox createColorEditBox(int x, String suggestion, int initialValue) {
-        EditBox editBox = createEditBox(x, 30, 30, suggestion, String.valueOf(initialValue), 3);
+        EditBox editBox = createEditBox(x, suggestion, String.valueOf(initialValue));
         editBox.setResponder(string -> handleResponder(editBox, string));
         return editBox;
     }
 
-    private EditBox createEditBox(int x, int y, int width, String suggestion, String initialValue, int maxLength) {
-        EditBox editBox = new EditBox(this.font, x, y, width, 20, Component.literal(suggestion));
+    private EditBox createEditBox(int x, String suggestion, String initialValue) {
+        EditBox editBox = new EditBox(this.font, x, 30, 30, 20, Component.literal(suggestion));
         editBox.setValue(initialValue);
-        editBox.setMaxLength(maxLength);
+        editBox.setMaxLength(3);
         return editBox;
     }
 

@@ -10,15 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class DataUtils extends SavedData {
+public class ModDataManager extends SavedData {
 
     private static final String DATA_ID = BlubbysMod.MOD_ID + "data";
     private final Map<UUID, CompoundTag> playerTags = new HashMap<>();
 
-    public DataUtils() {}
+    public ModDataManager() {}
 
-    public static DataUtils load(CompoundTag nbt) {
-        DataUtils data = new DataUtils();
+    public static ModDataManager load(CompoundTag nbt) {
+        ModDataManager data = new ModDataManager();
 
         for (String key : nbt.getAllKeys()) {
             CompoundTag tag = nbt.getCompound(key);
@@ -51,10 +51,10 @@ public class DataUtils extends SavedData {
         this.setDirty();
     }
 
-    public static DataUtils getCustomWorldData(ServerLevel level) {
+    public static ModDataManager getCustomWorldData(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
-                DataUtils::load,
-                DataUtils::new,
+                ModDataManager::load,
+                ModDataManager::new,
                 DATA_ID
         );
     }

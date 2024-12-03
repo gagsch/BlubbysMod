@@ -45,7 +45,7 @@ public final class BlubbysModForge {
             if (blockAndTintGetter.getBlockEntity(blockPos) instanceof PixelBlockEntity pixel) {
                 return (pixel.getColor()[0] << 16) | (pixel.getColor()[1] << 8) | pixel.getColor()[2];
             }
-            return 0x000000;
+            return 0xFFFFFF;
         }), ModBlocks.PIXEL_BLOCK);
 
         MenuScreens.register(VOID_BUNDLE_MENU_TYPE.get(), VoidBundleScreen::new);

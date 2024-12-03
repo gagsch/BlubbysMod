@@ -65,6 +65,9 @@ public class ModLangProvider extends LanguageProvider {
         addTooltip(ModItems.FLIPPER, "You swim much faster.");
         addTooltip(ModItems.OXYGEN_TANK, "You can breathe underwater.");
         addTooltip(ModItems.EYEDROPPER, "Crouch and use on a Pixel to pick the color. Use on a Pixel without crouching to set the color to the picked color.");
+        addTooltip(ModItems.PAINT_BRUSH, "Used to open the pixel color changing menu.");
+
+        addTooltip(ModBlocks.PIXEL_BLOCK, "Can only be set by you when using a pencil, colors are 0-255.");
 
         addItem(ModItems.ANCIENT_GUIDE_BOOK, "Ancient Guide");
         addItem(ModItems.BEHEMOTH_SPAWN_EGG, "Necrotic Behemoth Spawn Egg");
@@ -102,8 +105,13 @@ public class ModLangProvider extends LanguageProvider {
         add("item.blubbysmod." + getIdFromItem(item), name);
     }
 
-    public void addTooltip(@NotNull Supplier<? extends Item> item, @NotNull String tooltip) {
-        add("item.blubbysmod." + getIdFromItem(item) + ".tooltip", tooltip);
+    public void addTooltip(@NotNull Supplier<?> supplier, @NotNull String tooltip) {
+        if (supplier.get() instanceof Item item) {
+            add("item.blubbysmod." + getIdFromItem(item) + ".tooltip", tooltip);
+        }
+        else if (supplier.get() instanceof Block block) {
+            add("block.blubbysmod." + getIdFromItem(block.asItem()) + ".tooltip", tooltip);
+        }
     }
 
     public void addBlock(@NotNull Supplier<? extends Block> block, @NotNull String name) {

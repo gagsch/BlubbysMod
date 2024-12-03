@@ -113,6 +113,9 @@ public class ModBlocks {
     public static final Supplier<Block> PIXEL_BLOCK = registerBlock("pixel_block", true,
             PixelBlock::new);
 
+    public static final Supplier<Block> FROG_EXECUTOR_BLOCK = registerBlock("frog_executor_block", true,
+            FrogExecutorBlock::new);
+
     @SuppressWarnings("unchecked")
     public static <T extends Block> Supplier<T> registerBlock(String name, boolean createItem, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name, block);

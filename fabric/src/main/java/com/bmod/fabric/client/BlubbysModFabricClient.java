@@ -24,7 +24,7 @@ public final class BlubbysModFabricClient implements ClientModInitializer {
             if (blockAndTintGetter.getBlockEntity(blockPos) instanceof PixelBlockEntity pixel) {
                 return (pixel.getColor()[0] << 16) | (pixel.getColor()[1] << 8) | pixel.getColor()[2];
             }
-            return 0x000000;
+            return 0xFFFFFF;
         }), ModBlocks.PIXEL_BLOCK);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_PEPPER_CROP.get(), RenderType.cutout());

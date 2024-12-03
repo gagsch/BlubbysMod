@@ -1,6 +1,5 @@
 package com.bmod.registry.item.custom;
 
-import dev.architectury.platform.Platform;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.server.level.ServerLevel;
@@ -17,19 +16,20 @@ public class GravityBootsItem extends AccessoryItem {
 
     @Override
     public void localAccessoryTick(Level level, Player player) {
-        if (!player.getAbilities().flying && !player.isFallFlying())
+        if (player.getAbilities().flying || player.isFallFlying() || player.isSwimming())
+            return;
+
+        float factor = 0.0f;
+        if (player.getDeltaMovement().y >= 0 && !player.isCrouching())
         {
-            float factor = 0.0f;
-            if (player.getDeltaMovement().y >= 0 && !player.isCrouching())
-            {
-                factor = 0.04f;
-            }
-            else if (player.isCrouching())
-            {
-                factor = -0.06f;
-            }
-            player.setDeltaMovement(player.getDeltaMovement().add(0, factor, 0));
+            factor = 0.04f;
         }
+        else if (player.isCrouching())
+        {
+            factor = -0.06f;
+        }
+        player.setDeltaMovement(player.getDeltaMovement().add(0, factor, 0));
+
         player.resetFallDistance();
     }
 }

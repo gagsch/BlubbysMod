@@ -2,7 +2,7 @@ package com.bmod.util;
 
 import com.bmod.packet.S2C.S2CSyncAccessories;
 import com.bmod.registry.item.custom.AccessoryItem;
-import com.bmod.util.world_util.DataUtils;
+import com.bmod.util.world_util.ModDataManager;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,7 +24,7 @@ public class ContainerUtils {
             return;
         }
 
-        DataUtils modData = DataUtils.getCustomWorldData(serverPlayer.getServer().getLevel(Level.OVERWORLD));
+        ModDataManager modData = ModDataManager.getCustomWorldData(serverPlayer.getServer().getLevel(Level.OVERWORLD));
         ListTag itemList = new ListTag();
 
         for (int i = 0; i < container.getContainerSize(); i++) {
@@ -51,7 +51,7 @@ public class ContainerUtils {
             return;
         }
 
-        DataUtils modData = DataUtils.getCustomWorldData(serverPlayer.getServer().getLevel(Level.OVERWORLD));
+        ModDataManager modData = ModDataManager.getCustomWorldData(serverPlayer.getServer().getLevel(Level.OVERWORLD));
         ListTag itemList = modData.getPlayerTags(serverPlayer.getUUID()).getCompound(key).getList("items", 10);
 
         for (int i = 0; i < itemList.size(); i++) {

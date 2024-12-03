@@ -19,8 +19,7 @@ public class ItemUtils {
         return getIdFromItem(item.get());
     }
 
-    public static String getIdFromItem(Item item)
-    {
+    public static String getIdFromItem(Item item) {
         return item.builtInRegistryHolder().key().location().getPath();
     }
 

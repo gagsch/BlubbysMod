@@ -2,23 +2,23 @@ package com.bmod.forge.datagen;
 
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
-
-import static com.bmod.util.WoodUtils.*;
-
 import com.bmod.registry.block.custom.HotPepperCropBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import static com.bmod.util.WoodUtils.*;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -47,6 +47,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         translucentBlockWithItem(ModBlocks.BUBBLE_BLOCK.get());
         cropBlockWithAges(ModBlocks.HOT_PEPPER_CROP.get(), 7, age -> new ResourceLocation(BlubbysMod.MOD_ID, "block/hot_pepper_stage" + age));
         pixelBlockWithItem(ModBlocks.PIXEL_BLOCK.get());
+        northFacingBlockWithItem(ModBlocks.FROG_EXECUTOR_BLOCK,
+                blockLoc(ModBlocks.FROG_EXECUTOR_BLOCK, "bottom"),
+                blockLoc(ModBlocks.FROG_EXECUTOR_BLOCK, "top"),
+                blockLoc(ModBlocks.FROG_EXECUTOR_BLOCK, "side"),
+                blockLoc(ModBlocks.FROG_EXECUTOR_BLOCK, "front"));
 
         blockWithItem(ModBlocks.NECRIUM_ORE.get());
         blockWithItem(ModBlocks.DEEPERSLATE_NECRIUM_ORE.get());
@@ -146,8 +151,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void northFacingBlockWithItem(Supplier<Block> block, ResourceLocation bottomTexture, ResourceLocation topTexture, ResourceLocation sideTexture, ResourceLocation frontTexture)
     {
-        simpleBlock(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture).texture("particle", topTexture));
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            Direction facing = state.getValue(BlockStateProperties.FACING);
+            int y = switch (facing) {
+                case EAST -> 90;
+                case SOUTH -> 180;
+                case WEST -> 270;
+                default -> 0;
+            };
+
+            // Assign the model with rotations
+            return ConfiguredModel.builder()
+                    .modelFile(models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture).texture("particle", topTexture))
+                    .rotationX(0)
+                    .rotationY(y)
+                    .build();
+        });
         simpleBlockItem(block.get(), models().cube(getName(block.get()), bottomTexture, topTexture, frontTexture, sideTexture, sideTexture, sideTexture));
+
         ModItemModelProvider.registeredItems.add(getName(block));
     }
 

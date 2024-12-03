@@ -3,6 +3,7 @@ package com.bmod.registry.block.block_entity;
 import com.bmod.BlubbysMod;
 import com.bmod.registry.block.ModBlocks;
 import com.bmod.registry.block.block_entity.custom.DimensionGatewayBlockEntity;
+import com.bmod.registry.block.block_entity.custom.FrogExecutorBlockEntity;
 import com.bmod.registry.block.block_entity.custom.PixelBlockEntity;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.Registry;
@@ -18,4 +19,7 @@ public class ModBlockEntityTypes {
 
     public static final Supplier<BlockEntityType<PixelBlockEntity>> PIXEL_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register("pixel_block_entity",
             () -> BlockEntityType.Builder.of(PixelBlockEntity::new, ModBlocks.PIXEL_BLOCK.get()).build(null));
+
+    public static final Supplier<BlockEntityType<FrogExecutorBlockEntity>> FROG_EXECUTOR_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register("frog_executor_block_entity",
+            () -> BlockEntityType.Builder.of(FrogExecutorBlockEntity::new, ModBlocks.FROG_EXECUTOR_BLOCK.get()).build(null));
 }

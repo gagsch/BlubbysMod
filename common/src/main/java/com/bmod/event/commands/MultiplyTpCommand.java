@@ -24,6 +24,6 @@ public class MultiplyTpCommand {
         Double factor = ctx.getArgument("factor", Double.class);
 
         player.teleportTo(player.getX() * factor, player.getY(), player.getZ() * factor);
-        return 0;
+        return 1;
     }
 }

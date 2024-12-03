@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "blubbysmod:pixel_block"
+    },
+    "f": {
+      "item": "minecraft:frogspawn"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "fff",
+    "fPf",
+    "IrI"
+  ],
+  "result": {
+    "count": 6,
+    "item": "blubbysmod:frog_executor_block"
+  }
+}

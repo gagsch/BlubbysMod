@@ -61,6 +61,11 @@ public class ModItems {
                     .tab(ModCreativeTab.BLUBBYS_MOD)
                     .durability(-1)
                     .stacksTo(1)));
+    public static final Supplier<Item> PAINT_BRUSH = ITEMS.register("paint_brush",
+            () -> new ToolTipItem(new Properties()
+                    .tab(ModCreativeTab.BLUBBYS_MOD)
+                    .durability(-1)
+                    .stacksTo(1)));
 
     // Accessories
     public static final Supplier<Item> IRON_RING = ITEMS.register("iron_ring", AccessoryItem::new);

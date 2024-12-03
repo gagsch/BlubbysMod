@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "facing=down,update=false": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=down,update=true": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=east,update=false": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 90
+    },
+    "facing=east,update=true": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 90
+    },
+    "facing=north,update=false": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=north,update=true": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=south,update=false": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 180
+    },
+    "facing=south,update=true": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 180
+    },
+    "facing=up,update=false": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=up,update=true": {
+      "model": "blubbysmod:block/frog_executor_block"
+    },
+    "facing=west,update=false": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 270
+    },
+    "facing=west,update=true": {
+      "model": "blubbysmod:block/frog_executor_block",
+      "y": 270
+    }
+  }
+}

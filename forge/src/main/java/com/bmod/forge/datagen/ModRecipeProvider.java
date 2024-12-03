@@ -318,6 +318,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(ModBlocks.FROG_EXECUTOR_BLOCK.get(), 6)
+                .define('f', Items.FROGSPAWN)
+                .define('I', Items.IRON_INGOT)
+                .define('P', ModBlocks.PIXEL_BLOCK.get())
+                .define('r', Items.REDSTONE)
+                .pattern("fff")
+                .pattern("fPf")
+                .pattern("IrI")
+                .unlockedBy("has_pixel", has(ModBlocks.PIXEL_BLOCK.get()))
+                .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.PIXEL_BLOCK.get(), 6)
                 .define('t', Items.TINTED_GLASS)
@@ -337,6 +347,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("gPg")
                 .pattern("gg ")
                 .unlockedBy("has_pixel", has(ModBlocks.PIXEL_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.PAINT_BRUSH.get())
+                .define('s', Items.STICK)
+                .define('n', Items.IRON_NUGGET)
+                .define('W', Items.WHEAT)
+                .pattern("  s")
+                .pattern("ns ")
+                .pattern("Wn ")
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.HANDLE.get(),1)

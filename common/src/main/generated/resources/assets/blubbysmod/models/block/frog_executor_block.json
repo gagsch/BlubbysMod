@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "blubbysmod:block/frog_executor_block_bottom",
+    "east": "blubbysmod:block/frog_executor_block_side",
+    "north": "blubbysmod:block/frog_executor_block_front",
+    "particle": "blubbysmod:block/frog_executor_block_top",
+    "south": "blubbysmod:block/frog_executor_block_side",
+    "up": "blubbysmod:block/frog_executor_block_top",
+    "west": "blubbysmod:block/frog_executor_block_side"
+  }
+}
