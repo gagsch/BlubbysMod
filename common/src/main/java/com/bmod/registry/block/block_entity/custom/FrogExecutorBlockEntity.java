@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 public class FrogExecutorBlockEntity extends BlockEntity {
+    private FrogParser frogParser;
     private String code = "";
     private static final UUID DEFAULT = new UUID(0, 0);
     private UUID owner = DEFAULT;
@@ -40,14 +41,17 @@ public class FrogExecutorBlockEntity extends BlockEntity {
     public void setCode(Level level, String code) {
         if (level instanceof ServerLevel serverLevel)
         {
-            FrogParser frogParser = new FrogParser(serverLevel);
-
             try {
+                makeNewFrogParser(serverLevel);
+
                 frogParser.makeStartBytes();
                 frogParser.makeInstructions(code);
                 frogParser.runInstructions();
             } catch (Exception e) {
                 System.out.println("An error occurred in the Frog Executor Block: " + e.getMessage());
+
+                endFrogParser(this.frogParser);
+                this.frogParser = null;
             }
         }
 
@@ -59,6 +63,23 @@ public class FrogExecutorBlockEntity extends BlockEntity {
 
     public String getCode() {
         return code;
+    }
+
+    public void makeNewFrogParser(ServerLevel level) {
+        endFrogParser(this.frogParser);
+        this.frogParser = new FrogParser(level, level.getServer().getPlayerList().getPlayer(this.owner));
+    }
+
+    public static void endFrogParser(FrogParser frogParser) {
+        if (frogParser != null) {
+            frogParser.scheduler.shutdownNow();
+        }
+    }
+
+    @Override
+    public void setRemoved() {
+        endFrogParser(this.frogParser);
+        super.setRemoved();
     }
 
     @Override

@@ -5,22 +5,25 @@ import com.bmod.util.frog.FrogParser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 
 import static com.bmod.util.frog.util.ByteUtils.ifStatement;
+import static com.bmod.util.frog.util.ByteUtils.skipIfStatement;
 import static com.bmod.util.frog.util.ObjectUtils.tryParseValue;
 
 public class ByteRunner {
     // Gives functionality to keywords instead of leaving them as variables
-    public static final BiFunction<FrogParser, Integer, Integer> print = ByteRunner::runPrint;
-    public static final BiFunction<FrogParser, Integer, Integer> setVar = ByteRunner::runSetVar;
-    public static final BiFunction<FrogParser, Integer, Integer> ifRunner = ByteRunner::runIf;
-    public static final BiFunction<FrogParser, Integer, Integer> setPixels = ByteRunner::runPixelSet;
+    public static final BiFunction<FrogParser, Integer, Integer> RUN_PRINT = ByteRunner::runPrint;
+    public static final BiFunction<FrogParser, Integer, Integer> RUN_SET_VAR = ByteRunner::runSetVar;
+    public static final BiFunction<FrogParser, Integer, Integer> RUN_IF = ByteRunner::runIf;
+    public static final BiFunction<FrogParser, Integer, Integer> RUN_PIXEL_SET = ByteRunner::runPixelSet;
+    public static final BiFunction<FrogParser, Integer, Integer> RUN_WHILE_LOOP = ByteRunner::runWhileLoop;
 
     public static int runPrint(FrogParser frogParser, int index) {
         Object byteValue = frogParser.BYTE_TO_VALUE.get(frogParser.BYTECODE_INSTRUCTIONS.get(index));
-
-        frogParser.level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(String.valueOf(byteValue)), false);
+        frogParser.owner.displayClientMessage(Component.literal(String.valueOf(byteValue)), false);
         return index + 1;
     }
 
@@ -44,23 +47,22 @@ public class ByteRunner {
             return ifStatement(frogParser, index);
         }
 
-        int nests = 0;
-        Byte currentByte = 0x00;
-        // Find next END if the IF statement was false
-        while (currentByte != 0x06 && nests == 0) {
-            currentByte = frogParser.BYTECODE_INSTRUCTIONS.get(index);
-            // If an IF statement is found, make it nested
-            if (currentByte == 0x02) {
-                nests++;
-            }
-            // If an 'end' is found, un-nest the current statement
-            else if (currentByte == 0x06) {
-                nests--;
-            }
-            index++;
-        }
+        return skipIfStatement(frogParser, index);
+    }
 
-        return index;
+    public static int runWhileLoop(FrogParser frogParser, int index) {
+        final AtomicInteger atomicIndex = new AtomicInteger(index);
+        frogParser.scheduler.scheduleAtFixedRate(() -> {
+            if (frogParser.BYTE_TO_VALUE.get(frogParser.BYTECODE_INSTRUCTIONS.get(index)) instanceof Boolean bool && bool) {
+                atomicIndex.set(ifStatement(frogParser, index));
+            }
+            else {
+                atomicIndex.set(skipIfStatement(frogParser, index));
+                frogParser.scheduler.shutdown();
+            }
+        }, 0, 33, TimeUnit.MILLISECONDS);
+
+        return atomicIndex.get();
     }
 
     public static int runPixelSet(FrogParser frogParser, int index) {
@@ -78,7 +80,7 @@ public class ByteRunner {
                 int y = (int) tryParseValue(String.valueOf(positions[3 * i + 1]));
                 int z = (int) tryParseValue(String.valueOf(positions[3 * i + 2]));
 
-                if (frogParser.level.getBlockEntity(new BlockPos(x, y, z)) instanceof PixelBlockEntity pixel) {
+                if (frogParser.level.getBlockEntity(new BlockPos(x, y, z)) instanceof PixelBlockEntity pixel && pixel.isOwner(frogParser.owner)) {
                     pixel.setColor(r, g, b);
                 }
             }

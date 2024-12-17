@@ -262,14 +262,15 @@ public class ModItems {
     public static final Supplier<Item> SHROOMITE_BOOTS = ItemUtils.armor(ModArmorMaterial.SHROOMITE, EquipmentSlot.FEET);
     public static final Supplier<Item> VOLCANIC_SWORD = ITEMS.register("volcanic_sword", () -> new VolcanicSwordItem(6, 0));
     public static final Supplier<Item> VOLCANIC_MACE = ITEMS.register("volcanic_mace", () -> new VolcanicSwordItem(-7, -0.8f));
-    public static final Supplier<Item> NECROMANCY_STAFF = ITEMS.register("necromancy_staff", NecromancyStaffItem::new);
+    public static final Supplier<Item> IMMERSION_BREAKER = ITEMS.register("immersion_breaker", ImmersionBreakerItem::new);
     public static final Supplier<Item> REAVER_FANG = ITEMS.register("reaver_fang",
-            () -> new SwordItem(ModItemTier.REAVER, 0, 2.0f, new Properties().tab(ModCreativeTab.BLUBBYS_MOD).durability(1337)) {
+            () -> new SwordItem(ModItemTier.UNIQUE, 0, 2.0f, new Properties().tab(ModCreativeTab.BLUBBYS_MOD).durability(1337)) {
                 @Override
                 public void appendHoverText(ItemStack itemStack, Level level, List<Component> components, TooltipFlag tooltipFlag) {
                     ToolTipItem.makeTooltip(level, components, "reaver_fang");
                 }
             });
+    public static final Supplier<Item> NECROMANCY_STAFF = ITEMS.register("necromancy_staff", NecromancyStaffItem::new);
 
     // Spawn Eggs
     public static final Supplier<Item> ROT_FLY_SPAWN_EGG = ITEMS.register("rot_fly_spawn_egg",

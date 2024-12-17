@@ -318,14 +318,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.FROG_EXECUTOR_BLOCK.get(), 6)
+        ShapedRecipeBuilder.shaped(ModBlocks.FROG_EXECUTOR_BLOCK.get())
                 .define('f', Items.FROGSPAWN)
                 .define('I', Items.IRON_INGOT)
                 .define('P', ModBlocks.PIXEL_BLOCK.get())
-                .define('r', Items.REDSTONE)
-                .pattern("fff")
-                .pattern("fPf")
-                .pattern("IrI")
+                .pattern("III")
+                .pattern("IPI")
+                .pattern("IfI")
                 .unlockedBy("has_pixel", has(ModBlocks.PIXEL_BLOCK.get()))
                 .save(consumer);
 

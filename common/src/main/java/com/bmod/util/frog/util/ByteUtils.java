@@ -1,8 +1,6 @@
 package com.bmod.util.frog.util;
 
 import com.bmod.util.frog.FrogParser;
-
-import java.util.Arrays;
 import java.util.function.BiFunction;
 
 import static com.bmod.util.frog.util.ObjectUtils.findValue;
@@ -38,6 +36,31 @@ public class ByteUtils {
         return index;
     }
 
+    // Skips an IF statement
+    public static int skipIfStatement(FrogParser frogParser, int index)
+    {
+        // This is here if there is multiple IF statements in the current statement
+        int nests = 0;
+        Byte currentByte = 0;
+
+        // While the index of the instruction set is not 'end' and it is not currently in another IF statement
+        while (currentByte != 0x06 && nests == 0) {
+            currentByte = frogParser.BYTECODE_INSTRUCTIONS.get(index);
+
+            // If an IF statement is found, make it nested
+            if (currentByte == 0x02 || currentByte == 0x0E) {
+                nests++;
+            }
+            // If an 'end' is found, un-nest the current statement
+            else if (currentByte == 0x06) {
+                nests--;
+            }
+            index++;
+        }
+
+        return index;
+    }
+
     public static Byte getOrCreateByte(FrogParser frogParser, String[] words, int index, boolean addInstruction) {
         // Gets the word in the keywords
         Byte resultByte = frogParser.KEY_TO_BYTE.get(words[index]);
@@ -51,23 +74,14 @@ public class ByteUtils {
         return resultByte;
     }
 
-    public static void queueByte(FrogParser frogParser, BiFunction<FrogParser, Integer, Integer> function, boolean before) {
-        int index;
+    public static void queueByte(FrogParser frogParser, BiFunction<FrogParser, Integer, Integer> function) {
+        int lastIf = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x02);
+        int lastWhile = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x0E);
+        int lastPrint = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x03);
+        int lastSet = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x05) - 1;
+        lastSet = frogParser.BYTECODE_INSTRUCTIONS.get(lastSet - 1) == 0x04 ? lastSet - 1 : lastSet;
 
-        if (before) {
-            index = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x04);
-            if (index == -1) {
-                index = 0;
-            }
-        }
-        else {
-            int lastIf = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x02);
-            int lastPrint = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x03);
-            int lastSet = frogParser.BYTECODE_INSTRUCTIONS.lastIndexOf((byte) 0x05) - 1;
-            lastSet = frogParser.BYTECODE_INSTRUCTIONS.get(lastSet - 1) == 0x04 ? lastSet - 1 : lastSet;
-
-            index = Math.max(Math.max(lastIf, lastPrint), lastSet);
-        }
+        int index = Math.max(Math.max(Math.max(lastWhile, lastIf), lastPrint), lastSet);
 
         frogParser.BYTECODE_INSTRUCTIONS.add(index, makeKeyword(frogParser, "Queue$" + frogParser.BYTE_KEY_LENGTH + 1, function));
     }

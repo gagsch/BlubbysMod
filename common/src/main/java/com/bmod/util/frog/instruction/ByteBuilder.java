@@ -34,7 +34,7 @@ public class ByteBuilder {
     {
         Byte prevInstruction = frogParser.BYTECODE_INSTRUCTIONS.get(frogParser.BYTECODE_INSTRUCTIONS.size() - 2);
 
-        if (prevInstruction == null || prevInstruction.intValue() < 14) // Since there are 14 builtin keywords
+        if (prevInstruction == null || prevInstruction.intValue() < 15) // Since there are 15 builtin keywords
         {
             throw new Error("Cannot set non-variable to a value.");
         }
@@ -68,7 +68,7 @@ public class ByteBuilder {
             queueByte(frogParser, (k, integer) -> {
                 k.BYTE_TO_VALUE.put(newByte, Objects.equals(k.BYTE_TO_VALUE.get(prevByte), k.BYTE_TO_VALUE.get(nextByte)));
                 return integer;
-            }, false);
+            });
         }
 
         return index + String.valueOf(frogParser.BYTE_TO_VALUE.get(nextByte)).split(" ").length;
@@ -97,7 +97,7 @@ public class ByteBuilder {
             queueByte(frogParser, (k, integer) -> {
                 k.BYTE_TO_VALUE.put(newByte, ObjectUtils.add(k.BYTE_TO_VALUE.get(prevByte), k.BYTE_TO_VALUE.get(nextByte)));
                 return integer;
-            }, false);
+            });
         }
 
         String nextByteString = String.valueOf(nextByteValue);
@@ -127,7 +127,7 @@ public class ByteBuilder {
             queueByte(frogParser, (k, integer) -> {
                 k.BYTE_TO_VALUE.put(newByte, ObjectUtils.math(k.BYTE_TO_VALUE.get(prevByte), k.BYTE_TO_VALUE.get(nextByte), type));
                 return integer;
-            }, false);
+            });
         }
 
         return index;
@@ -140,7 +140,7 @@ public class ByteBuilder {
         queueByte(frogParser, (k, integer) -> {
             k.BYTE_TO_VALUE.put(lastByte, !(boolean) k.BYTE_TO_VALUE.get(lastByte));
             return integer;
-        }, false);
+        });
 
     }
 
@@ -172,7 +172,7 @@ public class ByteBuilder {
             queueByte(frogParser, (k, integer) -> {
                 k.BYTE_TO_VALUE.put(newByte, ObjectUtils.lessThan(k.BYTE_TO_VALUE.get(prevByte), k.BYTE_TO_VALUE.get(nextByte), moreThan));
                 return integer;
-            }, false);
+            });
         }
 
         return index + 1;

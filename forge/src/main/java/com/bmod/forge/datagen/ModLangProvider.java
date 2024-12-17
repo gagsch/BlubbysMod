@@ -76,6 +76,7 @@ public class ModLangProvider extends LanguageProvider {
         addItem(ModItems.HOT_PEPPER_SEEDS, "Fiery Hot Pepper Seeds");
         addItem(ModItems.UNDERWATER_REDSTONE, "Underwater Redstone");
         addItem(ModItems.HOT_PEPPER, "Fiery Hot Pepper");
+        addItem(ModItems.IMMERSION_BREAKER, "The Immersion Breaker");
 
         addBlock(ModBlocks.WORKSHOP, "Artisan's Workshop");
         addBlock(ModBlocks.DIMENSION_GATEWAY, "Dimensional Gateway");

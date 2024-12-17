@@ -9,18 +9,14 @@
     },
     "f": {
       "item": "minecraft:frogspawn"
-    },
-    "r": {
-      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "fff",
-    "fPf",
-    "IrI"
+    "III",
+    "IPI",
+    "IfI"
   ],
   "result": {
-    "count": 6,
     "item": "blubbysmod:frog_executor_block"
   }
 }

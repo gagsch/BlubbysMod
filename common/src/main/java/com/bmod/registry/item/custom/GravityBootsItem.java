@@ -26,7 +26,7 @@ public class GravityBootsItem extends AccessoryItem {
         }
         else if (player.isCrouching())
         {
-            factor = -0.06f;
+            factor = -0.09f;
         }
         player.setDeltaMovement(player.getDeltaMovement().add(0, factor, 0));
 

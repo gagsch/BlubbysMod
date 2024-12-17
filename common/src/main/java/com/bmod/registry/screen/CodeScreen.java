@@ -6,7 +6,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.MultiLineEditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
@@ -14,7 +14,7 @@ public class CodeScreen extends Screen {
 
    private final Font font = Minecraft.getInstance().font;
     private final FrogExecutorBlockEntity frog;
-    protected EditBox codeLine;
+    protected MultiLineEditBox codeLine;
     protected Button exitButton;
 
     public CodeScreen(FrogExecutorBlockEntity frog) {
@@ -24,14 +24,33 @@ public class CodeScreen extends Screen {
 
     @Override
     protected void init() {
-        this.codeLine = createEditBox(this.width / 2 - 200);
+        this.codeLine = new MultiLineEditBox(this.font, this.width / 2 - 125, 30, 250, 100, Component.literal("var x = 10 print x + 5 ..."), Component.literal(""));
+        codeLine.setCharacterLimit(4096);
+        codeLine.setValue(this.frog.getCode());
 
-        this.exitButton = new Button(this.width / 2 - 40, 70, 80, 20, Component.literal("Save & Run"), (button) -> {
+        this.exitButton = new Button(this.width / 2 - 40, 170, 80, 20, Component.literal("Save & Run"), (button) -> {
             this.onDone();
         });
 
         this.addWidget(codeLine);
         this.addRenderableWidget(exitButton);
+    }
+
+    @Override
+    public boolean keyPressed(int i, int j, int k) {
+        if (i == 258) {
+            codeLine.charTyped(' ', 0);
+            codeLine.charTyped(' ', 0);
+            codeLine.charTyped(' ', 0);
+            codeLine.charTyped(' ', 0);
+        }
+        return super.keyPressed(i, j, k);
+    }
+
+    @Override
+    protected boolean isValidCharacterForName(String string, char c, int i) {
+        System.out.println("Character typed y: " + c);
+        return super.isValidCharacterForName(string, c, i);
     }
 
     protected void onDone() {
@@ -45,11 +64,9 @@ public class CodeScreen extends Screen {
         super.onClose();
     }
 
-    private EditBox createEditBox(int x) {
-        EditBox editBox = new EditBox(this.font, x, 30, 400, 20, Component.literal(""));
-        editBox.setMaxLength(1024);
-        editBox.setValue(this.frog.getCode());
-        return editBox;
+    @Override
+    public boolean changeFocus(boolean bl) {
+        return false;
     }
 
     @Override
